@@ -20,4 +20,4 @@ A production README
 
 ## Wireframe
 
-![wireframe](https://github.com/evanhundred/js_project/wireframe.png)
+![wireframe](https://github.com/evanhundred/js_project/blob/main/wireframe.png)
