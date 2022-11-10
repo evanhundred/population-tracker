@@ -30,7 +30,7 @@ In addition, this project will include:
 
 This project will be implemented with the following technologies:
 
-- The Canvas API to render the map
+- D3.js to render map and data
 - Webpack to bundle and transpile JavaScript code
 - npm to manage project dependencies
 
