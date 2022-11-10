@@ -21,3 +21,23 @@ In addition, this project will include:
 ## Wireframe
 
 ![wireframe](https://github.com/evanhundred/js_project/blob/main/wireframe.png)
+
+- Nav links include the projects Github repo, my LinkedIn, and the About modal
+- On the right side, options selectors will allow the user to filter results by year, age, median income and country of origin
+- Also on the right, there will be links to display pre-selected data sets
+
+## Technologies, Libraries, APIs
+
+This project will be implemented with the following technologies:
+
+- The Canvas API to render the map
+- Webpack to bundle and transpile JavaScript code
+- npm to manage project dependencies
+
+## Implementation Timeline
+
+- Friday afternoon and Weekend: Setup project, get webpack up and running.
+- Monday:
+- Tuesday:
+- Wednesday:
+- Thursday Morning: Deploy to GitHub pages. Rewrite this as a production README.
