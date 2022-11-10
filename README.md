@@ -8,15 +8,15 @@ Initial presentation of data is current population by state and region. The view
 
 In Population Tracker, users will be able to:
 
-See census data populated on a U.S. map
-Adjust year, age, ethnicity, country of origin
-View sample data group renderings
-View data as change over time, or by year
+- See census data populated on a U.S. map
+- Adjust year, age, ethnicity, country of origin
+- View sample data group renderings
+- View data as change over time, or by year
 
 In addition, this project will include:
 
-An _about_ modal giving simple instructions for use, and explanation of relevance
-A production README
+- An **about** modal giving simple instructions for use, and explanation of relevance
+- A production README
 
 ## Wireframe
 
