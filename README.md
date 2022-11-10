@@ -17,3 +17,7 @@ In addition, this project will include:
 
 An _about_ modal giving simple instructions for use, and explanation of relevance
 A production README
+
+## Wireframe
+
+![wireframe](https://github.com/evanhundred/js_project/blob/main/wireframe.jpg?raw=true)
