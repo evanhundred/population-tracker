@@ -36,8 +36,8 @@ This project will be implemented with the following technologies:
 
 ## Implementation Timeline
 
-- Friday afternoon and Weekend: Setup project, get webpack up and running.
-- Monday:
+- Friday afternoon and Weekend: Setup project, get webpack up and running. Make sample queries to obtain data points for mapping. Generate foundational U.S. map view.
+- Monday: Create basic map rendering, determine key data points. Create alternate state, and alternate rendering. Build UI to toggle between them.
 - Tuesday:
 - Wednesday:
 - Thursday Morning: Deploy to GitHub pages. Rewrite this as a production README.
