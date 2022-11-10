@@ -38,6 +38,6 @@ This project will be implemented with the following technologies:
 
 - Friday afternoon and Weekend: Setup project, get webpack up and running. Make sample queries to obtain data points for mapping. Generate foundational U.S. map view.
 - Monday: Create basic map rendering, determine key data points. Create alternate state, and alternate rendering. Build UI to toggle between them.
-- Tuesday:
-- Wednesday:
+- Tuesday: Lock down decisions on final data sets (which census years) and options sets (age, nationality, ...). Outline and begin implementing final blueprint.
+- Wednesday: Complete basic product. Debug and clean up.
 - Thursday Morning: Deploy to GitHub pages. Rewrite this as a production README.
