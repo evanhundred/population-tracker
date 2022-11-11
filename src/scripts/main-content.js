@@ -1,14 +1,18 @@
-class TitleSplash {
+class MainContent {
   constructor(ele) {
     this.ele = ele;
-    this.ele.innerHTML = "<h1>Population Tracker</h1>";
+    this.ele.innerHTML = "<h2>Fetch Data</h2>";
 
     this.ele.addEventListener("click", this.handleClick.bind(this));
   }
 
   handleClick() {
-    this.ele.children[0].innerText = "...pOpUlAtIoN tRaCkEr...";
+    let dataEl = document.createElement("dataEl");
+    const dataBlock = require("/assets/sample_state_census_data.json");
+    dataEl.innerText = dataBlock;
+    this.ele.appendChild(dataEl);
+    // this.ele.children[0].innerText = "...pOpUlAtIoN tRaCkEr...";
   }
 }
 
-export default TitleSplash;
+export default MainContent;

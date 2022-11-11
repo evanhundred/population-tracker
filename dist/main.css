@@ -89,10 +89,19 @@ meter {
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
 body {
-  font-family: inherit;
-  display: flex;
-  justify-content: center;
   background-color: #ffffff;
+  font-family: inherit;
+}
+
+header, main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  width: 500px;
 }
 
 #main, #title {

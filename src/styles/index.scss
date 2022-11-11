@@ -5,11 +5,19 @@ $background-color: 	#ffffff;
 // saves this color in a variable
 
 body {
-    font-family: inherit;
-    display:flex;
-    justify-content: center;
     background-color: $background-color;
+    font-family: inherit;
+}
 
+header, main {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    width: 500px;
 }
 
 #main, #title {
