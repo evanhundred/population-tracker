@@ -10,7 +10,7 @@ body {
     font-family: inherit;
 }
 
-header, main, #main-content {
+div#header, main, #main-content {
     display:flex;
     flex-direction: column;
     justify-content: center;
@@ -18,7 +18,7 @@ header, main, #main-content {
     // max-width: 500px;
 }
 
-header {
+div#header {
     // width: 500px;
 }
 
