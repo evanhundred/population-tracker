@@ -1,3 +1,4 @@
+import Fetcher from "./scripts/fetcher";
 import Example from "./scripts/example";
 
 document.addEventListener("DOMContentLoaded", () => {
