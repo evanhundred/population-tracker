@@ -130,3 +130,14 @@ main {
 #title > h1 span {
   font-weight: 800;
 }
+
+#main-content > h2 {
+  font-size: 20px;
+  padding-bottom: 10px;
+  font-weight: 800;
+}
+
+#main-content > data {
+  color: #003366;
+  padding: 10px 30px;
+}

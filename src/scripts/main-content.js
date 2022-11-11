@@ -9,7 +9,7 @@ class MainContent {
   handleClick() {
     let dataEl = document.createElement("data");
     const dataBlock = require("/assets/sample_state_census_data.json");
-    dataEl.innerText = dataBlock;
+    dataEl.innerText = JSON.stringify(dataBlock);
     this.ele.appendChild(dataEl);
     this.ele.children[0].innerText = "data fetched!";
   }

@@ -1,6 +1,7 @@
 $color: #9933ff;
 $border-color: #ff5050;
 $background-color: 	#ffffff;
+$data-color: #003366;
 // $background-color: 	#ffffe6;
 // saves this color in a variable
 
@@ -54,4 +55,15 @@ main {
     span {
         font-weight: 800;
     }
+}
+
+#main-content > h2 {
+    font-size: 20px;
+    padding-bottom: 10px;
+    font-weight: 800;
+}
+
+#main-content > data {
+    color: $data-color;
+    padding: 10px 30px;
 }
