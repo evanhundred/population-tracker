@@ -1,13 +1,2 @@
 @import "./styles/reset.css";
-@import "./styles/example.scss";
-
-body {
-    font-family: inherit;
-    display:flex;
-    justify-content: center;
-}
-
-#main {
-    font-family: "Andale Mono", "Roboto Mono", sans-serif;
-    color: $color;
-}
+@import "./styles/index.scss";
