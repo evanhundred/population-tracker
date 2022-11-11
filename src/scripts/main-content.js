@@ -7,11 +7,11 @@ class MainContent {
   }
 
   handleClick() {
-    let dataEl = document.createElement("dataEl");
+    let dataEl = document.createElement("data");
     const dataBlock = require("/assets/sample_state_census_data.json");
     dataEl.innerText = dataBlock;
     this.ele.appendChild(dataEl);
-    // this.ele.children[0].innerText = "...pOpUlAtIoN tRaCkEr...";
+    this.ele.children[0].innerText = "data fetched!";
   }
 }
 

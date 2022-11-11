@@ -5,7 +5,7 @@ import MainContent from "./scripts/main-content";
 document.addEventListener("DOMContentLoaded", () => {
   const title = document.getElementById("title");
   new TitleSplash(title);
-  const main = document.getElementById("main");
+  const main = document.getElementById("main-content");
   new MainContent(main);
 });
 

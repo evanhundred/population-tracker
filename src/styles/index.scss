@@ -9,20 +9,37 @@ body {
     font-family: inherit;
 }
 
-header, main {
+header, main, #main-content {
     display:flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    // max-width: 500px;
 }
 
 header {
-    width: 500px;
+    // width: 500px;
 }
 
-#main, #title {
+main {
+    flex-wrap: wrap;
+    // width: 600px;
+}
+
+#title {
+    margin: 0 auto;
+}
+
+#main-content {
+
+    flex-wrap: wrap;
+}
+
+#main-content, #title {
     font-family: "Andale Mono", "Roboto Mono", sans-serif;
     color: $color;
+    margin: 0 auto;
+    max-width: 800px;
 }
 
 #title > h1 {
