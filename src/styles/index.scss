@@ -1,11 +1,15 @@
 $color: #9933ff;
 $border-color: #ff5050;
+$background-color: 	#ffffff;
+// $background-color: 	#ffffe6;
 // saves this color in a variable
 
 body {
     font-family: inherit;
     display:flex;
     justify-content: center;
+    background-color: $background-color;
+
 }
 
 #main {
@@ -14,6 +18,7 @@ body {
 }
 
 #main > h1 {
+    // background-color: $background-color;
     border: 5px solid $border-color;
     border-radius: 40px 10px;
     padding: 20px;

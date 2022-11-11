@@ -92,6 +92,7 @@ body {
   font-family: inherit;
   display: flex;
   justify-content: center;
+  background-color: #ffffff;
 }
 
 #main {

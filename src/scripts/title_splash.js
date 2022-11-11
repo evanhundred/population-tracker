@@ -1,4 +1,4 @@
-class Example {
+class TitleSplash {
   constructor(ele) {
     this.ele = ele;
     this.ele.innerHTML = "<h1>Population Tracker</h1>";
@@ -11,4 +11,4 @@ class Example {
   }
 }
 
-export default Example;
+export default TitleSplash;

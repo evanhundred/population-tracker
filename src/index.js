@@ -1,9 +1,9 @@
 import Fetcher from "./scripts/fetcher";
-import Example from "./scripts/example";
+import TitleSplash from "./scripts/title_splash";
 
 document.addEventListener("DOMContentLoaded", () => {
   const main = document.getElementById("main");
-  new Example(main);
+  new TitleSplash(main);
 });
 
 // console.log("Hello World");

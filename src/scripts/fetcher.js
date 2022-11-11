@@ -2,7 +2,7 @@ const myRequest = new Request(
   "https://api.census.gov/data/2020/dec/pl?get=NAME&for=state:*&key=[user key]",
   {
     method: "GET",
-    headers: myHeaders,
+    // headers: myHeaders,
     mode: "cors",
     cache: "default",
   }
