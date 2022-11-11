@@ -12,12 +12,12 @@ body {
 
 }
 
-#main {
+#main, #title {
     font-family: "Andale Mono", "Roboto Mono", sans-serif;
     color: $color;
 }
 
-#main > h1 {
+#title > h1 {
     // background-color: $background-color;
     border: 5px solid $border-color;
     border-radius: 40px 10px;
