@@ -13,6 +13,7 @@ class MainContent {
   handleClick() {
     let dataEl = document.createElement("data");
     const dataBlock = require("/assets/2020_pop_by_state.json");
+    const dataTitle = "2020 Census dataset";
     // const dataBlock = require("/assets/sample_state_census_data.json");
     const parsed_data = JSON.stringify(dataBlock);
     let ul = document.createElement("ul");
@@ -24,8 +25,12 @@ class MainContent {
     dataBlock.forEach((subArray) => {
       if (!first_entry_processed) {
         let li = document.createElement("li");
-        li.innerText = `State: Population`;
-        li.classList.add("first-item");
+        li.innerText = dataTitle;
+        li.classList.add("data-header");
+        ul.appendChild(li);
+        li = document.createElement("li");
+        li.innerText = "State: Population";
+        li.classList.add("data-header", "subheader");
         ul.appendChild(li);
         first_entry_processed = true;
       } else {

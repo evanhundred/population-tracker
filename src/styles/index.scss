@@ -62,11 +62,17 @@ main {
 #main-content > data {
     color: $data-color;
     padding: 10px 30px;
+    font-size: 16px;
 }
 
-li.first-item {
+li.data-header {
     color: #0099ff;
     font-size: 20px;
     font-weight: 800;
     padding: 5px;
+}
+
+li.subheader {
+    font-size: 16px;
+    padding: 5px 0;
 }
