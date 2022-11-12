@@ -76,3 +76,17 @@ li.subheader {
     font-size: 16px;
     padding: 5px 0;
 }
+
+ul.sortSelector {
+    display: flex;
+    width: 350px;
+    // max-width: 1000px;
+    justify-content: space-between;
+    padding: 20px 0 5px;
+}
+
+
+.sortSelector > li {
+    color: $border-color;
+    font-size: 18px;
+}
