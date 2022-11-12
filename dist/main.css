@@ -141,3 +141,10 @@ main {
   color: #003366;
   padding: 10px 30px;
 }
+
+li.first-item {
+  color: #0099ff;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 5px;
+}
