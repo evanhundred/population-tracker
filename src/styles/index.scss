@@ -2,8 +2,6 @@ $color: #9933ff;
 $border-color: #ff5050;
 $background-color: 	#ffffff;
 $data-color: #003366;
-// $background-color: 	#ffffe6;
-// saves this color in a variable
 
 body {
     background-color: $background-color;
@@ -75,4 +73,17 @@ li.data-header {
 li.subheader {
     font-size: 16px;
     padding: 5px 0;
+}
+
+#sortSelector ul {
+    display: flex;
+    width: 350px;
+    // max-width: 1000px;
+    justify-content: space-between;
+    padding: 20px 0 5px;
+}
+
+#sortSelector li {
+    color: $border-color;
+    font-size: 18px;
 }
