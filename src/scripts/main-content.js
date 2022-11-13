@@ -10,6 +10,9 @@ class MainContent {
     let div = document.createElement("div");
     div.setAttribute("id", "sortSelector");
     ele.appendChild(div);
+    let ul = document.createElement("ul");
+    ul.classList.add("selectorUl");
+    div.appendChild(ul);
 
     let boundFirstAction = this.firstAction.bind(this);
     let boundSortByName = this.sortByName.bind(this);
@@ -29,14 +32,14 @@ class MainContent {
   }
 
   firstAction() {
-    const dataObject = this.sortData();
-
-    let dataEl = document.createElement("data");
-    let dataUl = document.createElement("ul");
-    dataUl.classList.add("fetchResultSorted");
-    dataEl.appendChild(dataUl);
-    this.ele.appendChild(dataEl);
-    this.ele.children[0].innerText = "data fetched!";
+    if (!document.querySelector("data")) {
+      let dataEl = document.createElement("data");
+      let dataUl = document.createElement("ul");
+      dataUl.classList.add("fetchResultSorted");
+      dataEl.appendChild(dataUl);
+      this.ele.appendChild(dataEl);
+      this.ele.children[0].innerText = "data fetched!";
+    }
 
     let ul = document.createElement("ul");
     let li = document.createElement("li");
@@ -48,7 +51,10 @@ class MainContent {
     li.classList.add("sortByPopulation");
     li.innerText = "Sort by Population";
     ul.appendChild(li);
-    document.getElementById("sortSelector").appendChild(ul);
+
+    let selectorDiv = document.getElementById("sortSelector");
+    selectorDiv.replaceChild(ul, document.querySelector(".selectorUl"));
+    ul.classList.add("selectorUl");
   }
 
   getData() {
@@ -67,11 +73,13 @@ class MainContent {
     preSorted.header = this.dataObject.header;
     preSorted.states = [];
     this.dataObject.data.forEach((row) => {
-      let newState = {};
-      newState.stateId = row[2];
-      newState.stateName = row[1];
-      newState.population = row[0];
-      preSorted.states.push(newState);
+      if (row[1] !== "NAME") {
+        let newState = {};
+        newState.stateId = row[2];
+        newState.stateName = row[1];
+        newState.population = row[0];
+        preSorted.states.push(newState);
+      }
     });
 
     let sorted = {};
@@ -109,7 +117,10 @@ class MainContent {
   sortByName() {
     let dataObject = this.sortData("byName");
     let dataHeader = dataObject.header;
-    let ul = document.querySelector(".fetchResultSorted");
+    let dataEl = document.querySelector("data");
+    let ul = document.createElement("ul");
+    dataEl.replaceChild(ul, document.querySelector(".fetchResultSorted"));
+    ul.classList.add("fetchResultSorted");
 
     let first_entry_processed = false;
     for (let i = 0; i < dataObject.states.length; i++) {
@@ -135,7 +146,10 @@ class MainContent {
   sortByPopulation() {
     let dataObject = this.sortData("byPopulation");
     let dataHeader = dataObject.header;
-    let ul = document.querySelector(".fetchResultSorted");
+    let dataEl = document.querySelector("data");
+    let ul = document.createElement("ul");
+    dataEl.replaceChild(ul, document.querySelector(".fetchResultSorted"));
+    ul.classList.add("fetchResultSorted");
 
     let first_entry_processed = false;
     for (let i = 0; i < dataObject.states.length; i++) {
