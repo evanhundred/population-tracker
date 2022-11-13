@@ -122,14 +122,6 @@ class MainContent {
     this.firstAction(e);
   }
 
-  // doAction() {
-
-  // }
-
-  secondAction() {
-    this.sortByName(this.dataObject);
-  }
-
   firstAction(e) {
     // this.ele.removeEventListener("click", this.handleClick.bind(this));
     // this.doAction = secondAction;
@@ -165,7 +157,7 @@ class MainContent {
 
     document.getElementById("sortSelector").appendChild(ul);
 
-    e.stopPropogation();
+    // e.stopPropogation();
     // this.controller.abort();
 
     document
