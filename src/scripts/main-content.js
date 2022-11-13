@@ -6,7 +6,10 @@ class MainContent {
     h2.innerHTML = "Fetch Data";
     let boundClick = this.handleClick.bind(this);
     // this.controller = new AbortController();
-    h2.addEventListener("click", boundClick);
+    h2.addEventListener("click", function (e) {
+      e.stopPropagation();
+      boundClick();
+    });
 
     ele.appendChild(h2);
 
@@ -116,10 +119,13 @@ class MainContent {
 
   // let this.doAction = firstAction;
 
-  handleClick(e) {
+  handleClick() {
     // e.stopPropogation();
     // this.e = e;
-    e.stopPropogation();
+    // if (!) {
+    //   let e = window.event;
+    // }
+    // if (.stopPropogation) e.stopPropogation();
     this.firstAction();
   }
 
@@ -146,14 +152,14 @@ class MainContent {
     li.classList.add("sortByName");
     li.innerText = "Sort by Name";
     // debugger;
-    // li.addEventListener("click", this.sortByName(this.dataObject));
+    li.addEventListener("click", this.sortByName(this.dataObject));
 
     ul.appendChild(li);
 
     li = document.createElement("li");
     li.classList.add("sortByPopulation");
     li.innerText = "Sort by Population";
-    // li.addEventListener("click", this.sortByPopulation(this.dataObject));
+    li.addEventListener("click", this.sortByPopulation(this.dataObject));
     ul.appendChild(li);
 
     document.getElementById("sortSelector").appendChild(ul);
@@ -161,9 +167,9 @@ class MainContent {
     // e.stopPropogation();
     // this.controller.abort();
 
-    document
-      .querySelector(".sortByName")
-      .addEventListener("click", this.sortByName(this.dataObject));
+    // document
+    //   .querySelector(".sortByName")
+    //   .addEventListener("click", this.sortByName(this.dataObject));
   }
 }
 
