@@ -6,17 +6,20 @@ class MainContent {
     h2.classList.add("fetchData");
     h2.innerText = "Fetch Data";
 
-    let boundClick = this.handleClick.bind(this);
-    h2.addEventListener("click", function (e) {
+    let boundFirstAction = this.firstAction.bind(this);
+    let boundSortByName = this.sortByName.bind(this);
+    let boundSortByPopulation = this.sortByPopulation.bind(this);
+    document.addEventListener("click", function (e) {
       // e.preventDefault();
       // e.stopPropagation();
       let eventTarget = e.target;
+
       if (eventTarget.classList.contains("fetchData")) {
-        firstAction();
+        boundFirstAction();
       } else if (eventTarget.classList.contains("sortByName")) {
-        sortByName();
+        boundSortByName();
       } else if (eventTarget.classList.contains("sortByPopulation")) {
-        sortByPopulation();
+        boundSortByPopulation();
       }
 
       // boundClick();
