@@ -5,7 +5,8 @@ class MainContent {
     let h2 = document.createElement("h2");
     h2.innerHTML = "Fetch Data";
     let boundClick = this.handleClick.bind(this);
-    h2.addEventListener("click", (e) => boundClick());
+    // this.controller = new AbortController();
+    h2.addEventListener("click", boundClick);
 
     ele.appendChild(h2);
 
@@ -117,6 +118,7 @@ class MainContent {
 
   handleClick(e) {
     // e.stopPropogation();
+    // this.e = e;
     this.firstAction(e);
   }
 
@@ -146,7 +148,7 @@ class MainContent {
     // e.stopPropogation();
 
     let ul = document.createElement("ul");
-    ul.classList.add("sortSelector");
+    // ul.classList.add("sortSelector");
     let li = document.createElement("li");
     li.classList.add("sortByName");
     li.innerText = "Sort by Name";
@@ -161,9 +163,10 @@ class MainContent {
     // li.addEventListener("click", this.sortByPopulation(this.dataObject));
     ul.appendChild(li);
 
-    document.querySelector(".sortSelector").appendChild(ul);
+    document.getElementById("sortSelector").appendChild(ul);
 
     e.stopPropogation();
+    // this.controller.abort();
 
     document
       .querySelector(".sortByName")
