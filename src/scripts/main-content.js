@@ -119,10 +119,11 @@ class MainContent {
   handleClick(e) {
     // e.stopPropogation();
     // this.e = e;
-    this.firstAction(e);
+    e.stopPropogation();
+    this.firstAction();
   }
 
-  firstAction(e) {
+  firstAction() {
     // this.ele.removeEventListener("click", this.handleClick.bind(this));
     // this.doAction = secondAction;
 
