@@ -3,26 +3,36 @@ class MainContent {
     this.ele = ele;
 
     let h2 = document.createElement("h2");
-    h2.innerHTML = "Fetch Data";
+    h2.classList.add("fetchData");
+    h2.innerText = "Fetch Data";
+
+    let boundFirstAction = this.firstAction.bind(this);
+    let boundSortByName = this.sortByName.bind(this);
+    let boundSortByPopulation = this.sortByPopulation.bind(this);
+    document.addEventListener("click", function (e) {
+      // e.preventDefault();
+      // e.stopPropagation();
+      let eventTarget = e.target;
+
+      if (eventTarget.classList.contains("fetchData")) {
+        boundFirstAction();
+      } else if (eventTarget.classList.contains("sortByName")) {
+        boundSortByName();
+      } else if (eventTarget.classList.contains("sortByPopulation")) {
+        boundSortByPopulation();
+      }
+
+      // boundClick();
+    });
+
     ele.appendChild(h2);
 
     let div = document.createElement("div");
+    div.setAttribute("id", "sortSelector");
     ele.appendChild(div);
 
-    // let ul = document.createElement("ul");
-    // let li = document.createElement("li");
-    // li.classList.add("sortSelector");
-    // li.innertext = "Sort by Name";
-    // ul.appendChild(li);
-
-    // li = document.createElement("li");
-    // li.classList.add("sortSelector");
-    // li.innertext = "Sort by Population";
-    // ul.appendChild(li);
-
-    // ele.appendChild(ul);
-
-    this.ele.addEventListener("click", this.handleClick.bind(this));
+    // this.doAction = firstAction;
+    // this.ele.addEventListener("click", this.handleClick.bind(this));
   }
 
   getData() {
@@ -36,11 +46,11 @@ class MainContent {
   }
 
   sortData() {
-    const dataObject = this.getData();
+    this.dataObject = this.getData();
     const preSorted = {};
-    preSorted.header = dataObject.header;
+    preSorted.header = this.dataObject.header;
     preSorted.states = [];
-    dataObject.data.forEach((row) => {
+    this.dataObject.data.forEach((row) => {
       let newState = {};
       newState.stateId = row[2];
       newState.stateName = row[1];
@@ -50,7 +60,7 @@ class MainContent {
 
     let sorted = {};
     sorted.states = this.objSort(preSorted.states);
-    sorted.header = dataObject.header;
+    sorted.header = this.dataObject.header;
 
     return sorted;
   }
@@ -65,12 +75,10 @@ class MainContent {
     return sorted;
   }
 
-  handleClick() {
-    const dataObject = this.sortData();
-    const dataHeader = dataObject.header;
-
-    let ul = document.createElement("ul");
-    let dataEl = document.createElement("data");
+  sortByName() {
+    let dataObject = this.sortData();
+    let dataHeader = dataObject.header;
+    let ul = document.querySelector(".fetchResultSorted");
 
     let first_entry_processed = false;
     for (let i = 0; i < dataObject.states.length; i++) {
@@ -91,24 +99,60 @@ class MainContent {
         ul.appendChild(li);
       }
     }
+  }
 
-    dataEl.appendChild(ul);
+  sortByPopulation() {
+    let dataObject = this.sortData();
+    let dataHeader = dataObject.header;
+    let ul = document.querySelector(".fetchResultSorted");
+
+    let li = document.createElement("li");
+    li.innerText = "sort by population";
+    ul.appendChild(li);
+  }
+
+  handleClick() {
+    this.firstAction();
+  }
+
+  firstAction() {
+    const dataObject = this.sortData();
+    const dataHeader = dataObject.header;
+
+    let dataEl = document.createElement("data");
+    let dataUl = document.createElement("ul");
+    // ul.setAttribute("id", "fetchResultSorted");
+    dataUl.classList.add("fetchResultSorted");
+    dataEl.appendChild(dataUl);
     this.ele.appendChild(dataEl);
     this.ele.children[0].innerText = "data fetched!";
 
-    ul = document.createElement("ul");
-    ul.classList.add("sortSelector");
+    // e.stopPropogation();
+
+    let ul = document.createElement("ul");
+    // ul.classList.add("sortSelector");
     let li = document.createElement("li");
-    // li.classList.add("sortSelector");
+    li.classList.add("sortByName");
     li.innerText = "Sort by Name";
+    // debugger;
+    // li.addEventListener("click", this.sortByName(this.dataObject));
+
     ul.appendChild(li);
 
     li = document.createElement("li");
-    // li.classList.add("sortSelector");
+    li.classList.add("sortByPopulation");
     li.innerText = "Sort by Population";
+    // li.addEventListener("click", this.sortByPopulation(this.dataObject));
     ul.appendChild(li);
 
-    this.ele.children[1].appendChild(ul);
+    document.getElementById("sortSelector").appendChild(ul);
+
+    // e.stopPropogation();
+    // this.controller.abort();
+
+    // document
+    //   .querySelector(".sortByName")
+    //   .addEventListener("click", this.sortByName(this.dataObject));
   }
 }
 
