@@ -122,9 +122,8 @@ class MainContent {
     dataEl.replaceChild(ul, document.querySelector(".fetchResultSorted"));
     ul.classList.add("fetchResultSorted");
 
-    let first_entry_processed = false;
     for (let i = 0; i < dataObject.states.length; i++) {
-      if (!first_entry_processed) {
+      if (i === 0) {
         let li = document.createElement("li");
         li.innerText = dataHeader;
         li.classList.add("data-header");
@@ -133,13 +132,11 @@ class MainContent {
         li.innerText = "State: Population";
         li.classList.add("data-header", "subheader");
         ul.appendChild(li);
-        first_entry_processed = true;
-      } else {
-        let li = document.createElement("li");
-        li.innerText = `${dataObject.states[i].stateName}: ${dataObject.states[i].population}`;
-        li.classList.add("item");
-        ul.appendChild(li);
       }
+      let li = document.createElement("li");
+      li.innerText = `${dataObject.states[i].stateName}: ${dataObject.states[i].population}`;
+      li.classList.add("item");
+      ul.appendChild(li);
     }
   }
 
@@ -151,9 +148,8 @@ class MainContent {
     dataEl.replaceChild(ul, document.querySelector(".fetchResultSorted"));
     ul.classList.add("fetchResultSorted");
 
-    let first_entry_processed = false;
     for (let i = 0; i < dataObject.states.length; i++) {
-      if (!first_entry_processed) {
+      if (i === 0) {
         let li = document.createElement("li");
         li.innerText = dataHeader;
         li.classList.add("data-header");
@@ -162,13 +158,11 @@ class MainContent {
         li.innerText = "State: Population";
         li.classList.add("data-header", "subheader");
         ul.appendChild(li);
-        first_entry_processed = true;
-      } else {
-        let li = document.createElement("li");
-        li.innerText = `${dataObject.states[i].stateName}: ${dataObject.states[i].population}`;
-        li.classList.add("item");
-        ul.appendChild(li);
       }
+      let li = document.createElement("li");
+      li.innerText = `${dataObject.states[i].stateName}: ${dataObject.states[i].population}`;
+      li.classList.add("item");
+      ul.appendChild(li);
     }
   }
 }
