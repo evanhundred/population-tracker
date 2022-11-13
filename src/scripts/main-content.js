@@ -3,12 +3,23 @@ class MainContent {
     this.ele = ele;
 
     let h2 = document.createElement("h2");
-    h2.innerHTML = "Fetch Data";
+    h2.classList.add("fetchData");
+    h2.innerText = "Fetch Data";
+
     let boundClick = this.handleClick.bind(this);
-    // this.controller = new AbortController();
     h2.addEventListener("click", function (e) {
-      e.stopPropagation();
-      boundClick();
+      // e.preventDefault();
+      // e.stopPropagation();
+      let eventTarget = e.target;
+      if (eventTarget.classList.contains("fetchData")) {
+        firstAction();
+      } else if (eventTarget.classList.contains("sortByName")) {
+        sortByName();
+      } else if (eventTarget.classList.contains("sortByPopulation")) {
+        sortByPopulation();
+      }
+
+      // boundClick();
     });
 
     ele.appendChild(h2);
@@ -95,44 +106,13 @@ class MainContent {
     let li = document.createElement("li");
     li.innerText = "sort by population";
     ul.appendChild(li);
-
-    // let first_entry_processed = false;
-    // for (let i = 0; i < dataObject.states.length; i++) {
-    //   if (!first_entry_processed) {
-    //     let li = document.createElement("li");
-    //     li.innerText = dataHeader;
-    //     li.classList.add("data-header");
-    //     ul.appendChild(li);
-    //     li = document.createElement("li");
-    //     li.innerText = "State: Population";
-    //     li.classList.add("data-header", "subheader");
-    //     ul.appendChild(li);
-    //     first_entry_processed = true;
-    //   } else {
-    //     let li = document.createElement("li");
-    //     li.innerText = `${dataObject.states[i].stateName}: ${dataObject.states[i].population}`;
-    //     li.classList.add("item");
-    //     ul.appendChild(li);
-    //   }
-    // }
   }
 
-  // let this.doAction = firstAction;
-
   handleClick() {
-    // e.stopPropogation();
-    // this.e = e;
-    // if (!) {
-    //   let e = window.event;
-    // }
-    // if (.stopPropogation) e.stopPropogation();
     this.firstAction();
   }
 
   firstAction() {
-    // this.ele.removeEventListener("click", this.handleClick.bind(this));
-    // this.doAction = secondAction;
-
     const dataObject = this.sortData();
     const dataHeader = dataObject.header;
 
@@ -152,14 +132,14 @@ class MainContent {
     li.classList.add("sortByName");
     li.innerText = "Sort by Name";
     // debugger;
-    li.addEventListener("click", this.sortByName(this.dataObject));
+    // li.addEventListener("click", this.sortByName(this.dataObject));
 
     ul.appendChild(li);
 
     li = document.createElement("li");
     li.classList.add("sortByPopulation");
     li.innerText = "Sort by Population";
-    li.addEventListener("click", this.sortByPopulation(this.dataObject));
+    // li.addEventListener("click", this.sortByPopulation(this.dataObject));
     ul.appendChild(li);
 
     document.getElementById("sortSelector").appendChild(ul);
