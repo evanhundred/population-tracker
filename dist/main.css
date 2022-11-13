@@ -155,14 +155,14 @@ li.subheader {
   padding: 5px 0;
 }
 
-ul.sortSelector {
+#sortSelector ul {
   display: flex;
   width: 350px;
   justify-content: space-between;
   padding: 20px 0 5px;
 }
 
-.sortSelector > li {
+#sortSelector li {
   color: #ff5050;
   font-size: 18px;
 }
