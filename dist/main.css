@@ -1,3 +1,6 @@
+/*!****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/reset.css ***!
+  \****************************************************************************************************/
 /***
     The new CSS reset - version 1.7.3 (last updated 7.8.2022)
     GitHub page: https://github.com/elad2412/the-new-css-reset
@@ -82,9 +85,14 @@ meter {
     -webkit-user-drag: element;
 }
 
-body{background-color:#fff;font-family:inherit}div#header,main,#main-content{display:flex;flex-direction:column;justify-content:center;align-items:center}main{flex-wrap:wrap}#title{margin:0 auto}#main-content{flex-wrap:wrap}#main-content,#title{font-family:"Andale Mono","Roboto Mono",sans-serif;color:#93f;margin:0 auto;max-width:800px}#title>h1{border:5px solid #ff5050;border-radius:40px 10px;padding:20px;margin:30px;font-size:35px;font-weight:800}#title>h1 span{font-weight:800}#main-content>h2{font-size:20px;padding-bottom:10px;font-weight:800}#main-content>data{color:#036;padding:10px 30px;font-size:16px}li.data-header{color:#09f;font-size:20px;font-weight:800;padding:5px}li.subheader{font-size:16px;padding:5px 0}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+body {
+  background-color: #ffffff;
+  font-family: inherit;
+}
 
-<<<<<<< HEAD
 div#header, main, #main-content {
   display: flex;
   flex-direction: column;
@@ -158,6 +166,3 @@ ul.sortSelector {
   color: #ff5050;
   font-size: 18px;
 }
-=======
-/*# sourceMappingURL=main.css.map*/
->>>>>>> main
