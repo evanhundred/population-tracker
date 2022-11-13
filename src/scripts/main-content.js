@@ -4,6 +4,9 @@ class MainContent {
 
     let h2 = document.createElement("h2");
     h2.innerHTML = "Fetch Data";
+    let boundClick = this.handleClick.bind(this);
+    h2.addEventListener("click", (e) => boundClick());
+
     ele.appendChild(h2);
 
     let div = document.createElement("div");
@@ -11,7 +14,7 @@ class MainContent {
     ele.appendChild(div);
 
     // this.doAction = firstAction;
-    this.ele.addEventListener("click", this.handleClick.bind(this));
+    // this.ele.addEventListener("click", this.handleClick.bind(this));
   }
 
   getData() {
@@ -112,8 +115,9 @@ class MainContent {
 
   // let this.doAction = firstAction;
 
-  handleClick() {
-    this.firstAction();
+  handleClick(e) {
+    // e.stopPropogation();
+    this.firstAction(e);
   }
 
   // doAction() {
@@ -124,7 +128,7 @@ class MainContent {
     this.sortByName(this.dataObject);
   }
 
-  firstAction() {
+  firstAction(e) {
     // this.ele.removeEventListener("click", this.handleClick.bind(this));
     // this.doAction = secondAction;
 
@@ -139,21 +143,31 @@ class MainContent {
     this.ele.appendChild(dataEl);
     this.ele.children[0].innerText = "data fetched!";
 
+    // e.stopPropogation();
+
     let ul = document.createElement("ul");
     ul.classList.add("sortSelector");
     let li = document.createElement("li");
+    li.classList.add("sortByName");
     li.innerText = "Sort by Name";
     // debugger;
-    li.addEventListener("click", this.sortByName(this.dataObject));
+    // li.addEventListener("click", this.sortByName(this.dataObject));
 
     ul.appendChild(li);
 
     li = document.createElement("li");
+    li.classList.add("sortByPopulation");
     li.innerText = "Sort by Population";
-    li.addEventListener("click", this.sortByPopulation(this.dataObject));
+    // li.addEventListener("click", this.sortByPopulation(this.dataObject));
     ul.appendChild(li);
 
-    document.getElementById("sortSelector").appendChild(ul);
+    document.querySelector(".sortSelector").appendChild(ul);
+
+    e.stopPropogation();
+
+    document
+      .querySelector(".sortByName")
+      .addEventListener("click", this.sortByName(this.dataObject));
   }
 }
 
