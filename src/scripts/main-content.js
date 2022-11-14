@@ -3,26 +3,42 @@ class MainContent {
     this.ele = ele;
 
     let h2 = document.createElement("h2");
-    h2.classList.add("fetchData");
-    h2.innerText = "Fetch Data";
-    ele.appendChild(h2);
-
+    // h2.classList.add("fetchData");
+    h2.innerText = "Fetch Vintage:";
     let div = document.createElement("div");
+    div.setAttribute("id", "vintageSelector");
+    let ul = document.createElement("ul");
+    ul.classList.add("vintageUl");
+    ele.appendChild(div);
+    div.appendChild(ul);
+    let li = document.createElement("li");
+    li.innerText = "2020";
+    li.classList.add("2020");
+    ul.appendChild(li);
+    li = document.createElement("li");
+    li.innerText = "2010";
+    li.classList.add("2010");
+    ul.appendChild(li);
+
+    div = document.createElement("div");
     div.setAttribute("id", "sortSelector");
     ele.appendChild(div);
-    let ul = document.createElement("ul");
+    ul = document.createElement("ul");
     ul.classList.add("selectorUl");
     div.appendChild(ul);
 
-    let boundFirstAction = this.firstAction.bind(this);
+    let boundFetch2020 = this.fetch2020.bind(this);
+    let boundFetch2010 = this.fetch2010.bind(this);
     let boundSortByName = this.sortByName.bind(this);
     let boundSortByPopulation = this.sortByPopulation.bind(this);
 
     document.addEventListener("click", function (e) {
       let eventTarget = e.target;
 
-      if (eventTarget.classList.contains("fetchData")) {
-        boundFirstAction();
+      if (eventTarget.classList.contains("2020")) {
+        boundFetch2020();
+      } else if (eventTarget.classList.contains("2010")) {
+        boundFetch2010();
       } else if (eventTarget.classList.contains("sortByName")) {
         boundSortByName();
       } else if (eventTarget.classList.contains("sortByPopulation")) {
@@ -31,7 +47,8 @@ class MainContent {
     });
   }
 
-  firstAction() {
+  fetch2020() {
+    const dataObject = getData("2020");
     if (!document.querySelector("data")) {
       let dataEl = document.createElement("data");
       let dataUl = document.createElement("ul");
@@ -57,9 +74,14 @@ class MainContent {
     ul.classList.add("selectorUl");
   }
 
-  getData() {
-    const dataBlock = require("/assets/census-2020-P1001N.json");
-    const dataTitle = "2020 Census dataset";
+  getData(vintage) {
+    if (vintage === "2020") {
+      const dataBlock = require("/assets/census-2020-P1001N.json");
+      const dataTitle = "2020 Census dataset";
+    } else if (vintage === "2010") {
+      const dataBlock = require("/assets/census-2010-P1001N.json");
+      const dataTitle = "2010 Census dataset";
+    }
     const obj = {
       header: dataTitle,
       data: dataBlock,
