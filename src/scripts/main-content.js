@@ -219,10 +219,16 @@ class MainContent {
         li.classList.add("data-header", "subheader");
         ul.appendChild(li);
       }
-      let li = document.createElement("li");
-      li.innerText = `${dataObject.states[i].stateName}: ${dataObject.states[i].population}`;
-      li.classList.add("item");
-      ul.appendChild(li);
+      let state = document.createElement("li");
+      let stateName = document.createElement("div");
+      stateName.innerText = `${dataObject.states[i].stateName}: `;
+      state.appendChild(stateName);
+      let statePop = document.createElement("div");
+      statePop.innerText = `${dataObject.states[i].population}`;
+      state.appendChild(statePop);
+
+      state.classList.add("item");
+      ul.appendChild(state);
     }
   }
 

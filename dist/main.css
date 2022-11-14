@@ -134,6 +134,11 @@ div#header, main, #main-content {
   gap: 10px;
 }
 
+#firstLine h2 {
+  font-size: 20px;
+  font-weight: 800;
+}
+
 #vintageSelector {
   padding-top: 2px;
   color: #ff5050;
@@ -171,19 +176,28 @@ li.subheader {
   padding: 5px 0;
 }
 
-#sortSelector ul {
+.sortSelectorUl {
   display: flex;
   width: 350px;
   justify-content: space-between;
-  padding: 20px 0 5px;
+  padding: 5px 0;
 }
 
-#sortSelector li {
+.sortSelectorUl li {
   color: #ff5050;
   font-size: 18px;
 }
 
-#firstLine h2 {
-  font-size: 20px;
-  font-weight: 800;
+#thirdLine {
+  padding-top: 5px;
+}
+
+.fetchResultSorted {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.fetchResultSorted li {
+  text-align: center;
 }
