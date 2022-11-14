@@ -58,7 +58,7 @@ class MainContent {
   }
 
   getData() {
-    const dataBlock = require("/assets/2020_pop_by_state.json");
+    const dataBlock = require("/assets/census-2020-P1001N.json");
     const dataTitle = "2020 Census dataset";
     const obj = {
       header: dataTitle,
@@ -73,11 +73,11 @@ class MainContent {
     preSorted.header = this.dataObject.header;
     preSorted.states = [];
     this.dataObject.data.forEach((row) => {
-      if (row[1] !== "NAME") {
+      if (row[0] !== "NAME") {
         let newState = {};
         newState.stateId = row[2];
-        newState.stateName = row[1];
-        newState.population = row[0];
+        newState.stateName = row[0];
+        newState.population = row[1];
         preSorted.states.push(newState);
       }
     });
