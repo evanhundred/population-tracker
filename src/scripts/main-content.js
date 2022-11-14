@@ -221,20 +221,18 @@ class MainContent {
         ul.appendChild(sortLabel);
 
         let keyState = document.createElement("li");
-        keyState.classList.add("keyLine");
+        keyState.classList.add("keyState");
+        keyState.innerText = "State: ";
         ul.appendChild(keyState);
-        // let stateNameKey = document.createElement("div");
-        keyState.innerText = "State:";
-        // keyLine.appendChild(stateNameKey);
         let keyPop = document.createElement("li");
-        keyPop.classList.add("keyLine");
+        keyPop.classList.add("keyPop");
         keyPop.innerText = "Population";
         ul.appendChild(keyPop);
       }
       // let state = document.createElement("li");
       let stateName = document.createElement("li");
       stateName.classList.add("item", "itemName");
-      stateName.innerText = `${dataObject.states[i].stateName}:`;
+      stateName.innerText = `${dataObject.states[i].stateName}`;
       ul.appendChild(stateName);
       let statePop = document.createElement("li");
       statePop.classList.add("item", "itemPop");
@@ -267,15 +265,14 @@ class MainContent {
         sortLabel.classList = "sortLabel";
         ul.appendChild(sortLabel);
 
-        let keyLine = document.createElement("li");
-        keyLine.classList.add("data-header", "subheader");
-        ul.appendChild(keyLine);
-        let stateNameKey = document.createElement("div");
-        stateNameKey.innerText = "State: ";
-        keyLine.appendChild(stateNameKey);
-        let statePopKey = document.createElement("div");
-        statePopKey.innerText = "Population";
-        keyLine.appendChild(statePopKey);
+        let keyState = document.createElement("li");
+        keyState.classList.add("keyState");
+        keyState.innerText = "State: ";
+        ul.appendChild(keyState);
+        let keyPop = document.createElement("li");
+        keyPop.classList.add("keyPop");
+        keyPop.innerText = "Population";
+        ul.appendChild(keyPop);
       }
       let stateName = document.createElement("li");
       stateName.classList.add("item", "itemName");
