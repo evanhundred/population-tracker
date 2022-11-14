@@ -2,6 +2,7 @@ $color: #9933ff;
 $border-color: #ff5050;
 $background-color: 	#ffffff;
 $data-color: #003366;
+$header-color: #0099ff;
 
 body {
     background-color: $background-color;
@@ -72,6 +73,11 @@ ul.vintageUl {
     padding: 0 10px;
 }
 
+#firstLineFooter {
+    padding: 8px;
+    color: $header-color;
+}
+
 #main-content > data {
     color: $data-color;
     padding: 10px 30px;
@@ -79,7 +85,7 @@ ul.vintageUl {
 }
 
 li.data-header {
-    color: #0099ff;
+    color: $header-color;
     font-size: 20px;
     font-weight: 800;
     padding: 5px;

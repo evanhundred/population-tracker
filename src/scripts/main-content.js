@@ -81,6 +81,7 @@ class MainContent {
       let thirdLine = document.getElementById("thirdLine");
       thirdLine.appendChild(dataEl);
       let firstLineFooter = document.createElement("h2");
+      firstLineFooter.setAttribute("id", "firstLineFooter");
       firstLineFooter.innerText = "data fetched!";
       let firstLine = document.getElementById("firstLine");
       firstLine.after(firstLineFooter);

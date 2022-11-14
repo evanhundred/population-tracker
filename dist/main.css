@@ -148,6 +148,11 @@ ul.vintageUl {
   padding: 0 10px;
 }
 
+#firstLineFooter {
+  padding: 8px;
+  color: #0099ff;
+}
+
 #main-content > data {
   color: #003366;
   padding: 10px 30px;
