@@ -220,26 +220,29 @@ class MainContent {
         sortLabel.classList = "sortLabel";
         ul.appendChild(sortLabel);
 
-        let keyLine = document.createElement("li");
-        keyLine.classList.add("data-header", "subheader");
-        ul.appendChild(keyLine);
-        let stateNameKey = document.createElement("div");
-        stateNameKey.innerText = "State: ";
-        keyLine.appendChild(stateNameKey);
-        let statePopKey = document.createElement("div");
-        statePopKey.innerText = "Population";
-        keyLine.appendChild(statePopKey);
+        let keyState = document.createElement("li");
+        keyState.classList.add("keyLine");
+        ul.appendChild(keyState);
+        // let stateNameKey = document.createElement("div");
+        keyState.innerText = "State:";
+        // keyLine.appendChild(stateNameKey);
+        let keyPop = document.createElement("li");
+        keyPop.classList.add("keyLine");
+        keyPop.innerText = "Population";
+        ul.appendChild(keyPop);
       }
-      let state = document.createElement("li");
-      let stateName = document.createElement("div");
-      stateName.innerText = `${dataObject.states[i].stateName}: `;
-      state.appendChild(stateName);
-      let statePop = document.createElement("div");
+      // let state = document.createElement("li");
+      let stateName = document.createElement("li");
+      stateName.classList.add("item");
+      stateName.innerText = `${dataObject.states[i].stateName}:`;
+      ul.appendChild(stateName);
+      let statePop = document.createElement("li");
+      statePop.classList.add("item");
       statePop.innerText = `${dataObject.states[i].population}`;
-      state.appendChild(statePop);
+      ul.appendChild(statePop);
 
-      state.classList.add("item");
-      ul.appendChild(state);
+      // state.classList.add("item");
+      // ul.appendChild(state);
     }
   }
 

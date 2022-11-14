@@ -168,12 +168,8 @@ li.data-header {
   color: #0099ff;
   font-size: 20px;
   font-weight: 800;
-  padding: 5px;
-}
-
-li.subheader {
-  font-size: 16px;
   padding: 5px 0;
+  flex: 100%;
 }
 
 .sortSelectorUl {
@@ -194,8 +190,9 @@ li.subheader {
 
 .fetchResultSorted {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .fetchResultSorted li {
@@ -204,10 +201,17 @@ li.subheader {
 }
 
 .sortLabel {
+  flex: 100%;
   color: #ff5050;
   padding-bottom: 10px;
 }
 
-li.data-header.subheader {
-  padding-bottom: 10px;
+.keyLine {
+  padding: 5px 0 15px;
+  font-size: 16px;
+  flex: 50%;
+}
+
+.item {
+  flex: 50%;
 }
