@@ -26,6 +26,10 @@ class MainContent {
     li.innerText = "2010";
     li.classList.add("2010");
     ul.appendChild(li);
+    li = document.createElement("li");
+    li.innerText = "2000";
+    li.classList.add("2000");
+    ul.appendChild(li);
 
     let secondLine = document.createElement("div");
     secondLine.setAttribute("id", "secondLine");
@@ -41,6 +45,7 @@ class MainContent {
 
     let boundFetch2020 = this.fetch2020.bind(this);
     let boundFetch2010 = this.fetch2010.bind(this);
+    let boundFetch2000 = this.fetch2000.bind(this);
     let boundSortByName = this.sortByName.bind(this);
     let boundSortByPopulation = this.sortByPopulation.bind(this);
 
@@ -52,6 +57,8 @@ class MainContent {
         boundFetch2020();
       } else if (eventTarget.classList.contains("2010")) {
         boundFetch2010();
+      } else if (eventTarget.classList.contains("2000")) {
+        boundFetch2000();
       } else if (eventTarget.classList.contains("sortByName")) {
         boundSortByName();
       } else if (eventTarget.classList.contains("sortByPopulation")) {
@@ -73,6 +80,16 @@ class MainContent {
 
   fetch2010() {
     this.dataObject = this.getData("2010");
+    this.printData();
+    if (this.sortStyle === "byName") {
+      this.sortByName();
+    } else if (this.sortStyle === "byPop") {
+      this.sortByPopulation();
+    }
+  }
+
+  fetch2000() {
+    this.dataObject = this.getData("2000");
     this.printData();
     if (this.sortStyle === "byName") {
       this.sortByName();
@@ -122,6 +139,9 @@ class MainContent {
     } else if (vintage === "2010") {
       dataBlock = require("/assets/census-2010-P1001N.json");
       dataTitle = "2010 Census dataset";
+    } else if (vintage === "2000") {
+      dataBlock = require("/assets/census-2000-P1001N.json");
+      dataTitle = "2000 Census dataset";
     }
     // debugger;
     const obj = {
