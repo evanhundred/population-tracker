@@ -233,11 +233,11 @@ class MainContent {
       }
       // let state = document.createElement("li");
       let stateName = document.createElement("li");
-      stateName.classList.add("item");
+      stateName.classList.add("item", "itemName");
       stateName.innerText = `${dataObject.states[i].stateName}:`;
       ul.appendChild(stateName);
       let statePop = document.createElement("li");
-      statePop.classList.add("item");
+      statePop.classList.add("item", "itemPop");
       statePop.innerText = `${dataObject.states[i].population}`;
       ul.appendChild(statePop);
 
@@ -277,10 +277,18 @@ class MainContent {
         statePopKey.innerText = "Population";
         keyLine.appendChild(statePopKey);
       }
-      let li = document.createElement("li");
-      li.innerText = `${dataObject.states[i].stateName}: ${dataObject.states[i].population}`;
-      li.classList.add("item");
-      ul.appendChild(li);
+      let stateName = document.createElement("li");
+      stateName.classList.add("item", "itemName");
+      stateName.innerText = `${dataObject.states[i].stateName}:`;
+      ul.appendChild(stateName);
+      let statePop = document.createElement("li");
+      statePop.classList.add("item", "itemPop");
+      statePop.innerText = `${dataObject.states[i].population}`;
+      ul.appendChild(statePop);
+      // let li = document.createElement("li");
+      // li.innerText = `${dataObject.states[i].stateName}: ${dataObject.states[i].population}`;
+      // li.classList.add("item");
+      // ul.appendChild(li);
     }
   }
 }
