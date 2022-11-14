@@ -48,7 +48,17 @@ class MainContent {
   }
 
   fetch2020() {
-    const dataObject = getData("2020");
+    this.dataObject = getData("2020");
+    printData();
+  }
+
+  fetch2010() {
+    this.dataObject = getData("2010");
+    printData();
+    this.sortByName();
+  }
+
+  printData() {
     if (!document.querySelector("data")) {
       let dataEl = document.createElement("data");
       let dataUl = document.createElement("ul");
@@ -90,7 +100,6 @@ class MainContent {
   }
 
   sortData(sortKey) {
-    this.dataObject = this.getData();
     const preSorted = {};
     preSorted.header = this.dataObject.header;
     preSorted.states = [];
