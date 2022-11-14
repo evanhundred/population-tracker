@@ -205,4 +205,9 @@ li.subheader {
 
 .sortLabel {
   color: #ff5050;
+  padding-bottom: 10px;
+}
+
+li.data-header.subheader {
+  padding-bottom: 10px;
 }
