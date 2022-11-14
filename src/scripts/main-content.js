@@ -42,6 +42,7 @@ class MainContent {
       let eventTarget = e.target;
 
       if (eventTarget.classList.contains("2020")) {
+        // debugger;
         boundFetch2020();
       } else if (eventTarget.classList.contains("2010")) {
         boundFetch2010();
@@ -54,12 +55,13 @@ class MainContent {
   }
 
   fetch2020() {
-    this.dataObject = getData("2020");
-    printData();
+    // debugger;
+    this.dataObject = this.getData("2020");
+    this.printData();
   }
 
   fetch2010() {
-    this.dataObject = getData("2010");
+    this.dataObject = this.getData("2010");
     printData();
     this.sortByName();
   }
@@ -91,17 +93,31 @@ class MainContent {
   }
 
   getData(vintage) {
+    let dataBlock;
+    let dataTitle;
     if (vintage === "2020") {
-      const dataBlock = require("/assets/census-2020-P1001N.json");
-      const dataTitle = "2020 Census dataset";
+      // debugger;
+      dataBlock = require("/assets/census-2020-P1001N.json");
+      dataTitle = "2020 Census dataset";
     } else if (vintage === "2010") {
-      const dataBlock = require("/assets/census-2010-P1001N.json");
-      const dataTitle = "2010 Census dataset";
+      dataBlock = require("/assets/census-2020-P1001N.json");
+      dataTitle = "2010 Census dataset";
     }
+    // debugger;
     const obj = {
       header: dataTitle,
       data: dataBlock,
     };
+    // dataTitle.key = obj.header;
+    // dataBlock.key = obj.data;
+    // applyXToY(dataTitle, )
+    // applyXToY(dataBlock, )
+
+    // debugger;
+    // const obj = {
+    //   header: dataTitle,
+    //   data: dataBlock,
+    // };
     return obj;
   }
 
