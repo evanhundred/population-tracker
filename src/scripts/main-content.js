@@ -91,6 +91,28 @@ class MainContent {
       sorted.header = this.dataObject.header;
     }
 
+    for (let i = 0; i < sorted.states.length; i++) {
+      let popSource = sorted.states[i].population;
+
+      if (typeof popSource === "number") {
+        popSource = parseInt(popSource);
+      }
+
+      let arrayedPop = popSource.split("");
+      let count = 0;
+      let commaPop = [];
+      while (arrayedPop.length > 0) {
+        if (count === 3) {
+          commaPop.push(",");
+          count = 0;
+        }
+        commaPop.push(arrayedPop.pop());
+        count++;
+      }
+      let resultPop = commaPop.reverse().join("");
+      sorted.states[i].population = resultPop;
+    }
+
     return sorted;
   }
 
