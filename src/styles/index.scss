@@ -14,12 +14,6 @@ div#header, main, #main-content {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    // max-width: 500px;
-}
-
-main {
-    // flex-wrap: wrap;
-    // width: 600px;
 }
 
 #title {
@@ -28,7 +22,6 @@ main {
 
 #main-content {
     display: flex;
-    // flex-wrap: wrap;
 }
 
 #main-content, #title {
@@ -39,7 +32,6 @@ main {
 }
 
 #title > h1 {
-    // background-color: $background-color;
     border: 5px solid $border-color;
     border-radius: 40px 10px;
     padding: 20px;
@@ -61,7 +53,6 @@ main {
 
 #firstLine h2 {
     font-size: 20px;
-    // padding-bottom: 10px;
     font-weight: 800;
 }
 
@@ -103,7 +94,6 @@ li.data-header {
 .sortSelectorUl {
     display: flex;
     width: 350px;
-    // max-width: 1000px;
     justify-content: space-between;
     padding: 5px 0;
 }
@@ -115,9 +105,6 @@ li.data-header {
 
 #thirdLine {
     padding-top: 5px;
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
 }
 
 .fetchResultSorted {
@@ -125,14 +112,7 @@ li.data-header {
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
-    // gap: 10px;
 }
-
-// .fetchResultSorted li {
-//     // text-align: center;
-//     // display: flex;
-//     // justify-content: space-between;
-// }
 
 .data-header, .sortLabel {
     flex: 100%;
@@ -148,8 +128,6 @@ li.data-header {
     padding: 5px 0 15px;
     font-size: 16px;
     flex: 50%;
-    // display: flex;
-    // justify-content: space-between;
 }
 
 .item {
@@ -171,13 +149,3 @@ li.data-header {
     flex: 50%;
     padding-bottom: 6px;
 }
-
-
-
-// .keyline div {
-//     padding: 0 7px;
-// }
-
-// .item:first-child {
-//     // text-align: right;
-// }

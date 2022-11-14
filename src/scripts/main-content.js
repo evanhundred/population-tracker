@@ -229,7 +229,6 @@ class MainContent {
         keyPop.innerText = "Population";
         ul.appendChild(keyPop);
       }
-      // let state = document.createElement("li");
       let stateName = document.createElement("li");
       stateName.classList.add("item", "itemName");
       stateName.innerText = `${dataObject.states[i].stateName}`;
@@ -238,9 +237,6 @@ class MainContent {
       statePop.classList.add("item", "itemPop");
       statePop.innerText = `${dataObject.states[i].population}`;
       ul.appendChild(statePop);
-
-      // state.classList.add("item");
-      // ul.appendChild(state);
     }
   }
 
@@ -282,10 +278,6 @@ class MainContent {
       statePop.classList.add("item", "itemPop");
       statePop.innerText = `${dataObject.states[i].population}`;
       ul.appendChild(statePop);
-      // let li = document.createElement("li");
-      // li.innerText = `${dataObject.states[i].stateName}: ${dataObject.states[i].population}`;
-      // li.classList.add("item");
-      // ul.appendChild(li);
     }
   }
 }
