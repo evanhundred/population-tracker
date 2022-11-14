@@ -17,7 +17,7 @@ div#header, main, #main-content {
 }
 
 main {
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     // width: 600px;
 }
 
@@ -26,12 +26,12 @@ main {
 }
 
 #main-content {
-
-    flex-wrap: wrap;
+    display: flex;
+    // flex-wrap: wrap;
 }
 
 #main-content, #title {
-    font-family: "Andale Mono", "Roboto Mono", sans-serif;
+    font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
     color: $color;
     margin: 0 auto;
     max-width: 800px;
@@ -51,10 +51,25 @@ main {
     }
 }
 
-#main-content > h2 {
-    font-size: 20px;
-    padding-bottom: 10px;
-    font-weight: 800;
+#firstLine {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#vintageSelector {
+    padding-top: 2px;
+    color: $border-color;
+    font-size: 18px;
+}
+
+ul.vintageUl {
+    display: flex;
+}
+
+.vintageUl > li {
+    padding: 0 10px;
 }
 
 #main-content > data {
@@ -86,4 +101,10 @@ li.subheader {
 #sortSelector li {
     color: $border-color;
     font-size: 18px;
+}
+
+#firstLine h2 {
+    font-size: 20px;
+    // padding-bottom: 10px;
+    font-weight: 800;
 }

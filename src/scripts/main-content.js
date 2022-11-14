@@ -2,14 +2,20 @@ class MainContent {
   constructor(ele) {
     this.ele = ele;
 
+    let firstLine = document.createElement("div");
+    firstLine.setAttribute("id", "firstLine");
+    ele.appendChild(firstLine);
+
     let h2 = document.createElement("h2");
     // h2.classList.add("fetchData");
     h2.innerText = "Fetch Vintage:";
+    firstLine.appendChild(h2);
     let div = document.createElement("div");
     div.setAttribute("id", "vintageSelector");
+    div.classList.add("firstLine");
     let ul = document.createElement("ul");
     ul.classList.add("vintageUl");
-    ele.appendChild(div);
+    firstLine.appendChild(div);
     div.appendChild(ul);
     let li = document.createElement("li");
     li.innerText = "2020";
@@ -20,12 +26,12 @@ class MainContent {
     li.classList.add("2010");
     ul.appendChild(li);
 
-    div = document.createElement("div");
-    div.setAttribute("id", "sortSelector");
-    ele.appendChild(div);
+    let secondLine = document.createElement("div");
+    secondLine.setAttribute("id", "sortSelector");
+    ele.appendChild(secondLine);
     ul = document.createElement("ul");
     ul.classList.add("selectorUl");
-    div.appendChild(ul);
+    secondLine.appendChild(ul);
 
     let boundFetch2020 = this.fetch2020.bind(this);
     let boundFetch2010 = this.fetch2010.bind(this);
