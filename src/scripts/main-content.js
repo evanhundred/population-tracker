@@ -1,6 +1,7 @@
 class MainContent {
   constructor(ele) {
     this.ele = ele;
+    this.sortStyle = "byName";
 
     let firstLine = document.createElement("div");
     firstLine.setAttribute("id", "firstLine");
@@ -63,13 +64,21 @@ class MainContent {
     // debugger;
     this.dataObject = this.getData("2020");
     this.printData();
-    this.sortByName();
+    if (this.sortStyle === "byName") {
+      this.sortByName();
+    } else if (this.sortStyle === "byPop") {
+      this.sortByPopulation();
+    }
   }
 
   fetch2010() {
     this.dataObject = this.getData("2010");
     this.printData();
-    this.sortByName();
+    if (this.sortStyle === "byName") {
+      this.sortByName();
+    } else if (this.sortStyle === "byPop") {
+      this.sortByPopulation();
+    }
   }
 
   printData() {
@@ -119,16 +128,6 @@ class MainContent {
       header: dataTitle,
       data: dataBlock,
     };
-    // dataTitle.key = obj.header;
-    // dataBlock.key = obj.data;
-    // applyXToY(dataTitle, )
-    // applyXToY(dataBlock, )
-
-    // debugger;
-    // const obj = {
-    //   header: dataTitle,
-    //   data: dataBlock,
-    // };
     return obj;
   }
 
@@ -201,6 +200,7 @@ class MainContent {
   }
 
   sortByName() {
+    this.sortStyle = "byName";
     let dataObject = this.sortData("byName");
     let dataHeader = dataObject.header;
     let dataEl = document.querySelector("data");
@@ -244,6 +244,7 @@ class MainContent {
   }
 
   sortByPopulation() {
+    this.sortStyle = "byPop";
     let dataObject = this.sortData("byPopulation");
     let dataHeader = dataObject.header;
     let dataEl = document.querySelector("data");
