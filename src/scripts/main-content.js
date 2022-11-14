@@ -4,7 +4,7 @@ class MainContent {
 
     let firstLine = document.createElement("div");
     firstLine.setAttribute("id", "firstLine");
-    ele.appendChild(firstLine);
+    this.ele.appendChild(firstLine);
 
     let h2 = document.createElement("h2");
     // h2.classList.add("fetchData");
@@ -27,11 +27,14 @@ class MainContent {
     ul.appendChild(li);
 
     let secondLine = document.createElement("div");
-    secondLine.setAttribute("id", "sortSelector");
+    secondLine.setAttribute("id", "secondLine");
     ele.appendChild(secondLine);
     ul = document.createElement("ul");
-    ul.classList.add("selectorUl");
+    ul.classList.add("sortSelectorUl");
     secondLine.appendChild(ul);
+    this.ele.appendChild(secondLine);
+
+    let thirdLine = document.createElement("div");
 
     let boundFetch2020 = this.fetch2020.bind(this);
     let boundFetch2010 = this.fetch2010.bind(this);
@@ -62,8 +65,8 @@ class MainContent {
 
   fetch2010() {
     this.dataObject = this.getData("2010");
-    printData();
-    this.sortByName();
+    this.printData();
+    // this.sortByName();
   }
 
   printData() {
@@ -72,8 +75,11 @@ class MainContent {
       let dataUl = document.createElement("ul");
       dataUl.classList.add("fetchResultSorted");
       dataEl.appendChild(dataUl);
-      this.ele.appendChild(dataEl);
-      this.ele.children[0].innerText = "data fetched!";
+      thirdLine.appendChild(dataEl);
+      let firstLineFooter = document.createElement("h2");
+      firstLineFooter.innerText = "data fetched!";
+      firstLine = document.getElementById("firstLine");
+      firstLine.after(firstLineFooter);
     }
 
     let ul = document.createElement("ul");
@@ -87,7 +93,7 @@ class MainContent {
     li.innerText = "Sort by Population";
     ul.appendChild(li);
 
-    let selectorDiv = document.getElementById("sortSelector");
+    let selectorDiv = document.getElementById("secondLine");
     selectorDiv.replaceChild(ul, document.querySelector(".selectorUl"));
     ul.classList.add("selectorUl");
   }
@@ -100,7 +106,7 @@ class MainContent {
       dataBlock = require("/assets/census-2020-P1001N.json");
       dataTitle = "2020 Census dataset";
     } else if (vintage === "2010") {
-      dataBlock = require("/assets/census-2020-P1001N.json");
+      dataBlock = require("/assets/census-2010-P1001N.json");
       dataTitle = "2010 Census dataset";
     }
     // debugger;
