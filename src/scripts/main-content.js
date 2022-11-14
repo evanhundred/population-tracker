@@ -222,7 +222,7 @@ class MainContent {
 
         let keyState = document.createElement("li");
         keyState.classList.add("keyState");
-        keyState.innerText = "State: ";
+        keyState.innerText = "State";
         ul.appendChild(keyState);
         let keyPop = document.createElement("li");
         keyPop.classList.add("keyPop");
@@ -267,7 +267,7 @@ class MainContent {
 
         let keyState = document.createElement("li");
         keyState.classList.add("keyState");
-        keyState.innerText = "State: ";
+        keyState.innerText = "State";
         ul.appendChild(keyState);
         let keyPop = document.createElement("li");
         keyPop.classList.add("keyPop");
@@ -276,7 +276,7 @@ class MainContent {
       }
       let stateName = document.createElement("li");
       stateName.classList.add("item", "itemName");
-      stateName.innerText = `${dataObject.states[i].stateName}:`;
+      stateName.innerText = `${dataObject.states[i].stateName}`;
       ul.appendChild(stateName);
       let statePop = document.createElement("li");
       statePop.classList.add("item", "itemPop");

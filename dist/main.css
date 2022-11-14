@@ -228,4 +228,5 @@ li.data-header {
 .keyState, .keyPop {
   color: #0099ff;
   flex: 50%;
+  padding-bottom: 6px;
 }
