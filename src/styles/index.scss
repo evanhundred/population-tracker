@@ -118,14 +118,22 @@ li.subheader {
 
 #thirdLine {
     padding-top: 5px;
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
 }
 
 .fetchResultSorted {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 }
 
 .fetchResultSorted li {
     text-align: center;
+    display: flex;
+}
+
+.sortLabel {
+    color: $border-color;
 }

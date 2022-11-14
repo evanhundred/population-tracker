@@ -195,9 +195,14 @@ li.subheader {
 .fetchResultSorted {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 .fetchResultSorted li {
   text-align: center;
+  display: flex;
+}
+
+.sortLabel {
+  color: #ff5050;
 }

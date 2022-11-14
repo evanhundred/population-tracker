@@ -210,14 +210,25 @@ class MainContent {
 
     for (let i = 0; i < dataObject.states.length; i++) {
       if (i === 0) {
-        let li = document.createElement("li");
-        li.innerText = dataHeader;
-        li.classList.add("data-header");
-        ul.appendChild(li);
-        li = document.createElement("li");
-        li.innerText = "State: Population";
-        li.classList.add("data-header", "subheader");
-        ul.appendChild(li);
+        let vintageLabel = document.createElement("li");
+        vintageLabel.innerText = dataHeader;
+        vintageLabel.classList.add("data-header");
+        ul.appendChild(vintageLabel);
+
+        let sortLabel = document.createElement("li");
+        sortLabel.innerText = "by name";
+        sortLabel.classList = "sortLabel";
+        ul.appendChild(sortLabel);
+
+        let keyLine = document.createElement("li");
+        keyLine.classList.add("data-header", "subheader");
+        ul.appendChild(keyLine);
+        let stateNameKey = document.createElement("div");
+        stateNameKey.innerText = "State: ";
+        keyLine.appendChild(stateNameKey);
+        let statePopKey = document.createElement("div");
+        statePopKey.innerText = "Population";
+        keyLine.appendChild(statePopKey);
       }
       let state = document.createElement("li");
       let stateName = document.createElement("div");
@@ -242,14 +253,25 @@ class MainContent {
 
     for (let i = 0; i < dataObject.states.length; i++) {
       if (i === 0) {
-        let li = document.createElement("li");
-        li.innerText = dataHeader;
-        li.classList.add("data-header");
-        ul.appendChild(li);
-        li = document.createElement("li");
-        li.innerText = "State: Population";
-        li.classList.add("data-header", "subheader");
-        ul.appendChild(li);
+        let vintageLabel = document.createElement("li");
+        vintageLabel.innerText = dataHeader;
+        vintageLabel.classList.add("data-header");
+        ul.appendChild(vintageLabel);
+
+        let sortLabel = document.createElement("li");
+        sortLabel.innerText = "by population";
+        sortLabel.classList = "sortLabel";
+        ul.appendChild(sortLabel);
+
+        let keyLine = document.createElement("li");
+        keyLine.classList.add("data-header", "subheader");
+        ul.appendChild(keyLine);
+        let stateNameKey = document.createElement("div");
+        stateNameKey.innerText = "State: ";
+        keyLine.appendChild(stateNameKey);
+        let statePopKey = document.createElement("div");
+        statePopKey.innerText = "Population";
+        keyLine.appendChild(statePopKey);
       }
       let li = document.createElement("li");
       li.innerText = `${dataObject.states[i].stateName}: ${dataObject.states[i].population}`;
