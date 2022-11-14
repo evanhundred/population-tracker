@@ -35,6 +35,8 @@ class MainContent {
     this.ele.appendChild(secondLine);
 
     let thirdLine = document.createElement("div");
+    thirdLine.setAttribute("id", "thirdLine");
+    this.ele.appendChild(thirdLine);
 
     let boundFetch2020 = this.fetch2020.bind(this);
     let boundFetch2010 = this.fetch2010.bind(this);
@@ -61,12 +63,13 @@ class MainContent {
     // debugger;
     this.dataObject = this.getData("2020");
     this.printData();
+    this.sortByName();
   }
 
   fetch2010() {
     this.dataObject = this.getData("2010");
     this.printData();
-    // this.sortByName();
+    this.sortByName();
   }
 
   printData() {
@@ -75,10 +78,11 @@ class MainContent {
       let dataUl = document.createElement("ul");
       dataUl.classList.add("fetchResultSorted");
       dataEl.appendChild(dataUl);
+      let thirdLine = document.getElementById("thirdLine");
       thirdLine.appendChild(dataEl);
       let firstLineFooter = document.createElement("h2");
       firstLineFooter.innerText = "data fetched!";
-      firstLine = document.getElementById("firstLine");
+      let firstLine = document.getElementById("firstLine");
       firstLine.after(firstLineFooter);
     }
 
@@ -94,8 +98,8 @@ class MainContent {
     ul.appendChild(li);
 
     let selectorDiv = document.getElementById("secondLine");
-    selectorDiv.replaceChild(ul, document.querySelector(".selectorUl"));
-    ul.classList.add("selectorUl");
+    selectorDiv.replaceChild(ul, document.querySelector(".sortSelectorUl"));
+    ul.classList.add("sortSelectorUl");
   }
 
   getData(vintage) {
