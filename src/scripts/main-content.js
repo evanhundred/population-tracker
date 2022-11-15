@@ -133,6 +133,8 @@ class MainContent {
     let dataBlock;
     let dataTitle;
     let url;
+    const fetch = require("node-fetch");
+
     if (vintage === "2020") {
       // debugger;
       url =
@@ -151,6 +153,17 @@ class MainContent {
       dataTitle = "2000 Census dataset";
     }
     // debugger;
+    fetch(url)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response is not OK.");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // what form do i need the data in?
+        // literal array
+      });
 
     const obj = {
       header: dataTitle,
