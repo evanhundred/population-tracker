@@ -121,6 +121,21 @@ class MainContent {
     ul.classList.add("sortSelectorUl");
   }
 
+  loadLocalData(vintage) {
+    let dataBlock;
+    if (vintage === "2020") {
+      // debugger;
+      dataBlock = require("/assets/territories-2020.json");
+    } else if (vintage === "2010") {
+      dataBlock = require("/assets/territories-2010.json");
+    } else if (vintage === "2000") {
+      dataBlock = require("/assets/territories-2000.json");
+    }
+    // debugger;
+    this.dataObject.localData = dataBlock;
+    // debugger;
+  }
+
   getData(vintage) {
     let dataBlock;
     let dataTitle;
@@ -152,7 +167,10 @@ class MainContent {
         this.dataObject = {
           header: dataTitle,
           data: dataBlock,
+          // localData ?
         };
+        // debugger;
+        this.loadLocalData(vintage);
         this.printData();
         if (this.sortStyle === "byName") {
           this.sortByName();
@@ -180,6 +198,15 @@ class MainContent {
         preSorted.states.push(newState);
       }
     });
+    // preSorted has been populated by fetched data via this.dataObject.data
+    // add local data to preSorted
+
+    this.dataObject.localData.forEach((row) => {
+      let newEntry = {};
+      newEntry.stateName = row[0];
+      newEntry.population = row[1];
+      preSorted.states.push(newEntry);
+    });
 
     let sorted = {};
     if (sortKey === "byName") {
@@ -189,6 +216,8 @@ class MainContent {
       sorted.states = this.objSortByPopulation(preSorted.states);
       sorted.header = this.dataObject.header;
     }
+
+    // sorted.states needs to have territories and totals by this point
 
     for (let i = 0; i < sorted.states.length; i++) {
       let popSource = sorted.states[i].population;
@@ -274,6 +303,11 @@ class MainContent {
       statePop.innerText = `${dataObject.states[i].population}`;
       ul.appendChild(statePop);
     }
+    // add territories
+  }
+
+  addTerritories() {
+    this.territories;
   }
 
   sortByPopulation() {

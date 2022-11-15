@@ -1,11 +1,9 @@
 [
-    ["NAME", "P1_001N", "state"],
-    ["Pennsylvania", "13002700", "42"],
-    ["Puerto Rico", "3,808,610"],
-    ["Guam", "154,805"],
-    ["U.S. Virgin Islands", ""],
-    ["American Samoa", "57,291"],
-    ["Northern Mariana Islands", "69,221"],
-    ["50 states + DC", "281,421,906"],
-    ["Total U.S. population", "285,620,761"]
+    ["Puerto Rico", "3808610"],
+    ["Guam", "154805"],
+    ["U.S. Virgin Islands", "108612"],
+    ["American Samoa", "57291"],
+    ["Northern Mariana Islands", "69221"],
+    ["50 states + DC", "281421906"],
+    ["Total U.S. population", "285620761"]
 ]
