@@ -132,18 +132,26 @@ class MainContent {
   getData(vintage) {
     let dataBlock;
     let dataTitle;
+    let url;
     if (vintage === "2020") {
       // debugger;
-      dataBlock = require("/assets/census-2020-P1001N.json");
+      url =
+        "https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2";
+      // dataBlock = require("/assets/census-2020-P1001N.json");
       dataTitle = "2020 Census dataset";
     } else if (vintage === "2010") {
-      dataBlock = require("/assets/census-2010-P1001N.json");
+      // dataBlock = require("/assets/census-2010-P1001N.json");
+      url =
+        "https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2";
       dataTitle = "2010 Census dataset";
     } else if (vintage === "2000") {
-      dataBlock = require("/assets/census-2000-P1001N.json");
+      url =
+        "https://api.census.gov/data/2000/dec/sf1?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2";
+      // dataBlock = require("/assets/census-2000-P1001N.json");
       dataTitle = "2000 Census dataset";
     }
     // debugger;
+
     const obj = {
       header: dataTitle,
       data: dataBlock,
