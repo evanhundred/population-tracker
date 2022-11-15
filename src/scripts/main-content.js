@@ -7,10 +7,18 @@ class MainContent {
     firstLine.setAttribute("id", "firstLine");
     this.ele.appendChild(firstLine);
 
+    let div = document.createElement("div");
+    div.setAttribute("id", "firstLineFooter");
+    this.ele.appendChild(div);
+    let firstLineFooterH2 = document.createElement("h2");
+    firstLineFooterH2.setAttribute("id", "firstLineFooterH2");
+    firstLineFooterH2.innerText = "";
+    div.appendChild(firstLineFooterH2);
+
     let h2 = document.createElement("h2");
     h2.innerText = "Fetch Vintage:";
     firstLine.appendChild(h2);
-    let div = document.createElement("div");
+    div = document.createElement("div");
     div.setAttribute("id", "vintageSelector");
     div.classList.add("firstLine");
     let ul = document.createElement("ul");
@@ -67,14 +75,20 @@ class MainContent {
   }
 
   fetch2020() {
+    let firstLineFooterH2 = document.getElementById("firstLineFooterH2");
+    firstLineFooterH2.innerText = "fetching...";
     this.getData("2020");
   }
 
   fetch2010() {
+    let firstLineFooterH2 = document.getElementById("firstLineFooterH2");
+    firstLineFooterH2.innerText = "fetching...";
     this.getData("2010");
   }
 
   fetch2000() {
+    let firstLineFooterH2 = document.getElementById("firstLineFooterH2");
+    firstLineFooterH2.innerText = "fetching...";
     this.getData("2000");
   }
 
@@ -86,12 +100,10 @@ class MainContent {
       dataEl.appendChild(dataUl);
       let thirdLine = document.getElementById("thirdLine");
       thirdLine.appendChild(dataEl);
-      let firstLineFooter = document.createElement("h2");
-      firstLineFooter.setAttribute("id", "firstLineFooter");
-      firstLineFooter.innerText = "data fetched!";
-      let firstLine = document.getElementById("firstLine");
-      firstLine.after(firstLineFooter);
     }
+
+    let firstLineFooterH2 = document.getElementById("firstLineFooterH2");
+    firstLineFooterH2.innerText = "data fetched!";
 
     let ul = document.createElement("ul");
     let li = document.createElement("li");
@@ -135,10 +147,8 @@ class MainContent {
     const request = new XMLHttpRequest();
 
     request.addEventListener("readystatechange", () => {
-      // console.log(request, request.readyState);
       if (request.readyState === 4 && request.status === 200) {
         dataBlock = JSON.parse(request.responseText);
-        // console.log(request.responseText);
         this.dataObject = {
           header: dataTitle,
           data: dataBlock,
