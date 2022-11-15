@@ -8,7 +8,6 @@ class MainContent {
     this.ele.appendChild(firstLine);
 
     let h2 = document.createElement("h2");
-    // h2.classList.add("fetchData");
     h2.innerText = "Fetch Vintage:";
     firstLine.appendChild(h2);
     let div = document.createElement("div");
@@ -68,34 +67,15 @@ class MainContent {
   }
 
   fetch2020() {
-    // debugger;
-    this.dataObject = this.getData("2020");
-    this.printData();
-    if (this.sortStyle === "byName") {
-      this.sortByName();
-    } else if (this.sortStyle === "byPop") {
-      this.sortByPopulation();
-    }
+    this.getData("2020");
   }
 
   fetch2010() {
-    this.dataObject = this.getData("2010");
-    this.printData();
-    if (this.sortStyle === "byName") {
-      this.sortByName();
-    } else if (this.sortStyle === "byPop") {
-      this.sortByPopulation();
-    }
+    this.getData("2010");
   }
 
   fetch2000() {
-    this.dataObject = this.getData("2000");
-    this.printData();
-    if (this.sortStyle === "byName") {
-      this.sortByName();
-    } else if (this.sortStyle === "byPop") {
-      this.sortByPopulation();
-    }
+    this.getData("2000");
   }
 
   printData() {
@@ -133,7 +113,6 @@ class MainContent {
     let dataBlock;
     let dataTitle;
     let url;
-    const fetch = require("node-fetch");
 
     if (vintage === "2020") {
       // debugger;
@@ -152,30 +131,36 @@ class MainContent {
       // dataBlock = require("/assets/census-2000-P1001N.json");
       dataTitle = "2000 Census dataset";
     }
-    // debugger;
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response is not OK.");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // what form do i need the data in?
-        // literal array
-      });
 
-    const obj = {
-      header: dataTitle,
-      data: dataBlock,
-    };
-    return obj;
+    const request = new XMLHttpRequest();
+
+    request.addEventListener("readystatechange", () => {
+      // console.log(request, request.readyState);
+      if (request.readyState === 4 && request.status === 200) {
+        dataBlock = JSON.parse(request.responseText);
+        // console.log(request.responseText);
+        this.dataObject = {
+          header: dataTitle,
+          data: dataBlock,
+        };
+        this.printData();
+        if (this.sortStyle === "byName") {
+          this.sortByName();
+        } else if (this.sortStyle === "byPop") {
+          this.sortByPopulation();
+        }
+      }
+    });
+
+    request.open("GET", url);
+    request.send();
   }
 
   sortData(sortKey) {
     const preSorted = {};
     preSorted.header = this.dataObject.header;
     preSorted.states = [];
+    // debugger;
     this.dataObject.data.forEach((row) => {
       if (row[0] !== "NAME") {
         let newState = {};

@@ -28,6 +28,7 @@
     "core-js": "^3.26.0",
     "css-loader": "^6.7.1",
     "mini-css-extract-plugin": "^2.6.1",
+    "node-fetch": "^3.3.0",
     "regenerator-runtime": "^0.13.10",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
