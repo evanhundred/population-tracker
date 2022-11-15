@@ -3,3 +3,4 @@ ignore/
 .vscode/
 .DS_Store
 dist/
+assets/.DS_Store

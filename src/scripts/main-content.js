@@ -174,7 +174,7 @@ class MainContent {
     this.dataObject.data.forEach((row) => {
       if (row[0] !== "NAME") {
         let newState = {};
-        newState.stateId = row[2];
+        // newState.stateId = row[2];
         newState.stateName = row[0];
         newState.population = row[1];
         preSorted.states.push(newState);
