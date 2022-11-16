@@ -150,11 +150,15 @@ li.data-header {
     padding-bottom: 6px;
 }
 
-.listSubFooter, .listFooter {
+.fiftyPlusDC, .totalUS, .totalTerr {
     color: $header-color;
     font-size: 16px;
 }
 
-.listSubFooter {
+.totalTerr {
     padding-top: 6px;
+}
+
+#footer {
+    height: 100px;
 }
