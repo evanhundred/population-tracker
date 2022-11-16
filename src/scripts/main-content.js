@@ -335,7 +335,9 @@ class MainContent {
     ul.appendChild(totalUSPop);
 
     let footerContent = document.getElementById("footer-container");
-    footerContent.id = "footer-container-shrunk";
+    if (!!footerContent) {
+      footerContent.id = "footer-container-shrunk";
+    }
   }
 
   sortByPopulation() {
@@ -390,24 +392,24 @@ class MainContent {
         ul.appendChild(statePop);
       } else if (dataObject.states[i].stateName === "50 states + DC") {
         fiftyPlusDCName = document.createElement("li");
-        fiftyPlusDCName.classList.add("item", "itemName", "listSubFooter");
+        fiftyPlusDCName.classList.add("item", "itemName", "fiftyPlusDC");
         fiftyPlusDCName.innerText = `${dataObject.states[i].stateName}`;
         fiftyPlusDCPop = document.createElement("li");
-        fiftyPlusDCPop.classList.add("item", "itemPop", "listSubFooter");
+        fiftyPlusDCPop.classList.add("item", "itemPop", "fiftyPlusDC");
         fiftyPlusDCPop.innerText = `${dataObject.states[i].population}`;
       } else if (dataObject.states[i].stateName === "Total U.S. population") {
         totalUSName = document.createElement("li");
-        totalUSName.classList.add("item", "itemName", "listFooter");
+        totalUSName.classList.add("item", "itemName", "totalUS");
         totalUSName.innerText = `${dataObject.states[i].stateName}`;
         totalUSPop = document.createElement("li");
-        totalUSPop.classList.add("item", "itemPop", "listFooter");
+        totalUSPop.classList.add("item", "itemPop", "totalUS");
         totalUSPop.innerText = `${dataObject.states[i].population}`;
       } else if (dataObject.states[i].stateName === "Total territories") {
         totalTerrName = document.createElement("li");
-        totalTerrName.classList.add("item", "itemName", "listFooter");
+        totalTerrName.classList.add("item", "itemName", "totalTerr");
         totalTerrName.innerText = `${dataObject.states[i].stateName}`;
         totalTerrPop = document.createElement("li");
-        totalTerrPop.classList.add("item", "itemPop", "listFooter");
+        totalTerrPop.classList.add("item", "itemPop", "totalTerr");
         totalTerrPop.innerText = `${dataObject.states[i].population}`;
       }
     }
@@ -419,7 +421,9 @@ class MainContent {
     ul.appendChild(totalUSPop);
 
     let footerContent = document.getElementById("footer-container");
-    footerContent.id = "footer-container-shrunk";
+    if (!!footerContent) {
+      footerContent.id = "footer-container-shrunk";
+    }
   }
 }
 
