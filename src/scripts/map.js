@@ -1,9 +1,11 @@
 import StateData from "/assets/states-albers-10m.json";
+import State from "./state";
+// import
 
 class Map {
   constructor() {
     this.renderMap();
-    this.populationData = main.getData();
+    // this.populationData = main.getData();
   }
 
   renderMap() {

@@ -173,8 +173,8 @@ class MainContent {
       }
     });
 
-    request.open("GET", url);
-    request.send();
+    // request.open("GET", url);
+    // request.send();
   }
 
   sortData(sortKey) {
@@ -334,8 +334,13 @@ class MainContent {
     ul.appendChild(totalUSName);
     ul.appendChild(totalUSPop);
 
-    let footerContent = document.getElementById("footer-container");
-    footerContent.id = "footer-container-shrunk";
+    // if (!!footerContent) {
+    //   if (footerContent === "footer-container") {
+    //     footerContent.id = "footer-container-shrunk";
+    //   }
+    // }
+    // let footerContent = document.getElementById("footer-container");
+    // footerContent.id = "footer-container-shrunk";
   }
 
   sortByPopulation() {
@@ -418,8 +423,8 @@ class MainContent {
     ul.appendChild(totalUSName);
     ul.appendChild(totalUSPop);
 
-    let footerContent = document.getElementById("footer-container");
-    footerContent.id = "footer-container-shrunk";
+    // let footerContent = document.getElementById("footer-container");
+    // footerContent.id = "footer-container-shrunk";
   }
 }
 

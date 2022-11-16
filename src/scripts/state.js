@@ -7,3 +7,5 @@ class State {
 
   addPopulationClass() {}
 }
+
+export default State;
