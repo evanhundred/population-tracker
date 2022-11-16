@@ -160,5 +160,23 @@ li.data-header {
 }
 
 #footer {
-    height: 100px;
+    font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
+    color: $color;
+
+}
+
+#footer-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 475px;
+
+}
+
+#footer-container-shrunk {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    height: 50px;
+
 }

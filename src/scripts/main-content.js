@@ -333,6 +333,9 @@ class MainContent {
     ul.appendChild(fiftyPlusDCPop);
     ul.appendChild(totalUSName);
     ul.appendChild(totalUSPop);
+
+    let footerContent = document.getElementById("footer-container");
+    footerContent.id = "footer-container-shrunk";
   }
 
   sortByPopulation() {
@@ -414,6 +417,9 @@ class MainContent {
     ul.appendChild(fiftyPlusDCPop);
     ul.appendChild(totalUSName);
     ul.appendChild(totalUSPop);
+
+    let footerContent = document.getElementById("footer-container");
+    footerContent.id = "footer-container-shrunk";
   }
 }
 
