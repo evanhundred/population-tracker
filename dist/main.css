@@ -249,7 +249,7 @@ li.data-header {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  height: 469px;
+  height: 50px;
 }
 
 #footer-container-shrunk {
@@ -262,4 +262,8 @@ li.data-header {
 #footer-content {
   color: #003366;
   padding: 6px;
+}
+
+.state {
+  stroke: white;
 }

@@ -1,30 +1,38 @@
+import StateData from "/assets/states-albers-10m.json";
+
 class Map {
   constructor() {
     this.renderMap();
+    this.populationData = main.getData();
   }
 
   renderMap() {
-    let projection = d3.geoMercator().scale(140);
-    let path = d3.geoPath(projection);
-    let svg = d3.select("map");
-    svg.append("svg");
-    svg.attr("width", 900).attr("height", 600);
+    // console.log("renderMap");
+    // let projection = d3.geoPath().scale(140);
+    let path = d3.geoPath();
+    let svg = d3
+      .select("#map")
+      .append("svg")
+      .attr("width", 1000)
+      .attr("height", 600);
     let g = svg.append("g");
-    d3.json(
-      "https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json"
-    ).then((data) => {
-      let countries = topojson.feature(data, data.objects.countries);
+    // d3.json("https://d3js.org/us-10m.v1.json").then((data) => {
+    let states = topojson.feature(StateData, StateData.objects.states);
+    debugger;
+    console.log(StateData);
 
-      g.selectAll("path")
-        .data(countries.features)
-        .enter()
-        .append("path")
-        .attr("class", "country")
-        .attr("d", path);
+    g.selectAll("path")
+      .data(states.features)
+      .enter()
+      .append("path")
+      .attr("class", "state")
+      .attr("d", path);
+    // });
+
+    d3.selectAll(".state")._groups[0].forEach((state) => {
+      new State(state);
     });
   }
 }
-
-// const map = document.getElementById("map")
 
 export default Map;
