@@ -18,7 +18,7 @@ class Map {
     let g = svg.append("g");
     // d3.json("https://d3js.org/us-10m.v1.json").then((data) => {
     let states = topojson.feature(StateData, StateData.objects.states);
-    debugger;
+    // debugger;
     console.log(StateData);
 
     g.selectAll("path")
