@@ -267,3 +267,23 @@ li.data-header {
 .state {
   stroke: white;
 }
+
+.under1m {
+  fill: blue;
+}
+
+.under3m {
+  fill: lightseagreen;
+}
+
+.under6m {
+  fill: red;
+}
+
+.under9m {
+  fill: greenyellow;
+}
+
+.over9m {
+  fill: green;
+}

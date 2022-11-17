@@ -3,9 +3,27 @@ import State from "./state";
 // import
 
 class Map {
-  constructor() {
+  constructor(data) {
     this.renderMap();
-    // this.populationData = main.getData();
+    this.styleMap(data);
+  }
+
+  styleMap(data) {
+    // debugger;
+    d3.selectAll(".state")._groups[0].forEach((ele) => {
+      let state = ele.__data__.properties.name;
+      if (data[state].population < 1000000) {
+        ele.classList.add("under1m");
+      } else if (data[state].population < 3000000) {
+        ele.classList.add("under3m");
+      } else if (data[state].population < 6000000) {
+        ele.classList.add("under6m");
+      } else if (data[state].population < 9000000) {
+        ele.classList.add("under9m");
+      } else {
+        ele.classList.add("over9m");
+      }
+    }); // nodeList of path els
   }
 
   renderMap() {
