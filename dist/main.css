@@ -532,3 +532,7 @@ p#legend-title {
   font-size: 18px;
   padding-top: 17px;
 }
+
+p#given img {
+  height: 1000px;
+}
