@@ -12,6 +12,16 @@ PT creates a simple graphical interface to display population data in the United
 
 Initial presentation of data is current population by state and region. The viewer can change which data is displayed by changing a few parameters, including what year the data is from, and related data points such as age.
 
+## Wireframe
+
+![wireframe](./assets/wireframe.png)
+
+- About and instructions modal displays under page header.
+- Year selector displays census year options for dataset to getch.
+- State list populates, and may be sorted by name or population by clicking sort type selector.
+- Map renders states to show relative population, with color legend displayed above.
+- Footer links include the my Github and LinkedIn.
+
 ## Functionality and MVPs
 
 In Population Tracker, users are able to:
@@ -169,24 +179,16 @@ class Map {
 
 In addition, this project includes:
 
-- A **user instructions** modal giving simple instructions for use, and explanation of relevance
+- An **about** and **user instructions** modal giving simple instructions for use, and explanation of relevance
 - A **legend** showing how population is represented by color
 - A production README
-
-## Wireframe
-
-![wireframe](./assets/wireframe.png)
-
-- Footer links include the my Github and LinkedIn.
-
-- On the right side, options selectors will allow the user to filter results by year, age, median income and country of origin
-- Also on the right, there will be links to display pre-selected data sets
 
 ## Technologies, Libraries, APIs
 
 This project will be implemented with the following technologies:
 
 - D3.js to render map and data
+- U.S. Census API: [https://www.census.gov/data/developers/data-sets/decennial-census.html](https://www.census.gov/data/developers/data-sets/decennial-census.html)
 - Webpack to bundle and transpile JavaScript code
 - npm to manage project dependencies
 
