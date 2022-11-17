@@ -23,6 +23,18 @@ When year is selected, PT will fetch live U.S. Census Data.
 ![getData1](./assets/snapshots/getData1.png)
 ![getData2](./assets/snapshots/getData2.png)
 
+```
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "age": 25
+}
+```
+
+A list of states and territories appears. It can be sorted either by name or by population.
+
+![list](./assets/snapshots/list.png)
+
 - See census data populated on a U.S. map
 - Adjust year, age, ethnicity, country of origin
 - View sample data group renderings

@@ -293,7 +293,12 @@ li.data-header {
   color: #ff5050;
 }
 
+#instructions {
+  width: 700px;
+}
+
 #instructions p {
+  font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
   color: #003366;
   padding: 4px;
   text-align: center;
