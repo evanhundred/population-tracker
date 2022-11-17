@@ -27,14 +27,10 @@ When year is selected, PT will fetch live U.S. Census Data.
 ![getData1](./assets/snapshots/getData1.png)
 ![getData2](./assets/snapshots/getData2.png)
 
-It will chop up the fetched JSON into state objects that can be fed into the map
+in sortData(), It will chop up the fetched JSON into state objects that can be fed into the map:
 
 ```javascript
   sortData(sortKey) {
-    const preSorted = {};
-    preSorted.header = this.dataObject.header;
-    preSorted.states = [];
-    // debugger;
     this.dataObject.data.forEach((row) => {
       if (row[0] !== "NAME") {
         let newState = {};
@@ -46,56 +42,84 @@ It will chop up the fetched JSON into state objects that can be fed into the map
         population: row[1],
       };
     });
+  }
+```
 
-    this.dataObject.localData.forEach((row) => {
-      // ;
-      let newEntry = {};
-      newEntry.stateName = row[0];
-      newEntry.population = row[1];
-      preSorted.states.push(newEntry);
+...as well as an array of states, which will be sorted and printed to the list.
+
+From there, the states array is sorted:
+
+```javascript
+  objSortByName(obj) {
+    let sorted = obj.sort((a, b) => {
+      if (a.stateName < b.stateName) return -1;
+      if (a.stateName > b.stateName) return 1;
+      return 0;
     });
 
-    let sorted = {};
-    sorted = preSorted;
-    if (sortKey === "byName") {
-      sorted.states = this.objSortByName(preSorted.states);
-      // sorted.header = this.dataObject.header;
-    } else if (sortKey === "byPopulation") {
-      sorted.states = this.objSortByPopulation(preSorted.states);
-      // sorted.header = this.dataObject.header;
-    }
+    return sorted;
+  }
 
-    for (let i = 0; i < sorted.states.length; i++) {
-      let popSource = sorted.states[i].population;
-
-      if (typeof popSource === "number") {
-        popSource = parseInt(popSource);
-      }
-
-      let arrayedPop = popSource.split("");
-      let count = 0;
-      let commaPop = [];
-      while (arrayedPop.length > 0) {
-        if (count === 3) {
-          commaPop.push(",");
-          count = 0;
-        }
-        commaPop.push(arrayedPop.pop());
-        count++;
-      }
-      let resultPop = commaPop.reverse().join("");
-      sorted.states[i].population = resultPop;
-    }
-
-    for (let key in sorted) {
-      this.dataObject[key] = sorted[key];
-    }
+  objSortByPopulation(obj) {
+    let sorted = obj.sort((b, a) => {
+      if (parseInt(a.population) < parseInt(b.population)) return -1;
+      if (parseInt(a.population) > parseInt(b.population)) return 1;
+      return 0;
+    });
 
     return sorted;
   }
 ```
 
-, as well as an array of states, which will be sorted and printed to the list.
+Finally, the map is rendered, and styled.
+
+```javascript
+class Map {
+  constructor(data) {
+    this.renderMap();
+    this.styleMap(data);
+  }
+
+  renderMap() {
+    let path = d3.geoPath();
+    let svg = d3
+      .select("#map")
+      .append("svg")
+      .attr("width", 1000)
+      .attr("height", 600);
+    let g = svg.append("g");
+    let states = topojson.feature(StateData, StateData.objects.states);
+
+    g.selectAll("path")
+      .data(states.features)
+      .enter()
+      .append("path")
+      .attr("class", "state")
+      .attr("d", path);
+
+    d3.selectAll(".state")._groups[0].forEach((state) => {
+      new State(state);
+    });
+  }
+
+  styleMap(data) {
+    d3.selectAll(".state")._groups[0].forEach((ele) => {
+      let state = ele.__data__.properties.name;
+      if (data[state].population < 1000000) {
+        ele.classList.add("under1m");
+      } else if (data[state].population < 3000000) {
+        ele.classList.add("under3m");
+      } else if (data[state].population < 6000000) {
+        ele.classList.add("under6m");
+      } else if (data[state].population < 9000000) {
+        ele.classList.add("under9m");
+      } else {
+        ele.classList.add("over9m");
+      }
+    });
+  }
+}
+```
 
 In addition, this project includes:
 
