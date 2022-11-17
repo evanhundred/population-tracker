@@ -22,7 +22,7 @@ In Population Tracker, users are able to:
 
 ![chooseVintage](./assets/snapshots/showSite.gif)
 
-When year is selected, PT will fetch live U.S. Census Data.
+When year is selected, PT will fetch live U.S. Census Data:
 
 ```javascript
 getData(vintage) {
@@ -72,9 +72,6 @@ getData(vintage) {
     request.send();
   }
 ```
-
-![getData1](./assets/snapshots/getData1.png)
-![getData2](./assets/snapshots/getData2.png)
 
 in sortData(), It will chop up the fetched JSON into state objects that can be fed into the map:
 
@@ -173,11 +170,12 @@ class Map {
 In addition, this project includes:
 
 - A **user instructions** modal giving simple instructions for use, and explanation of relevance
+- A **legend** showing how population is represented by color
 - A production README
 
 ## Wireframe
 
-![wireframe](https://github.com/evanhundred/js_project/blob/main/wireframe.png)
+![wireframe](./assets/wireframe.png)
 
 - Footer links include the my Github and LinkedIn.
 
