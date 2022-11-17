@@ -505,10 +505,6 @@ span.under50m {
   color: #ff5050;
 }
 
-#instructions {
-  width: 700px;
-}
-
 #instructions p, #legend-div {
   font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
   color: #003366;
