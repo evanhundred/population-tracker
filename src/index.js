@@ -2,6 +2,9 @@ import TitleSplash from "./scripts/title_splash";
 import MainContent from "./scripts/main-content";
 import Footer from "./scripts/footer";
 import Map from "./scripts/map";
+import Fetcher from "./scripts/fetcher";
+
+window.fetcher = Fetcher;
 
 document.addEventListener("DOMContentLoaded", () => {
   const title = document.getElementById("title");
@@ -11,5 +14,6 @@ document.addEventListener("DOMContentLoaded", () => {
   // debugger;
   const main = document.getElementById("main-content");
   new MainContent(main);
-  new Map();
+  // new Map();
+  // window.fetcher = new Fetcher();
 });

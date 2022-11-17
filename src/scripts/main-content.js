@@ -1,3 +1,6 @@
+import Map from "./map";
+import Fetcher from "./fetcher";
+
 class MainContent {
   constructor(ele) {
     this.ele = ele;
@@ -55,10 +58,23 @@ class MainContent {
     let boundFetch2000 = this.fetch2000.bind(this);
     let boundSortByName = this.sortByName.bind(this);
     let boundSortByPopulation = this.sortByPopulation.bind(this);
+    // let boundNewMap = this.newMap();
+
+    // method : fetch but not render
+    // use Fetcher class
+    // boundFetch2000();
+    let fetcher = new Fetcher();
+    fetcher.getData("2020");
+
+    const that = this;
+    // that.dataObject = fetcher.dataObject;
 
     document.addEventListener("click", function (e) {
       let eventTarget = e.target;
-
+      let map = document.querySelector("map");
+      if (!!map) {
+        map.remove();
+      }
       if (eventTarget.classList.contains("2020")) {
         boundFetch2020();
       } else if (eventTarget.classList.contains("2010")) {
@@ -70,8 +86,21 @@ class MainContent {
       } else if (eventTarget.classList.contains("sortByPopulation")) {
         boundSortByPopulation();
       }
+      // debugger;
+      // let dataObj = that.dataObject;
+      if (!that.dataObject) {
+        new Map(fetcher.dataObject);
+      }
+      // } else {
+      //   let map = that.getElementById("map");
+      //   map.remove();
+      //   new Map(that.dataObject);
+      // }
+      console.log(that.dataObject);
     });
   }
+
+  // newMap() {}
 
   fetch2020() {
     let firstLineFooterH2 = document.getElementById("firstLineFooterH2");
@@ -154,15 +183,18 @@ class MainContent {
     }
 
     const request = new XMLHttpRequest();
-
+    // debugger;
     request.addEventListener("readystatechange", () => {
       if (request.readyState === 4 && request.status === 200) {
         dataBlock = JSON.parse(request.responseText);
+        // debugger;
         this.dataObject = {
           header: dataTitle,
           data: dataBlock,
         };
+        // debugger;
         // ;
+        // let dataObject;
         this.loadLocalData(vintage);
         this.printData();
         if (this.sortStyle === "byName") {
@@ -170,6 +202,14 @@ class MainContent {
         } else if (this.sortStyle === "byPop") {
           this.sortByPopulation();
         }
+        // this.loadLocalData(vintage);
+        // this.printData();
+        // if (this.sortStyle === "byName") {
+        //   this.sort
+        //   this.dataObject = this.sortData("byName");
+        // } else if (this.sortStyle === "byPop") {
+        //   this.dataObject = this.sortData("byPop");
+        // }
       }
     });
 
@@ -181,6 +221,7 @@ class MainContent {
     const preSorted = {};
     preSorted.header = this.dataObject.header;
     preSorted.states = [];
+    // debugger;
     this.dataObject.data.forEach((row) => {
       if (row[0] !== "NAME") {
         let newState = {};
@@ -188,6 +229,9 @@ class MainContent {
         newState.population = row[1];
         preSorted.states.push(newState);
       }
+      preSorted[row[0]] = {
+        population: row[1],
+      };
     });
 
     this.dataObject.localData.forEach((row) => {
@@ -199,12 +243,13 @@ class MainContent {
     });
 
     let sorted = {};
+    sorted = preSorted;
     if (sortKey === "byName") {
       sorted.states = this.objSortByName(preSorted.states);
-      sorted.header = this.dataObject.header;
+      // sorted.header = this.dataObject.header;
     } else if (sortKey === "byPopulation") {
       sorted.states = this.objSortByPopulation(preSorted.states);
-      sorted.header = this.dataObject.header;
+      // sorted.header = this.dataObject.header;
     }
 
     for (let i = 0; i < sorted.states.length; i++) {
@@ -229,6 +274,14 @@ class MainContent {
       sorted.states[i].population = resultPop;
     }
 
+    for (let key in sorted) {
+      this.dataObject[key] = sorted[key];
+    }
+
+    // sorted.forEach((key) => {
+    //   this.dataObject[key] = sorted[key];
+    // });
+    // this.dataObject = sorted;
     return sorted;
   }
 
@@ -335,9 +388,7 @@ class MainContent {
     ul.appendChild(totalUSPop);
 
     let footerContent = document.getElementById("footer-container");
-    if (!!footerContent) {
-      footerContent.id = "footer-container-shrunk";
-    }
+    footerContent.id = "footer-container-shrunk";
   }
 
   sortByPopulation() {
@@ -421,9 +472,7 @@ class MainContent {
     ul.appendChild(totalUSPop);
 
     let footerContent = document.getElementById("footer-container");
-    if (!!footerContent) {
-      footerContent.id = "footer-container-shrunk";
-    }
+    footerContent.id = "footer-container-shrunk";
   }
 }
 

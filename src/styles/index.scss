@@ -169,7 +169,8 @@ li.data-header {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    height: 469px;
+    // height: 469px;
+    height: 50px;
 }
 
 #footer-container-shrunk {
@@ -182,4 +183,33 @@ li.data-header {
 #footer-content {
     color:#003366;
     padding: 6px;
+}
+
+// svg {
+//     background-color: $color;
+// }
+
+.state {
+    stroke: white;
+}
+
+// .state.hovered {
+//     fill: red;
+// }
+
+.under1m {
+    fill: blue;
+}
+
+.under3m {
+    fill: lightseagreen;
+}
+.under6m {
+    fill: red;
+}
+.under9m {
+    fill: greenyellow;
+}
+.over9m {
+    fill: green;
 }
