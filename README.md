@@ -18,6 +18,11 @@ In Population Tracker, users are able to:
 
 ![chooseVintage](./assets/snapshots/chooseVintage.png)
 
+When year is selected, PT will fetch live U.S. Census Data.
+
+![getData1](./assets/snapshots/getData1.png)
+![getData2](./assets/snapshots/getData2.png)
+
 - See census data populated on a U.S. map
 - Adjust year, age, ethnicity, country of origin
 - View sample data group renderings

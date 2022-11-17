@@ -9,30 +9,10 @@ class MainContent {
     let instructions = document.createElement("header");
     instructions.setAttribute("id", "instructions");
     let text =
-      '<p>Welcome to Population Tracker.</p><p>The U.S. Census Bureau provides access to its results <a href="https://www.census.gov/programs-surveys/decennial-census/about/rdo/summary-files.html">data</a>.</p><p>Population Tracker focuses on the Decennial (10-year) population survey.</p><p>Select a year from the options below. A colorful representation of the population data will render. Below it will be a simple list, which can be organized by name or population.</p>';
+      '<p>Welcome to Population Tracker.</p><p>The U.S. Census Bureau provides access to its results <a href="https://www.census.gov/programs-surveys/decennial-census/about/rdo/summary-files.html">data</a>.</p><p>Population Tracker focuses on the Decennial (10-year) population survey.</p><p>Select a year from the options below. A colorful representation of the population data will render. Below it will be a simple list, which can be organized by name or population.</p><p>legend:</p><p><span class="nums">1 - 1 million: blue</span><span class="nums">1 - 3 million: red</span><span class="nums">3-6 million: green</span><span class="nums">6-10 million: purple<span class="nums">10-20 million:orange</span><span class="nums">20-39+ million: black</span></p>';
     instructions.innerHTML = text;
 
-    // let fs = require("fs");
-    // let textByLine;
-    // fs.readFile("./assets/instructions/text.txt", function (text) {
-    //   textByLine = text.split("</p><p>>");
-    // });
-
-    // instructions.innerText = textByLine;
     this.ele.appendChild(instructions);
-    // let text = require("./assets/instructions/text.txt");
-    // let text = require("")
-    //   .readFileSync("./assets/instructions/text.txt")
-    //   .toString("utf-8");
-
-    // text.readFile("./assets/instructions/text.txt", function (myText) {
-    //   let textByLine = myText.split("</p><p>>");
-    // });
-    // instructions.innerText = text;
-
-    // fetch("./assets/instructions/text.txt")
-    //   .then((response) => response.text())
-    //   .then((text) => (instructions.innerText = text.toString()));
 
     let firstLine = document.createElement("div");
     firstLine.setAttribute("id", "firstLine");
@@ -221,8 +201,6 @@ class MainContent {
           data: dataBlock,
         };
         // debugger;
-        // ;
-        // let dataObject;
         this.loadLocalData(vintage);
         this.printData();
         if (this.sortStyle === "byName") {
@@ -230,14 +208,6 @@ class MainContent {
         } else if (this.sortStyle === "byPop") {
           this.sortByPopulation();
         }
-        // this.loadLocalData(vintage);
-        // this.printData();
-        // if (this.sortStyle === "byName") {
-        //   this.sort
-        //   this.dataObject = this.sortData("byName");
-        // } else if (this.sortStyle === "byPop") {
-        //   this.dataObject = this.sortData("byPop");
-        // }
       }
     });
 
