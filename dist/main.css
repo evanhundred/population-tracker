@@ -269,24 +269,244 @@ li.data-header {
   stroke: white;
 }
 
+.under50k {
+  fill: #191970;
+}
+
+.under200k {
+  fill: #000080;
+}
+
+.under500k {
+  fill: #1434A4;
+}
+
 .under1m {
-  fill: blue;
+  fill: #00008B;
+}
+
+.under1p5m {
+  fill: #0047AB;
+}
+
+.under2m {
+  fill: #89CFF0;
+}
+
+.under2p5m {
+  fill: #00FFFF;
 }
 
 .under3m {
-  fill: lightseagreen;
+  fill: #0096FF;
+}
+
+.under3p5m {
+  fill: #6495ED;
+}
+
+.under4m {
+  fill: #00FFFF;
+}
+
+.under4p5m {
+  fill: blue;
+}
+
+.under5m {
+  fill: #5D3FD3;
+}
+
+.under5p5m {
+  fill: #BF40BF;
 }
 
 .under6m {
-  fill: red;
+  fill: blue;
+}
+
+.under6p5m {
+  fill: blue;
+}
+
+.under7m {
+  fill: blue;
+}
+
+.under7p5m {
+  fill: blue;
+}
+
+.under8m {
+  fill: blue;
 }
 
 .under9m {
-  fill: greenyellow;
+  fill: blue;
 }
 
-.over9m {
-  fill: green;
+.under10m {
+  fill: #800020;
+}
+
+.under11m {
+  fill: #770737;
+}
+
+.under12m {
+  fill: #DA70D6;
+}
+
+.under13m {
+  fill: #673147;
+}
+
+.under14m {
+  fill: #C3B1E1;
+}
+
+.under15m {
+  fill: #953553;
+}
+
+.under20m {
+  fill: #C21E56;
+}
+
+.under25m {
+  fill: #630330;
+}
+
+.under30m {
+  fill: #A42A04;
+}
+
+.under35m {
+  fill: #E34234;
+}
+
+.under50m {
+  fill: #FA5F55;
+}
+
+span.under50k {
+  color: #191970;
+}
+
+span.under200k {
+  color: #000080;
+}
+
+span.under500k {
+  color: #1434A4;
+}
+
+span.under1m {
+  color: #00008B;
+}
+
+span.under1p5m {
+  color: #0047AB;
+}
+
+span.under2m {
+  color: #89CFF0;
+}
+
+span.under2p5m {
+  color: #00FFFF;
+}
+
+span.under3m {
+  color: #0096FF;
+}
+
+span.under3p5m {
+  color: #6495ED;
+}
+
+span.under4m {
+  color: #00FFFF;
+}
+
+span.under4p5m {
+  color: blue;
+}
+
+span.under5m {
+  color: #5D3FD3;
+}
+
+span.under5p5m {
+  color: #BF40BF;
+}
+
+span.under6m {
+  color: blue;
+}
+
+span.under6p5m {
+  color: blue;
+}
+
+span.under7m {
+  color: blue;
+}
+
+span.under7p5m {
+  color: blue;
+}
+
+span.under8m {
+  color: blue;
+}
+
+span.under9m {
+  color: blue;
+}
+
+span.under10m {
+  color: #800020;
+}
+
+span.under11m {
+  color: #770737;
+}
+
+span.under12m {
+  color: #DA70D6;
+}
+
+span.under13m {
+  color: #673147;
+}
+
+span.under14m {
+  color: #C3B1E1;
+}
+
+span.under15m {
+  color: #953553;
+}
+
+span.under20m {
+  color: #C21E56;
+}
+
+span.under25m {
+  color: #630330;
+}
+
+span.under30m {
+  color: #A42A04;
+}
+
+span.under35m {
+  color: #E34234;
+}
+
+span.under50m {
+  color: #FA5F55;
 }
 
 #instructions a {
@@ -297,9 +517,25 @@ li.data-header {
   width: 700px;
 }
 
-#instructions p {
+#instructions p, #legend-div {
   font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
   color: #003366;
   padding: 4px;
   text-align: center;
+}
+
+#legend-box {
+  padding: 10px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+#legend-box span {
+  padding: 0 5px;
+}
+
+p#legend-title {
+  color: #003366;
+  font-size: 18px;
 }
