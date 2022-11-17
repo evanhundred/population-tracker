@@ -290,15 +290,15 @@ li.data-header {
 }
 
 .under3m {
-  fill: #0096FF;
+  fill: #20B2AA;
 }
 
 .under3p5m {
-  fill: #6495ED;
+  fill: #0096FF;
 }
 
 .under4m {
-  fill: #00FFFF;
+  fill: #6495ED;
 }
 
 .under4p5m {
@@ -306,11 +306,11 @@ li.data-header {
 }
 
 .under5m {
-  fill: #5D3FD3;
+  fill: #D8BFD8;
 }
 
 .under5p5m {
-  fill: #BF40BF;
+  fill: #C3B1E1;
 }
 
 .under6m {
@@ -318,15 +318,15 @@ li.data-header {
 }
 
 .under6p5m {
-  fill: #C3B1E1;
-}
-
-.under7m {
   fill: #BF40BF;
 }
 
+.under7m {
+  fill: #5D3FD3;
+}
+
 .under7p5m {
-  fill: #915F6D;
+  fill: #9370DB;
 }
 
 .under8m {
@@ -334,19 +334,19 @@ li.data-header {
 }
 
 .under9m {
-  fill: #9F2B68;
+  fill: #BA55D3;
 }
 
 .under10m {
-  fill: #800020;
+  fill: #BF40BF;
 }
 
 .under11m {
-  fill: #770737;
+  fill: #9F2B68;
 }
 
 .under12m {
-  fill: #DA70D6;
+  fill: #800020;
 }
 
 .under13m {
@@ -354,7 +354,7 @@ li.data-header {
 }
 
 .under14m {
-  fill: #C3B1E1;
+  fill: #C21E56;
 }
 
 .under15m {
@@ -362,11 +362,11 @@ li.data-header {
 }
 
 .under20m {
-  fill: #C21E56;
+  fill: #630330;
 }
 
 .under25m {
-  fill: #630330;
+  fill: #C21E56;
 }
 
 .under30m {
@@ -410,15 +410,15 @@ span.under2p5m {
 }
 
 span.under3m {
-  color: #0096FF;
+  color: #20B2AA;
 }
 
 span.under3p5m {
-  color: #6495ED;
+  color: #0096FF;
 }
 
 span.under4m {
-  color: #00FFFF;
+  color: #6495ED;
 }
 
 span.under4p5m {
@@ -426,11 +426,11 @@ span.under4p5m {
 }
 
 span.under5m {
-  color: #5D3FD3;
+  color: #D8BFD8;
 }
 
 span.under5p5m {
-  color: #BF40BF;
+  color: #C3B1E1;
 }
 
 span.under6m {
@@ -438,15 +438,15 @@ span.under6m {
 }
 
 span.under6p5m {
-  color: #C3B1E1;
-}
-
-span.under7m {
   color: #BF40BF;
 }
 
+span.under7m {
+  color: #5D3FD3;
+}
+
 span.under7p5m {
-  color: #915F6D;
+  color: #9370DB;
 }
 
 span.under8m {
@@ -454,19 +454,19 @@ span.under8m {
 }
 
 span.under9m {
-  color: #9F2B68;
+  color: #BA55D3;
 }
 
 span.under10m {
-  color: #800020;
+  color: #BF40BF;
 }
 
 span.under11m {
-  color: #770737;
+  color: #9F2B68;
 }
 
 span.under12m {
-  color: #DA70D6;
+  color: #800020;
 }
 
 span.under13m {
@@ -474,7 +474,7 @@ span.under13m {
 }
 
 span.under14m {
-  color: #C3B1E1;
+  color: #C21E56;
 }
 
 span.under15m {
@@ -482,11 +482,11 @@ span.under15m {
 }
 
 span.under20m {
-  color: #C21E56;
+  color: #630330;
 }
 
 span.under25m {
-  color: #630330;
+  color: #C21E56;
 }
 
 span.under30m {
