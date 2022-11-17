@@ -16,7 +16,7 @@ In Population Tracker, users are able to:
 
 - Choose which year of census data to populate map
 
-![chooseVintage](./assets/snapshots/chooseVintage.png)
+![chooseVintage](./assets/snapshots/showSite.gif)
 
 When year is selected, PT will fetch live U.S. Census Data.
 
