@@ -8,7 +8,7 @@ Live deployment on [GitHub pages](https://evanhundred.github.io/population-track
 
 ## Description
 
-PT creates a simple graphical interface to display population data in the United States. Data is sourced via US Census Bureau (census.gov).
+PT creates a simple graphical interface to display population data in the United States. Data is sourced via [US Census Bureau](https://www.census.gov/data/developers/data-sets/decennial-census.html).
 
 Initial presentation of data is current population by state and region. The viewer can change which data is displayed by changing a few parameters, including what year the data is from, and related data points such as age.
 
