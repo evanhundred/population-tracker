@@ -1,3 +1,6 @@
+/*!****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/reset.css ***!
+  \****************************************************************************************************/
 /***
     The new CSS reset - version 1.7.3 (last updated 7.8.2022)
     GitHub page: https://github.com/elad2412/the-new-css-reset
@@ -82,11 +85,14 @@ meter {
     -webkit-user-drag: element;
 }
 
-body{background-color:#fff;font-family:inherit}div#header,main,#main-content{display:flex;flex-direction:column;justify-content:center;align-items:center}#title{margin:0 auto}#main-content{display:flex}#main-content,#title{font-family:"Andale Mono","Roboto Mono",monospace,sans-serif;color:#93f;margin:0 auto;max-width:800px}#title>h1{border:5px solid #ff5050;border-radius:40px 10px;padding:20px;margin:30px;font-size:35px;font-weight:800}#title>h1 span{font-weight:800}#firstLine{display:flex;align-items:center;justify-content:space-between;gap:10px}#firstLine h2{font-size:20px;font-weight:800}#vintageSelector{padding-top:2px;color:#ff5050;font-size:18px}ul.vintageUl{display:flex}.vintageUl>li{padding:0 10px}#firstLineFooter{padding:8px;color:#09f}#main-content>data{color:#036;padding:10px 30px;font-size:16px}li.data-header{color:#09f;font-size:20px;font-weight:800;padding:5px 0;flex:100%}.sortSelectorUl{display:flex;width:350px;justify-content:space-between;padding:5px 0}.sortSelectorUl li{color:#ff5050;font-size:18px}#thirdLine{padding-top:5px}.fetchResultSorted{display:flex;flex-direction:row;justify-content:space-between;flex-wrap:wrap}.data-header,.sortLabel{flex:100%;text-align:center}.sortLabel{color:#ff5050;padding-bottom:10px}.keyLine{padding:5px 0 15px;font-size:16px;flex:50%}.item{flex:50%}.itemName,.keyState{text-align:right;padding-right:5px}.itemPop,.keyPop{text-align:left;padding-left:5px}.keyState,.keyPop{color:#09f;flex:50%;padding-bottom:6px}.fiftyPlusDC,.totalUS,.totalTerr{color:#09f;font-size:16px}.totalTerr{padding-top:6px}#footer{font-family:"Andale Mono","Roboto Mono",monospace,sans-serif;color:#93f}#footer-container{display:flex;justify-content:flex-end;align-items:flex-end;height:469px}#footer-container-shrunk{display:flex;justify-content:flex-end;align-items:flex-end;height:50px}#footer-content{color:#036;padding:6px}
+/*!*************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
+  \*************************************************************************************************************************************/
+body {
+  background-color: #ffffff;
+  font-family: inherit;
+}
 
-<<<<<<< HEAD
-/*# sourceMappingURL=main.css.map*/
-=======
 div#header, main, #main-content {
   display: flex;
   flex-direction: column;
@@ -281,4 +287,3 @@ li.data-header {
 .over9m {
   fill: green;
 }
->>>>>>> addMap
