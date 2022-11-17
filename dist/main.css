@@ -100,15 +100,7 @@ div#header, main, #main-content {
   align-items: center;
 }
 
-#title {
-  margin: 0 auto;
-}
-
-#main-content {
-  display: flex;
-}
-
-#main-content, #title {
+main, #title {
   font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
   color: #9933ff;
   margin: 0 auto;
@@ -202,7 +194,7 @@ li.data-header {
 }
 
 .sortLabel {
-  color: #ff5050;
+  color: #003366;
   padding-bottom: 10px;
 }
 
@@ -538,4 +530,5 @@ span.under50m {
 p#legend-title {
   color: #003366;
   font-size: 18px;
+  padding-top: 17px;
 }
