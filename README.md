@@ -4,8 +4,7 @@ What is the spectrum of population density, spread across our country? How has t
 
 Population Tracker seeks to answer these questions, and more. By fetching data from the census database for a range of years, PT displays an up-to-the-minute snapshot of the official numbers.
 
-Live deployment on GitHub pages.
-[GitHub pages](https://evanhundred.github.io/population-tracker)
+Live deployment on [GitHub pages](https://evanhundred.github.io/population-tracker).
 
 =
 
