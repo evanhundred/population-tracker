@@ -45,6 +45,7 @@ div#header, main, #main-content {
 }
 
 #firstLine {
+    padding-top: 10px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -212,4 +213,14 @@ li.data-header {
 }
 .over9m {
     fill: green;
+}
+
+#instructions a {
+    color: $border-color;
+}
+
+#instructions p {
+    color: $data-color;
+    padding: 4px;
+    text-align: center;
 }

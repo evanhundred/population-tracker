@@ -6,6 +6,34 @@ class MainContent {
     this.ele = ele;
     this.sortStyle = "byName";
 
+    let instructions = document.createElement("header");
+    instructions.setAttribute("id", "instructions");
+    let text =
+      '<p>Welcome to Population Tracker.</p><p>The U.S. Census Bureau provides access to its results <a href="https://www.census.gov/programs-surveys/decennial-census/about/rdo/summary-files.html">data</a>.</p><p>Population Tracker focuses on the Decennial (10-year) population survey.</p><p>Select a year from the options below. A colorful representation of the population data will render. Below it will be a simple list, which can be organized by name or population.</p>';
+    instructions.innerHTML = text;
+
+    // let fs = require("fs");
+    // let textByLine;
+    // fs.readFile("./assets/instructions/text.txt", function (text) {
+    //   textByLine = text.split("</p><p>>");
+    // });
+
+    // instructions.innerText = textByLine;
+    this.ele.appendChild(instructions);
+    // let text = require("./assets/instructions/text.txt");
+    // let text = require("")
+    //   .readFileSync("./assets/instructions/text.txt")
+    //   .toString("utf-8");
+
+    // text.readFile("./assets/instructions/text.txt", function (myText) {
+    //   let textByLine = myText.split("</p><p>>");
+    // });
+    // instructions.innerText = text;
+
+    // fetch("./assets/instructions/text.txt")
+    //   .then((response) => response.text())
+    //   .then((text) => (instructions.innerText = text.toString()));
+
     let firstLine = document.createElement("div");
     firstLine.setAttribute("id", "firstLine");
     this.ele.appendChild(firstLine);

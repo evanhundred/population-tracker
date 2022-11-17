@@ -1,0 +1,7 @@
+Welcome to Population Tracker.
+
+The U.S. Census Bureau provides access to its results <a href="https://www.census.gov/programs-surveys/decennial-census/about/rdo/summary-files.html">data</a>.
+
+Population Tracker focuses on the Decennial (10-year) population survey.
+
+Select a year from the options below. A colorful representation of the population data will render. Below it will be a simple list, which can be organized by name or population.
