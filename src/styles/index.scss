@@ -176,6 +176,19 @@ li.data-header {
 #footer-content {
     color:#003366;
     padding: 6px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+#footer-content p {
+    margin-right: 3px;
+}
+
+#footer-content img {
+    margin-top: 3px;
+    margin-left: 1px;
+    width: 14px;
 }
 
 // svg {
