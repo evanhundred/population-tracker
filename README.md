@@ -15,6 +15,8 @@ Initial presentation of data is current population by state and region. The view
 In Population Tracker, users are able to:
 
 - Choose which year of census data to populate map
+- A list of states and territories appears. It can be sorted either by name or by population.
+- See census data populated on a U.S. map
 
 ![chooseVintage](./assets/snapshots/showSite.gif)
 
@@ -31,18 +33,9 @@ When year is selected, PT will fetch live U.S. Census Data.
 }
 ```
 
-A list of states and territories appears. It can be sorted either by name or by population.
+In addition, this project includes:
 
-![list](./assets/snapshots/list.png)
-
-- See census data populated on a U.S. map
-- Adjust year, age, ethnicity, country of origin
-- View sample data group renderings
-- View data as change over time, or by year
-
-In addition, this project will include:
-
-- An **about** modal giving simple instructions for use, and explanation of relevance
+- A **user instructions** modal giving simple instructions for use, and explanation of relevance
 - A production README
 
 ## Wireframe
