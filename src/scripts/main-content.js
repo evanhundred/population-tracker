@@ -8,9 +8,6 @@ class MainContent {
 
     let instructions = document.createElement("header");
     instructions.setAttribute("id", "instructions");
-    // let text =
-    // '<p>Welcome to Population Tracker.</p><p>The U.S. Census Bureau provides access to its results <a href="https://www.census.gov/programs-surveys/decennial-census/about/rdo/summary-files.html">data</a>.</p><p>Population Tracker focuses on the Decennial (10-year) population survey.</p><p>Select a year from the options below. A colorful representation of the population data will render. Below it will be a simple list, which can be organized by name or population.</p><p>legend:</p><p><span class="nums">1 - 1 million: blue</span><span class="nums">1 - 3 million: red</span><span class="nums">3-6 million: green</span><span class="nums">6-10 million: purple<span class="nums">10-20 million:orange</span><span class="nums">20-39+ million: black</span></p>';
-    // instructions.innerHTML = text;
 
     this.ele.appendChild(instructions);
 
@@ -66,16 +63,10 @@ class MainContent {
     let boundFetch2000 = this.fetch2000.bind(this);
     let boundSortByName = this.sortByName.bind(this);
     let boundSortByPopulation = this.sortByPopulation.bind(this);
-    // let boundNewMap = this.newMap();
-
-    // method : fetch but not render
-    // use Fetcher class
-    // boundFetch2000();
     let fetcher = new Fetcher();
     fetcher.getData("2020");
 
     const that = this;
-    // that.dataObject = fetcher.dataObject;
 
     document.addEventListener("click", function (e) {
       let eventTarget = e.target;
