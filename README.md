@@ -175,9 +175,7 @@ In addition, this project includes:
 
 ## Wireframe
 
-<p float="left">
 ![wireframe](./assets/wireframe.png)
-</p>
 
 - Footer links include the my Github and LinkedIn.
 
