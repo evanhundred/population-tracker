@@ -155,7 +155,6 @@ li.data-header {
 #footer {
     font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
     color: $color;
-
 }
 
 #footer-container {
@@ -181,27 +180,15 @@ li.data-header {
     gap: 4px;
 }
 
-#footer-content p {
-    margin-right: 3px;
-}
-
 #footer-content img {
     margin-top: 3px;
-    margin-left: 1px;
-    width: 14px;
+    margin-left: 6px;
+    width: 18px;
 }
-
-// svg {
-//     background-color: $color;
-// }
 
 .state {
     stroke: white;
 }
-
-// .state.hovered {
-//     fill: red;
-// }
 
 .under50k {
     fill: #191970;
@@ -245,25 +232,25 @@ li.data-header {
     fill: #C3B1E1;
 }
 .under6m {
-    fill: #DA70D6;
+    fill: #9370DB;
+
 }
 .under6p5m {
-    fill: #BF40BF;
+    fill: #5D3FD3;;
+
 }
 .under7m {
+    fill: #DA70D6;
 
-    fill: #5D3FD3;
 }
 .under7p5m {
+    fill: #BF40BF;
 
-    fill: #9370DB;
 }
 .under8m {
-
     fill: #DA70D6;
 }
 .under9m {
-
     fill: #BA55D3;
 }
 .under10m {
@@ -344,22 +331,21 @@ span.under5p5m {
     color: #C3B1E1;
 }
 span.under6m {
-    color: #DA70D6;
+    color: #9370DB;
 }
 span.under6p5m {
-    color: #BF40BF;
-}
-span.under7m {
     color: #5D3FD3;
 }
+span.under7m {
+    color: #DA70D6;
+}
 span.under7p5m {
-    color: #9370DB;
+    color: #BF40BF;
 }
 span.under8m {
     color: #DA70D6;
 }
 span.under9m {
-
     color: #BA55D3;
 }
 span.under10m {

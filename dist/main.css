@@ -260,14 +260,10 @@ li.data-header {
   gap: 4px;
 }
 
-#footer-content p {
-  margin-right: 3px;
-}
-
 #footer-content img {
   margin-top: 3px;
-  margin-left: 1px;
-  width: 14px;
+  margin-left: 6px;
+  width: 18px;
 }
 
 .state {
@@ -327,19 +323,19 @@ li.data-header {
 }
 
 .under6m {
-  fill: #DA70D6;
+  fill: #9370DB;
 }
 
 .under6p5m {
-  fill: #BF40BF;
-}
-
-.under7m {
   fill: #5D3FD3;
 }
 
+.under7m {
+  fill: #DA70D6;
+}
+
 .under7p5m {
-  fill: #9370DB;
+  fill: #BF40BF;
 }
 
 .under8m {
@@ -447,19 +443,19 @@ span.under5p5m {
 }
 
 span.under6m {
-  color: #DA70D6;
+  color: #9370DB;
 }
 
 span.under6p5m {
-  color: #BF40BF;
-}
-
-span.under7m {
   color: #5D3FD3;
 }
 
+span.under7m {
+  color: #DA70D6;
+}
+
 span.under7p5m {
-  color: #9370DB;
+  color: #BF40BF;
 }
 
 span.under8m {
