@@ -270,10 +270,6 @@ class MainContent {
       this.dataObject[key] = sorted[key];
     }
 
-    // sorted.forEach((key) => {
-    //   this.dataObject[key] = sorted[key];
-    // });
-    // this.dataObject = sorted;
     return sorted;
   }
 
