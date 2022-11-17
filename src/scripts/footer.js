@@ -8,7 +8,7 @@ class Footer {
     let contentEl = document.createElement("div");
     contentEl.setAttribute("id", "footer-content");
     contentEl.innerHTML =
-      'ER 2022 <a href="https://github.com/evanhundred" target="_blank">gh</a>';
+      'ER 2022 <a href="https://github.com/evanhundred" target="_blank">gh</a> <a href="https://www.linkedin.com/in/evan-ryan-1a2b07131/" target="_blank">li</a>';
     container.appendChild(contentEl);
   }
 }

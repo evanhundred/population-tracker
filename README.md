@@ -6,9 +6,9 @@ Population Tracker seeks to answer these questions, and more. By fetching data f
 
 Live deployment on [GitHub pages](https://evanhundred.github.io/population-tracker).
 
-=
+## Description
 
-This app will create a simple graphical interface to display population data in the United States. Data is sourced via US Census Bureau (census.gov).
+PT creates a simple graphical interface to display population data in the United States. Data is sourced via US Census Bureau (census.gov).
 
 Initial presentation of data is current population by state and region. The viewer can change which data is displayed by changing a few parameters, including what year the data is from, and related data points such as age.
 
@@ -130,7 +130,8 @@ In addition, this project includes:
 
 ![wireframe](https://github.com/evanhundred/js_project/blob/main/wireframe.png)
 
-- Nav links include the projects Github repo, my LinkedIn, and the About modal
+- Footer links include the my Github and LinkedIn.
+
 - On the right side, options selectors will allow the user to filter results by year, age, median income and country of origin
 - Also on the right, there will be links to display pre-selected data sets
 
