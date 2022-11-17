@@ -1,14 +1,22 @@
 ## Population Tracker
 
-Population Tracker.
+What is the spectrum of population density, spread across our country? How has this changed over time? Where have people migrated to, where are people building society?
+
+Population Tracker seeks to answer these questions, and more. By fetching data from the census database for a range of years, PT displays an up-to-the-minute snapshot of the official numbers.
+
+=
 
 This app will create a simple graphical interface to display population data in the United States. Data is sourced via US Census Bureau (census.gov).
 
 Initial presentation of data is current population by state and region. The viewer can change which data is displayed by changing a few parameters, including what year the data is from, and related data points such as age.
 
-## Functionality
+## Functionality and MVPs
 
-In Population Tracker, users will be able to:
+In Population Tracker, users are able to:
+
+- Choose which year of census data to populate map
+
+![chooseVintage](./assets/snapshots/chooseVintage.png)
 
 - See census data populated on a U.S. map
 - Adjust year, age, ethnicity, country of origin
