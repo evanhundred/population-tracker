@@ -29,6 +29,8 @@ class Map {
   renderMap() {
     // console.log("renderMap");
     // let projection = d3.geoPath().scale(140);
+    // let prevMap = document.querySelectorAll(".state");
+    // prevMap.remove();
     let path = d3.geoPath();
     let svg = d3
       .select("#map")

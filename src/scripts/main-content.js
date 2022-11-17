@@ -71,7 +71,10 @@ class MainContent {
 
     document.addEventListener("click", function (e) {
       let eventTarget = e.target;
-
+      let map = document.querySelector("map");
+      if (!!map) {
+        map.remove();
+      }
       if (eventTarget.classList.contains("2020")) {
         boundFetch2020();
       } else if (eventTarget.classList.contains("2010")) {
@@ -87,9 +90,12 @@ class MainContent {
       // let dataObj = that.dataObject;
       if (!that.dataObject) {
         new Map(fetcher.dataObject);
-      } else {
-        new Map(that.dataObject);
       }
+      // } else {
+      //   let map = that.getElementById("map");
+      //   map.remove();
+      //   new Map(that.dataObject);
+      // }
       console.log(that.dataObject);
     });
   }
