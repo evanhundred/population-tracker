@@ -21,15 +21,14 @@ class TitleSplash {
 
   handleClick(e) {
     let eventTarget = e.target;
+    let titleH1 = document.querySelector("#title h1");
     if (eventTarget.classList.contains("egg")) {
       if (this.textStyle === "normal") {
         this.textStyle = "spooky";
-        this.ele.children[0].innerHTML =
-          "..pOpUl<span class='egg'>A</span>tIoN tRaCkEr...";
+        titleH1.innerHTML = "..pOpUl<span class='egg'>A</span>tIoN tRaCkEr...";
       } else {
         this.textStyle = "normal";
-        this.ele.children[0].innerHTML =
-          "Population Track<span class='egg'>e</span>r";
+        titleH1.innerHTML = "Population Track<span class='egg'>e</span>r";
       }
     }
   }
