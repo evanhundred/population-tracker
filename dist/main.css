@@ -93,7 +93,30 @@ body {
   font-family: inherit;
 }
 
-div#header, main, #main-content {
+div#header {
+  display: flex;
+}
+
+#personal > div {
+  display: flex;
+  position: absolute;
+  top: calc(1% + 0px);
+  right: 0px;
+  padding-right: 16px;
+  align-items: center;
+  gap: 4px;
+}
+
+#personal img {
+  margin-left: 6px;
+  width: 18px;
+}
+
+#personal p {
+  margin-top: -3px;
+}
+
+main, #main-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -233,7 +256,7 @@ li.data-header {
   padding-top: 6px;
 }
 
-#footer {
+#footer, #personal {
   font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
   color: #9933ff;
 }
@@ -252,7 +275,8 @@ li.data-header {
   height: 50px;
 }
 
-#footer-content {
+#footer-content,
+#personal {
   color: #003366;
   padding: 6px;
   display: flex;
@@ -359,15 +383,15 @@ li.data-header {
 }
 
 .under13m {
-  fill: #673147;
+  fill: #953553;
 }
 
 .under14m {
-  fill: #C21E56;
+  fill: #673147;
 }
 
 .under15m {
-  fill: #953553;
+  fill: #5E0B0B;
 }
 
 .under20m {
@@ -479,15 +503,15 @@ span.under12m {
 }
 
 span.under13m {
-  color: #673147;
+  color: #953553;
 }
 
 span.under14m {
-  color: #C21E56;
+  color: #673147;
 }
 
 span.under15m {
-  color: #953553;
+  color: #5E0B0B;
 }
 
 span.under20m {

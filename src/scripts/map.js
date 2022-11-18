@@ -1,11 +1,14 @@
 import StateData from "/assets/states-albers-10m.json";
 import State from "./state";
+import Footer from "./footer";
 // import
 
 class Map {
   constructor(data) {
     this.renderMap();
     this.styleMap(data);
+    const footer = document.getElementById("footer");
+    new Footer(footer);
   }
 
   styleMap(data) {
@@ -77,10 +80,6 @@ class Map {
   }
 
   renderMap() {
-    // console.log("renderMap");
-    // let projection = d3.geoPath().scale(140);
-    // let prevMap = document.querySelectorAll(".state");
-    // prevMap.remove();
     let path = d3.geoPath();
     let svg = d3
       .select("#map")

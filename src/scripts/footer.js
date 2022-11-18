@@ -14,5 +14,3 @@ class Footer {
 }
 
 export default Footer;
-
-// 'ER 2022 <a href="https://github.com/evanhundred" target="_blank">gh</a> <a href="https://www.linkedin.com/in/evan-ryan-1a2b07131/" target="_blank">li</a>';
