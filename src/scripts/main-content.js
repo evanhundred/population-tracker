@@ -71,20 +71,39 @@ class MainContent {
     document.addEventListener("click", function (e) {
       let eventTarget = e.target;
       let map = document.querySelector("map");
-      if (!!map) {
-        map.remove();
-      }
-      // debugger;
-      if (!that.dataObject) {
-        new Map(fetcher.dataObject);
-      }
-      console.log(that.dataObject);
+      // if (!!map) {
+      //   map.remove();
+      // }
+      // if (!that.dataObject) {
+      //   new Map(fetcher.dataObject);
+      // }
+      // console.log(that.dataObject);
+      // if (eventTarget.classList.contatins("egg")) {
+      // }
       if (eventTarget.classList.contains("2020")) {
         boundFetch2020();
+        if (!!map) {
+          map.remove();
+        }
+        if (!that.dataObject) {
+          new Map(fetcher.dataObject);
+        }
       } else if (eventTarget.classList.contains("2010")) {
         boundFetch2010();
+        if (!!map) {
+          map.remove();
+        }
+        if (!that.dataObject) {
+          new Map(fetcher.dataObject);
+        }
       } else if (eventTarget.classList.contains("2000")) {
         boundFetch2000();
+        if (!!map) {
+          map.remove();
+        }
+        if (!that.dataObject) {
+          new Map(fetcher.dataObject);
+        }
       } else if (eventTarget.classList.contains("sortByName")) {
         boundSortByName();
       } else if (eventTarget.classList.contains("sortByPopulation")) {
