@@ -125,10 +125,14 @@ ul.vintageUl {
     color: $header-color;
 }
 
-// #map {
+#map {
     // margin: auto;
-// }
-// d
+    // display: relative;
+    // box-sizing: border-box;
+    position:relative;
+    margin-left: 0;
+}
+
 
 #main-content > data {
     color: $data-color;
