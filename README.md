@@ -57,18 +57,16 @@ getData(vintage) {
     }
 
     const request = new XMLHttpRequest();
-    // debugger;
+
     request.addEventListener("readystatechange", () => {
       if (request.readyState === 4 && request.status === 200) {
         dataBlock = JSON.parse(request.responseText);
-        // debugger;
+
         this.dataObject = {
           header: dataTitle,
           data: dataBlock,
         };
-        // debugger;
-        // ;
-        // let dataObject;
+
         this.loadLocalData(vintage);
         if (this.sortStyle === "byName") {
           this.dataObject = this.sortData("byName");

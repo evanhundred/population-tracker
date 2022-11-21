@@ -1,3 +1,5 @@
+import MainContent from "./main-content";
+
 class Fetcher {
   constructor() {
     this.sortStyle = "byName";
@@ -9,7 +11,6 @@ class Fetcher {
   }
 
   getData(vintage) {
-    debugger;
     let dataBlock;
     let dataTitle;
     let url;
@@ -31,16 +32,15 @@ class Fetcher {
     }
 
     const request = new XMLHttpRequest();
-    // debugger;
+    // ;
     request.addEventListener("readystatechange", () => {
       if (request.readyState === 4 && request.status === 200) {
         dataBlock = JSON.parse(request.responseText);
-        debugger;
         this.dataObject = {
           header: dataTitle,
           data: dataBlock,
         };
-        // debugger;
+        // ;
         // ;
         // let dataObject;
         this.loadLocalData(vintage);
@@ -49,6 +49,7 @@ class Fetcher {
         } else if (this.sortStyle === "byPop") {
           this.dataObject = this.sortData("byPop");
         }
+        new Map(dataObject);
       }
     });
 

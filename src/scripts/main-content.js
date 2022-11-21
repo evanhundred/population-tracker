@@ -72,8 +72,10 @@ class MainContent {
     let boundSortByName = this.sortByName.bind(this);
     let boundSortByPopulation = this.sortByPopulation.bind(this);
     let fetcher = new Fetcher();
+    // ;
     fetcher.getData("2020");
 
+    // ;
     const that = this;
 
     document.addEventListener("click", function (e) {
@@ -90,35 +92,37 @@ class MainContent {
       // }
       if (eventTarget.classList.contains("2020")) {
         boundFetch2020();
-        fetcher.getData("2020");
-        // debugger;
         if (!!map) {
           map.remove();
         }
-        if (!that.dataObject) {
-          new Map(fetcher.dataObject);
-        }
+        fetcher.getData("2020");
+
+        // if (!that.dataObject) {
+        //   new Map(fetcher.dataObject);
+        // }
       } else if (eventTarget.classList.contains("2010")) {
         boundFetch2010();
-        fetcher.getData("2010");
-        // debugger;
         if (!!map) {
           map.remove();
         }
-        if (!that.dataObject) {
-          new Map(fetcher.dataObject);
-        }
+        fetcher.getData("2010");
+
+        // if (!that.dataObject) {
+        //   new Map(fetcher.dataObject);
+        // }
       } else if (eventTarget.classList.contains("2000")) {
         boundFetch2000();
-        fetcher.getData("2000");
-        // debugger;
         if (!!map) {
           map.remove();
         }
-        if (!that.dataObject) {
-          debugger;
-          new Map(fetcher.dataObject);
-        }
+        fetcher.getData("2000");
+        // if (!that.dataObject) {
+        //   new Map(fetcher.dataObject);
+        // }
+        // if (true) {
+        // ;
+        // fetcher.getData("2000").then(new Map(fetcher.dataObject));
+        // }
       } else if (eventTarget.classList.contains("sortByName")) {
         boundSortByName();
       } else if (eventTarget.classList.contains("sortByPopulation")) {
@@ -210,16 +214,13 @@ class MainContent {
     }
 
     const request = new XMLHttpRequest();
-    // debugger;
     request.addEventListener("readystatechange", () => {
       if (request.readyState === 4 && request.status === 200) {
         dataBlock = JSON.parse(request.responseText);
-        // debugger;
         this.dataObject = {
           header: dataTitle,
           data: dataBlock,
         };
-        // debugger;
         this.loadLocalData(vintage);
         this.printData();
         if (this.sortStyle === "byName") {
@@ -238,7 +239,6 @@ class MainContent {
     const preSorted = {};
     preSorted.header = this.dataObject.header;
     preSorted.states = [];
-    // debugger;
     this.dataObject.data.forEach((row) => {
       if (row[0] !== "NAME") {
         let newState = {};
@@ -364,7 +364,6 @@ class MainContent {
         // ;
         let stateName = document.createElement("li");
         stateName.classList.add("item", "itemName");
-        // debugger;
         addPopClass.addClass(dataObject.states[i], stateName);
         stateName.innerText = `${dataObject.states[i].stateName}`;
         ul.appendChild(stateName);
@@ -456,7 +455,6 @@ class MainContent {
         // ;
         let stateName = document.createElement("li");
         stateName.classList.add("item", "itemName");
-        // debugger;
         addPopClass.addClass(dataObject.states[i], stateName);
         stateName.innerText = `${dataObject.states[i].stateName}`;
         ul.appendChild(stateName);
