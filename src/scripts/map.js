@@ -14,6 +14,7 @@ class Map {
   styleMap(data) {
     // debugger;
     d3.selectAll(".state")._groups[0].forEach((ele) => {
+      ele.classList.remove(...ele.classList);
       let state = ele.__data__.properties.name;
       if (data[state].population < 50000) {
         ele.classList.add("under50k");

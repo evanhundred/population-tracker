@@ -91,6 +91,7 @@ class MainContent {
       if (eventTarget.classList.contains("2020")) {
         boundFetch2020();
         fetcher.getData("2020");
+        // debugger;
         if (!!map) {
           map.remove();
         }
@@ -100,6 +101,7 @@ class MainContent {
       } else if (eventTarget.classList.contains("2010")) {
         boundFetch2010();
         fetcher.getData("2010");
+        // debugger;
         if (!!map) {
           map.remove();
         }
@@ -109,10 +111,12 @@ class MainContent {
       } else if (eventTarget.classList.contains("2000")) {
         boundFetch2000();
         fetcher.getData("2000");
+        // debugger;
         if (!!map) {
           map.remove();
         }
         if (!that.dataObject) {
+          debugger;
           new Map(fetcher.dataObject);
         }
       } else if (eventTarget.classList.contains("sortByName")) {

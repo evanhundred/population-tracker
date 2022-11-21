@@ -9,6 +9,7 @@ class Fetcher {
   }
 
   getData(vintage) {
+    debugger;
     let dataBlock;
     let dataTitle;
     let url;
@@ -34,7 +35,7 @@ class Fetcher {
     request.addEventListener("readystatechange", () => {
       if (request.readyState === 4 && request.status === 200) {
         dataBlock = JSON.parse(request.responseText);
-        // debugger;
+        debugger;
         this.dataObject = {
           header: dataTitle,
           data: dataBlock,
