@@ -2,7 +2,6 @@ class AddPopClass {
   constructor() {}
 
   addClass(state, stateEle) {
-    // debugger;
     stateEle.classList.add(this.findPopClass(state.population));
   }
 
