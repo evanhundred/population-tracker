@@ -126,11 +126,10 @@ ul.vintageUl {
 }
 
 #map {
-    // margin: auto;
-    // display: relative;
-    // box-sizing: border-box;
-    position:relative;
-    margin-left: 0;
+    width: 100vw;
+    position: relative;
+    left: calc(-50vw + 50%);
+
 }
 
 
