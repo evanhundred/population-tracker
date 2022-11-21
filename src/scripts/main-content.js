@@ -80,46 +80,22 @@ class MainContent {
 
     document.addEventListener("click", function (e) {
       let eventTarget = e.target;
-      // debugger;
       let map = document.getElementById("map");
-      // if (!!map) {
-      //   map.remove();
-      // }
-      // if (!that.dataObject) {
-      //   new Map(fetcher.dataObject);
-      // }
-      // console.log(that.dataObject);
-      // if (eventTarget.classList.contatins("egg")) {
-      // }
+
       if (eventTarget.classList.contains("2020")) {
-        // debugger;
         boundFetch2020();
         if (!!map) {
           that.ele.replaceChild(that.newMap(), map);
-          // map.remove();
         }
         fetcher.getData("2020");
         new Map(fetcher.dataObject);
-        // new Map(fetcher.dataObject);
-
-        // if (!that.dataObject) {
-        //   new Map(fetcher.dataObject);
-        // }
       } else if (eventTarget.classList.contains("2010")) {
-        // debugger;
         boundFetch2010();
         if (!!map) {
           that.ele.replaceChild(that.newMap(), map);
-
-          // map.remove();
         }
         fetcher.getData("2010");
         new Map(fetcher.dataObject);
-        // new Map(fetcher.dataObject);
-
-        // if (!that.dataObject) {
-        //   new Map(fetcher.dataObject);
-        // }
       } else if (eventTarget.classList.contains("2000")) {
         // debugger;
         boundFetch2000();
@@ -127,18 +103,8 @@ class MainContent {
 
         if (!!map) {
           that.ele.replaceChild(that.newMap(), map);
-
-          // map.remove();
         }
         new Map(fetcher.dataObject);
-        // new Map(fetcher.dataObject);
-        // if (!that.dataObject) {
-        //   new Map(fetcher.dataObject);
-        // }
-        // if (true) {
-        // ;
-        // fetcher.getData("2000").then(new Map(fetcher.dataObject));
-        // }
       } else if (eventTarget.classList.contains("sortByName")) {
         boundSortByName();
       } else if (eventTarget.classList.contains("sortByPopulation")) {
@@ -152,7 +118,6 @@ class MainContent {
     newMap.setAttribute("id", "map");
     return newMap;
   }
-  // newMap() {}
 
   fetch2020() {
     let firstLineFooterH2 = document.getElementById("firstLineFooterH2");
@@ -426,9 +391,6 @@ class MainContent {
     ul.appendChild(fiftyPlusDCPop);
     ul.appendChild(totalUSName);
     ul.appendChild(totalUSPop);
-
-    // let footerContent = document.getElementById("footer-container");
-    // footerContent.id = "footer-container-shrunk";
   }
 
   sortByPopulation() {
@@ -516,9 +478,6 @@ class MainContent {
     ul.appendChild(fiftyPlusDCPop);
     ul.appendChild(totalUSName);
     ul.appendChild(totalUSPop);
-
-    // let footerContent = document.getElementById("footer-container");
-    // footerContent.id = "footer-container-shrunk";
   }
 }
 

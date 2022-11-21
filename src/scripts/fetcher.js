@@ -41,18 +41,13 @@ class Fetcher {
           header: dataTitle,
           data: dataBlock,
         };
-        // ;
-        // ;
-        // let dataObject;
+
         this.loadLocalData(vintage);
         if (this.sortStyle === "byName") {
           this.dataObject = this.sortData("byName");
         } else if (this.sortStyle === "byPop") {
           this.dataObject = this.sortData("byPop");
         }
-        // debugger;
-        // new Map(this.dataObject);
-        // return this.dataObject;
       }
     });
 
