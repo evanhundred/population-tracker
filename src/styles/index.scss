@@ -70,6 +70,7 @@ main, #main-content {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    // gap: 5px;
 }
 
 main, #title {
@@ -129,9 +130,14 @@ ul.vintageUl {
     width: 100vw;
     position: relative;
     left: calc(-50vw + 50%);
-
+    margin: 20px 0;
 }
 
+// #secondLine {
+//     // margin-left: 8px;
+//     padding-top: 30px;
+//     // border-top: 8px transparent;
+// }
 
 #main-content > data {
     color: $data-color;
