@@ -248,186 +248,225 @@ li.data-header {
 
 .under50k {
     fill: $under50k;
+    color: $under50k;
 }
 .under200k {
     fill: $under200k;
+    color: $under200k;
 }
 .under500k {
     fill: $under500k;
+    color: $under500k;
 }
 .under1m {
     fill: $under1m ;
+    color: $under1m;
 }
 .under1p5m {
     fill: $under1p5m;
+    color: $under1p5m;
 }
 .under2m {
     fill: $under2m;
+    color: $under2m;
 }
 .under2p5m {
     fill: $under2p5m;
+    color: $under2p5m;
 }
 .under3m {
     fill: $under3m;
+    color: $under3m;
 }
 .under3p5m {
     fill: $under3p5m;
+    color: $under3p5m;
 }
 .under4m {
     fill: $under4m;
+    color: $under4m;
 }
 .under4p5m {
     fill: $under4p5m;
+    color: $under4p5m;
 }
 .under5m {
     fill: $under5m;
+    color: $under5m;
 }
 .under5p5m {
     fill: $under5p5m;
+    color: $under5p5m;
 }
 .under6m {
     fill: $under6m;
+    color: $under6m;
 }
 .under6p5m {
     fill: $under6p5m;
+    color: $under6p5m;
 
 }
 .under7m {
     fill: $under7m;
+    color: $under7m;
 }
 .under7p5m {
     fill: $under7p5m;
+    color: $under7p5m;
 }
 .under8m {
     fill: $under8m;
+    color: $under8m;
 }
 .under9m {
     fill: $under9m;
+    color: $under9m;
 }
 .under10m {
     fill: $under10m;
+    color: $under10m;
 }
 .under11m {
     fill: $under11m;
+    color: $under11m;
 }
 .under12m {
     fill: $under12m;
+    color: $under12m;
 }
 .under13m {
     fill: $under13m;
+    color: $under13m;
 }
 .under14m {
     fill: $under14m;
+    color: $under14m;
 }
 .under15m {
     fill: $under15m;
+    color: $under15m;
 }
 .under20m {
     fill: $under20m;
+    color: $under20m;
 }
 .under25m {
     fill: $under25m;
+    color: $under25m;
 }
 .under30m {
     fill: $under30m ;
+    color: $under30m ;
 }
 .under35m {
     fill: $under35m;
+    color: $under35m;
 }
 .under50m {
     fill: $under50m;
-}
-
-span.under50k {
-    color: $under50k;
-}
-span.under200k {
-    color: $under200k;
-}
-span.under500k {
-    color: $under500k;
-}
-span.under1m {
-    color: $under1m;
-}
-span.under1p5m {
-    color: $under1p5m;
-}
-span.under2m {
-    color: $under2m;
-}
-span.under2p5m {
-    color: $under2p5m;
-}
-span.under3m {
-    color: $under3m;
-}
-span.under3p5m {
-    color: $under3p5m;
-}
-span.under4m {
-    color: $under4m;
-}
-span.under4p5m {
-    color: $under4p5m;
-}
-span.under5m {
-    color: $under5m;
-}
-span.under5p5m {
-    color: $under5p5m;
-}
-span.under6m {
-    color: $under6m;
-}
-span.under6p5m {
-    color: $under6p5m;
-}
-span.under7m {
-    color: $under7m;
-}
-span.under7p5m {
-    color: $under7p5m;
-}
-span.under8m {
-    color: $under8m;
-}
-span.under9m {
-    color: $under9m;
-}
-span.under10m {
-    color: $under10m;
-}
-span.under11m {
-    color: $under11m;
-}
-span.under12m {
-    color: $under12m;
-}
-span.under13m {
-    color: $under13m;
-}
-span.under14m {
-    color: $under14m;
-}
-span.under15m {
-    color: $under15m;
-}
-span.under20m {
-    color: $under20m;
-}
-span.under25m {
-    color: $under25m;
-}
-span.under30m {
-    color: $under30m;
-}
-span.under35m {
-    color: $under35m;
-}
-span.under50m {
     color: $under50m;
 }
+
+// li.under50k,
+// span.under50k {
+//     color: $under50k;
+// }
+// li.under200k,
+// span.under200k {
+//     color: $under200k;
+// }
+// span.under500k,
+// li.under500k {
+//     color: $under500k;
+// }
+// li.under1m,
+// span.under1m {
+//     color: $under1m;
+// }
+// li.under1p5m,
+// span.under1p5m {
+//     color: $under1p5m;
+// }
+// li.under2m,
+// span.under2m {
+//     color: $under2m;
+// }
+// li.under2p5m,
+// span.under2p5m {
+//     color: $under2p5m;
+// }
+// li.under3m,
+// span.under3m {
+//     color: $under3m;
+// }
+// li.under3p5m,
+// span.under3p5m {
+//     color: $under3p5m;
+// }
+// span.under4m {
+//     color: $under4m;
+// }
+// span.under4p5m {
+//     color: $under4p5m;
+// }
+// span.under5m {
+//     color: $under5m;
+// }
+// span.under5p5m {
+//     color: $under5p5m;
+// }
+// span.under6m {
+//     color: $under6m;
+// }
+// span.under6p5m {
+//     color: $under6p5m;
+// }
+// span.under7m {
+//     color: $under7m;
+// }
+// span.under7p5m {
+//     color: $under7p5m;
+// }
+// span.under8m {
+//     color: $under8m;
+// }
+// span.under9m {
+//     color: $under9m;
+// }
+// span.under10m {
+//     color: $under10m;
+// }
+// span.under11m {
+//     color: $under11m;
+// }
+// span.under12m {
+//     color: $under12m;
+// }
+// span.under13m {
+//     color: $under13m;
+// }
+// span.under14m {
+//     color: $under14m;
+// }
+// span.under15m {
+//     color: $under15m;
+// }
+// span.under20m {
+//     color: $under20m;
+// }
+// span.under25m {
+//     color: $under25m;
+// }
+// span.under30m {
+//     color: $under30m;
+// }
+// span.under35m {
+//     color: $under35m;
+// }
+// span.under50m {
+//     color: $under50m;
+// }
 
 #instructions a {
     color: $border-color;

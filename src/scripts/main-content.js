@@ -1,6 +1,7 @@
+import AddPopClass from "./add-pop-class";
 import Map from "./map";
 import Fetcher from "./fetcher";
-import Legend from "./legend.js";
+import Legend from "./legend";
 
 class MainContent {
   constructor(ele) {
@@ -89,6 +90,7 @@ class MainContent {
       // }
       if (eventTarget.classList.contains("2020")) {
         boundFetch2020();
+        fetcher.getData("2020");
         if (!!map) {
           map.remove();
         }
@@ -97,6 +99,7 @@ class MainContent {
         }
       } else if (eventTarget.classList.contains("2010")) {
         boundFetch2010();
+        fetcher.getData("2010");
         if (!!map) {
           map.remove();
         }
@@ -105,6 +108,7 @@ class MainContent {
         }
       } else if (eventTarget.classList.contains("2000")) {
         boundFetch2000();
+        fetcher.getData("2000");
         if (!!map) {
           map.remove();
         }
@@ -311,6 +315,7 @@ class MainContent {
   }
 
   sortByName() {
+    let addPopClass = new AddPopClass();
     this.sortStyle = "byName";
     let dataObject = this.sortData("byName");
     // ;
@@ -355,10 +360,13 @@ class MainContent {
         // ;
         let stateName = document.createElement("li");
         stateName.classList.add("item", "itemName");
+        // debugger;
+        addPopClass.addClass(dataObject.states[i], stateName);
         stateName.innerText = `${dataObject.states[i].stateName}`;
         ul.appendChild(stateName);
         let statePop = document.createElement("li");
         statePop.classList.add("item", "itemPop");
+        addPopClass.addClass(dataObject.states[i], statePop);
         statePop.innerText = `${dataObject.states[i].population}`;
         ul.appendChild(statePop);
       } else if (dataObject.states[i].stateName === "50 states + DC") {
@@ -367,12 +375,14 @@ class MainContent {
         fiftyPlusDCName.innerText = `${dataObject.states[i].stateName}`;
         fiftyPlusDCPop = document.createElement("li");
         fiftyPlusDCPop.classList.add("item", "itemPop", "fiftyPlusDC");
+        addPopClass.addClass(dataObject.states[i], fiftyPlusDCPop);
         fiftyPlusDCPop.innerText = `${dataObject.states[i].population}`;
       } else if (dataObject.states[i].stateName === "Total U.S. population") {
         totalUSName = document.createElement("li");
         totalUSName.classList.add("item", "itemName", "totalUS");
         totalUSName.innerText = `${dataObject.states[i].stateName}`;
         totalUSPop = document.createElement("li");
+        addPopClass.addClass(dataObject.states[i], totalUSPop);
         totalUSPop.classList.add("item", "itemPop", "totalUS");
         totalUSPop.innerText = `${dataObject.states[i].population}`;
       } else if (dataObject.states[i].stateName === "Total territories") {
@@ -381,6 +391,7 @@ class MainContent {
         totalTerrName.innerText = `${dataObject.states[i].stateName}`;
         totalTerrPop = document.createElement("li");
         totalTerrPop.classList.add("item", "itemPop", "totalTerr");
+        addPopClass.addClass(dataObject.states[i], totalTerrPop);
         totalTerrPop.innerText = `${dataObject.states[i].population}`;
       }
     }
@@ -397,6 +408,7 @@ class MainContent {
   }
 
   sortByPopulation() {
+    let addPopClass = new AddPopClass();
     this.sortStyle = "byPop";
     let dataObject = this.sortData("byPopulation");
     let dataHeader = dataObject.header;
@@ -440,10 +452,13 @@ class MainContent {
         // ;
         let stateName = document.createElement("li");
         stateName.classList.add("item", "itemName");
+        // debugger;
+        addPopClass.addClass(dataObject.states[i], stateName);
         stateName.innerText = `${dataObject.states[i].stateName}`;
         ul.appendChild(stateName);
         let statePop = document.createElement("li");
         statePop.classList.add("item", "itemPop");
+        addPopClass.addClass(dataObject.states[i], statePop);
         statePop.innerText = `${dataObject.states[i].population}`;
         ul.appendChild(statePop);
       } else if (dataObject.states[i].stateName === "50 states + DC") {
@@ -452,12 +467,14 @@ class MainContent {
         fiftyPlusDCName.innerText = `${dataObject.states[i].stateName}`;
         fiftyPlusDCPop = document.createElement("li");
         fiftyPlusDCPop.classList.add("item", "itemPop", "fiftyPlusDC");
+        addPopClass.addClass(dataObject.states[i], fiftyPlusDCPop);
         fiftyPlusDCPop.innerText = `${dataObject.states[i].population}`;
       } else if (dataObject.states[i].stateName === "Total U.S. population") {
         totalUSName = document.createElement("li");
         totalUSName.classList.add("item", "itemName", "totalUS");
         totalUSName.innerText = `${dataObject.states[i].stateName}`;
         totalUSPop = document.createElement("li");
+        addPopClass.addClass(dataObject.states[i], totalUSPop);
         totalUSPop.classList.add("item", "itemPop", "totalUS");
         totalUSPop.innerText = `${dataObject.states[i].population}`;
       } else if (dataObject.states[i].stateName === "Total territories") {
@@ -466,6 +483,7 @@ class MainContent {
         totalTerrName.innerText = `${dataObject.states[i].stateName}`;
         totalTerrPop = document.createElement("li");
         totalTerrPop.classList.add("item", "itemPop", "totalTerr");
+        addPopClass.addClass(dataObject.states[i], totalTerrPop);
         totalTerrPop.innerText = `${dataObject.states[i].population}`;
       }
     }
