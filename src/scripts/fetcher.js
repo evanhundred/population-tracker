@@ -49,7 +49,7 @@ class Fetcher {
         } else if (this.sortStyle === "byPop") {
           this.dataObject = this.sortData("byPop");
         }
-        new Map(dataObject);
+        new Map(this.dataObject);
       }
     });
 
