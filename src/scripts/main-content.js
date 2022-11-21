@@ -1,5 +1,6 @@
 import Map from "./map";
 import Fetcher from "./fetcher";
+import Legend from "./legend.js";
 
 class MainContent {
   constructor(ele) {
@@ -46,9 +47,15 @@ class MainContent {
     li.classList.add("2000");
     ul.appendChild(li);
 
+    new Legend(this.ele);
+
+    let mapDiv = document.createElement("div");
+    mapDiv.setAttribute("id", "map");
+    this.ele.appendChild(mapDiv);
+
     let secondLine = document.createElement("div");
     secondLine.setAttribute("id", "secondLine");
-    ele.appendChild(secondLine);
+    this.ele.appendChild(secondLine);
     ul = document.createElement("ul");
     ul.classList.add("sortSelectorUl");
     secondLine.appendChild(ul);
