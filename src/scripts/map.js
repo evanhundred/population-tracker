@@ -5,10 +5,15 @@ import Footer from "./footer";
 
 class Map {
   constructor(data) {
+    // debugger;
     this.renderMap();
     this.styleMap(data);
     const footer = document.getElementById("footer");
+    while (footer.firstChild) {
+      footer.removeChild(footer.lastChild);
+    }
     new Footer(footer);
+    // if (!footer) new Footer(footer);
   }
 
   styleMap(data) {

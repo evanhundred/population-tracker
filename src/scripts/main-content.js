@@ -73,14 +73,15 @@ class MainContent {
     let boundSortByPopulation = this.sortByPopulation.bind(this);
     let fetcher = new Fetcher();
     // ;
-    fetcher.getData("2020");
+    fetcher.getData("2000");
 
     // ;
     const that = this;
 
     document.addEventListener("click", function (e) {
       let eventTarget = e.target;
-      let map = document.querySelector("map");
+      // debugger;
+      let map = document.getElementById("map");
       // if (!!map) {
       //   map.remove();
       // }
@@ -91,33 +92,45 @@ class MainContent {
       // if (eventTarget.classList.contatins("egg")) {
       // }
       if (eventTarget.classList.contains("2020")) {
+        // debugger;
         boundFetch2020();
         if (!!map) {
-          map.remove();
+          that.ele.replaceChild(that.newMap(), map);
+          // map.remove();
         }
-        fetcher.getData("2020").then(new Map(fetcher.dataObject));
+        fetcher.getData("2020");
+        new Map(fetcher.dataObject);
         // new Map(fetcher.dataObject);
 
         // if (!that.dataObject) {
         //   new Map(fetcher.dataObject);
         // }
       } else if (eventTarget.classList.contains("2010")) {
+        // debugger;
         boundFetch2010();
         if (!!map) {
-          map.remove();
+          that.ele.replaceChild(that.newMap(), map);
+
+          // map.remove();
         }
-        fetcher.getData("2010").then(new Map(fetcher.dataObject));
+        fetcher.getData("2010");
+        new Map(fetcher.dataObject);
         // new Map(fetcher.dataObject);
 
         // if (!that.dataObject) {
         //   new Map(fetcher.dataObject);
         // }
       } else if (eventTarget.classList.contains("2000")) {
+        // debugger;
         boundFetch2000();
+        fetcher.getData("2000");
+
         if (!!map) {
-          map.remove();
+          that.ele.replaceChild(that.newMap(), map);
+
+          // map.remove();
         }
-        fetcher.getData("2000").then(new Map(fetcher.dataObject));
+        new Map(fetcher.dataObject);
         // new Map(fetcher.dataObject);
         // if (!that.dataObject) {
         //   new Map(fetcher.dataObject);
@@ -134,6 +147,11 @@ class MainContent {
     });
   }
 
+  newMap() {
+    const newMap = document.createElement("div");
+    newMap.setAttribute("id", "map");
+    return newMap;
+  }
   // newMap() {}
 
   fetch2020() {
