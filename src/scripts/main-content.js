@@ -95,7 +95,8 @@ class MainContent {
         if (!!map) {
           map.remove();
         }
-        fetcher.getData("2020");
+        fetcher.getData("2020").then(new Map(fetcher.dataObject));
+        // new Map(fetcher.dataObject);
 
         // if (!that.dataObject) {
         //   new Map(fetcher.dataObject);
@@ -105,7 +106,8 @@ class MainContent {
         if (!!map) {
           map.remove();
         }
-        fetcher.getData("2010");
+        fetcher.getData("2010").then(new Map(fetcher.dataObject));
+        // new Map(fetcher.dataObject);
 
         // if (!that.dataObject) {
         //   new Map(fetcher.dataObject);
@@ -115,7 +117,8 @@ class MainContent {
         if (!!map) {
           map.remove();
         }
-        fetcher.getData("2000");
+        fetcher.getData("2000").then(new Map(fetcher.dataObject));
+        // new Map(fetcher.dataObject);
         // if (!that.dataObject) {
         //   new Map(fetcher.dataObject);
         // }

@@ -1,4 +1,5 @@
 import MainContent from "./main-content";
+import Map from "./map";
 
 class Fetcher {
   constructor() {
@@ -6,7 +7,7 @@ class Fetcher {
   }
 
   fetchData(vintage) {
-    getData(vintage);
+    this.getData(vintage);
     return this.dataObject;
   }
 
@@ -49,7 +50,9 @@ class Fetcher {
         } else if (this.sortStyle === "byPop") {
           this.dataObject = this.sortData("byPop");
         }
-        new Map(this.dataObject);
+        // debugger;
+        // new Map(this.dataObject);
+        // return this.dataObject;
       }
     });
 

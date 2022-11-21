@@ -78,6 +78,7 @@ class Map {
         ele.classList.add("under50m");
       }
     }); // nodeList of path els
+    // debugger;
   }
 
   renderMap() {
