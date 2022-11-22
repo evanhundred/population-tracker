@@ -91,6 +91,7 @@ meter {
 body {
   background-color: #ffffff;
   font-family: inherit;
+  margin: 0 auto;
 }
 
 div#header {
@@ -178,7 +179,7 @@ ul.vintageUl {
   width: 100vw;
   position: relative;
   left: calc(-50vw + 50%);
-  margin: 20px 0;
+  padding: 20px 0;
 }
 
 #main-content > data {

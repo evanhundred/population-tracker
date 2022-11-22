@@ -40,6 +40,18 @@ $under50m: #E0115F;
 body {
     background-color: $background-color;
     font-family: inherit;
+    // display: inline-flex;
+    // flex-direction: column;
+    // width: 100vw;
+    // left: calc(-50vw + 50%);
+
+    // display: inline-grid;
+    // grid-template-columns: repeat(auto-fit, 100px);
+    // min-width: 50vw;
+    // position: relative;
+    // left: 50vw;
+    // transform: translateX(-50%);
+    margin: 0 auto;
 }
 
 div#header {
@@ -71,6 +83,12 @@ main, #main-content {
     justify-content: center;
     align-items: center;
     // gap: 5px;
+    // display: inline-grid;
+    // grid-template-columns: repeat(auto-fit, 100px);
+    // min-width: 50vw;
+    // position: relative;
+    // left: 50vw;
+    // transform: translateX(-50%);
 }
 
 main, #title {
@@ -130,7 +148,8 @@ ul.vintageUl {
     width: 100vw;
     position: relative;
     left: calc(-50vw + 50%);
-    margin: 20px 0;
+    padding: 20px 0;
+    // margin: 20px 0;
 }
 
 // #secondLine {

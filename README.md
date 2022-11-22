@@ -30,7 +30,7 @@ In Population Tracker, users are able to:
 - A list of states and territories appears. It can be sorted either by name or by population.
 - See census data populated on a U.S. map
 
-![chooseVintage](./assets/snapshots/showSite.gif)
+![current site](./assets/snapshots/current-site.gif)
 
 When year is selected, PT will fetch live U.S. Census Data:
 
