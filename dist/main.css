@@ -91,7 +91,13 @@ meter {
 body {
   background-color: #ffffff;
   font-family: inherit;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   margin: 0 auto;
+  flex-basis: auto;
+  padding: 0 auto;
+  width: 100vw;
 }
 
 div#header {
@@ -178,8 +184,6 @@ ul.vintageUl {
 #map {
   width: 100vw;
   position: relative;
-  left: calc(-50vw + 50%);
-  padding: 20px 0;
 }
 
 #main-content > data {
@@ -461,6 +465,7 @@ li.data-header {
   color: #003366;
   padding: 4px;
   text-align: center;
+  width: 100vw;
 }
 
 #legend-box {
