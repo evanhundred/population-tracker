@@ -15,7 +15,7 @@ class TitleSplash {
     let contentEl = document.createElement("div");
     // contentEl.setAttribute("id", "personal");
     contentEl.innerHTML =
-      '<p>ER 2022</p><a href="https://github.com/evanhundred" target="_blank"><img src="./assets/logos/github.png" alt="gh"/></a> <a href="https://www.linkedin.com/in/evan-ryan-1a2b07131/" target="_blank"><img src="./assets/logos/linkedin.png" alt="li"/></a>';
+      '<p>ER 2023</p><a href="https://github.com/evanhundred" target="_blank"><img src="./assets/logos/github.png" alt="gh"/></a> <a href="https://www.linkedin.com/in/evan-ryan-1a2b07131/" target="_blank"><img src="./assets/logos/linkedin.png" alt="li"/></a>';
     document.getElementById("personal").appendChild(contentEl);
   }
 
