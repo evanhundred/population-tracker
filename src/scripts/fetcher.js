@@ -11,26 +11,38 @@ class Fetcher {
     return this.dataObject;
   }
 
+  vintageLabel(vintage) {
+    switch (vintage) {
+      case "2020":
+        vintageString = "2020/dec/pl";
+        dataTitle = "2020 Census dataset";
+        break;
+      case "2010":
+        vintageString = "2010/dec/pl";
+        dataTitle = "2010 Census dataset";
+        break;
+      case "2000":
+        vintageString = "2000/dec/sf1";
+        dataTitle = "2000 Census dataset";
+        break;
+      default:
+        break;
+    }
+    return vintage ? { vintageString, dataTitle } : {};
+  }
+
   getData(vintage) {
     let dataBlock;
-    let dataTitle;
-    let url;
-    if (vintage === "2020") {
-      url =
-        "https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2";
-      // dataBlock = require("/assets/census-2020-P1001N.json");
-      dataTitle = "2020 Census dataset";
-    } else if (vintage === "2010") {
-      // dataBlock = require("/assets/census-2010-P1001N.json");
-      url =
-        "https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2";
-      dataTitle = "2010 Census dataset";
-    } else if (vintage === "2000") {
-      url =
-        "https://api.census.gov/data/2000/dec/sf1?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2";
-      // dataBlock = require("/assets/census-2000-P1001N.json");
-      dataTitle = "2000 Census dataset";
-    }
+    // let dataTitle;
+    // let vintageString;
+
+    const GET_QUERY =
+      "?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2";
+    const API_DOMAIN_STRING = "https://api.census.gov/data/";
+
+    const { vintageString, dataTitle } = this.vintageLabel(vintage);
+
+    const url = `${API_DOMAIN_STRING}${vintageString}${GET_QUERY}`;
 
     const request = new XMLHttpRequest();
     // ;
@@ -39,7 +51,7 @@ class Fetcher {
         dataBlock = JSON.parse(request.responseText);
         this.dataObject = {
           header: dataTitle,
-          data: dataBlock,
+          data: dataBlock
         };
 
         this.loadLocalData(vintage);
@@ -67,7 +79,7 @@ class Fetcher {
         preSorted.states.push(newState);
       }
       preSorted[row[0]] = {
-        population: row[1],
+        population: row[1]
       };
     });
 
