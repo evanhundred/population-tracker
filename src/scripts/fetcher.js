@@ -15,15 +15,15 @@ class Fetcher {
     switch (vintage) {
       case "2020":
         vintageString = "2020/dec/pl";
-        dataTitle = "2020 Census dataset";
+        header = "2020 Census dataset";
         break;
       case "2010":
         vintageString = "2010/dec/pl";
-        dataTitle = "2010 Census dataset";
+        header = "2010 Census dataset";
         break;
       case "2000":
         vintageString = "2000/dec/sf1";
-        dataTitle = "2000 Census dataset";
+        header = "2000 Census dataset";
         break;
       default:
         break;
@@ -32,7 +32,7 @@ class Fetcher {
   }
 
   getData(vintage) {
-    let dataBlock;
+    let data;
     // let dataTitle;
     // let vintageString;
 
@@ -48,10 +48,10 @@ class Fetcher {
     // ;
     request.addEventListener("readystatechange", () => {
       if (request.readyState === 4 && request.status === 200) {
-        dataBlock = JSON.parse(request.responseText);
+        data = JSON.parse(request.responseText);
         this.dataObject = {
-          header: dataTitle,
-          data: dataBlock
+          header,
+          data
         };
 
         this.loadLocalData(vintage);
