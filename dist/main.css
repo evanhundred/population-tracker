@@ -124,12 +124,20 @@ meter {
   display: flex;
   justify-content: flex-end;
 }
+#splash-modal-container .splash-modal-box .splash-modal-content .close-x p {
+  font-size: 15px;
+}
 #splash-modal-container .splash-modal-box .splash-modal-content .modal-text {
   display: flex;
   flex-direction: column;
 }
 #splash-modal-container .splash-modal-box .splash-modal-content .modal-text p {
   font-size: 26px;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .okButton h3 {
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: 2px;
 }
 
 body {

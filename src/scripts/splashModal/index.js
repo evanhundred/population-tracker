@@ -14,10 +14,15 @@ class SplashModal {
     splashModalContent.classList.add("splash-modal-content");
     splashModalBox.appendChild(splashModalContent);
 
+    const handleclose = () => {
+      ele.remove();
+    };
+
     const closeX = document.createElement("div");
     closeX.classList.add("close-x");
     const xP = document.createElement("p");
     xP.innerText = "X";
+    xP.addEventListener("click", handleClose);
     closeX.appendChild(xP);
     splashModalContent.appendChild(closeX);
 

@@ -34,6 +34,9 @@
       & .close-x {
         display: flex;
         justify-content: flex-end;
+        & p {
+          font-size: 15px;
+        }
       }
 
       & .modal-text {
@@ -41,6 +44,14 @@
         flex-direction: column;
         & p {
           font-size: 26px;
+        }
+      }
+
+      & .okButton {
+        & h3 {
+          padding: 8px 20px;
+          border-radius: 5px;
+          border: 2px;
         }
       }
     }
