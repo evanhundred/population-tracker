@@ -1,0 +1,84 @@
+// @import "../colors.scss";
+$border-color: #ff5050;
+
+#splash-modal-container,
+#splash-modal-container .splash-modal-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#splash-modal-container {
+  z-index: 1;
+  & .splash-modal-overlay {
+    background: rgba(49, 49, 49, 0.8);
+  }
+
+  & .splash-modal-box {
+    width: 70vw;
+    // width: 700px;
+    height: max-content;
+    // width: 700px;
+    // height: 600px;
+
+    position: relative;
+    background: #f9f9f9;
+    display: flex;
+    border-radius: 10px;
+
+    & .splash-modal-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      padding: 2.5em 3em;
+
+      & .close-x {
+        display: flex;
+        justify-content: flex-end;
+        & p {
+          cursor: pointer;
+          font-size: 15px;
+        }
+      }
+
+      & .modal-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        margin: 10px 0 20px;
+        & p {
+          //   display: flex;
+          //   justify-content: center;
+          text-align: center;
+          color: rgb(67, 64, 64);
+          font-size: 20px;
+
+          & a {
+            color: $border-color;
+          }
+        }
+      }
+
+      & .ok-button {
+        display: flex;
+        justify-content: center;
+        & h3 {
+          cursor: pointer;
+          padding: 8px 20px;
+          border-radius: 5px;
+          border: 2px solid #9933ff;
+
+          &:hover {
+            background: #f1e3ff;
+          }
+        }
+      }
+    }
+  }
+}

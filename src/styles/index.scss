@@ -1,163 +1,167 @@
+@import "./splashModal/index.scss";
+@import "./MainContent/index.scss";
+
 $color: #9933ff;
 $border-color: #ff5050;
-$background-color: 	#ffffff;
+$background-color: #ffffff;
 $data-color: #003366;
 $header-color: #0099ff;
 
-$under50k:#191970;
-$under200k:#000080;
-$under500k: #1434A4;
-$under1m: #00008B;
-$under1p5m: #0047AB;
-$under2m: #89CFF0;
-$under2p5m: #00FFFF;
-$under3m: #20B2AA;
-$under3p5m: #0096FF;
-$under4m: #6495ED;
-$under4p5m: #CCCCFF;
-$under5m: #D8BFD8;
-$under5p5m: #C3B1E1;
-$under6m: #9370DB;
-$under6p5m: #5D3FD3;
-$under7m: #DA70D6;
-$under7p5m: #BF40BF;
-$under8m: #DA70D6;
+$under50k: #191970;
+$under200k: #000080;
+$under500k: #1434a4;
+$under1m: #00008b;
+$under1p5m: #0047ab;
+$under2m: #89cff0;
+$under2p5m: #00ffff;
+$under3m: #20b2aa;
+$under3p5m: #0096ff;
+$under4m: #6495ed;
+$under4p5m: #ccccff;
+$under5m: #d8bfd8;
+$under5p5m: #c3b1e1;
+$under6m: #9370db;
+$under6p5m: #5d3fd3;
+$under7m: #da70d6;
+$under7p5m: #bf40bf;
+$under8m: #da70d6;
 // $under9m: green;
-$under9m: #BA55D3;
-$under10m: #BF40BF;
-$under11m: #9F2B68;
+$under9m: #ba55d3;
+$under10m: #bf40bf;
+$under11m: #9f2b68;
 $under12m: #800020;
 $under13m: #953553;
 $under14m: #673147;
-$under15m: #5E0B0B;
+$under15m: #5e0b0b;
 $under20m: #630330;
-$under25m: #C21E56;
-$under30m: #A42A04;
-$under35m: #E34234;
-$under50m: #E0115F;
-
+$under25m: #c21e56;
+$under30m: #a42a04;
+$under35m: #e34234;
+$under50m: #e0115f;
 
 body {
-    background-color: $background-color;
-    font-family: inherit;
-    // display: inline-flex;
-    // flex-direction: column;
-    // width: 100vw;
-    // left: calc(-50vw + 50%);
+  background-color: $background-color;
+  font-family: inherit;
+  // display: inline-flex;
+  // flex-direction: column;
+  // width: 100vw;
+  // left: calc(-50vw + 50%);
 
-    // display: inline-grid;
-    // grid-template-columns: repeat(auto-fit, 100px);
-    // min-width: 50vw;
-    // position: relative;
-    // left: 50vw;
-    // transform: translateX(-50%);
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin: 0 auto;
-    flex-basis: auto;
-    padding: 0 auto;
-    width: 100vw;
-
+  // display: inline-grid;
+  // grid-template-columns: repeat(auto-fit, 100px);
+  // min-width: 50vw;
+  // position: relative;
+  // left: 50vw;
+  // transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  flex-basis: auto;
+  padding: 0 auto;
+  width: 100vw;
 }
 
 div#header {
-    display: flex;
+  display: flex;
 }
 
 #personal > div {
-    display: flex;
-    position: absolute;
-    top: calc(1% + 0px);
-    right: 0px;
-    padding-right: 16px;
-    align-items: center;
-    gap: 4px;
+  display: flex;
+  position: absolute;
+  top: calc(1% + 0px);
+  right: 0px;
+  padding-right: 16px;
+  align-items: center;
+  gap: 4px;
 }
 
 #personal img {
-    margin-left: 6px;
-    width: 18px;
+  margin-left: 6px;
+  width: 18px;
 }
 
 #personal p {
-    margin-top: -3px;
+  margin-top: -3px;
 }
 
-main, #main-content {
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    // gap: 5px;
-    // display: inline-grid;
-    // grid-template-columns: repeat(auto-fit, 100px);
-    // min-width: 50vw;
-    // position: relative;
-    // left: 50vw;
-    // transform: translateX(-50%);
+main,
+#main-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  // gap: 5px;
+  // display: inline-grid;
+  // grid-template-columns: repeat(auto-fit, 100px);
+  // min-width: 50vw;
+  // position: relative;
+  // left: 50vw;
+  // transform: translateX(-50%);
 }
 
-main, #title {
-    font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
-    color: $color;
-    margin: 0 auto;
-    max-width: 800px;
+main,
+#title {
+  font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
+  color: $color;
+  margin: 0 auto;
+  max-width: 800px;
 }
 
 #title > h1 {
-    border: 5px solid $border-color;
-    border-radius: 40px 10px;
-    padding: 20px;
-    margin: 30px;
-    font-size: 35px;
-    font-weight: 800;
+  border: 5px solid $border-color;
+  border-radius: 40px 10px;
+  padding: 20px;
+  margin: 30px;
+  font-size: 35px;
+  font-weight: 800;
 
-    span {
-        font-weight: 800;
-    }
+  span {
+    font-weight: 800;
+  }
 }
 
 #firstLine {
-    padding-top: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 #firstLine h2 {
-    font-size: 20px;
-    font-weight: 800;
+  font-size: 20px;
+  font-weight: 800;
 }
 
-
 #vintageSelector {
-    padding-top: 2px;
-    color: $border-color;
-    font-size: 18px;
+  padding-top: 2px;
+  color: $border-color;
+  font-size: 18px;
 }
 
 ul.vintageUl {
-    display: flex;
+  display: flex;
 }
 
 .vintageUl > li {
-    padding: 0 10px;
+  cursor: pointer;
+  padding: 0 10px;
 }
 
 #firstLineFooter {
-    padding: 8px;
-    color: $header-color;
+  padding: 8px;
+  color: $header-color;
 }
 
 #map {
-    width: 100vw;
-    // width: 100%;
-    position: relative;
-    // left: calc(-50vw + 50%);
-    // padding: 20px 0;
-    // margin: 20px 0;
+  // width: 100vw;
+  // width: 100%;
+  position: relative;
+  margin: 0 auto;
+  // left: calc(-50vw + 50%);
+  // padding: 20px 0;
+  // margin: 20px 0;
 }
 
 // #secondLine {
@@ -167,247 +171,252 @@ ul.vintageUl {
 // }
 
 #main-content > data {
-    color: $data-color;
-    padding: 10px 30px;
-    font-size: 16px;
+  color: $data-color;
+  padding: 10px 30px;
+  font-size: 16px;
 }
 
 li.data-header {
-    color: $header-color;
-    font-size: 20px;
-    font-weight: 800;
-    padding: 5px 0;
-    flex: 100%;
+  color: $header-color;
+  font-size: 20px;
+  font-weight: 800;
+  padding: 5px 0;
+  flex: 100%;
 }
 
-
 .sortSelectorUl {
-    display: flex;
-    width: 350px;
-    justify-content: space-between;
-    padding: 5px 0;
+  display: flex;
+  width: 350px;
+  justify-content: space-between;
+  padding: 5px 0;
 }
 
 .sortSelectorUl li {
-    color: $border-color;
-    font-size: 18px;
+  color: $border-color;
+  font-size: 18px;
 }
 
 #thirdLine {
-    padding-top: 5px;
+  padding-top: 5px;
 }
 
 .fetchResultSorted {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
 }
 
-.data-header, .sortLabel {
-    flex: 100%;
-    text-align: center;
+.data-header,
+.sortLabel {
+  flex: 100%;
+  text-align: center;
 }
 
 .sortLabel {
-    color: $data-color;
-    padding-bottom: 10px;
+  color: $data-color;
+  padding-bottom: 10px;
 }
 
 .keyLine {
-    padding: 5px 0 15px;
-    font-size: 16px;
-    flex: 50%;
+  padding: 5px 0 15px;
+  font-size: 16px;
+  flex: 50%;
 }
 
 .item {
-    flex: 50%;
+  flex: 50%;
 }
 
-.itemName, .keyState {
-    text-align: right;
-    padding-right: 5px;
+.itemName,
+.keyState {
+  text-align: right;
+  padding-right: 5px;
 }
 
-.itemPop, .keyPop {
-    text-align: left;
-    padding-left: 5px;
+.itemPop,
+.keyPop {
+  text-align: left;
+  padding-left: 5px;
 }
 
-.keyState, .keyPop {
-    color: $header-color;
-    flex: 50%;
-    padding-bottom: 6px;
+.keyState,
+.keyPop {
+  color: $header-color;
+  flex: 50%;
+  padding-bottom: 6px;
 }
 
-.fiftyPlusDC, .totalUS, .totalTerr {
-    color: $header-color;
-    font-size: 16px;
+.fiftyPlusDC,
+.totalUS,
+.totalTerr {
+  color: $header-color;
+  font-size: 16px;
 }
 
 .totalTerr {
-    padding-top: 6px;
+  padding-top: 6px;
 }
 
-#footer, #personal {
-    font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
-    color: $color;
+#footer,
+#personal {
+  font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
+  color: $color;
 }
 
 #footer-container {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    // height: 469px;
-    height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  // height: 469px;
+  height: 50px;
 }
 
 #footer-container-shrunk {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  height: 50px;
 }
 
 #footer-content,
 #personal {
-    color:#003366;
-    padding: 6px;
-    display: flex;
-    align-items: center;
-    gap: 4px;
+  color: #003366;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 #footer-content img {
-    margin-top: 3px;
-    margin-left: 6px;
-    width: 18px;
+  margin-top: 3px;
+  margin-left: 6px;
+  width: 18px;
 }
 
 .state {
-    stroke: white;
+  stroke: white;
 }
 
 .under50k {
-    fill: $under50k;
-    color: $under50k;
+  fill: $under50k;
+  color: $under50k;
 }
 .under200k {
-    fill: $under200k;
-    color: $under200k;
+  fill: $under200k;
+  color: $under200k;
 }
 .under500k {
-    fill: $under500k;
-    color: $under500k;
+  fill: $under500k;
+  color: $under500k;
 }
 .under1m {
-    fill: $under1m ;
-    color: $under1m;
+  fill: $under1m;
+  color: $under1m;
 }
 .under1p5m {
-    fill: $under1p5m;
-    color: $under1p5m;
+  fill: $under1p5m;
+  color: $under1p5m;
 }
 .under2m {
-    fill: $under2m;
-    color: $under2m;
+  fill: $under2m;
+  color: $under2m;
 }
 .under2p5m {
-    fill: $under2p5m;
-    color: $under2p5m;
+  fill: $under2p5m;
+  color: $under2p5m;
 }
 .under3m {
-    fill: $under3m;
-    color: $under3m;
+  fill: $under3m;
+  color: $under3m;
 }
 .under3p5m {
-    fill: $under3p5m;
-    color: $under3p5m;
+  fill: $under3p5m;
+  color: $under3p5m;
 }
 .under4m {
-    fill: $under4m;
-    color: $under4m;
+  fill: $under4m;
+  color: $under4m;
 }
 .under4p5m {
-    fill: $under4p5m;
-    color: $under4p5m;
+  fill: $under4p5m;
+  color: $under4p5m;
 }
 .under5m {
-    fill: $under5m;
-    color: $under5m;
+  fill: $under5m;
+  color: $under5m;
 }
 .under5p5m {
-    fill: $under5p5m;
-    color: $under5p5m;
+  fill: $under5p5m;
+  color: $under5p5m;
 }
 .under6m {
-    fill: $under6m;
-    color: $under6m;
+  fill: $under6m;
+  color: $under6m;
 }
 .under6p5m {
-    fill: $under6p5m;
-    color: $under6p5m;
-
+  fill: $under6p5m;
+  color: $under6p5m;
 }
 .under7m {
-    fill: $under7m;
-    color: $under7m;
+  fill: $under7m;
+  color: $under7m;
 }
 .under7p5m {
-    fill: $under7p5m;
-    color: $under7p5m;
+  fill: $under7p5m;
+  color: $under7p5m;
 }
 .under8m {
-    fill: $under8m;
-    color: $under8m;
+  fill: $under8m;
+  color: $under8m;
 }
 .under9m {
-    fill: $under9m;
-    color: $under9m;
+  fill: $under9m;
+  color: $under9m;
 }
 .under10m {
-    fill: $under10m;
-    color: $under10m;
+  fill: $under10m;
+  color: $under10m;
 }
 .under11m {
-    fill: $under11m;
-    color: $under11m;
+  fill: $under11m;
+  color: $under11m;
 }
 .under12m {
-    fill: $under12m;
-    color: $under12m;
+  fill: $under12m;
+  color: $under12m;
 }
 .under13m {
-    fill: $under13m;
-    color: $under13m;
+  fill: $under13m;
+  color: $under13m;
 }
 .under14m {
-    fill: $under14m;
-    color: $under14m;
+  fill: $under14m;
+  color: $under14m;
 }
 .under15m {
-    fill: $under15m;
-    color: $under15m;
+  fill: $under15m;
+  color: $under15m;
 }
 .under20m {
-    fill: $under20m;
-    color: $under20m;
+  fill: $under20m;
+  color: $under20m;
 }
 .under25m {
-    fill: $under25m;
-    color: $under25m;
+  fill: $under25m;
+  color: $under25m;
 }
 .under30m {
-    fill: $under30m ;
-    color: $under30m ;
+  fill: $under30m;
+  color: $under30m;
 }
 .under35m {
-    fill: $under35m;
-    color: $under35m;
+  fill: $under35m;
+  color: $under35m;
 }
 .under50m {
-    fill: $under50m;
-    color: $under50m;
+  fill: $under50m;
+  color: $under50m;
 }
 
 // li.under50k,
@@ -511,30 +520,32 @@ li.data-header {
 // }
 
 #instructions a {
-    color: $border-color;
+  color: $border-color;
 }
 
-#instructions p, #legend-div {
-    font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
-    color: $data-color;
-    padding: 4px;
-    text-align: center;
-    width: 100vw;
+#instructions p,
+#legend-div {
+  font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
+  color: $data-color;
+  padding: 4px;
+  text-align: center;
+  width: 100vw;
 }
 
 #legend-box {
-    padding: 10px 0;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  // margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 #legend-box span {
-    padding: 0 5px;
+  padding: 0 5px;
 }
 
 p#legend-title {
-    color: $data-color;
-    font-size: 18px;
-    padding-top: 17px;
+  color: $data-color;
+  font-size: 18px;
+  margin: 15px 0;
+  // padding-top: 17px;
 }
