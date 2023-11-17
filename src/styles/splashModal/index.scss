@@ -18,7 +18,9 @@
 
   & .splash-modal-box {
     width: 700px;
-    height: 600px;
+    height: max-content;
+    // width: 700px;
+    // height: 600px;
 
     position: relative;
     background: #f9f9f9;
@@ -35,6 +37,7 @@
         display: flex;
         justify-content: flex-end;
         & p {
+          cursor: pointer;
           font-size: 15px;
         }
       }
@@ -42,16 +45,21 @@
       & .modal-text {
         display: flex;
         flex-direction: column;
+        align-items: center;
+        margin: 10px 0 20px;
         & p {
           font-size: 26px;
         }
       }
 
-      & .okButton {
+      & .ok-button {
+        display: flex;
+        justify-content: center;
         & h3 {
+          cursor: pointer;
           padding: 8px 20px;
           border-radius: 5px;
-          border: 2px;
+          border: 2px solid #9933ff;
         }
       }
     }

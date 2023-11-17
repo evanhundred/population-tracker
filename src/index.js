@@ -12,14 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
   new TitleSplash(header);
   // const footer = document.getElementById("footer");
   // new Footer(footer);
-  // debugger;
+
   const main = document.getElementById("main-content");
   new MainContent(main);
   // new Map();
   // window.fetcher = new Fetcher();
+
   const splashModalContainer = document.createElement("div");
   splashModalContainer.setAttribute("id", "splash-modal-container");
-  new SplashModal(splashModalContainer);
+  main.appendChild(splashModalContainer);
+  const splashModal = new SplashModal(splashModalContainer);
+
   // const splashModalLine1 = document.createElement("div");
   // splashModalLine1.classList.add("splash-modal-line-1");
 });

@@ -1,6 +1,6 @@
 class SplashModal {
   constructor(ele) {
-    this.ele = ele;
+    this.parentEle = ele;
 
     const splashModalOverlay = document.createElement("div");
     splashModalOverlay.classList.add("splash-modal-overlay");
@@ -14,8 +14,8 @@ class SplashModal {
     splashModalContent.classList.add("splash-modal-content");
     splashModalBox.appendChild(splashModalContent);
 
-    const handleclose = () => {
-      ele.remove();
+    const handleClose = () => {
+      this.closeModal();
     };
 
     const closeX = document.createElement("div");
@@ -37,7 +37,7 @@ class SplashModal {
       }
     };
     createModalText();
-    const firstLine = document.qurerySelector(
+    const firstLine = document.querySelector(
       "#splash-modal-container p.modal-line-1"
     );
     firstLine.innerText = "Welcome to Population Tracker.";
@@ -46,8 +46,13 @@ class SplashModal {
     okButton.classList.add("ok-button");
     const okH3 = document.createElement("h3");
     okH3.innerText = "OK";
+    okH3.addEventListener("click", handleClose);
     okButton.appendChild(okH3);
     splashModalContent.appendChild(okButton);
+  }
+
+  closeModal() {
+    this.parentEle.remove();
   }
 }
 

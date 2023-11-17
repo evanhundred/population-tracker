@@ -108,7 +108,7 @@ meter {
 }
 #splash-modal-container .splash-modal-box {
   width: 700px;
-  height: 600px;
+  height: max-content;
   position: relative;
   background: #f9f9f9;
   display: flex;
@@ -125,19 +125,27 @@ meter {
   justify-content: flex-end;
 }
 #splash-modal-container .splash-modal-box .splash-modal-content .close-x p {
+  cursor: pointer;
   font-size: 15px;
 }
 #splash-modal-container .splash-modal-box .splash-modal-content .modal-text {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin: 10px 0 20px;
 }
 #splash-modal-container .splash-modal-box .splash-modal-content .modal-text p {
   font-size: 26px;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .okButton h3 {
+#splash-modal-container .splash-modal-box .splash-modal-content .ok-button {
+  display: flex;
+  justify-content: center;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .ok-button h3 {
+  cursor: pointer;
   padding: 8px 20px;
   border-radius: 5px;
-  border: 2px;
+  border: 2px solid #9933ff;
 }
 
 body {
