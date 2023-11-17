@@ -157,12 +157,28 @@ meter {
   background: #f1e3ff;
 }
 
+#main-content header#instructions {
+  font-weight: 600;
+}
 #main-content header#instructions h3.instructions-link {
   font-size: 18px;
   cursor: pointer;
   color: #003366;
   margin-bottom: 10px;
-  font-weight: 500;
+}
+#main-content #legend-div {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main-content #legend-div #legend-box {
+  margin: 15px 5vw;
+  max-width: 1000px;
+  line-height: 1.2;
+}
+#main-content #second-line {
+  margin-top: 30px;
 }
 
 body {
@@ -557,7 +573,6 @@ li.data-header {
 }
 
 #legend-box {
-  padding: 10px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -570,7 +585,7 @@ li.data-header {
 p#legend-title {
   color: #003366;
   font-size: 18px;
-  padding-top: 17px;
+  margin: 15px 0;
 }
 
 #splash-modal-container,
@@ -642,10 +657,26 @@ p#legend-title {
   background: #f1e3ff;
 }
 
+#main-content header#instructions {
+  font-weight: 600;
+}
 #main-content header#instructions h3.instructions-link {
   font-size: 18px;
   cursor: pointer;
   color: #003366;
   margin-bottom: 10px;
-  font-weight: 500;
+}
+#main-content #legend-div {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#main-content #legend-div #legend-box {
+  margin: 15px 5vw;
+  max-width: 1000px;
+  line-height: 1.2;
+}
+#main-content #second-line {
+  margin-top: 30px;
 }

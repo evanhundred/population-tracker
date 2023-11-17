@@ -56,7 +56,7 @@ class SplashModal {
       "#splash-modal-container p.modal-line-4"
     );
     line4.innerText =
-      "Select a year from the options below. A colorful representation of the population data will render. Below it will be a simple list, which can be organized by name or population.";
+      "Select a year from the options listed. A colorful representation of the population data will render. Below it will be a simple list, which can be organized by name or population.";
 
     const okButton = document.createElement("div");
     okButton.classList.add("ok-button");

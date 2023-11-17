@@ -74,7 +74,7 @@ class MainContent {
     this.ele.appendChild(mapDiv);
 
     let secondLine = document.createElement("div");
-    secondLine.setAttribute("id", "secondLine");
+    secondLine.setAttribute("id", "second-line");
     this.ele.appendChild(secondLine);
     ul = document.createElement("ul");
     ul.classList.add("sortSelectorUl");
@@ -180,7 +180,7 @@ class MainContent {
     li.innerText = "Sort by Population";
     ul.appendChild(li);
 
-    let selectorDiv = document.getElementById("secondLine");
+    let selectorDiv = document.getElementById("second-line");
     selectorDiv.replaceChild(ul, document.querySelector(".sortSelectorUl"));
     ul.classList.add("sortSelectorUl");
   }
