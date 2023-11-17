@@ -1,4 +1,5 @@
 @import "./splashModal/index.scss";
+@import "./MainContent/index.scss";
 
 $color: #9933ff;
 $border-color: #ff5050;
@@ -144,6 +145,7 @@ ul.vintageUl {
 }
 
 .vintageUl > li {
+  cursor: pointer;
   padding: 0 10px;
 }
 
@@ -153,9 +155,10 @@ ul.vintageUl {
 }
 
 #map {
-  width: 100vw;
+  // width: 100vw;
   // width: 100%;
   position: relative;
+  margin: 0 auto;
   // left: calc(-50vw + 50%);
   // padding: 20px 0;
   // margin: 20px 0;

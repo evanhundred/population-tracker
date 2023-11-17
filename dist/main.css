@@ -107,7 +107,7 @@ meter {
   background: rgba(49, 49, 49, 0.8);
 }
 #splash-modal-container .splash-modal-box {
-  width: 700px;
+  width: 70vw;
   height: max-content;
   position: relative;
   background: #f9f9f9;
@@ -118,7 +118,7 @@ meter {
   width: 100%;
   display: flex;
   flex-direction: column;
-  padding: 2.5em 3.5em;
+  padding: 2.5em 3em;
 }
 #splash-modal-container .splash-modal-box .splash-modal-content .close-x {
   display: flex;
@@ -132,10 +132,16 @@ meter {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8px;
   margin: 10px 0 20px;
 }
 #splash-modal-container .splash-modal-box .splash-modal-content .modal-text p {
-  font-size: 26px;
+  text-align: center;
+  color: rgb(67, 64, 64);
+  font-size: 20px;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .modal-text p a {
+  color: #ff5050;
 }
 #splash-modal-container .splash-modal-box .splash-modal-content .ok-button {
   display: flex;
@@ -146,6 +152,17 @@ meter {
   padding: 8px 20px;
   border-radius: 5px;
   border: 2px solid #9933ff;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .ok-button h3:hover {
+  background: #f1e3ff;
+}
+
+#main-content header#instructions h3.instructions-link {
+  font-size: 18px;
+  cursor: pointer;
+  color: #003366;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 
 body {
@@ -235,6 +252,7 @@ ul.vintageUl {
 }
 
 .vintageUl > li {
+  cursor: pointer;
   padding: 0 10px;
 }
 
@@ -244,8 +262,8 @@ ul.vintageUl {
 }
 
 #map {
-  width: 100vw;
   position: relative;
+  margin: 0 auto;
 }
 
 #main-content > data {
@@ -553,4 +571,81 @@ p#legend-title {
   color: #003366;
   font-size: 18px;
   padding-top: 17px;
+}
+
+#splash-modal-container,
+#splash-modal-container .splash-modal-overlay {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#splash-modal-container {
+  z-index: 1;
+}
+#splash-modal-container .splash-modal-overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+#splash-modal-container .splash-modal-box {
+  width: 70vw;
+  height: max-content;
+  position: relative;
+  background: #f9f9f9;
+  display: flex;
+  border-radius: 10px;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2.5em 3em;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .close-x {
+  display: flex;
+  justify-content: flex-end;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .close-x p {
+  cursor: pointer;
+  font-size: 15px;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .modal-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0 20px;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .modal-text p {
+  text-align: center;
+  color: rgb(67, 64, 64);
+  font-size: 20px;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .modal-text p a {
+  color: #ff5050;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .ok-button {
+  display: flex;
+  justify-content: center;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .ok-button h3 {
+  cursor: pointer;
+  padding: 8px 20px;
+  border-radius: 5px;
+  border: 2px solid #9933ff;
+}
+#splash-modal-container .splash-modal-box .splash-modal-content .ok-button h3:hover {
+  background: #f1e3ff;
+}
+
+#main-content header#instructions h3.instructions-link {
+  font-size: 18px;
+  cursor: pointer;
+  color: #003366;
+  margin-bottom: 10px;
+  font-weight: 500;
 }

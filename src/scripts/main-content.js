@@ -2,16 +2,35 @@ import AddPopClass from "./add-pop-class";
 import Map from "./map";
 import Fetcher from "./fetcher";
 import Legend from "./legend";
+import SplashModal from "./splashModal";
 
 class MainContent {
   constructor(ele) {
     this.ele = ele;
     this.sortStyle = "byName";
 
-    let instructions = document.createElement("header");
-    instructions.setAttribute("id", "instructions");
+    const mainNode = document.getElementById("main-content");
 
-    this.ele.appendChild(instructions);
+    const openSplashModal = () => {
+      const splashModalContainer = document.createElement("div");
+      splashModalContainer.setAttribute("id", "splash-modal-container");
+      mainNode.appendChild(splashModalContainer);
+      const splashModal = new SplashModal(splashModalContainer);
+      return splashModal;
+    };
+
+    const createInstructionsLink = () => {
+      let instructions = document.createElement("header");
+      instructions.setAttribute("id", "instructions");
+      const instructionsModalLink = document.createElement("h3");
+      instructionsModalLink.className = "instructions-link";
+      instructionsModalLink.innerText = "View instructions";
+      instructionsModalLink.addEventListener("click", openSplashModal);
+      instructions.appendChild(instructionsModalLink);
+
+      mainNode.appendChild(instructions);
+    };
+    createInstructionsLink();
 
     let firstLine = document.createElement("div");
     firstLine.setAttribute("id", "firstLine");
@@ -205,7 +224,7 @@ class MainContent {
         dataBlock = JSON.parse(request.responseText);
         this.dataObject = {
           header: dataTitle,
-          data: dataBlock,
+          data: dataBlock
         };
         this.loadLocalData(vintage);
         this.printData();
@@ -233,7 +252,7 @@ class MainContent {
         preSorted.states.push(newState);
       }
       preSorted[row[0]] = {
-        population: row[1],
+        population: row[1]
       };
     });
 

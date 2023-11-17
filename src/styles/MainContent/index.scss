@@ -1,0 +1,17 @@
+$color: #9933ff;
+$border-color: #ff5050;
+$background-color: #ffffff;
+$data-color: #003366;
+$header-color: #0099ff;
+
+#main-content {
+  & header#instructions {
+    h3.instructions-link {
+      font-size: 18px;
+      cursor: pointer;
+      color: $data-color;
+      margin-bottom: 10px;
+      font-weight: 500;
+    }
+  }
+}

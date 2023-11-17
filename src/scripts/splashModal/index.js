@@ -41,6 +41,22 @@ class SplashModal {
       "#splash-modal-container p.modal-line-1"
     );
     firstLine.innerText = "Welcome to Population Tracker.";
+    const line2 = document.querySelector(
+      "#splash-modal-container p.modal-line-2"
+    );
+    line2.innerHTML =
+      "The U.S. Census Bureau provides access to its results <a href='https://www.census.gov/programs-surveys/decennial-census/about/rdo/summary-files.html' target='_blank' rel='noreferrer'>data</a>.";
+
+    const line3 = document.querySelector(
+      "#splash-modal-container p.modal-line-3"
+    );
+    line3.innerText =
+      "Population Tracker focuses on the Decennial (10-year) population survey.";
+    const line4 = document.querySelector(
+      "#splash-modal-container p.modal-line-4"
+    );
+    line4.innerText =
+      "Select a year from the options below. A colorful representation of the population data will render. Below it will be a simple list, which can be organized by name or population.";
 
     const okButton = document.createElement("div");
     okButton.classList.add("ok-button");

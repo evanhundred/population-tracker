@@ -1,3 +1,6 @@
+// @import "../colors.scss";
+$border-color: #ff5050;
+
 #splash-modal-container,
 #splash-modal-container .splash-modal-overlay {
   top: 0;
@@ -17,7 +20,8 @@
   }
 
   & .splash-modal-box {
-    width: 700px;
+    width: 70vw;
+    // width: 700px;
     height: max-content;
     // width: 700px;
     // height: 600px;
@@ -31,7 +35,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      padding: 2.5em 3.5em;
+      padding: 2.5em 3em;
 
       & .close-x {
         display: flex;
@@ -46,9 +50,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 8px;
         margin: 10px 0 20px;
         & p {
-          font-size: 26px;
+          //   display: flex;
+          //   justify-content: center;
+          text-align: center;
+          color: rgb(67, 64, 64);
+          font-size: 20px;
+
+          & a {
+            color: $border-color;
+          }
         }
       }
 
@@ -60,6 +73,10 @@
           padding: 8px 20px;
           border-radius: 5px;
           border: 2px solid #9933ff;
+
+          &:hover {
+            background: #f1e3ff;
+          }
         }
       }
     }
