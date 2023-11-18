@@ -32,6 +32,7 @@ class MainContent {
     };
     createInstructionsLink();
 
+    // const createVintageSelectLine = () => {
     let firstLine = document.createElement("div");
     firstLine.setAttribute("id", "firstLine");
     this.ele.appendChild(firstLine);
@@ -66,12 +67,19 @@ class MainContent {
     li.innerText = "2000";
     li.classList.add("2000");
     ul.appendChild(li);
+    // };
+    // createVintageSelectLine();
 
     new Legend(this.ele);
 
+    // const createMap = () => {
     let mapDiv = document.createElement("div");
     mapDiv.setAttribute("id", "map");
     this.ele.appendChild(mapDiv);
+
+    const renderedMap = new Map();
+    // };
+    // createMap();
 
     let secondLine = document.createElement("div");
     secondLine.setAttribute("id", "second-line");
@@ -98,6 +106,7 @@ class MainContent {
     const that = this;
 
     document.addEventListener("click", function (e) {
+      // console.log(e);
       let eventTarget = e.target;
       let map = document.getElementById("map");
 
@@ -118,11 +127,10 @@ class MainContent {
       } else if (eventTarget.classList.contains("2000")) {
         // debugger;
         boundFetch2000();
-        fetcher.getData("2000");
-
         if (!!map) {
           that.ele.replaceChild(that.newMap(), map);
         }
+        fetcher.getData("2000");
         new Map(fetcher.dataObject);
       } else if (eventTarget.classList.contains("sortByName")) {
         boundSortByName();

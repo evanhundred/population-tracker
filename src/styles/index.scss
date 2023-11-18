@@ -152,6 +152,9 @@ ul.vintageUl {
 #firstLineFooter {
   padding: 8px;
   color: $header-color;
+  & h2 {
+    min-height: 18px;
+  }
 }
 
 #map {
@@ -192,6 +195,7 @@ li.data-header {
 }
 
 .sortSelectorUl li {
+  cursor: pointer;
   color: $border-color;
   font-size: 18px;
 }
@@ -295,7 +299,9 @@ li.data-header {
 }
 
 .state {
-  stroke: white;
+  stroke: black;
+  fill: rgb(206, 206, 237);
+  // stroke: white;
 }
 
 .under50k {
