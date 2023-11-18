@@ -167,7 +167,7 @@ meter {
   margin-bottom: 10px;
 }
 #main-content #legend-div {
-  margin: 0 20px;
+  margin: 0 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -577,6 +577,10 @@ li.data-header {
   width: 100vw;
 }
 
+#legend-div {
+  margin-bottom: 20px;
+}
+
 #legend-box {
   display: flex;
   flex-wrap: wrap;
@@ -672,7 +676,7 @@ p#legend-title {
   margin-bottom: 10px;
 }
 #main-content #legend-div {
-  margin: 0 20px;
+  margin: 0 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;

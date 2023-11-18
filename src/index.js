@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // new Footer(footer);
 
   const main = document.getElementById("main-content");
-  new MainContent(main);
+  const mainContent = new MainContent(main);
   // new Map();
   // window.fetcher = new Fetcher();
 

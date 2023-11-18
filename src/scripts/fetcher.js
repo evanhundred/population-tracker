@@ -1,5 +1,6 @@
 import MainContent from "./main-content";
 import Map from "./map";
+import Printer from "./printer";
 
 class Fetcher {
   constructor() {
@@ -11,7 +12,7 @@ class Fetcher {
     return this.dataObject;
   }
 
-  getData(vintage) {
+  getData(vintage, mainContent) {
     let data;
     let dataTitle;
     let url;
@@ -55,6 +56,15 @@ class Fetcher {
           this.dataObject = this.sortData("byName");
         } else if (this.sortStyle === "byPop") {
           this.dataObject = this.sortData("byPop");
+        }
+
+        const printer = new Printer(this.dataObject, this.sortStyle);
+        printer.printData();
+        if (this.sortStyle === "byName") {
+          printer.sortByName();
+        }
+        if (this.sortStyle === "byPop") {
+          this.sortByPopulation();
         }
 
         new Map(this.dataObject);
