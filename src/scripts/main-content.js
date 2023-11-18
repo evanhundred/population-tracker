@@ -104,7 +104,7 @@ class MainContent {
     let boundSortByPopulation = this.sortByPopulation.bind(this);
     let fetcher = new Fetcher();
     // ;
-    fetcher.getData("2000");
+    // fetcher.getData("2000");
 
     // ;
     const that = this;
