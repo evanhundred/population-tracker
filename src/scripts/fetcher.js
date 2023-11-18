@@ -3,8 +3,8 @@ import Map from "./map";
 import Printer from "./printer";
 
 class Fetcher {
-  constructor() {
-    this.sortStyle = "byName";
+  constructor(sortStyle = "byName") {
+    this.sortStyle = sortStyle;
   }
 
   fetchData(vintage) {
@@ -79,9 +79,10 @@ class Fetcher {
           printer.sortByName();
         }
         if (this.sortStyle === "byPop") {
-          this.sortByPopulation();
+          printer.sortByPopulation();
         }
       }
+      return this.dataObject;
     });
 
     request.open("GET", url);

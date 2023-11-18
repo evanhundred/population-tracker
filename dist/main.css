@@ -171,6 +171,7 @@ meter {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 8px;
 }
 #main-content #legend-div #legend-box {
   margin: 15px 5vw;
@@ -281,6 +282,7 @@ ul.vintageUl {
 }
 
 #map {
+  border-radius: 8px;
   position: relative;
   margin: 0 auto;
 }
@@ -314,6 +316,8 @@ li.data-header {
 
 #thirdLine {
   padding-top: 5px;
+  border-radius: 8px;
+  width: 400px;
 }
 
 .fetchResultSorted {
@@ -415,153 +419,153 @@ li.data-header {
 }
 
 .under50k {
-  fill: #191970;
-  color: #191970;
+  fill: rgba(222, 31, 18, 0.48);
+  color: rgba(222, 31, 18, 0.48);
 }
 
 .under200k {
-  fill: #000080;
-  color: #000080;
+  fill: rgba(222, 31, 18, 0.4975);
+  color: rgba(222, 31, 18, 0.4975);
 }
 
 .under500k {
-  fill: #1434a4;
-  color: #1434a4;
+  fill: rgba(222, 31, 18, 0.515);
+  color: rgba(222, 31, 18, 0.515);
 }
 
 .under1m {
-  fill: #00008b;
-  color: #00008b;
+  fill: rgba(222, 31, 18, 0.5325);
+  color: rgba(222, 31, 18, 0.5325);
 }
 
 .under1p5m {
-  fill: #0047ab;
-  color: #0047ab;
+  fill: rgba(222, 31, 18, 0.55);
+  color: rgba(222, 31, 18, 0.55);
 }
 
 .under2m {
-  fill: #89cff0;
-  color: #89cff0;
+  fill: rgba(222, 31, 18, 0.5675);
+  color: rgba(222, 31, 18, 0.5675);
 }
 
 .under2p5m {
-  fill: #00ffff;
-  color: #00ffff;
+  fill: rgba(222, 31, 18, 0.585);
+  color: rgba(222, 31, 18, 0.585);
 }
 
 .under3m {
-  fill: #20b2aa;
-  color: #20b2aa;
+  fill: rgba(222, 31, 18, 0.625);
+  color: rgba(222, 31, 18, 0.625);
 }
 
 .under3p5m {
-  fill: #0096ff;
-  color: #0096ff;
+  fill: rgba(222, 31, 18, 0.62);
+  color: rgba(222, 31, 18, 0.62);
 }
 
 .under4m {
-  fill: #6495ed;
-  color: #6495ed;
+  fill: rgba(222, 31, 18, 0.6375);
+  color: rgba(222, 31, 18, 0.6375);
 }
 
 .under4p5m {
-  fill: #ccccff;
-  color: #ccccff;
+  fill: rgba(222, 31, 18, 0.655);
+  color: rgba(222, 31, 18, 0.655);
 }
 
 .under5m {
-  fill: #d8bfd8;
-  color: #d8bfd8;
+  fill: rgba(222, 31, 18, 0.6725);
+  color: rgba(222, 31, 18, 0.6725);
 }
 
 .under5p5m {
-  fill: #c3b1e1;
-  color: #c3b1e1;
+  fill: rgba(222, 31, 18, 0.69);
+  color: rgba(222, 31, 18, 0.69);
 }
 
 .under6m {
-  fill: #9370db;
-  color: #9370db;
+  fill: rgba(222, 31, 18, 0.7075);
+  color: rgba(222, 31, 18, 0.7075);
 }
 
 .under6p5m {
-  fill: #5d3fd3;
-  color: #5d3fd3;
+  fill: rgba(222, 31, 18, 0.7225);
+  color: rgba(222, 31, 18, 0.7225);
 }
 
 .under7m {
-  fill: #da70d6;
-  color: #da70d6;
+  fill: rgba(222, 31, 18, 0.75);
+  color: rgba(222, 31, 18, 0.75);
 }
 
 .under7p5m {
-  fill: #bf40bf;
-  color: #bf40bf;
+  fill: rgba(222, 31, 18, 0.7675);
+  color: rgba(222, 31, 18, 0.7675);
 }
 
 .under8m {
-  fill: #da70d6;
-  color: #da70d6;
+  fill: rgba(222, 31, 18, 0.785);
+  color: rgba(222, 31, 18, 0.785);
 }
 
 .under9m {
-  fill: #ba55d3;
-  color: #ba55d3;
+  fill: rgba(222, 31, 18, 0.7925);
+  color: rgba(222, 31, 18, 0.7925);
 }
 
 .under10m {
-  fill: #bf40bf;
-  color: #bf40bf;
+  fill: rgba(222, 31, 18, 0.815);
+  color: rgba(222, 31, 18, 0.815);
 }
 
 .under11m {
-  fill: #9f2b68;
-  color: #9f2b68;
+  fill: rgba(222, 31, 18, 0.8325);
+  color: rgba(222, 31, 18, 0.8325);
 }
 
 .under12m {
-  fill: #800020;
-  color: #800020;
+  fill: rgba(222, 31, 18, 0.855);
+  color: rgba(222, 31, 18, 0.855);
 }
 
 .under13m {
-  fill: #953553;
-  color: #953553;
+  fill: rgba(222, 31, 18, 0.8725);
+  color: rgba(222, 31, 18, 0.8725);
 }
 
 .under14m {
-  fill: #673147;
-  color: #673147;
+  fill: rgba(222, 31, 18, 0.89);
+  color: rgba(222, 31, 18, 0.89);
 }
 
 .under15m {
-  fill: #5e0b0b;
-  color: #5e0b0b;
+  fill: rgba(222, 31, 18, 0.9125);
+  color: rgba(222, 31, 18, 0.9125);
 }
 
 .under20m {
-  fill: #630330;
-  color: #630330;
+  fill: rgba(222, 31, 18, 0.93);
+  color: rgba(222, 31, 18, 0.93);
 }
 
 .under25m {
-  fill: #c21e56;
-  color: #c21e56;
+  fill: rgba(222, 31, 18, 0.9475);
+  color: rgba(222, 31, 18, 0.9475);
 }
 
 .under30m {
-  fill: #a42a04;
-  color: #a42a04;
+  fill: rgba(222, 31, 18, 0.965);
+  color: rgba(222, 31, 18, 0.965);
 }
 
 .under35m {
-  fill: #e34234;
-  color: #e34234;
+  fill: rgba(222, 31, 18, 0.9825);
+  color: rgba(222, 31, 18, 0.9825);
 }
 
 .under50m {
-  fill: #e0115f;
-  color: #e0115f;
+  fill: rgb(222, 31, 18);
+  color: rgb(222, 31, 18);
 }
 
 #instructions a {
@@ -574,7 +578,7 @@ li.data-header {
   color: #003366;
   padding: 4px;
   text-align: center;
-  width: 100vw;
+  width: 75vw;
 }
 
 #legend-div {
@@ -680,6 +684,7 @@ p#legend-title {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 8px;
 }
 #main-content #legend-div #legend-box {
   margin: 15px 5vw;

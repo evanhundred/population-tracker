@@ -11,6 +11,7 @@ class MainContent {
     this.sortStyle = "byName";
     this.printer = new Printer();
 
+    console.log(this.printer);
     const mainNode = document.getElementById("main-content");
 
     const openSplashModal = () => {
@@ -105,6 +106,7 @@ class MainContent {
     // let boundSortByName = this.sortByName.bind(this);
     // let boundSortByPopulation = this.sortByPopulation.bind(this);
     let fetcher = new Fetcher();
+    console.log(fetcher);
     // ;
     // fetcher.getData("2000");
 
@@ -136,7 +138,8 @@ class MainContent {
         // }
         resetMap();
         new Map();
-        fetcher.getData("2020", that);
+        this.rawData = fetcher.getData("2020", that);
+        console.log(this.rawData);
         // new Map(fetcher.dataObject);
       } else if (eventTarget.classList.contains("2010")) {
         // boundFetch2010();
@@ -145,7 +148,8 @@ class MainContent {
         // }
         resetMap();
         new Map();
-        fetcher.getData("2010", that);
+        const data = fetcher.getData("2010", that);
+        console.log(data);
         // new Map(fetcher.dataObject);
       } else if (eventTarget.classList.contains("2000")) {
         // debugger;
@@ -155,17 +159,41 @@ class MainContent {
         // }
         resetMap();
         new Map();
-        fetcher.getData("2000", that);
+        const data = fetcher.getData("2000", that);
+        console.log(data);
         // document.addEventListener("readystatechange", () => {
         // new Map(fetcher.dataObject);
         // });
-      } else if (eventTarget.classList.contains("sortByName")) {
-        printer.sortByName();
-        // boundSortByName();
-      } else if (eventTarget.classList.contains("sortByPopulation")) {
-        printer.sortByPopulation();
-        // boundSortByPopulation();
+      } else if (
+        eventTarget.classList.contains("sortByName") ||
+        eventTarget.classList.contains("sortByPopulation")
+      ) {
+        let sortStyle;
+        if (eventTarget.classList.contains("sortByName")) {
+          sortStyle = "byName";
+        }
+        if (eventTarget.classList.contains("sortByPopulation")) {
+          sortStyle = "byPop";
+        }
+        // const classString = eventTarget.classList;
+        // console.log(classString);
+        // const sortIndex = classString.search(/sortBy/);
+        // const sortEndIndex = classString.slice(sortIndex).search(/s/);
+        // console.log(sortIndex);
+        // const sortStyle = classString.slice(sortIndex + 6, sortEndIndex);
+
+        console.log(sortStyle);
+
+        console.log(fetcher);
+        that.printer.sortByName(fetcher.dataObject, sortStyle);
       }
+      // else if (eventTarget.classList.contains("sortByPopulation")) {
+      //   // console.log(that.printer);
+      //   console.log(fetcher);
+      //   // console.log(this.rawData);
+      //   that.printer.sortByName(fetcher.dataObject, sortStyle);
+      //   // boundSortByPopulation();
+      // }
     });
   }
 

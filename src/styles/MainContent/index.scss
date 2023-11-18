@@ -3,6 +3,7 @@ $border-color: #ff5050;
 $background-color: #ffffff;
 $data-color: #003366;
 $header-color: #0099ff;
+// $very-light-gray: rgb(239, 235, 235);
 
 #main-content {
   & header#instructions {
@@ -20,6 +21,8 @@ $header-color: #0099ff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    // background: $very-light-gray;
+    border-radius: 8px;
 
     & #legend-box {
       margin: 15px 5vw;
