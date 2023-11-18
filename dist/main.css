@@ -167,7 +167,7 @@ meter {
   margin-bottom: 10px;
 }
 #main-content #legend-div {
-  margin: 0 20px;
+  margin: 0 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -276,6 +276,9 @@ ul.vintageUl {
   padding: 8px;
   color: #0099ff;
 }
+#firstLineFooter h2 {
+  min-height: 18px;
+}
 
 #map {
   position: relative;
@@ -304,6 +307,7 @@ li.data-header {
 }
 
 .sortSelectorUl li {
+  cursor: pointer;
   color: #ff5050;
   font-size: 18px;
 }
@@ -406,7 +410,8 @@ li.data-header {
 }
 
 .state {
-  stroke: white;
+  stroke: black;
+  fill: rgb(206, 206, 237);
 }
 
 .under50k {
@@ -572,6 +577,10 @@ li.data-header {
   width: 100vw;
 }
 
+#legend-div {
+  margin-bottom: 20px;
+}
+
 #legend-box {
   display: flex;
   flex-wrap: wrap;
@@ -667,7 +676,7 @@ p#legend-title {
   margin-bottom: 10px;
 }
 #main-content #legend-div {
-  margin: 0 20px;
+  margin: 0 20px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;

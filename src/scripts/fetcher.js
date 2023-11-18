@@ -1,5 +1,6 @@
 import MainContent from "./main-content";
 import Map from "./map";
+import Printer from "./printer";
 
 class Fetcher {
   constructor() {
@@ -11,31 +12,8 @@ class Fetcher {
     return this.dataObject;
   }
 
-  // vintageLabel(vintage) {
-  //   switch (vintage) {
-  //     case "2020":
-  //       vintageString = "2020/dec/pl";
-  //       header = "2020 Census dataset";
-  //       break;
-  //     case "2010":
-  //       vintageString = "2010/dec/pl";
-  //       header = "2010 Census dataset";
-  //       break;
-  //     case "2000":
-  //       vintageString = "2000/dec/sf1";
-  //       header = "2000 Census dataset";
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  //   return vintage ? { vintageString, dataTitle } : {};
-  // }
-
-  getData(vintage) {
+  getData(vintage, mainContent) {
     let data;
-    // let dataTitle;
-    // let vintageString;
-
     let dataTitle;
     let url;
     if (vintage === "2020") {
@@ -55,6 +33,19 @@ class Fetcher {
       dataTitle = "2000 Census dataset";
     }
 
+    const resetMap = () => {
+      let mapDiv = document.querySelector("#map");
+      if (mapDiv) mapDiv.remove();
+      mapDiv = document.createElement("div");
+      mapDiv.setAttribute("id", "map");
+      const main = document.getElementById("main-content");
+      const secondLine = document.getElementById("second-line");
+      // const legendDiv = document.getElementById("legend-div");
+      main.insertBefore(mapDiv, secondLine);
+    };
+    // resetMap();
+    // new Map();
+
     // const GET_QUERY =
     //   "?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2";
     // const API_DOMAIN_STRING = "https://api.census.gov/data/";
@@ -64,7 +55,7 @@ class Fetcher {
     // const url = `${API_DOMAIN_STRING}${vintageString}${GET_QUERY}`;
 
     const request = new XMLHttpRequest();
-    // ;
+
     request.addEventListener("readystatechange", () => {
       if (request.readyState === 4 && request.status === 200) {
         data = JSON.parse(request.responseText);
@@ -78,6 +69,17 @@ class Fetcher {
           this.dataObject = this.sortData("byName");
         } else if (this.sortStyle === "byPop") {
           this.dataObject = this.sortData("byPop");
+        }
+        resetMap();
+        new Map(this.dataObject);
+
+        const printer = new Printer(this.dataObject, this.sortStyle);
+        printer.printData();
+        if (this.sortStyle === "byName") {
+          printer.sortByName();
+        }
+        if (this.sortStyle === "byPop") {
+          this.sortByPopulation();
         }
       }
     });
