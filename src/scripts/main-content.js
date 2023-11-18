@@ -1,4 +1,4 @@
-import AddPopClass from "./add-pop-class";
+// import AddPopClass from "./add-pop-class";
 import Map from "./map";
 import Fetcher from "./fetcher";
 import Legend from "./legend";
@@ -110,6 +110,16 @@ class MainContent {
 
     // ;
     const that = this;
+    const resetMap = () => {
+      let mapDiv = document.querySelector("#map");
+      if (mapDiv) mapDiv.remove();
+      mapDiv = document.createElement("div");
+      mapDiv.setAttribute("id", "map");
+      const main = document.getElementById("main-content");
+      const secondLine = document.getElementById("second-line");
+      // const legendDiv = document.getElementById("legend-div");
+      main.insertBefore(mapDiv, secondLine);
+    };
 
     document.addEventListener("click", function (e) {
       // console.log(e);
@@ -118,27 +128,33 @@ class MainContent {
 
       // e.preventDefault();
 
-      console.log(that);
+      // console.log(that);
       if (eventTarget.classList.contains("2020")) {
         // boundFetch2020();
-        if (!!map) {
-          that.ele.replaceChild(that.newMap(), map);
-        }
+        // if (!!map) {
+        //   that.ele.replaceChild(that.newMap(), map);
+        // }
+        resetMap();
+        new Map();
         fetcher.getData("2020", that);
         // new Map(fetcher.dataObject);
       } else if (eventTarget.classList.contains("2010")) {
         // boundFetch2010();
-        if (!!map) {
-          that.ele.replaceChild(that.newMap(), map);
-        }
+        // if (!!map) {
+        //   that.ele.replaceChild(that.newMap(), map);
+        // }
+        resetMap();
+        new Map();
         fetcher.getData("2010", that);
         // new Map(fetcher.dataObject);
       } else if (eventTarget.classList.contains("2000")) {
         // debugger;
         // boundFetch2000();
-        if (!!map) {
-          that.ele.replaceChild(that.newMap(), map);
-        }
+        // if (!!map) {
+        //   that.ele.replaceChild(that.newMap(), map);
+        // }
+        resetMap();
+        new Map();
         fetcher.getData("2000", that);
         // document.addEventListener("readystatechange", () => {
         // new Map(fetcher.dataObject);

@@ -33,6 +33,19 @@ class Fetcher {
       dataTitle = "2000 Census dataset";
     }
 
+    const resetMap = () => {
+      let mapDiv = document.querySelector("#map");
+      if (mapDiv) mapDiv.remove();
+      mapDiv = document.createElement("div");
+      mapDiv.setAttribute("id", "map");
+      const main = document.getElementById("main-content");
+      const secondLine = document.getElementById("second-line");
+      // const legendDiv = document.getElementById("legend-div");
+      main.insertBefore(mapDiv, secondLine);
+    };
+    // resetMap();
+    // new Map();
+
     // const GET_QUERY =
     //   "?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2";
     // const API_DOMAIN_STRING = "https://api.census.gov/data/";
@@ -57,6 +70,8 @@ class Fetcher {
         } else if (this.sortStyle === "byPop") {
           this.dataObject = this.sortData("byPop");
         }
+        resetMap();
+        new Map(this.dataObject);
 
         const printer = new Printer(this.dataObject, this.sortStyle);
         printer.printData();
@@ -66,8 +81,6 @@ class Fetcher {
         if (this.sortStyle === "byPop") {
           this.sortByPopulation();
         }
-
-        new Map(this.dataObject);
       }
     });
 
