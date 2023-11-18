@@ -72,10 +72,14 @@ class MainContent {
 
     new Legend(this.ele);
 
-    // const createMap = () => {
-    let mapDiv = document.createElement("div");
+    // const createMap = () => {)
+    let mapDiv = document.querySelector("#map");
+    if (mapDiv) mapDiv.remove();
+    // if (!mapDiv) {
+    mapDiv = document.createElement("div");
     mapDiv.setAttribute("id", "map");
     this.ele.appendChild(mapDiv);
+    // }
 
     const renderedMap = new Map();
     // };
@@ -110,20 +114,22 @@ class MainContent {
       let eventTarget = e.target;
       let map = document.getElementById("map");
 
+      // e.preventDefault();
+
       if (eventTarget.classList.contains("2020")) {
         boundFetch2020();
         if (!!map) {
           that.ele.replaceChild(that.newMap(), map);
         }
         fetcher.getData("2020");
-        new Map(fetcher.dataObject);
+        // new Map(fetcher.dataObject);
       } else if (eventTarget.classList.contains("2010")) {
         boundFetch2010();
         if (!!map) {
           that.ele.replaceChild(that.newMap(), map);
         }
         fetcher.getData("2010");
-        new Map(fetcher.dataObject);
+        // new Map(fetcher.dataObject);
       } else if (eventTarget.classList.contains("2000")) {
         // debugger;
         boundFetch2000();
@@ -131,7 +137,9 @@ class MainContent {
           that.ele.replaceChild(that.newMap(), map);
         }
         fetcher.getData("2000");
-        new Map(fetcher.dataObject);
+        // document.addEventListener("readystatechange", () => {
+        // new Map(fetcher.dataObject);
+        // });
       } else if (eventTarget.classList.contains("sortByName")) {
         boundSortByName();
       } else if (eventTarget.classList.contains("sortByPopulation")) {

@@ -11,31 +11,8 @@ class Fetcher {
     return this.dataObject;
   }
 
-  // vintageLabel(vintage) {
-  //   switch (vintage) {
-  //     case "2020":
-  //       vintageString = "2020/dec/pl";
-  //       header = "2020 Census dataset";
-  //       break;
-  //     case "2010":
-  //       vintageString = "2010/dec/pl";
-  //       header = "2010 Census dataset";
-  //       break;
-  //     case "2000":
-  //       vintageString = "2000/dec/sf1";
-  //       header = "2000 Census dataset";
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  //   return vintage ? { vintageString, dataTitle } : {};
-  // }
-
   getData(vintage) {
     let data;
-    // let dataTitle;
-    // let vintageString;
-
     let dataTitle;
     let url;
     if (vintage === "2020") {
@@ -64,7 +41,7 @@ class Fetcher {
     // const url = `${API_DOMAIN_STRING}${vintageString}${GET_QUERY}`;
 
     const request = new XMLHttpRequest();
-    // ;
+
     request.addEventListener("readystatechange", () => {
       if (request.readyState === 4 && request.status === 200) {
         data = JSON.parse(request.responseText);
@@ -79,6 +56,8 @@ class Fetcher {
         } else if (this.sortStyle === "byPop") {
           this.dataObject = this.sortData("byPop");
         }
+
+        new Map(this.dataObject);
       }
     });
 
