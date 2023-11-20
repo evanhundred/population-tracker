@@ -3,7 +3,7 @@ export const COLOR_STRING_BASE = "rgba(81, 199, 212, ";
 
 export const sortData = (dataObject, sortKey) => {
   const dataIsRaw = !!dataObject.data;
-  console.log(dataIsRaw);
+  // console.log(dataIsRaw);
 
   let preSorted;
 
@@ -47,7 +47,7 @@ export const sortData = (dataObject, sortKey) => {
 
   // dataObject.localData &&
 
-  console.log(preSorted);
+  // console.log(preSorted);
   // let sorted = {};
   let sorted = preSorted;
   if (sortKey === "byName") {
@@ -61,7 +61,7 @@ export const sortData = (dataObject, sortKey) => {
   for (let i = 0; i < sorted.states.length; i++) {
     let popSource = sorted.states[i].population;
 
-    console.log(popSource);
+    // console.log(popSource);
     if (typeof popSource === "number") {
       popSource = parseInt(popSource);
     }
@@ -124,4 +124,8 @@ export const getPct = (level) => {
   return res + lowColorPct;
 };
 
-export const colorString = (level) => `${COLOR_STRING_BASE}${getPct(level)}`;
+export const colorString = (level) => {
+  const res = `${COLOR_STRING_BASE}${getPct(level)})`;
+  // console.log(res);
+  return res;
+};

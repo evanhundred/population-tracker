@@ -6,8 +6,11 @@ class AddPopClass {
   addClass(state, stateEle) {
     const popObject = this.findPopClass(state.population);
 
+    // console.log(popObject);
+    // console.log(colorString(popObject.colorLevel))
     stateEle.classList.add(popObject.popClass);
-    stateEle.style.color = `${colorString(popObject.colorLevel)});`;
+    if (stateEle.classList.contains("itemPop"))
+      stateEle.style.color = colorString(popObject.colorLevel);
   }
 
   removeCommas(num) {

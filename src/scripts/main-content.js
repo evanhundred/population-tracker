@@ -12,7 +12,7 @@ class MainContent {
     this.sortStyle = "byName";
     this.printer = new Printer();
 
-    console.log(this.printer);
+    // console.log(this.printer);
     const mainNode = document.getElementById("main-content");
 
     const openSplashModal = () => {
@@ -107,7 +107,7 @@ class MainContent {
     // let boundSortByName = this.sortByName.bind(this);
     // let boundSortByPopulation = this.sortByPopulation.bind(this);
     let fetcher = new Fetcher();
-    console.log(fetcher);
+    // console.log(fetcher);
     // ;
     // fetcher.getData("2000");
 
@@ -150,7 +150,7 @@ class MainContent {
         resetMap();
         new Map();
         const data = fetcher.getData("2010");
-        console.log(data);
+        // console.log(data);
         // new Map(fetcher.dataObject);
       } else if (eventTarget.classList.contains("2000")) {
         // debugger;
@@ -161,7 +161,7 @@ class MainContent {
         resetMap();
         new Map();
         const data = fetcher.getData("2000");
-        console.log(data);
+        // console.log(data);
         // document.addEventListener("readystatechange", () => {
         // new Map(fetcher.dataObject);
         // });
@@ -183,11 +183,11 @@ class MainContent {
         // console.log(sortIndex);
         // const sortStyle = classString.slice(sortIndex + 6, sortEndIndex);
 
-        console.log(sortStyle);
+        // console.log(sortStyle);
 
-        console.log(fetcher);
+        // console.log(fetcher);
         const sortedDataObj = sortData(fetcher.dataObject, sortStyle);
-        console.log(sortedDataObj);
+        // console.log(sortedDataObj);
         that.printer.sortByName(sortedDataObj, sortStyle);
       }
       // else if (eventTarget.classList.contains("sortByPopulation")) {

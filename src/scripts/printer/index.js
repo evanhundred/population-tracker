@@ -42,9 +42,9 @@ class Printer {
     // this.sortStyle = "byName";
     // let dataObject = this.sortData("byName");
     // ;
-    console.log(newDataObject);
+    // console.log(newDataObject);
     let dataObject = newDataObject;
-    console.log(dataObject);
+    // console.log(dataObject);
     let dataHeader = dataObject.header;
     let dataEl = document.querySelector("data");
     let ul = document.createElement("ul");
@@ -82,7 +82,7 @@ class Printer {
     keyPop.innerText = "Population";
     ul.appendChild(keyPop);
 
-    console.log(dataObject);
+    // console.log(dataObject);
 
     for (let i = 0; i < dataObject.states.length; i++) {
       if (
