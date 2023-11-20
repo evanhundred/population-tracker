@@ -414,158 +414,8 @@ li.data-header {
 }
 
 .state {
-  stroke: black;
+  stroke: rgb(160, 156, 177);
   fill: rgb(206, 206, 237);
-}
-
-.under50k {
-  fill: rgba(222, 31, 18, 0.48);
-  color: rgba(222, 31, 18, 0.48);
-}
-
-.under200k {
-  fill: rgba(222, 31, 18, 0.4975);
-  color: rgba(222, 31, 18, 0.4975);
-}
-
-.under500k {
-  fill: rgba(222, 31, 18, 0.515);
-  color: rgba(222, 31, 18, 0.515);
-}
-
-.under1m {
-  fill: rgba(222, 31, 18, 0.5325);
-  color: rgba(222, 31, 18, 0.5325);
-}
-
-.under1p5m {
-  fill: rgba(222, 31, 18, 0.55);
-  color: rgba(222, 31, 18, 0.55);
-}
-
-.under2m {
-  fill: rgba(222, 31, 18, 0.5675);
-  color: rgba(222, 31, 18, 0.5675);
-}
-
-.under2p5m {
-  fill: rgba(222, 31, 18, 0.585);
-  color: rgba(222, 31, 18, 0.585);
-}
-
-.under3m {
-  fill: rgba(222, 31, 18, 0.625);
-  color: rgba(222, 31, 18, 0.625);
-}
-
-.under3p5m {
-  fill: rgba(222, 31, 18, 0.62);
-  color: rgba(222, 31, 18, 0.62);
-}
-
-.under4m {
-  fill: rgba(222, 31, 18, 0.6375);
-  color: rgba(222, 31, 18, 0.6375);
-}
-
-.under4p5m {
-  fill: rgba(222, 31, 18, 0.655);
-  color: rgba(222, 31, 18, 0.655);
-}
-
-.under5m {
-  fill: rgba(222, 31, 18, 0.6725);
-  color: rgba(222, 31, 18, 0.6725);
-}
-
-.under5p5m {
-  fill: rgba(222, 31, 18, 0.69);
-  color: rgba(222, 31, 18, 0.69);
-}
-
-.under6m {
-  fill: rgba(222, 31, 18, 0.7075);
-  color: rgba(222, 31, 18, 0.7075);
-}
-
-.under6p5m {
-  fill: rgba(222, 31, 18, 0.7225);
-  color: rgba(222, 31, 18, 0.7225);
-}
-
-.under7m {
-  fill: rgba(222, 31, 18, 0.75);
-  color: rgba(222, 31, 18, 0.75);
-}
-
-.under7p5m {
-  fill: rgba(222, 31, 18, 0.7675);
-  color: rgba(222, 31, 18, 0.7675);
-}
-
-.under8m {
-  fill: rgba(222, 31, 18, 0.785);
-  color: rgba(222, 31, 18, 0.785);
-}
-
-.under9m {
-  fill: rgba(222, 31, 18, 0.7925);
-  color: rgba(222, 31, 18, 0.7925);
-}
-
-.under10m {
-  fill: rgba(222, 31, 18, 0.815);
-  color: rgba(222, 31, 18, 0.815);
-}
-
-.under11m {
-  fill: rgba(222, 31, 18, 0.8325);
-  color: rgba(222, 31, 18, 0.8325);
-}
-
-.under12m {
-  fill: rgba(222, 31, 18, 0.855);
-  color: rgba(222, 31, 18, 0.855);
-}
-
-.under13m {
-  fill: rgba(222, 31, 18, 0.8725);
-  color: rgba(222, 31, 18, 0.8725);
-}
-
-.under14m {
-  fill: rgba(222, 31, 18, 0.89);
-  color: rgba(222, 31, 18, 0.89);
-}
-
-.under15m {
-  fill: rgba(222, 31, 18, 0.9125);
-  color: rgba(222, 31, 18, 0.9125);
-}
-
-.under20m {
-  fill: rgba(222, 31, 18, 0.93);
-  color: rgba(222, 31, 18, 0.93);
-}
-
-.under25m {
-  fill: rgba(222, 31, 18, 0.9475);
-  color: rgba(222, 31, 18, 0.9475);
-}
-
-.under30m {
-  fill: rgba(222, 31, 18, 0.965);
-  color: rgba(222, 31, 18, 0.965);
-}
-
-.under35m {
-  fill: rgba(222, 31, 18, 0.9825);
-  color: rgba(222, 31, 18, 0.9825);
-}
-
-.under50m {
-  fill: rgb(222, 31, 18);
-  color: rgb(222, 31, 18);
 }
 
 #instructions a {
@@ -589,6 +439,7 @@ li.data-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  gap: 10px;
 }
 
 #legend-box span {

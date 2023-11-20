@@ -305,131 +305,136 @@ li.data-header {
 }
 
 .state {
-  stroke: black;
+  stroke: rgb(160, 156, 177);
+  // stroke: black;
   fill: rgb(206, 206, 237);
   // stroke: white;
 }
 
-.under50k {
-  fill: $under50k;
-  color: $under50k;
-}
-.under200k {
-  fill: $under200k;
-  color: $under200k;
-}
-.under500k {
-  fill: $under500k;
-  color: $under500k;
-}
-.under1m {
-  fill: $under1m;
-  color: $under1m;
-}
-.under1p5m {
-  fill: $under1p5m;
-  color: $under1p5m;
-}
-.under2m {
-  fill: $under2m;
-  color: $under2m;
-}
-.under2p5m {
-  fill: $under2p5m;
-  color: $under2p5m;
-}
-.under3m {
-  fill: $under3m;
-  color: $under3m;
-}
-.under3p5m {
-  fill: $under3p5m;
-  color: $under3p5m;
-}
-.under4m {
-  fill: $under4m;
-  color: $under4m;
-}
-.under4p5m {
-  fill: $under4p5m;
-  color: $under4p5m;
-}
-.under5m {
-  fill: $under5m;
-  color: $under5m;
-}
-.under5p5m {
-  fill: $under5p5m;
-  color: $under5p5m;
-}
-.under6m {
-  fill: $under6m;
-  color: $under6m;
-}
-.under6p5m {
-  fill: $under6p5m;
-  color: $under6p5m;
-}
-.under7m {
-  fill: $under7m;
-  color: $under7m;
-}
-.under7p5m {
-  fill: $under7p5m;
-  color: $under7p5m;
-}
-.under8m {
-  fill: $under8m;
-  color: $under8m;
-}
-.under9m {
-  fill: $under9m;
-  color: $under9m;
-}
-.under10m {
-  fill: $under10m;
-  color: $under10m;
-}
-.under11m {
-  fill: $under11m;
-  color: $under11m;
-}
-.under12m {
-  fill: $under12m;
-  color: $under12m;
-}
-.under13m {
-  fill: $under13m;
-  color: $under13m;
-}
-.under14m {
-  fill: $under14m;
-  color: $under14m;
-}
-.under15m {
-  fill: $under15m;
-  color: $under15m;
-}
-.under20m {
-  fill: $under20m;
-  color: $under20m;
-}
-.under25m {
-  fill: $under25m;
-  color: $under25m;
-}
-.under30m {
-  fill: $under30m;
-  color: $under30m;
-}
-.under35m {
-  fill: $under35m;
-  color: $under35m;
-}
-.under50m {
-  fill: $under50m;
-  color: $under50m;
-}
+// .under50k {
+//   fill: $under50k;
+//   color: $under50k;
+// }
+// .under200k {
+//   fill: $under200k;
+//   color: $under200k;
+// }
+// .under500k {
+//   fill: $under500k;
+//   color: $under500k;
+// }
+// .under1m {
+//   fill: $under1m;
+//   color: $under1m;
+// }
+// .under1p5m {
+//   fill: $under1p5m;
+//   color: $under1p5m;
+// }
+// .under2m {
+//   fill: $under2m;
+//   color: $under2m;
+// }
+// .under2p5m {
+//   fill: $under2p5m;
+//   color: $under2p5m;
+// }
+// .under3m {
+//   fill: $under3m;
+//   color: $under3m;
+// }
+// .under3p5m {
+//   fill: $under3p5m;
+//   color: $under3p5m;
+// }
+// .under4m {
+//   fill: $under4m;
+//   color: $under4m;
+// }
+// .under4p5m {
+//   fill: $under4p5m;
+//   color: $under4p5m;
+// }
+// .under5m {
+//   fill: $under5m;
+//   color: $under5m;
+// }
+// .under5p5m {
+//   fill: $under5p5m;
+//   color: $under5p5m;
+// }
+// .under6m {
+//   fill: $under6m;
+//   color: $under6m;
+// }
+// .under6p5m {
+//   fill: $under6p5m;
+//   color: $under6p5m;
+// }
+// .under7m {
+//   fill: $under7m;
+//   color: $under7m;
+// }
+// .under7p5m {
+//   fill: $under7p5m;
+//   color: $under7p5m;
+// }
+// .under8m {
+//   fill: $under8m;
+//   color: $under8m;
+// }
+// .under9m {
+//   fill: $under9m;
+//   color: $under9m;
+// }
+// .under10m {
+//   fill: $under10m;
+//   color: $under10m;
+// }
+// .under11m {
+//   fill: $under11m;
+//   color: $under11m;
+// }
+// .under12m {
+//   fill: $under12m;
+//   color: $under12m;
+// }
+// .under13m {
+//   fill: $under13m;
+//   color: $under13m;
+// }
+// .under14m {
+//   fill: $under14m;
+//   color: $under14m;
+// }
+// .under15m {
+//   fill: $under15m;
+//   color: $under15m;
+// }
+// .under20m {
+//   fill: $under20m;
+//   color: $under20m;
+// }
+// .under25m {
+//   fill: $under25m;
+//   color: $under25m;
+// }
+// .under30m {
+//   fill: $under30m;
+//   color: $under30m;
+// }
+// .under35m {
+//   fill: $under35m;
+//   color: $under35m;
+// }
+// .under50m {
+//   fill: $under50m;
+//   color: $under50m;
+// }
+
+// ---------
+// OLD CODE:
+// ---------
 
 // li.under50k,
 // span.under50k {
@@ -553,6 +558,7 @@ li.data-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  gap: 10px;
 }
 
 #legend-box span {
