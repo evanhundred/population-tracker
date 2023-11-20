@@ -1,4 +1,4 @@
-import MainContent from "./main-content";
+// import MainContent from "./main-content";
 import Map from "./map";
 import Printer from "./printer";
 import { sortData } from "./util";
