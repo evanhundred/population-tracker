@@ -171,6 +171,7 @@ meter {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 8px;
 }
 #main-content #legend-div #legend-box {
   margin: 15px 5vw;
@@ -281,6 +282,7 @@ ul.vintageUl {
 }
 
 #map {
+  border-radius: 8px;
   position: relative;
   margin: 0 auto;
 }
@@ -314,6 +316,8 @@ li.data-header {
 
 #thirdLine {
   padding-top: 5px;
+  border-radius: 8px;
+  width: 400px;
 }
 
 .fetchResultSorted {
@@ -366,8 +370,15 @@ li.data-header {
 .fiftyPlusDC,
 .totalUS,
 .totalTerr {
-  color: #0099ff;
   font-size: 16px;
+}
+
+.itemName.fiftyPlusDC, .itemName.totalUS, .itemName.totalTerr {
+  color: #0099ff;
+}
+
+.itemPop.fiftyPlusDC, .itemPop.totalUS, .itemPop.totalTerr {
+  color: #2e1dca;
 }
 
 .totalTerr {
@@ -410,158 +421,8 @@ li.data-header {
 }
 
 .state {
-  stroke: black;
+  stroke: rgb(160, 156, 177);
   fill: rgb(206, 206, 237);
-}
-
-.under50k {
-  fill: #191970;
-  color: #191970;
-}
-
-.under200k {
-  fill: #000080;
-  color: #000080;
-}
-
-.under500k {
-  fill: #1434a4;
-  color: #1434a4;
-}
-
-.under1m {
-  fill: #00008b;
-  color: #00008b;
-}
-
-.under1p5m {
-  fill: #0047ab;
-  color: #0047ab;
-}
-
-.under2m {
-  fill: #89cff0;
-  color: #89cff0;
-}
-
-.under2p5m {
-  fill: #00ffff;
-  color: #00ffff;
-}
-
-.under3m {
-  fill: #20b2aa;
-  color: #20b2aa;
-}
-
-.under3p5m {
-  fill: #0096ff;
-  color: #0096ff;
-}
-
-.under4m {
-  fill: #6495ed;
-  color: #6495ed;
-}
-
-.under4p5m {
-  fill: #ccccff;
-  color: #ccccff;
-}
-
-.under5m {
-  fill: #d8bfd8;
-  color: #d8bfd8;
-}
-
-.under5p5m {
-  fill: #c3b1e1;
-  color: #c3b1e1;
-}
-
-.under6m {
-  fill: #9370db;
-  color: #9370db;
-}
-
-.under6p5m {
-  fill: #5d3fd3;
-  color: #5d3fd3;
-}
-
-.under7m {
-  fill: #da70d6;
-  color: #da70d6;
-}
-
-.under7p5m {
-  fill: #bf40bf;
-  color: #bf40bf;
-}
-
-.under8m {
-  fill: #da70d6;
-  color: #da70d6;
-}
-
-.under9m {
-  fill: #ba55d3;
-  color: #ba55d3;
-}
-
-.under10m {
-  fill: #bf40bf;
-  color: #bf40bf;
-}
-
-.under11m {
-  fill: #9f2b68;
-  color: #9f2b68;
-}
-
-.under12m {
-  fill: #800020;
-  color: #800020;
-}
-
-.under13m {
-  fill: #953553;
-  color: #953553;
-}
-
-.under14m {
-  fill: #673147;
-  color: #673147;
-}
-
-.under15m {
-  fill: #5e0b0b;
-  color: #5e0b0b;
-}
-
-.under20m {
-  fill: #630330;
-  color: #630330;
-}
-
-.under25m {
-  fill: #c21e56;
-  color: #c21e56;
-}
-
-.under30m {
-  fill: #a42a04;
-  color: #a42a04;
-}
-
-.under35m {
-  fill: #e34234;
-  color: #e34234;
-}
-
-.under50m {
-  fill: #e0115f;
-  color: #e0115f;
 }
 
 #instructions a {
@@ -574,7 +435,7 @@ li.data-header {
   color: #003366;
   padding: 4px;
   text-align: center;
-  width: 100vw;
+  width: 75vw;
 }
 
 #legend-div {
@@ -585,6 +446,7 @@ li.data-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  gap: 10px;
 }
 
 #legend-box span {
@@ -680,6 +542,7 @@ p#legend-title {
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-radius: 8px;
 }
 #main-content #legend-div #legend-box {
   margin: 15px 5vw;

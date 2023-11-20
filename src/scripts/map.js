@@ -1,11 +1,10 @@
 import StateData from "/assets/states-albers-10m.json";
 import State from "./state";
 import Footer from "./footer";
-// import
+import { popDegreesArray, LOW_COLOR_PCT } from "./util";
 
 class Map {
   constructor(data = null) {
-    // debugger;
     this.renderMap();
 
     if (data) {
@@ -19,73 +18,62 @@ class Map {
   }
 
   styleMap(data) {
-    // debugger;
+    const popDegrees = {};
+    popDegreesArray.forEach((degree, idx) => {
+      popDegrees[idx] = {
+        integer: degree[0],
+        className: degree[1]
+      };
+    });
+    // console.log(popDegrees);
+
+    const getPct = (level) => {
+      const lowColorPct = LOW_COLOR_PCT;
+      let range = 1 - lowColorPct;
+      const res = (level / popDegreesArray.length) * range;
+      return res + lowColorPct;
+    };
+    // aqua
+    let colorBase = "rgba(81, 199, 212, ";
+    // orange-red
+    // let colorBase = "rgba(222, 31, 18, ";
+    let colorLevel;
+
     d3.selectAll(".state")._groups[0].forEach((ele) => {
+      // console.log(ele);
       ele.classList.remove(...ele.classList);
       let state = ele.__data__.properties.name;
-      if (data[state].population < 50000) {
-        ele.classList.add("under50k");
-      } else if (data[state].population < 200000) {
-        ele.classList.add("under200k");
-      } else if (data[state].population < 500000) {
-        ele.classList.add("under500k");
-      } else if (data[state].population < 1000000) {
-        ele.classList.add("under1m");
-      } else if (data[state].population < 1500000) {
-        ele.classList.add("under1p5m");
-      } else if (data[state].population < 2000000) {
-        ele.classList.add("under2m");
-      } else if (data[state].population < 2500000) {
-        ele.classList.add("under2p5m");
-      } else if (data[state].population < 3000000) {
-        ele.classList.add("under3m");
-      } else if (data[state].population < 3500000) {
-        ele.classList.add("under3p5m");
-      } else if (data[state].population < 4000000) {
-        ele.classList.add("under4m");
-      } else if (data[state].population < 4500000) {
-        ele.classList.add("under4p5m");
-      } else if (data[state].population < 5000000) {
-        ele.classList.add("under5m");
-      } else if (data[state].population < 5500000) {
-        ele.classList.add("under5p5m");
-      } else if (data[state].population < 6000000) {
-        ele.classList.add("under6m");
-      } else if (data[state].population < 6500000) {
-        ele.classList.add("under6p5m");
-      } else if (data[state].population < 7000000) {
-        ele.classList.add("under7m");
-      } else if (data[state].population < 7500000) {
-        ele.classList.add("under7p5m");
-      } else if (data[state].population < 8000000) {
-        ele.classList.add("under8m");
-      } else if (data[state].population < 9000000) {
-        ele.classList.add("under9m");
-      } else if (data[state].population < 10000000) {
-        ele.classList.add("under10m");
-      } else if (data[state].population < 11000000) {
-        ele.classList.add("under11m");
-      } else if (data[state].population < 12000000) {
-        ele.classList.add("under12m");
-      } else if (data[state].population < 13000000) {
-        ele.classList.add("under13m");
-      } else if (data[state].population < 14000000) {
-        ele.classList.add("under14m");
-      } else if (data[state].population < 15000000) {
-        ele.classList.add("under15m");
-      } else if (data[state].population < 20000000) {
-        ele.classList.add("under20m");
-      } else if (data[state].population < 25000000) {
-        ele.classList.add("under25m");
-      } else if (data[state].population < 30000000) {
-        ele.classList.add("under30m");
-      } else if (data[state].population < 35000000) {
-        ele.classList.add("under15m");
-      } else if (data[state].population < 50000000) {
-        ele.classList.add("under50m");
-      }
-    }); // nodeList of path els
-    // debugger;
+
+      // console.log(state);
+      // console.log(data[state]);
+      8;
+      let currentPop = data[state].population;
+
+      const findDegreeIdx = () => {
+        const degrees = popDegreesArray.slice();
+        let idx = 0;
+        while (degrees) {
+          let currentDegree = degrees.shift()[0];
+          // console.log(currentDegree);
+          if (currentPop > currentDegree) {
+            idx += 1;
+          } else {
+            return idx;
+          }
+        }
+        return null;
+      };
+
+      colorLevel = findDegreeIdx();
+      // console.log(colorLevel);
+
+      let colorPctString = getPct(colorLevel).toString();
+      let colorString = `${colorBase}${colorPctString})`;
+      // console.log(colorString);
+      ele.style.fill = colorString;
+      ele.style.color = colorString;
+      ele.classList.add(popDegrees[colorLevel].className);
+    });
   }
 
   renderMap() {

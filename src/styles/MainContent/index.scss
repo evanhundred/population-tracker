@@ -4,6 +4,10 @@ $background-color: #ffffff;
 $data-color: #003366;
 $header-color: #0099ff;
 
+$map: rgb(81, 199, 212);
+// $map: rgba(222, 31, 18, 1);
+// $very-light-gray: rgb(239, 235, 235);
+
 #main-content {
   & header#instructions {
     font-weight: 600;
@@ -20,6 +24,8 @@ $header-color: #0099ff;
     display: flex;
     flex-direction: column;
     align-items: center;
+    // background: $very-light-gray;
+    border-radius: 8px;
 
     & #legend-box {
       margin: 15px 5vw;

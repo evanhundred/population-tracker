@@ -6,38 +6,39 @@ $border-color: #ff5050;
 $background-color: #ffffff;
 $data-color: #003366;
 $header-color: #0099ff;
+// $very-light-gray: rgb(239, 235, 235);
 
-$under50k: #191970;
-$under200k: #000080;
-$under500k: #1434a4;
-$under1m: #00008b;
-$under1p5m: #0047ab;
-$under2m: #89cff0;
-$under2p5m: #00ffff;
-$under3m: #20b2aa;
-$under3p5m: #0096ff;
-$under4m: #6495ed;
-$under4p5m: #ccccff;
-$under5m: #d8bfd8;
-$under5p5m: #c3b1e1;
-$under6m: #9370db;
-$under6p5m: #5d3fd3;
-$under7m: #da70d6;
-$under7p5m: #bf40bf;
-$under8m: #da70d6;
+$under50k: rgba(222, 31, 18, 0.48);
+$under200k: rgba(222, 31, 18, 0.4975);
+$under500k: rgba(222, 31, 18, 0.515);
+$under1m: rgba(222, 31, 18, 0.5325);
+$under1p5m: rgba(222, 31, 18, 0.55);
+$under2m: rgba(222, 31, 18, 0.5675);
+$under2p5m: rgba(222, 31, 18, 0.585);
+$under3m: rgba(222, 31, 18, 0.625);
+$under3p5m: rgba(222, 31, 18, 0.62);
+$under4m: rgba(222, 31, 18, 0.6375);
+$under4p5m: rgba(222, 31, 18, 0.655);
+$under5m: rgba(222, 31, 18, 0.6725);
+$under5p5m: rgba(222, 31, 18, 0.69);
+$under6m: rgba(222, 31, 18, 0.7075);
+$under6p5m: rgba(222, 31, 18, 0.7225);
+$under7m: rgba(222, 31, 18, 0.75);
+$under7p5m: rgba(222, 31, 18, 0.7675);
+$under8m: rgba(222, 31, 18, 0.785);
 // $under9m: green;
-$under9m: #ba55d3;
-$under10m: #bf40bf;
-$under11m: #9f2b68;
-$under12m: #800020;
-$under13m: #953553;
-$under14m: #673147;
-$under15m: #5e0b0b;
-$under20m: #630330;
-$under25m: #c21e56;
-$under30m: #a42a04;
-$under35m: #e34234;
-$under50m: #e0115f;
+$under9m: rgba(222, 31, 18, 0.7925);
+$under10m: rgba(222, 31, 18, 0.815);
+$under11m: rgba(222, 31, 18, 0.8325);
+$under12m: rgba(222, 31, 18, 0.855);
+$under13m: rgba(222, 31, 18, 0.8725);
+$under14m: rgba(222, 31, 18, 0.89);
+$under15m: rgba(222, 31, 18, 0.9125);
+$under20m: rgba(222, 31, 18, 0.93);
+$under25m: rgba(222, 31, 18, 0.9475);
+$under30m: rgba(222, 31, 18, 0.965);
+$under35m: rgba(222, 31, 18, 0.9825);
+$under50m: rgba(222, 31, 18, 1);
 
 body {
   background-color: $background-color;
@@ -160,6 +161,8 @@ ul.vintageUl {
 #map {
   // width: 100vw;
   // width: 100%;
+  // background: $very-light-gray;
+  border-radius: 8px;
   position: relative;
   margin: 0 auto;
   // left: calc(-50vw + 50%);
@@ -202,6 +205,9 @@ li.data-header {
 
 #thirdLine {
   padding-top: 5px;
+  // background: $very-light-gray;
+  border-radius: 8px;
+  width: 400px;
 }
 
 .fetchResultSorted {
@@ -254,8 +260,23 @@ li.data-header {
 .fiftyPlusDC,
 .totalUS,
 .totalTerr {
-  color: $header-color;
   font-size: 16px;
+}
+
+.itemName {
+  &.fiftyPlusDC,
+  &.totalUS,
+  &.totalTerr {
+    color: $header-color;
+  }
+}
+
+.itemPop {
+  &.fiftyPlusDC,
+  &.totalUS,
+  &.totalTerr {
+    color: #2e1dca;
+  }
 }
 
 .totalTerr {
@@ -299,131 +320,136 @@ li.data-header {
 }
 
 .state {
-  stroke: black;
+  stroke: rgb(160, 156, 177);
+  // stroke: black;
   fill: rgb(206, 206, 237);
   // stroke: white;
 }
 
-.under50k {
-  fill: $under50k;
-  color: $under50k;
-}
-.under200k {
-  fill: $under200k;
-  color: $under200k;
-}
-.under500k {
-  fill: $under500k;
-  color: $under500k;
-}
-.under1m {
-  fill: $under1m;
-  color: $under1m;
-}
-.under1p5m {
-  fill: $under1p5m;
-  color: $under1p5m;
-}
-.under2m {
-  fill: $under2m;
-  color: $under2m;
-}
-.under2p5m {
-  fill: $under2p5m;
-  color: $under2p5m;
-}
-.under3m {
-  fill: $under3m;
-  color: $under3m;
-}
-.under3p5m {
-  fill: $under3p5m;
-  color: $under3p5m;
-}
-.under4m {
-  fill: $under4m;
-  color: $under4m;
-}
-.under4p5m {
-  fill: $under4p5m;
-  color: $under4p5m;
-}
-.under5m {
-  fill: $under5m;
-  color: $under5m;
-}
-.under5p5m {
-  fill: $under5p5m;
-  color: $under5p5m;
-}
-.under6m {
-  fill: $under6m;
-  color: $under6m;
-}
-.under6p5m {
-  fill: $under6p5m;
-  color: $under6p5m;
-}
-.under7m {
-  fill: $under7m;
-  color: $under7m;
-}
-.under7p5m {
-  fill: $under7p5m;
-  color: $under7p5m;
-}
-.under8m {
-  fill: $under8m;
-  color: $under8m;
-}
-.under9m {
-  fill: $under9m;
-  color: $under9m;
-}
-.under10m {
-  fill: $under10m;
-  color: $under10m;
-}
-.under11m {
-  fill: $under11m;
-  color: $under11m;
-}
-.under12m {
-  fill: $under12m;
-  color: $under12m;
-}
-.under13m {
-  fill: $under13m;
-  color: $under13m;
-}
-.under14m {
-  fill: $under14m;
-  color: $under14m;
-}
-.under15m {
-  fill: $under15m;
-  color: $under15m;
-}
-.under20m {
-  fill: $under20m;
-  color: $under20m;
-}
-.under25m {
-  fill: $under25m;
-  color: $under25m;
-}
-.under30m {
-  fill: $under30m;
-  color: $under30m;
-}
-.under35m {
-  fill: $under35m;
-  color: $under35m;
-}
-.under50m {
-  fill: $under50m;
-  color: $under50m;
-}
+// .under50k {
+//   fill: $under50k;
+//   color: $under50k;
+// }
+// .under200k {
+//   fill: $under200k;
+//   color: $under200k;
+// }
+// .under500k {
+//   fill: $under500k;
+//   color: $under500k;
+// }
+// .under1m {
+//   fill: $under1m;
+//   color: $under1m;
+// }
+// .under1p5m {
+//   fill: $under1p5m;
+//   color: $under1p5m;
+// }
+// .under2m {
+//   fill: $under2m;
+//   color: $under2m;
+// }
+// .under2p5m {
+//   fill: $under2p5m;
+//   color: $under2p5m;
+// }
+// .under3m {
+//   fill: $under3m;
+//   color: $under3m;
+// }
+// .under3p5m {
+//   fill: $under3p5m;
+//   color: $under3p5m;
+// }
+// .under4m {
+//   fill: $under4m;
+//   color: $under4m;
+// }
+// .under4p5m {
+//   fill: $under4p5m;
+//   color: $under4p5m;
+// }
+// .under5m {
+//   fill: $under5m;
+//   color: $under5m;
+// }
+// .under5p5m {
+//   fill: $under5p5m;
+//   color: $under5p5m;
+// }
+// .under6m {
+//   fill: $under6m;
+//   color: $under6m;
+// }
+// .under6p5m {
+//   fill: $under6p5m;
+//   color: $under6p5m;
+// }
+// .under7m {
+//   fill: $under7m;
+//   color: $under7m;
+// }
+// .under7p5m {
+//   fill: $under7p5m;
+//   color: $under7p5m;
+// }
+// .under8m {
+//   fill: $under8m;
+//   color: $under8m;
+// }
+// .under9m {
+//   fill: $under9m;
+//   color: $under9m;
+// }
+// .under10m {
+//   fill: $under10m;
+//   color: $under10m;
+// }
+// .under11m {
+//   fill: $under11m;
+//   color: $under11m;
+// }
+// .under12m {
+//   fill: $under12m;
+//   color: $under12m;
+// }
+// .under13m {
+//   fill: $under13m;
+//   color: $under13m;
+// }
+// .under14m {
+//   fill: $under14m;
+//   color: $under14m;
+// }
+// .under15m {
+//   fill: $under15m;
+//   color: $under15m;
+// }
+// .under20m {
+//   fill: $under20m;
+//   color: $under20m;
+// }
+// .under25m {
+//   fill: $under25m;
+//   color: $under25m;
+// }
+// .under30m {
+//   fill: $under30m;
+//   color: $under30m;
+// }
+// .under35m {
+//   fill: $under35m;
+//   color: $under35m;
+// }
+// .under50m {
+//   fill: $under50m;
+//   color: $under50m;
+// }
+
+// ---------
+// OLD CODE:
+// ---------
 
 // li.under50k,
 // span.under50k {
@@ -535,7 +561,7 @@ li.data-header {
   color: $data-color;
   padding: 4px;
   text-align: center;
-  width: 100vw;
+  width: 75vw;
 }
 
 #legend-div {
@@ -547,6 +573,7 @@ li.data-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  gap: 10px;
 }
 
 #legend-box span {
