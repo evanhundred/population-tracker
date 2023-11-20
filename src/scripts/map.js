@@ -25,7 +25,7 @@ class Map {
         className: degree[1]
       };
     });
-    console.log(popDegrees);
+    // console.log(popDegrees);
 
     const getPct = (level) => {
       const lowColorPct = LOW_COLOR_PCT;
@@ -44,8 +44,8 @@ class Map {
       ele.classList.remove(...ele.classList);
       let state = ele.__data__.properties.name;
 
-      console.log(state);
-      console.log(data[state]);
+      // console.log(state);
+      // console.log(data[state]);
       8;
       let currentPop = data[state].population;
 
@@ -65,11 +65,11 @@ class Map {
       };
 
       colorLevel = findDegreeIdx();
-      console.log(colorLevel);
+      // console.log(colorLevel);
 
       let colorPctString = getPct(colorLevel).toString();
       let colorString = `${colorBase}${colorPctString})`;
-      console.log(colorString);
+      // console.log(colorString);
       ele.style.fill = colorString;
       ele.style.color = colorString;
       ele.classList.add(popDegrees[colorLevel].className);

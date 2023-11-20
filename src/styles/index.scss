@@ -260,8 +260,23 @@ li.data-header {
 .fiftyPlusDC,
 .totalUS,
 .totalTerr {
-  color: $header-color;
   font-size: 16px;
+}
+
+.itemName {
+  &.fiftyPlusDC,
+  &.totalUS,
+  &.totalTerr {
+    color: $header-color;
+  }
+}
+
+.itemPop {
+  &.fiftyPlusDC,
+  &.totalUS,
+  &.totalTerr {
+    color: #2e1dca;
+  }
 }
 
 .totalTerr {

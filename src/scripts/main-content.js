@@ -4,6 +4,7 @@ import Fetcher from "./fetcher";
 import Legend from "./legend";
 import SplashModal from "./splashModal";
 import Printer from "./printer";
+import { sortData } from "./util";
 
 class MainContent {
   constructor(ele) {
@@ -138,8 +139,8 @@ class MainContent {
         // }
         resetMap();
         new Map();
-        this.rawData = fetcher.getData("2020", that);
-        console.log(this.rawData);
+        this.rawData = fetcher.getData("2020");
+        // console.log(this.rawData);
         // new Map(fetcher.dataObject);
       } else if (eventTarget.classList.contains("2010")) {
         // boundFetch2010();
@@ -148,7 +149,7 @@ class MainContent {
         // }
         resetMap();
         new Map();
-        const data = fetcher.getData("2010", that);
+        const data = fetcher.getData("2010");
         console.log(data);
         // new Map(fetcher.dataObject);
       } else if (eventTarget.classList.contains("2000")) {
@@ -159,7 +160,7 @@ class MainContent {
         // }
         resetMap();
         new Map();
-        const data = fetcher.getData("2000", that);
+        const data = fetcher.getData("2000");
         console.log(data);
         // document.addEventListener("readystatechange", () => {
         // new Map(fetcher.dataObject);
@@ -185,7 +186,9 @@ class MainContent {
         console.log(sortStyle);
 
         console.log(fetcher);
-        that.printer.sortByName(fetcher.dataObject, sortStyle);
+        const sortedDataObj = sortData(fetcher.dataObject, sortStyle);
+        console.log(sortedDataObj);
+        that.printer.sortByName(sortedDataObj, sortStyle);
       }
       // else if (eventTarget.classList.contains("sortByPopulation")) {
       //   // console.log(that.printer);

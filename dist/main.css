@@ -370,8 +370,15 @@ li.data-header {
 .fiftyPlusDC,
 .totalUS,
 .totalTerr {
-  color: #0099ff;
   font-size: 16px;
+}
+
+.itemName.fiftyPlusDC, .itemName.totalUS, .itemName.totalTerr {
+  color: #0099ff;
+}
+
+.itemPop.fiftyPlusDC, .itemPop.totalUS, .itemPop.totalTerr {
+  color: #2e1dca;
 }
 
 .totalTerr {

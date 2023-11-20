@@ -21,7 +21,7 @@ class Legend {
 
     const colorString = (colorBase, colorPctString) =>
       `${colorBase}${colorPctString}`;
-    const colorPctString = (level) => getPct(level, popDegreesArray);
+    const colorPctString = (level) => getPct(level);
 
     // let under50k = document.createElement("span");
     // under50k.classList.add("under50k");
