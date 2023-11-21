@@ -183,7 +183,7 @@ meter {
 }
 
 body {
-  background-color: #ffffff;
+  background-color: rgba(255, 255, 230, 0.7450980392);
   font-family: inherit;
   display: flex;
   justify-content: center;
