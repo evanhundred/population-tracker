@@ -14,6 +14,10 @@ class Map {
         footer.removeChild(footer.lastChild);
       }
       new Footer(footer);
+    } else {
+      d3.selectAll(".state")._groups[0].forEach((ele) => {
+        ele.classList.add("unloaded");
+      });
     }
   }
 
@@ -70,9 +74,12 @@ class Map {
       let colorPctString = getPct(colorLevel).toString();
       let colorString = `${colorBase}${colorPctString})`;
       // console.log(colorString);
+      // ele.style.background = "black";
       ele.style.fill = colorString;
       ele.style.color = colorString;
       ele.classList.add(popDegrees[colorLevel].className);
+      ele.classList.add("state");
+      ele.classList.add("loaded");
     });
   }
 
