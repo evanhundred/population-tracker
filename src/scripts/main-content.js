@@ -11,6 +11,7 @@ class MainContent {
     this.ele = ele;
     this.sortStyle = "byName";
     this.printer = new Printer();
+    let fetcher = new Fetcher();
 
     // console.log(this.printer);
     const mainNode = document.getElementById("main-content");
@@ -61,15 +62,16 @@ class MainContent {
     div.appendChild(ul);
     let li = document.createElement("li");
     li.innerText = "2020";
-    li.classList.add("2020");
+    li.classList.add("vintage-2020");
+    li.classList.add("selected");
     ul.appendChild(li);
     li = document.createElement("li");
     li.innerText = "2010";
-    li.classList.add("2010");
+    li.classList.add("vintage-2010");
     ul.appendChild(li);
     li = document.createElement("li");
     li.innerText = "2000";
-    li.classList.add("2000");
+    li.classList.add("vintage-2000");
     ul.appendChild(li);
     // };
     // createVintageSelectLine();
@@ -86,6 +88,11 @@ class MainContent {
     // }
 
     const renderedMap = new Map();
+    const initialData = fetcher.getData("2020");
+    // const li2020 = document.querySelector("#vintageSelector li.2020");
+    // li2020.classList.add("selected");
+    // const sortedDataObj = sortData(fetcher.dataObject, this.sortStyle);
+    // this.printer.sortByName(sortedDataObj, this.sortStyle);
     // };
     // createMap();
 
@@ -106,7 +113,7 @@ class MainContent {
     // let boundFetch2000 = this.fetch2000.bind(this);
     // let boundSortByName = this.sortByName.bind(this);
     // let boundSortByPopulation = this.sortByPopulation.bind(this);
-    let fetcher = new Fetcher();
+
     // console.log(fetcher);
     // ;
     // fetcher.getData("2000");
@@ -132,7 +139,7 @@ class MainContent {
       // e.preventDefault();
 
       // console.log(that);
-      if (eventTarget.classList.contains("2020")) {
+      if (eventTarget.classList.contains("vintage-2020")) {
         // boundFetch2020();
         // if (!!map) {
         //   that.ele.replaceChild(that.newMap(), map);
@@ -140,9 +147,25 @@ class MainContent {
         resetMap();
         new Map();
         this.rawData = fetcher.getData("2020");
+        const liSelected = document.querySelector(
+          "#vintageSelector li.selected"
+        );
+        liSelected.classList.remove("selected");
+        const liClicked = document.querySelector(
+          "#vintageSelector li.vintage-2020"
+        );
+        liClicked.classList.add("selected");
         // console.log(this.rawData);
         // new Map(fetcher.dataObject);
-      } else if (eventTarget.classList.contains("2010")) {
+      } else if (eventTarget.classList.contains("vintage-2010")) {
+        const liSelected = document.querySelector(
+          "#vintageSelector li.selected"
+        );
+        liSelected.classList.remove("selected");
+        const liClicked = document.querySelector(
+          "#vintageSelector .vintage-2010"
+        );
+        liClicked.classList.add("selected");
         // boundFetch2010();
         // if (!!map) {
         //   that.ele.replaceChild(that.newMap(), map);
@@ -152,7 +175,15 @@ class MainContent {
         const data = fetcher.getData("2010");
         // console.log(data);
         // new Map(fetcher.dataObject);
-      } else if (eventTarget.classList.contains("2000")) {
+      } else if (eventTarget.classList.contains("vintage-2000")) {
+        const liSelected = document.querySelector(
+          "#vintageSelector li.selected"
+        );
+        liSelected.classList.remove("selected");
+        const liClicked = document.querySelector(
+          "#vintageSelector li.vintage-2000"
+        );
+        liClicked.classList.add("selected");
         // debugger;
         // boundFetch2000();
         // if (!!map) {

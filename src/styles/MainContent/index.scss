@@ -32,6 +32,13 @@ $map: rgb(81, 199, 212);
       max-width: 1000px;
       line-height: 1.2;
     }
+
+    & #vintageSelector {
+      & li.selected {
+        box-shadow: 2px 2px rgb(219, 219, 219);
+        border-radius: 6px;
+      }
+    }
   }
 
   & #second-line {
