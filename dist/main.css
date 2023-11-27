@@ -178,6 +178,10 @@ meter {
   max-width: 1000px;
   line-height: 1.2;
 }
+#main-content #legend-div #vintageSelector li.selected {
+  box-shadow: 2px 2px rgb(219, 219, 219);
+  border-radius: 6px;
+}
 #main-content #second-line {
   margin-top: 30px;
 }
@@ -191,7 +195,6 @@ body {
   margin: 0 auto;
   flex-basis: auto;
   padding: 0 auto;
-  width: 100vw;
 }
 
 div#header {
@@ -271,6 +274,12 @@ ul.vintageUl {
 .vintageUl > li {
   cursor: pointer;
   padding: 0 10px;
+}
+.vintageUl > li.selected {
+  margin: -2.5px -2.5px 0;
+  border: 3px solid rgb(239, 239, 239);
+  background: rgb(241, 241, 241);
+  border-radius: 11px;
 }
 
 #firstLineFooter {
@@ -391,6 +400,10 @@ li.data-header {
   color: #9933ff;
 }
 
+#footer {
+  margin-right: 16px;
+}
+
 #footer-container {
   display: flex;
   justify-content: flex-end;
@@ -405,10 +418,17 @@ li.data-header {
   height: 50px;
 }
 
+#footer-content {
+  margin-bottom: 12px;
+}
+
+#personal {
+  padding: 6px;
+}
+
 #footer-content,
 #personal {
   color: #003366;
-  padding: 6px;
   display: flex;
   align-items: center;
   gap: 4px;
@@ -420,7 +440,7 @@ li.data-header {
   width: 18px;
 }
 
-.state {
+.state.unloaded {
   stroke: rgb(160, 156, 177);
   fill: rgb(206, 206, 237);
 }
@@ -548,6 +568,10 @@ p#legend-title {
   margin: 15px 5vw;
   max-width: 1000px;
   line-height: 1.2;
+}
+#main-content #legend-div #vintageSelector li.selected {
+  box-shadow: 2px 2px rgb(219, 219, 219);
+  border-radius: 6px;
 }
 #main-content #second-line {
   margin-top: 30px;
