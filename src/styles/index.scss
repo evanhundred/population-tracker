@@ -151,7 +151,8 @@ ul.vintageUl {
   cursor: pointer;
   padding: 0 10px;
   &.selected {
-    margin-top: -3px;
+    // margin-top: -6px;
+    margin: -2.5px -2.5px 0;
     border: 3px solid rgb(239, 239, 239);
     background: rgb(241, 241, 241);
     // box-shadow: 2px 2px 2px 2px rgb(219, 219, 219);
