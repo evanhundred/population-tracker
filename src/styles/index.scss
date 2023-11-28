@@ -202,15 +202,31 @@ li.data-header {
 
 .sortSelectorUl {
   display: flex;
-  width: 350px;
+  width: 500px;
+  // width: 350px;
+  gap: 20px;
   justify-content: space-between;
   padding: 5px 0;
 }
 
 .sortSelectorUl li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 50%;
+  width: max-content;
   cursor: pointer;
   color: $border-color;
   font-size: 18px;
+  border: 2px solid #fff2f2;
+  border-radius: 6px;
+  background: #fff9f9;
+  padding: 5px;
+
+  &:hover {
+    border: 2px solid #ffe6e6;
+    background: #ffeded;
+  }
 }
 
 #thirdLine {
@@ -262,9 +278,11 @@ li.data-header {
 
 .keyState,
 .keyPop {
-  color: $header-color;
+  color: $data-color;
+  // font-weight: 500;
+  // color: rgb(79, 85, 89);
   flex: 50%;
-  padding-bottom: 6px;
+  padding: 5px 5px 13px;
 }
 
 .fiftyPlusDC,

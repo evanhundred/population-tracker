@@ -53,7 +53,7 @@ class Legend {
     let under2m = document.createElement("span");
     under2m.classList.add("under2m");
     under2m.style.color = colorString(colorBase, colorPctString(2));
-    under2m.textContent = "1 - 2 million ";
+    under2m.textContent = "500K - 2 million ";
     legendBox.appendChild(under2m);
 
     // let under2p5m = document.createElement("span");
@@ -84,7 +84,7 @@ class Legend {
     let under5m = document.createElement("span");
     under5m.style.color = colorString(colorBase, colorPctString(3));
     under5m.classList.add("under5m");
-    under5m.textContent = "4.5 - 5 million ";
+    under5m.textContent = "2 - 5 million ";
     legendBox.appendChild(under5m);
 
     // let under5p5m = document.createElement("span");
@@ -125,7 +125,7 @@ class Legend {
     let under10m = document.createElement("span");
     under10m.style.color = colorString(colorBase, colorPctString(4));
     under10m.classList.add("under10m");
-    under10m.textContent = "9 - 10 million ";
+    under10m.textContent = "5 - 10 million ";
     legendBox.appendChild(under10m);
 
     // let under11m = document.createElement("span");
@@ -161,7 +161,7 @@ class Legend {
     let under25m = document.createElement("span");
     under25m.style.color = colorString(colorBase, colorPctString(5));
     under25m.classList.add("under25m");
-    under25m.textContent = "20 - 25 million ";
+    under25m.textContent = "10 - 25 million ";
     legendBox.appendChild(under25m);
 
     // let under30m = document.createElement("span");
@@ -177,7 +177,7 @@ class Legend {
     let under50m = document.createElement("span");
     under50m.style.color = colorString(colorBase, colorPctString(6));
     under50m.classList.add("under50m");
-    under50m.textContent = "35- 50 million ";
+    under50m.textContent = "25- 50 million ";
     legendBox.appendChild(under50m);
   }
 }
