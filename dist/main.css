@@ -183,7 +183,7 @@ meter {
   border-radius: 6px;
 }
 #main-content #second-line {
-  margin-top: 30px;
+  margin-top: 35px;
 }
 
 body {
@@ -312,15 +312,29 @@ li.data-header {
 
 .sortSelectorUl {
   display: flex;
-  width: 350px;
+  width: 500px;
+  gap: 20px;
   justify-content: space-between;
   padding: 5px 0;
 }
 
 .sortSelectorUl li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 50%;
+  width: max-content;
   cursor: pointer;
   color: #ff5050;
   font-size: 18px;
+  border: 2px solid #fff2f2;
+  border-radius: 6px;
+  background: #fff9f9;
+  padding: 5px;
+}
+.sortSelectorUl li:hover {
+  border: 2px solid #ffe6e6;
+  background: #ffeded;
 }
 
 #thirdLine {
@@ -371,9 +385,9 @@ li.data-header {
 
 .keyState,
 .keyPop {
-  color: #0099ff;
+  color: #003366;
   flex: 50%;
-  padding-bottom: 6px;
+  padding: 5px 5px 13px;
 }
 
 .fiftyPlusDC,
@@ -574,5 +588,5 @@ p#legend-title {
   border-radius: 6px;
 }
 #main-content #second-line {
-  margin-top: 30px;
+  margin-top: 35px;
 }
