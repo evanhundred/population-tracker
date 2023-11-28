@@ -183,7 +183,7 @@ meter {
   border-radius: 6px;
 }
 #main-content #second-line {
-  margin-top: 35px;
+  margin: 35px 0 10px;
 }
 
 body {
@@ -306,7 +306,7 @@ li.data-header {
   color: #0099ff;
   font-size: 20px;
   font-weight: 800;
-  padding: 5px 0;
+  padding: 5px 0 5px;
   flex: 100%;
 }
 
@@ -385,7 +385,7 @@ li.data-header {
 
 .keyState,
 .keyPop {
-  color: #003366;
+  color: #5b6977;
   flex: 50%;
   padding: 5px 5px 13px;
 }
@@ -588,5 +588,5 @@ p#legend-title {
   border-radius: 6px;
 }
 #main-content #second-line {
-  margin-top: 35px;
+  margin: 35px 0 10px;
 }
