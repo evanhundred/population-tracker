@@ -89,6 +89,7 @@ class MainContent {
 
     const renderedMap = new Map();
     const initialData = fetcher.getData("2020");
+
     // const li2020 = document.querySelector("#vintageSelector li.2020");
     // li2020.classList.add("selected");
     // const sortedDataObj = sortData(fetcher.dataObject, this.sortStyle);
