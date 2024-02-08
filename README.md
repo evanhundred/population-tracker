@@ -1,3 +1,5 @@
+[![wakatime](https://wakatime.com/badge/user/0dd08ff7-b57e-4827-bdfc-279693df8d92/project/fd777b0e-9d4b-497c-878d-a0f6199868d8.svg)](https://wakatime.com/badge/user/0dd08ff7-b57e-4827-bdfc-279693df8d92/project/fd777b0e-9d4b-497c-878d-a0f6199868d8)
+
 ## Population Tracker
 
 What is the spectrum of population density, spread across our country? How has this changed over time? Where have people migrated to, where are people building society?
