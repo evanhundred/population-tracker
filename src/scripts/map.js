@@ -44,12 +44,9 @@ class Map {
     let colorLevel;
 
     d3.selectAll(".state")._groups[0].forEach((ele) => {
-      // console.log(ele);
       ele.classList.remove(...ele.classList);
       let state = ele.__data__.properties.name;
 
-      // console.log(state);
-      // console.log(data[state]);
       8;
       let currentPop = data[state].population;
 
@@ -69,12 +66,9 @@ class Map {
       };
 
       colorLevel = findDegreeIdx();
-      // console.log(colorLevel);
 
       let colorPctString = getPct(colorLevel).toString();
       let colorString = `${colorBase}${colorPctString})`;
-      // console.log(colorString);
-      // ele.style.background = "black";
       ele.style.fill = colorString;
       ele.style.color = colorString;
       ele.classList.add(popDegrees[colorLevel].className);
@@ -93,8 +87,6 @@ class Map {
     let g = svg.append("g");
     // d3.json("https://d3js.org/us-10m.v1.json").then((data) => {
     let states = topojson.feature(StateData, StateData.objects.states);
-    // debugger;
-    // console.log(StateData);
 
     g.selectAll("path")
       .data(states.features)
@@ -102,7 +94,6 @@ class Map {
       .append("path")
       .attr("class", "state")
       .attr("d", path);
-    // });
 
     d3.selectAll(".state")._groups[0].forEach((state) => {
       new State(state);
