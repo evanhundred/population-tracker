@@ -1,4 +1,4 @@
-@import "./splashModal/index.scss";
+@import "./instructionsModal/index.scss";
 @import "./MainContent/index.scss";
 
 $color: #9933ff;
@@ -361,6 +361,9 @@ li.data-header {
 }
 
 .state {
+  &:hover {
+    color: rgba(113, 113, 113, 0.5);
+  }
   &.unloaded {
     stroke: rgb(160, 156, 177);
     fill: rgb(206, 206, 237);

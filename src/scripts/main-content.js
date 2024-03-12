@@ -2,7 +2,7 @@
 import Map from "./map";
 import Fetcher from "./fetcher";
 import Legend from "./legend";
-import SplashModal from "./splashModal";
+import instructionsModal from "./instructionsModal";
 import Printer from "./printer";
 import { sortData } from "./util";
 
@@ -16,12 +16,17 @@ class MainContent {
     // console.log(this.printer);
     const mainNode = document.getElementById("main-content");
 
-    const openSplashModal = () => {
-      const splashModalContainer = document.createElement("div");
-      splashModalContainer.setAttribute("id", "splash-modal-container");
-      mainNode.appendChild(splashModalContainer);
-      const splashModal = new SplashModal(splashModalContainer);
-      return splashModal;
+    const openinstructionsModal = () => {
+      const instructionsModalContainer = document.createElement("div");
+      instructionsModalContainer.setAttribute(
+        "id",
+        "instructions-modal-container"
+      );
+      mainNode.appendChild(instructionsModalContainer);
+      const instructionsModal = new instructionsModal(
+        instructionsModalContainer
+      );
+      return instructionsModal;
     };
 
     const createInstructionsLink = () => {
@@ -30,7 +35,7 @@ class MainContent {
       const instructionsModalLink = document.createElement("h3");
       instructionsModalLink.className = "instructions-link";
       instructionsModalLink.innerText = "View instructions";
-      instructionsModalLink.addEventListener("click", openSplashModal);
+      instructionsModalLink.addEventListener("click", openinstructionsModal);
       instructions.appendChild(instructionsModalLink);
 
       mainNode.appendChild(instructions);
