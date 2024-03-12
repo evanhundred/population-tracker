@@ -3,66 +3,19 @@
 
 $color: #9933ff;
 $border-color: #ff5050;
-// $background-color: #ffffff;
 $background-color: #fffff600;
-// $background-color: #ffffff;
 $data-color: #003366;
 $header-color: #0099ff;
-// $very-light-gray: rgb(239, 235, 235);
-
-$under50k: rgba(222, 31, 18, 0.48);
-$under200k: rgba(222, 31, 18, 0.4975);
-$under500k: rgba(222, 31, 18, 0.515);
-$under1m: rgba(222, 31, 18, 0.5325);
-$under1p5m: rgba(222, 31, 18, 0.55);
-$under2m: rgba(222, 31, 18, 0.5675);
-$under2p5m: rgba(222, 31, 18, 0.585);
-$under3m: rgba(222, 31, 18, 0.625);
-$under3p5m: rgba(222, 31, 18, 0.62);
-$under4m: rgba(222, 31, 18, 0.6375);
-$under4p5m: rgba(222, 31, 18, 0.655);
-$under5m: rgba(222, 31, 18, 0.6725);
-$under5p5m: rgba(222, 31, 18, 0.69);
-$under6m: rgba(222, 31, 18, 0.7075);
-$under6p5m: rgba(222, 31, 18, 0.7225);
-$under7m: rgba(222, 31, 18, 0.75);
-$under7p5m: rgba(222, 31, 18, 0.7675);
-$under8m: rgba(222, 31, 18, 0.785);
-// $under9m: green;
-$under9m: rgba(222, 31, 18, 0.7925);
-$under10m: rgba(222, 31, 18, 0.815);
-$under11m: rgba(222, 31, 18, 0.8325);
-$under12m: rgba(222, 31, 18, 0.855);
-$under13m: rgba(222, 31, 18, 0.8725);
-$under14m: rgba(222, 31, 18, 0.89);
-$under15m: rgba(222, 31, 18, 0.9125);
-$under20m: rgba(222, 31, 18, 0.93);
-$under25m: rgba(222, 31, 18, 0.9475);
-$under30m: rgba(222, 31, 18, 0.965);
-$under35m: rgba(222, 31, 18, 0.9825);
-$under50m: rgba(222, 31, 18, 1);
 
 body {
   background-color: $background-color;
   font-family: inherit;
-  // display: inline-flex;
-  // flex-direction: column;
-  // width: 100vw;
-  // left: calc(-50vw + 50%);
-
-  // display: inline-grid;
-  // grid-template-columns: repeat(auto-fit, 100px);
-  // min-width: 50vw;
-  // position: relative;
-  // left: 50vw;
-  // transform: translateX(-50%);
   display: flex;
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
   flex-basis: auto;
   padding: 0 auto;
-  // width: 100vw;
 }
 
 div#header {
@@ -151,11 +104,9 @@ ul.vintageUl {
   cursor: pointer;
   padding: 0 10px;
   &.selected {
-    // margin-top: -6px;
     margin: -3px -3px 0 -3px;
     border: 3px solid rgb(239, 239, 239);
     background: rgb(241, 241, 241);
-    // box-shadow: 2px 2px 2px 2px rgb(219, 219, 219);
     border-radius: 11px;
   }
 }
@@ -169,22 +120,10 @@ ul.vintageUl {
 }
 
 #map {
-  // width: 100vw;
-  // width: 100%;
-  // background: $very-light-gray;
   border-radius: 8px;
   position: relative;
   margin: 0 auto;
-  // left: calc(-50vw + 50%);
-  // padding: 20px 0;
-  // margin: 20px` 0;
 }
-
-// #secondLine {
-//     // margin-left: 8px;
-//     padding-top: 30px;
-//     // border-top: 8px transparent;
-// }
 
 #main-content > data {
   color: $data-color;
@@ -203,7 +142,6 @@ li.data-header {
 .sortSelectorUl {
   display: flex;
   width: 500px;
-  // width: 350px;
   gap: 20px;
   justify-content: space-between;
   padding: 5px 0;
@@ -231,7 +169,6 @@ li.data-header {
 
 #thirdLine {
   padding-top: 5px;
-  // background: $very-light-gray;
   border-radius: 8px;
   width: 400px;
 }
@@ -278,10 +215,7 @@ li.data-header {
 
 .keyState,
 .keyPop {
-  // color: $data-color;
   color: #5b6977;
-  // font-weight: 500;
-  // color: rgb(79, 85, 89);
   flex: 50%;
   padding: 5px 5px 13px;
 }
@@ -367,248 +301,8 @@ li.data-header {
   &.unloaded {
     stroke: rgb(160, 156, 177);
     fill: rgb(206, 206, 237);
-    // stroke: black;
-    // stroke: white;
-    // background: rgb(0, 0, 0);
   }
-
-  // &.loaded {
-  //   &:before {
-  //     content: "";
-  //     // background: linear-gradient(to top, transparent 60%, black 100%);
-  //     fill: rgb(226, 226, 47);
-  //     color: rgb(226, 226, 47);
-  //     position: absolute;
-  //     z-index: 1;
-  //     // background: rgba(255, 255, 139, 0.486);
-  //   }
-  // }
 }
-
-// .under50k {
-//   fill: $under50k;
-//   color: $under50k;
-// }
-// .under200k {
-//   fill: $under200k;
-//   color: $under200k;
-// }
-// .under500k {
-//   fill: $under500k;
-//   color: $under500k;
-// }
-// .under1m {
-//   fill: $under1m;
-//   color: $under1m;
-// }
-// .under1p5m {
-//   fill: $under1p5m;
-//   color: $under1p5m;
-// }
-// .under2m {
-//   fill: $under2m;
-//   color: $under2m;
-// }
-// .under2p5m {
-//   fill: $under2p5m;
-//   color: $under2p5m;
-// }
-// .under3m {
-//   fill: $under3m;
-//   color: $under3m;
-// }
-// .under3p5m {
-//   fill: $under3p5m;
-//   color: $under3p5m;
-// }
-// .under4m {
-//   fill: $under4m;
-//   color: $under4m;
-// }
-// .under4p5m {
-//   fill: $under4p5m;
-//   color: $under4p5m;
-// }
-// .under5m {
-//   fill: $under5m;
-//   color: $under5m;
-// }
-// .under5p5m {
-//   fill: $under5p5m;
-//   color: $under5p5m;
-// }
-// .under6m {
-//   fill: $under6m;
-//   color: $under6m;
-// }
-// .under6p5m {
-//   fill: $under6p5m;
-//   color: $under6p5m;
-// }
-// .under7m {
-//   fill: $under7m;
-//   color: $under7m;
-// }
-// .under7p5m {
-//   fill: $under7p5m;
-//   color: $under7p5m;
-// }
-// .under8m {
-//   fill: $under8m;
-//   color: $under8m;
-// }
-// .under9m {
-//   fill: $under9m;
-//   color: $under9m;
-// }
-// .under10m {
-//   fill: $under10m;
-//   color: $under10m;
-// }
-// .under11m {
-//   fill: $under11m;
-//   color: $under11m;
-// }
-// .under12m {
-//   fill: $under12m;
-//   color: $under12m;
-// }
-// .under13m {
-//   fill: $under13m;
-//   color: $under13m;
-// }
-// .under14m {
-//   fill: $under14m;
-//   color: $under14m;
-// }
-// .under15m {
-//   fill: $under15m;
-//   color: $under15m;
-// }
-// .under20m {
-//   fill: $under20m;
-//   color: $under20m;
-// }
-// .under25m {
-//   fill: $under25m;
-//   color: $under25m;
-// }
-// .under30m {
-//   fill: $under30m;
-//   color: $under30m;
-// }
-// .under35m {
-//   fill: $under35m;
-//   color: $under35m;
-// }
-// .under50m {
-//   fill: $under50m;
-//   color: $under50m;
-// }
-
-// ---------
-// OLD CODE:
-// ---------
-
-// li.under50k,
-// span.under50k {
-//     color: $under50k;
-// }
-// li.under200k,
-// span.under200k {
-//     color: $under200k;
-// }
-// span.under500k,
-// li.under500k {
-//     color: $under500k;
-// }
-// li.under1m,
-// span.under1m {
-//     color: $under1m;
-// }
-// li.under1p5m,
-// span.under1p5m {
-//     color: $under1p5m;
-// }
-// li.under2m,
-// span.under2m {
-//     color: $under2m;
-// }
-// li.under2p5m,
-// span.under2p5m {
-//     color: $under2p5m;
-// }
-// li.under3m,
-// span.under3m {
-//     color: $under3m;
-// }
-// li.under3p5m,
-// span.under3p5m {
-//     color: $under3p5m;
-// }
-// span.under4m {
-//     color: $under4m;
-// }
-// span.under4p5m {
-//     color: $under4p5m;
-// }
-// span.under5m {
-//     color: $under5m;
-// }
-// span.under5p5m {
-//     color: $under5p5m;
-// }
-// span.under6m {
-//     color: $under6m;
-// }
-// span.under6p5m {
-//     color: $under6p5m;
-// }
-// span.under7m {
-//     color: $under7m;
-// }
-// span.under7p5m {
-//     color: $under7p5m;
-// }
-// span.under8m {
-//     color: $under8m;
-// }
-// span.under9m {
-//     color: $under9m;
-// }
-// span.under10m {
-//     color: $under10m;
-// }
-// span.under11m {
-//     color: $under11m;
-// }
-// span.under12m {
-//     color: $under12m;
-// }
-// span.under13m {
-//     color: $under13m;
-// }
-// span.under14m {
-//     color: $under14m;
-// }
-// span.under15m {
-//     color: $under15m;
-// }
-// span.under20m {
-//     color: $under20m;
-// }
-// span.under25m {
-//     color: $under25m;
-// }
-// span.under30m {
-//     color: $under30m;
-// }
-// span.under35m {
-//     color: $under35m;
-// }
-// span.under50m {
-//     color: $under50m;
-// }
 
 #instructions a {
   color: $border-color;
@@ -628,7 +322,6 @@ li.data-header {
 }
 
 #legend-box {
-  // margin: 20px 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
@@ -643,5 +336,4 @@ p#legend-title {
   color: $data-color;
   font-size: 18px;
   margin: 15px 0;
-  // padding-top: 17px;
 }
