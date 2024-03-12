@@ -1,36 +1,35 @@
 // import AddPopClass from "./add-pop-class";
-import Map from "./map";
-import Fetcher from "./fetcher";
-import Legend from "./legend";
-import SplashModal from "./splashModal";
-import Printer from "./printer";
-import { sortData } from "./util";
+import Map from './map';
+import Fetcher from './fetcher';
+import Legend from './legend';
+import SplashModal from './splashModal';
+import Printer from './printer';
+import { sortData } from './util';
 
 class MainContent {
   constructor(ele) {
     this.ele = ele;
-    this.sortStyle = "byName";
+    this.sortStyle = 'byName';
     this.printer = new Printer();
     let fetcher = new Fetcher();
 
-    // console.log(this.printer);
-    const mainNode = document.getElementById("main-content");
+    const mainNode = document.getElementById('main-content');
 
     const openSplashModal = () => {
-      const splashModalContainer = document.createElement("div");
-      splashModalContainer.setAttribute("id", "splash-modal-container");
+      const splashModalContainer = document.createElement('div');
+      splashModalContainer.setAttribute('id', 'splash-modal-container');
       mainNode.appendChild(splashModalContainer);
       const splashModal = new SplashModal(splashModalContainer);
       return splashModal;
     };
 
     const createInstructionsLink = () => {
-      let instructions = document.createElement("header");
-      instructions.setAttribute("id", "instructions");
-      const instructionsModalLink = document.createElement("h3");
-      instructionsModalLink.className = "instructions-link";
-      instructionsModalLink.innerText = "View instructions";
-      instructionsModalLink.addEventListener("click", openSplashModal);
+      let instructions = document.createElement('header');
+      instructions.setAttribute('id', 'instructions');
+      const instructionsModalLink = document.createElement('h3');
+      instructionsModalLink.className = 'instructions-link';
+      instructionsModalLink.innerText = 'View instructions';
+      instructionsModalLink.addEventListener('click', openSplashModal);
       instructions.appendChild(instructionsModalLink);
 
       mainNode.appendChild(instructions);
@@ -38,40 +37,40 @@ class MainContent {
     createInstructionsLink();
 
     // const createVintageSelectLine = () => {
-    let firstLine = document.createElement("div");
-    firstLine.setAttribute("id", "firstLine");
+    let firstLine = document.createElement('div');
+    firstLine.setAttribute('id', 'firstLine');
     this.ele.appendChild(firstLine);
 
-    let div = document.createElement("div");
-    div.setAttribute("id", "firstLineFooter");
+    let div = document.createElement('div');
+    div.setAttribute('id', 'firstLineFooter');
     this.ele.appendChild(div);
-    let firstLineFooterH2 = document.createElement("h2");
-    firstLineFooterH2.setAttribute("id", "firstLineFooterH2");
-    firstLineFooterH2.innerText = "";
+    let firstLineFooterH2 = document.createElement('h2');
+    firstLineFooterH2.setAttribute('id', 'firstLineFooterH2');
+    firstLineFooterH2.innerText = '';
     div.appendChild(firstLineFooterH2);
 
-    let h2 = document.createElement("h2");
-    h2.innerText = "Fetch Vintage:";
+    let h2 = document.createElement('h2');
+    h2.innerText = 'Fetch Vintage:';
     firstLine.appendChild(h2);
-    div = document.createElement("div");
-    div.setAttribute("id", "vintageSelector");
-    div.classList.add("firstLine");
-    let ul = document.createElement("ul");
-    ul.classList.add("vintageUl");
+    div = document.createElement('div');
+    div.setAttribute('id', 'vintageSelector');
+    div.classList.add('firstLine');
+    let ul = document.createElement('ul');
+    ul.classList.add('vintageUl');
     firstLine.appendChild(div);
     div.appendChild(ul);
-    let li = document.createElement("li");
-    li.innerText = "2020";
-    li.classList.add("vintage-2020");
-    li.classList.add("selected");
+    let li = document.createElement('li');
+    li.innerText = '2020';
+    li.classList.add('vintage-2020');
+    li.classList.add('selected');
     ul.appendChild(li);
-    li = document.createElement("li");
-    li.innerText = "2010";
-    li.classList.add("vintage-2010");
+    li = document.createElement('li');
+    li.innerText = '2010';
+    li.classList.add('vintage-2010');
     ul.appendChild(li);
-    li = document.createElement("li");
-    li.innerText = "2000";
-    li.classList.add("vintage-2000");
+    li = document.createElement('li');
+    li.innerText = '2000';
+    li.classList.add('vintage-2000');
     ul.appendChild(li);
     // };
     // createVintageSelectLine();
@@ -79,16 +78,16 @@ class MainContent {
     new Legend(this.ele);
 
     // const createMap = () => {)
-    let mapDiv = document.querySelector("#map");
+    let mapDiv = document.querySelector('#map');
     if (mapDiv) mapDiv.remove();
     // if (!mapDiv) {
-    mapDiv = document.createElement("div");
-    mapDiv.setAttribute("id", "map");
+    mapDiv = document.createElement('div');
+    mapDiv.setAttribute('id', 'map');
     this.ele.appendChild(mapDiv);
     // }
 
     const renderedMap = new Map();
-    const initialData = fetcher.getData("2020");
+    const initialData = fetcher.getData('2020');
 
     // const li2020 = document.querySelector("#vintageSelector li.2020");
     // li2020.classList.add("selected");
@@ -97,16 +96,16 @@ class MainContent {
     // };
     // createMap();
 
-    let secondLine = document.createElement("div");
-    secondLine.setAttribute("id", "second-line");
+    let secondLine = document.createElement('div');
+    secondLine.setAttribute('id', 'second-line');
     this.ele.appendChild(secondLine);
-    ul = document.createElement("ul");
-    ul.classList.add("sortSelectorUl");
+    ul = document.createElement('ul');
+    ul.classList.add('sortSelectorUl');
     secondLine.appendChild(ul);
     this.ele.appendChild(secondLine);
 
-    let thirdLine = document.createElement("div");
-    thirdLine.setAttribute("id", "thirdLine");
+    let thirdLine = document.createElement('div');
+    thirdLine.setAttribute('id', 'thirdLine');
     this.ele.appendChild(thirdLine);
 
     // let boundFetch2020 = this.fetch2020.bind(this);
@@ -122,69 +121,69 @@ class MainContent {
     // ;
     const that = this;
     const resetMap = () => {
-      let mapDiv = document.querySelector("#map");
+      let mapDiv = document.querySelector('#map');
       if (mapDiv) mapDiv.remove();
-      mapDiv = document.createElement("div");
-      mapDiv.setAttribute("id", "map");
-      const main = document.getElementById("main-content");
-      const secondLine = document.getElementById("second-line");
+      mapDiv = document.createElement('div');
+      mapDiv.setAttribute('id', 'map');
+      const main = document.getElementById('main-content');
+      const secondLine = document.getElementById('second-line');
       // const legendDiv = document.getElementById("legend-div");
       main.insertBefore(mapDiv, secondLine);
     };
 
-    document.addEventListener("click", function (e) {
+    document.addEventListener('click', function (e) {
       // console.log(e);
       let eventTarget = e.target;
-      let map = document.getElementById("map");
+      let map = document.getElementById('map');
 
       // e.preventDefault();
 
       // console.log(that);
-      if (eventTarget.classList.contains("vintage-2020")) {
+      if (eventTarget.classList.contains('vintage-2020')) {
         // boundFetch2020();
         // if (!!map) {
         //   that.ele.replaceChild(that.newMap(), map);
         // }
         resetMap();
         new Map();
-        this.rawData = fetcher.getData("2020");
+        this.rawData = fetcher.getData('2020');
         const liSelected = document.querySelector(
-          "#vintageSelector li.selected"
+          '#vintageSelector li.selected'
         );
-        liSelected.classList.remove("selected");
+        liSelected.classList.remove('selected');
         const liClicked = document.querySelector(
-          "#vintageSelector li.vintage-2020"
+          '#vintageSelector li.vintage-2020'
         );
-        liClicked.classList.add("selected");
+        liClicked.classList.add('selected');
         // console.log(this.rawData);
         // new Map(fetcher.dataObject);
-      } else if (eventTarget.classList.contains("vintage-2010")) {
+      } else if (eventTarget.classList.contains('vintage-2010')) {
         const liSelected = document.querySelector(
-          "#vintageSelector li.selected"
+          '#vintageSelector li.selected'
         );
-        liSelected.classList.remove("selected");
+        liSelected.classList.remove('selected');
         const liClicked = document.querySelector(
-          "#vintageSelector .vintage-2010"
+          '#vintageSelector .vintage-2010'
         );
-        liClicked.classList.add("selected");
+        liClicked.classList.add('selected');
         // boundFetch2010();
         // if (!!map) {
         //   that.ele.replaceChild(that.newMap(), map);
         // }
         resetMap();
         new Map();
-        const data = fetcher.getData("2010");
+        const data = fetcher.getData('2010');
         // console.log(data);
         // new Map(fetcher.dataObject);
-      } else if (eventTarget.classList.contains("vintage-2000")) {
+      } else if (eventTarget.classList.contains('vintage-2000')) {
         const liSelected = document.querySelector(
-          "#vintageSelector li.selected"
+          '#vintageSelector li.selected'
         );
-        liSelected.classList.remove("selected");
+        liSelected.classList.remove('selected');
         const liClicked = document.querySelector(
-          "#vintageSelector li.vintage-2000"
+          '#vintageSelector li.vintage-2000'
         );
-        liClicked.classList.add("selected");
+        liClicked.classList.add('selected');
         // debugger;
         // boundFetch2000();
         // if (!!map) {
@@ -192,21 +191,21 @@ class MainContent {
         // }
         resetMap();
         new Map();
-        const data = fetcher.getData("2000");
+        const data = fetcher.getData('2000');
         // console.log(data);
         // document.addEventListener("readystatechange", () => {
         // new Map(fetcher.dataObject);
         // });
       } else if (
-        eventTarget.classList.contains("sortByName") ||
-        eventTarget.classList.contains("sortByPopulation")
+        eventTarget.classList.contains('sortByName') ||
+        eventTarget.classList.contains('sortByPopulation')
       ) {
         let sortStyle;
-        if (eventTarget.classList.contains("sortByName")) {
-          sortStyle = "byName";
+        if (eventTarget.classList.contains('sortByName')) {
+          sortStyle = 'byName';
         }
-        if (eventTarget.classList.contains("sortByPopulation")) {
-          sortStyle = "byPop";
+        if (eventTarget.classList.contains('sortByPopulation')) {
+          sortStyle = 'byPop';
         }
         // const classString = eventTarget.classList;
         // console.log(classString);
@@ -233,56 +232,56 @@ class MainContent {
   }
 
   newMap() {
-    const newMap = document.createElement("div");
-    newMap.setAttribute("id", "map");
+    const newMap = document.createElement('div');
+    newMap.setAttribute('id', 'map');
     return newMap;
   }
 
   fetch2020() {
-    let firstLineFooterH2 = document.getElementById("firstLineFooterH2");
-    firstLineFooterH2.innerText = "fetching...";
-    this.getData("2020");
+    let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
+    firstLineFooterH2.innerText = 'fetching...';
+    this.getData('2020');
   }
 
   fetch2010() {
-    let firstLineFooterH2 = document.getElementById("firstLineFooterH2");
-    firstLineFooterH2.innerText = "fetching...";
-    this.getData("2010");
+    let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
+    firstLineFooterH2.innerText = 'fetching...';
+    this.getData('2010');
   }
 
   fetch2000() {
-    let firstLineFooterH2 = document.getElementById("firstLineFooterH2");
-    firstLineFooterH2.innerText = "fetching...";
-    this.getData("2000");
+    let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
+    firstLineFooterH2.innerText = 'fetching...';
+    this.getData('2000');
   }
 
   printData() {
-    if (!document.querySelector("data")) {
-      let dataEl = document.createElement("data");
-      let dataUl = document.createElement("ul");
-      dataUl.classList.add("fetchResultSorted");
+    if (!document.querySelector('data')) {
+      let dataEl = document.createElement('data');
+      let dataUl = document.createElement('ul');
+      dataUl.classList.add('fetchResultSorted');
       dataEl.appendChild(dataUl);
-      let thirdLine = document.getElementById("thirdLine");
+      let thirdLine = document.getElementById('thirdLine');
       thirdLine.appendChild(dataEl);
     }
 
-    let firstLineFooterH2 = document.getElementById("firstLineFooterH2");
-    firstLineFooterH2.innerText = "data fetched!";
+    let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
+    firstLineFooterH2.innerText = 'data fetched!';
 
-    let ul = document.createElement("ul");
-    let li = document.createElement("li");
-    li.classList.add("sortByName");
-    li.innerText = "Sort by Name";
+    let ul = document.createElement('ul');
+    let li = document.createElement('li');
+    li.classList.add('sortByName');
+    li.innerText = 'Sort by Name';
     ul.appendChild(li);
 
-    li = document.createElement("li");
-    li.classList.add("sortByPopulation");
-    li.innerText = "Sort by Population";
+    li = document.createElement('li');
+    li.classList.add('sortByPopulation');
+    li.innerText = 'Sort by Population';
     ul.appendChild(li);
 
-    let selectorDiv = document.getElementById("second-line");
-    selectorDiv.replaceChild(ul, document.querySelector(".sortSelectorUl"));
-    ul.classList.add("sortSelectorUl");
+    let selectorDiv = document.getElementById('second-line');
+    selectorDiv.replaceChild(ul, document.querySelector('.sortSelectorUl'));
+    ul.classList.add('sortSelectorUl');
   }
 
   // loadLocalData(vintage) {

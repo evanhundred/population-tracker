@@ -1,4 +1,7 @@
 {
-  "workbench.colorTheme": "Gruvbox Light Medium",
-  "window.zoomLevel": 1.3
+  "workbench.colorTheme": "Default Light Modern",
+  "window.zoomLevel": 0.6,
+  "javascript.preferences.quoteStyle": "single",
+  "prettier.singleQuote": true,
+  "prettier.jsxSingleQuote": true
 }
