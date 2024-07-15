@@ -88,8 +88,8 @@ meter {
 /*!*************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./node_modules/sass-loader/dist/cjs.js!./src/index.scss ***!
   \*************************************************************************************************************************************/
-#splash-modal-container,
-#splash-modal-container .splash-modal-overlay {
+#instructions-modal-container,
+#instructions-modal-container .instructions-modal-overlay {
   top: 0;
   left: 0;
   right: 0;
@@ -100,13 +100,13 @@ meter {
   align-items: center;
 }
 
-#splash-modal-container {
+#instructions-modal-container {
   z-index: 1;
 }
-#splash-modal-container .splash-modal-overlay {
+#instructions-modal-container .instructions-modal-overlay {
   background: rgba(49, 49, 49, 0.8);
 }
-#splash-modal-container .splash-modal-box {
+#instructions-modal-container .instructions-modal-box {
   width: 70vw;
   height: max-content;
   position: relative;
@@ -114,46 +114,44 @@ meter {
   display: flex;
   border-radius: 10px;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content {
+#instructions-modal-container .instructions-modal-box .instructions-modal-content {
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 2.5em 3em;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .close-x {
+#instructions-modal-container .instructions-modal-box .instructions-modal-content .close-x {
   display: flex;
   justify-content: flex-end;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .close-x p {
+#instructions-modal-container .instructions-modal-box .instructions-modal-content .close-x p {
   cursor: pointer;
   font-size: 15px;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .modal-text {
+#instructions-modal-container .instructions-modal-box .instructions-modal-content .modal-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   margin: 10px 0 20px;
-}
-#splash-modal-container .splash-modal-box .splash-modal-content .modal-text p {
   text-align: center;
   color: rgb(67, 64, 64);
   font-size: 20px;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .modal-text p a {
+#instructions-modal-container .instructions-modal-box .instructions-modal-content .modal-text a {
   color: #ff5050;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .ok-button {
+#instructions-modal-container .instructions-modal-box .ok-button {
   display: flex;
   justify-content: center;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .ok-button h3 {
+#instructions-modal-container .instructions-modal-box .ok-button h3 {
   cursor: pointer;
   padding: 8px 20px;
   border-radius: 5px;
   border: 2px solid #9933ff;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .ok-button h3:hover {
+#instructions-modal-container .instructions-modal-box .ok-button h3:hover {
   background: #f1e3ff;
 }
 
@@ -454,6 +452,9 @@ li.data-header {
   width: 18px;
 }
 
+.state:hover {
+  color: rgba(113, 113, 113, 0.5);
+}
 .state.unloaded {
   stroke: rgb(160, 156, 177);
   fill: rgb(206, 206, 237);
@@ -493,8 +494,8 @@ p#legend-title {
   margin: 15px 0;
 }
 
-#splash-modal-container,
-#splash-modal-container .splash-modal-overlay {
+#instructions-modal-container,
+#instructions-modal-container .instructions-modal-overlay {
   top: 0;
   left: 0;
   right: 0;
@@ -505,13 +506,13 @@ p#legend-title {
   align-items: center;
 }
 
-#splash-modal-container {
+#instructions-modal-container {
   z-index: 1;
 }
-#splash-modal-container .splash-modal-overlay {
+#instructions-modal-container .instructions-modal-overlay {
   background: rgba(49, 49, 49, 0.8);
 }
-#splash-modal-container .splash-modal-box {
+#instructions-modal-container .instructions-modal-box {
   width: 70vw;
   height: max-content;
   position: relative;
@@ -519,46 +520,44 @@ p#legend-title {
   display: flex;
   border-radius: 10px;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content {
+#instructions-modal-container .instructions-modal-box .instructions-modal-content {
   width: 100%;
   display: flex;
   flex-direction: column;
   padding: 2.5em 3em;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .close-x {
+#instructions-modal-container .instructions-modal-box .instructions-modal-content .close-x {
   display: flex;
   justify-content: flex-end;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .close-x p {
+#instructions-modal-container .instructions-modal-box .instructions-modal-content .close-x p {
   cursor: pointer;
   font-size: 15px;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .modal-text {
+#instructions-modal-container .instructions-modal-box .instructions-modal-content .modal-text {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 8px;
   margin: 10px 0 20px;
-}
-#splash-modal-container .splash-modal-box .splash-modal-content .modal-text p {
   text-align: center;
   color: rgb(67, 64, 64);
   font-size: 20px;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .modal-text p a {
+#instructions-modal-container .instructions-modal-box .instructions-modal-content .modal-text a {
   color: #ff5050;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .ok-button {
+#instructions-modal-container .instructions-modal-box .ok-button {
   display: flex;
   justify-content: center;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .ok-button h3 {
+#instructions-modal-container .instructions-modal-box .ok-button h3 {
   cursor: pointer;
   padding: 8px 20px;
   border-radius: 5px;
   border: 2px solid #9933ff;
 }
-#splash-modal-container .splash-modal-box .splash-modal-content .ok-button h3:hover {
+#instructions-modal-container .instructions-modal-box .ok-button h3:hover {
   background: #f1e3ff;
 }
 
