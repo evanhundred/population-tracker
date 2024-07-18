@@ -1,4 +1,4 @@
-import TitleSplash from './scripts/title_splash';
+import TitleSplash from './scripts/TitleSplash';
 import MainContent from './scripts/MainContent';
 import instructionsModal from './scripts/instructionsModal';
 

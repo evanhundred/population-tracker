@@ -1,5 +1,5 @@
-import Map from './map';
-import Printer from './printer';
+import Map from './Map';
+import Printer from './Printer';
 import { sortData } from './util';
 
 class Fetcher {

@@ -1,4 +1,4 @@
-import AddPopClass from '../add-pop-class';
+import AddPopClass from './AddPopClass';
 
 class Printer {
   constructor(dataObject = {}, sortStyle = null) {

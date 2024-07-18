@@ -1,8 +1,8 @@
 // import AddPopClass from "./add-pop-class";
-import Map from './map';
-import Fetcher from './fetcher';
-import Legend from './legend';
-import Printer from './printer';
+import Map from './Map';
+import Fetcher from './Fetcher';
+import Legend from './Legend';
+import Printer from './Printer';
 import { VINTAGES, sortData } from './util';
 
 class MainContent {
@@ -74,7 +74,7 @@ class MainContent {
 
     // end vintagesUl logic
     // --------------------
-    // map logic-----------
+    // map logic
 
     new Legend(this.ele);
 
