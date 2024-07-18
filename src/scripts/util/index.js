@@ -2,6 +2,9 @@ export const VINTAGES = ['1790', '2000', '2010', '2020'];
 export const LOW_COLOR_PCT = 0.4;
 export const COLOR_STRING_BASE = 'rgba(81, 199, 212, ';
 
+// needed? applies to vintage object classNames in MainContent
+export const YEAR_DASH_VINTAGE = /^year-\d\d\d\d$/i;
+
 export const sortData = (dataObject, sortKey) => {
   const dataIsRaw = !!dataObject.data;
   // console.log(dataIsRaw);

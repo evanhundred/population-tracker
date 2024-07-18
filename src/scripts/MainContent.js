@@ -44,7 +44,7 @@ class MainContent {
     this.ele.appendChild(div);
     let firstLineFooterH2 = document.createElement('h2');
     firstLineFooterH2.setAttribute('id', 'firstLineFooterH2');
-    firstLineFooterH2.innerText = '';
+    // firstLineFooterH2.innerText = '';
     div.appendChild(firstLineFooterH2);
 
     let h2 = document.createElement('h2');
@@ -52,7 +52,7 @@ class MainContent {
     FirstLine.appendChild(h2);
     div = document.createElement('div');
     div.setAttribute('id', 'vintageSelector');
-    div.classList.add('FirstLine');
+    div.classList.add('firstLine');
     let ul = document.createElement('ul');
     ul.classList.add('vintageUl');
     FirstLine.appendChild(div);
@@ -63,7 +63,7 @@ class MainContent {
       li = document.createElement('li');
       li.innerText = VINTAGES[i];
       li.id = 'vintage';
-      li.classList.add(VINTAGES[i]);
+      li.classList.add(`year-${VINTAGES[i]}`);
       if (VINTAGES[i] === '2020') li.classList.add('selected');
       ul.appendChild(li);
     }
@@ -130,17 +130,11 @@ class MainContent {
         resetMap();
         new Map();
 
-        if (['2020', '2010', '2000'].includes(eventTarget.className)) {
-          fetcher.getData(eventTarget.className);
-          const liSelected = document.querySelector('li#vintage.selected');
-          liSelected.classList.remove('selected');
-          const liClicked = document.querySelector(`li#vintage.${eventTarget.className}`);
-          liClicked.classList.add('selected');
-        } else {
-          switch (eventTarget.className) {
-            case '1790':
-          }
-        }
+        fetcher.getData(eventTarget.className);
+        const liSelected = document.querySelector('li#vintage.selected');
+        liSelected.classList.remove('selected');
+        const liClicked = document.querySelector(`li#vintage.year-${eventTarget.className}`);
+        liClicked.classList.add('selected');
       } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
         let sortStyle;
         if (eventTarget.classList.contains('sortByName')) {
@@ -172,8 +166,8 @@ class MainContent {
       thirdLine.appendChild(dataEl);
     }
 
-    let FirstLineFooterH2 = document.getElementById('FirstLineFooterH2');
-    FirstLineFooterH2.innerText = 'data fetched!';
+    let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
+    firstLineFooterH2.innerText = 'data fetched!';
 
     let ul = document.createElement('ul');
     let li = document.createElement('li');
