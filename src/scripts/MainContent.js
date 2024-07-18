@@ -58,34 +58,23 @@ class MainContent {
     FirstLine.appendChild(div);
     div.appendChild(ul);
 
-    let li;
-    for (let i = 0; i < VINTAGES.length; i++) {
-      li = document.createElement('li');
-      li.innerText = VINTAGES[i];
-      li.id = 'vintage';
-      li.classList.add(`year-${VINTAGES[i]}`);
-      if (VINTAGES[i] === '2020') li.classList.add('selected');
-      ul.appendChild(li);
-    }
+    const createVintageList = (ul) => {
+      let li;
+      for (let i = 0; i < VINTAGES.length; i++) {
+        li = document.createElement('li');
+        li.innerText = VINTAGES[i];
+        li.id = 'vintage';
+        li.classList.add(`year-${VINTAGES[i]}`);
+        if (VINTAGES[i] === '2020') li.classList.add('selected');
+        ul.appendChild(li);
+      }
+      return ul;
+    };
+    ul = createVintageList(ul);
 
-    // let li = document.createElement('li');
-    // li.innerText = '2020';
-    // li.classList.add('vintage-2020');
-    // li.classList.add('selected');
-    // ul.appendChild(li);
-    // li = document.createElement('li');
-    // li.innerText = '2010';
-    // li.classList.add('vintage-2010');
-    // ul.appendChild(li);
-    // li = document.createElement('li');
-    // li.innerText = '2000';
-    // li.classList.add('vintage-2000');
-    // ul.appendChild(li);
-    // li = document.createElement('li');
-    // li.innerText = '1790';
-    // li.classList.add('vintage');
-    // li.classList.add('1790');
-    // ul.appendChild(li);
+    // end vintagesUl logic
+    // --------------------
+    // begin map logic-----
 
     new Legend(this.ele);
 
