@@ -74,20 +74,20 @@ class MainContent {
 
     // end vintagesUl logic
     // --------------------
-    // begin map logic-----
+    // map logic-----------
 
     new Legend(this.ele);
 
     let mapDiv = document.querySelector('#map');
     if (mapDiv) mapDiv.remove();
-    // if (!mapDiv) {
     mapDiv = document.createElement('div');
     mapDiv.setAttribute('id', 'map');
     this.ele.appendChild(mapDiv);
-    // }
 
     new Map();
     fetcher.getData('2020');
+
+    // sortSelector
 
     let secondLine = document.createElement('div');
     secondLine.setAttribute('id', 'second-line');
@@ -96,6 +96,8 @@ class MainContent {
     ul.classList.add('sortSelectorUl');
     secondLine.appendChild(ul);
     this.ele.appendChild(secondLine);
+
+    // prepare divs to print and render census data
 
     let thirdLine = document.createElement('div');
     thirdLine.setAttribute('id', 'thirdLine');
@@ -126,12 +128,17 @@ class MainContent {
         liClicked.classList.add('selected');
       } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
         let sortStyle;
-        if (eventTarget.classList.contains('sortByName')) {
-          sortStyle = 'byName';
-        }
-        if (eventTarget.classList.contains('sortByPopulation')) {
-          sortStyle = 'byPop';
-        }
+        const selectorOptions = ['sortByName', 'sortByPopulation'];
+        selectorOptions.forEach((option) => {
+          sortStyle = option.slice(4);
+          sortStyle[0] = sortStyle[0].toLowerCase();
+        });
+        // if (eventTarget.classList.contains('sortByName')) {
+        //   sortStyle = 'byName';
+        // }
+        // if (eventTarget.classList.contains('sortByPopulation')) {
+        //   sortStyle = 'byPop';
+        // }
 
         const sortedDataObj = sortData(fetcher.dataObject, sortStyle);
         that.printer.sortByName(sortedDataObj, sortStyle);
