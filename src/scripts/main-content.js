@@ -35,9 +35,9 @@ class MainContent {
     };
     createInstructionsLink();
 
-    let firstLine = document.createElement('div');
-    firstLine.setAttribute('id', 'firstLine');
-    this.ele.appendChild(firstLine);
+    const FirstLine = document.createElement('div');
+    FirstLine.setAttribute('id', 'firstLine');
+    this.ele.appendChild(FirstLine);
 
     let div = document.createElement('div');
     div.setAttribute('id', 'firstLineFooter');
@@ -49,13 +49,13 @@ class MainContent {
 
     let h2 = document.createElement('h2');
     h2.innerText = 'Fetch Vintage:';
-    firstLine.appendChild(h2);
+    FirstLine.appendChild(h2);
     div = document.createElement('div');
     div.setAttribute('id', 'vintageSelector');
-    div.classList.add('firstLine');
+    div.classList.add('FirstLine');
     let ul = document.createElement('ul');
     ul.classList.add('vintageUl');
-    firstLine.appendChild(div);
+    FirstLine.appendChild(div);
     div.appendChild(ul);
 
     let li;
@@ -134,7 +134,7 @@ class MainContent {
           fetcher.getData(eventTarget.className);
           const liSelected = document.querySelector('li#vintage.selected');
           liSelected.classList.remove('selected');
-          const liClicked = document.querySelected(`li#vintage.${eventTarget.className}`);
+          const liClicked = document.querySelector(`li#vintage.${eventTarget.className}`);
           liClicked.classList.add('selected');
         } else {
           switch (eventTarget.className) {
@@ -162,24 +162,6 @@ class MainContent {
     return newMap;
   }
 
-  // fetch2020() {
-  //   let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
-  //   firstLineFooterH2.innerText = 'fetching...';
-  //   this.getData('2020');
-  // }
-
-  // fetch2010() {
-  //   let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
-  //   firstLineFooterH2.innerText = 'fetching...';
-  //   this.getData('2010');
-  // }
-
-  // fetch2000() {
-  //   let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
-  //   firstLineFooterH2.innerText = 'fetching...';
-  //   this.getData('2000');
-  // }
-
   printData() {
     if (!document.querySelector('data')) {
       let dataEl = document.createElement('data');
@@ -190,8 +172,8 @@ class MainContent {
       thirdLine.appendChild(dataEl);
     }
 
-    let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
-    firstLineFooterH2.innerText = 'data fetched!';
+    let FirstLineFooterH2 = document.getElementById('FirstLineFooterH2');
+    FirstLineFooterH2.innerText = 'data fetched!';
 
     let ul = document.createElement('ul');
     let li = document.createElement('li');
