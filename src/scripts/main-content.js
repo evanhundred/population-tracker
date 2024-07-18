@@ -2,9 +2,9 @@
 import Map from './map';
 import Fetcher from './fetcher';
 import Legend from './legend';
-import instructionsModal from './instructionsModal';
 import Printer from './printer';
 import { sortData } from './util';
+import { VINTAGES } from './constants';
 
 class MainContent {
   constructor(ele) {
@@ -13,7 +13,6 @@ class MainContent {
     this.printer = new Printer();
     let fetcher = new Fetcher();
 
-    // console.log(this.printer);
     const mainNode = document.getElementById('main-content');
 
     const openinstructionsModal = () => {
@@ -37,7 +36,6 @@ class MainContent {
     };
     createInstructionsLink();
 
-    // const createVintageSelectLine = () => {
     let firstLine = document.createElement('div');
     firstLine.setAttribute('id', 'firstLine');
     this.ele.appendChild(firstLine);
@@ -60,25 +58,38 @@ class MainContent {
     ul.classList.add('vintageUl');
     firstLine.appendChild(div);
     div.appendChild(ul);
-    let li = document.createElement('li');
-    li.innerText = '2020';
-    li.classList.add('vintage-2020');
-    li.classList.add('selected');
-    ul.appendChild(li);
-    li = document.createElement('li');
-    li.innerText = '2010';
-    li.classList.add('vintage-2010');
-    ul.appendChild(li);
-    li = document.createElement('li');
-    li.innerText = '2000';
-    li.classList.add('vintage-2000');
-    ul.appendChild(li);
-    // };
-    // createVintageSelectLine();
+
+    let li;
+    for (let i = 0; i < VINTAGES.length; i++) {
+      li = document.createElement('li');
+      li.innerText = VINTAGES[i];
+      li.id = 'vintage';
+      li.classList.add(VINTAGES[i]);
+      if (VINTAGES[i] === '2020') li.classList.add('selected');
+      ul.appendChild(li);
+    }
+
+    // let li = document.createElement('li');
+    // li.innerText = '2020';
+    // li.classList.add('vintage-2020');
+    // li.classList.add('selected');
+    // ul.appendChild(li);
+    // li = document.createElement('li');
+    // li.innerText = '2010';
+    // li.classList.add('vintage-2010');
+    // ul.appendChild(li);
+    // li = document.createElement('li');
+    // li.innerText = '2000';
+    // li.classList.add('vintage-2000');
+    // ul.appendChild(li);
+    // li = document.createElement('li');
+    // li.innerText = '1790';
+    // li.classList.add('vintage');
+    // li.classList.add('1790');
+    // ul.appendChild(li);
 
     new Legend(this.ele);
 
-    // const createMap = () => {)
     let mapDiv = document.querySelector('#map');
     if (mapDiv) mapDiv.remove();
     // if (!mapDiv) {
@@ -115,12 +126,27 @@ class MainContent {
 
     document.addEventListener('click', function (e) {
       let eventTarget = e.target;
-      // let map = document.getElementById('map');
 
-      if (eventTarget.classList.contains('vintage-2020')) {
+      // if (eventTarget.classList.contains('vintage') && eventTarget.classList.contains('1790')) console.log('vintage 1790');
+
+      if (eventTarget.classList.contains('vintage')) {
         resetMap();
         new Map();
-        this.rawData = fetcher.getData('2020');
+        // fetcher.getData.
+        // if (eventTarget.classList.includes('2020')) {
+        // }
+        // if (eventTarget.classList.includes('2010')) {
+        // }
+        // if (eventTarget.classList.includes('2000')) {
+        // }
+        // if (eventTarget.classList.includes('1790')) {
+        // }
+      }
+
+      if (eventTarget.classList.contains('vintage-2020')) {
+        // resetMap();
+        // new Map();
+        fetcher.getData('2020');
         const liSelected = document.querySelector('#vintageSelector li.selected');
         liSelected.classList.remove('selected');
         const liClicked = document.querySelector('#vintageSelector li.vintage-2020');
@@ -130,16 +156,16 @@ class MainContent {
         liSelected.classList.remove('selected');
         const liClicked = document.querySelector('#vintageSelector .vintage-2010');
         liClicked.classList.add('selected');
-        resetMap();
-        new Map();
+        // resetMap();
+        // new Map();
         fetcher.getData('2010');
       } else if (eventTarget.classList.contains('vintage-2000')) {
         const liSelected = document.querySelector('#vintageSelector li.selected');
         liSelected.classList.remove('selected');
         const liClicked = document.querySelector('#vintageSelector li.vintage-2000');
         liClicked.classList.add('selected');
-        resetMap();
-        new Map();
+        // resetMap();
+        // new Map();
         fetcher.getData('2000');
       } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
         let sortStyle;
