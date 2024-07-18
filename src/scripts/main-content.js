@@ -127,46 +127,21 @@ class MainContent {
     document.addEventListener('click', function (e) {
       let eventTarget = e.target;
 
-      // if (eventTarget.classList.contains('vintage') && eventTarget.classList.contains('1790')) console.log('vintage 1790');
-
-      if (eventTarget.classList.contains('vintage')) {
+      if (eventTarget.id === 'vintage') {
         resetMap();
         new Map();
-        // fetcher.getData.
-        // if (eventTarget.classList.includes('2020')) {
-        // }
-        // if (eventTarget.classList.includes('2010')) {
-        // }
-        // if (eventTarget.classList.includes('2000')) {
-        // }
-        // if (eventTarget.classList.includes('1790')) {
-        // }
-      }
 
-      if (eventTarget.classList.contains('vintage-2020')) {
-        // resetMap();
-        // new Map();
-        fetcher.getData('2020');
-        const liSelected = document.querySelector('#vintageSelector li.selected');
-        liSelected.classList.remove('selected');
-        const liClicked = document.querySelector('#vintageSelector li.vintage-2020');
-        liClicked.classList.add('selected');
-      } else if (eventTarget.classList.contains('vintage-2010')) {
-        const liSelected = document.querySelector('#vintageSelector li.selected');
-        liSelected.classList.remove('selected');
-        const liClicked = document.querySelector('#vintageSelector .vintage-2010');
-        liClicked.classList.add('selected');
-        // resetMap();
-        // new Map();
-        fetcher.getData('2010');
-      } else if (eventTarget.classList.contains('vintage-2000')) {
-        const liSelected = document.querySelector('#vintageSelector li.selected');
-        liSelected.classList.remove('selected');
-        const liClicked = document.querySelector('#vintageSelector li.vintage-2000');
-        liClicked.classList.add('selected');
-        // resetMap();
-        // new Map();
-        fetcher.getData('2000');
+        if (['2020', '2010', '2000'].includes(eventTarget.className)) {
+          fetcher.getData(eventTarget.className);
+          const liSelected = document.querySelector('li#vintage.selected');
+          liSelected.classList.remove('selected');
+          const liClicked = document.querySelected(`li#vintage.${eventTarget.className}`);
+          liClicked.classList.add('selected');
+        } else {
+          switch (eventTarget.className) {
+            case '1790':
+          }
+        }
       } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
         let sortStyle;
         if (eventTarget.classList.contains('sortByName')) {
@@ -188,23 +163,23 @@ class MainContent {
     return newMap;
   }
 
-  fetch2020() {
-    let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
-    firstLineFooterH2.innerText = 'fetching...';
-    this.getData('2020');
-  }
+  // fetch2020() {
+  //   let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
+  //   firstLineFooterH2.innerText = 'fetching...';
+  //   this.getData('2020');
+  // }
 
-  fetch2010() {
-    let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
-    firstLineFooterH2.innerText = 'fetching...';
-    this.getData('2010');
-  }
+  // fetch2010() {
+  //   let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
+  //   firstLineFooterH2.innerText = 'fetching...';
+  //   this.getData('2010');
+  // }
 
-  fetch2000() {
-    let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
-    firstLineFooterH2.innerText = 'fetching...';
-    this.getData('2000');
-  }
+  // fetch2000() {
+  //   let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
+  //   firstLineFooterH2.innerText = 'fetching...';
+  //   this.getData('2000');
+  // }
 
   printData() {
     if (!document.querySelector('data')) {
