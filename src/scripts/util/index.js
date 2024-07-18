@@ -1,3 +1,4 @@
+export const VINTAGES = ['1790', '2000', '2010', '2020'];
 export const LOW_COLOR_PCT = 0.4;
 export const COLOR_STRING_BASE = 'rgba(81, 199, 212, ';
 

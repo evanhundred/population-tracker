@@ -3,8 +3,7 @@ import Map from './map';
 import Fetcher from './fetcher';
 import Legend from './legend';
 import Printer from './printer';
-import { sortData } from './util';
-import { VINTAGES } from './constants';
+import { VINTAGES, sortData } from './util';
 
 class MainContent {
   constructor(ele) {
