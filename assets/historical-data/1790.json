@@ -1,4 +1,19 @@
 [
   ["NAME", "population", "state"],
-  ["Vermont", "85,539", "50"]
+  ["Vermont", "85539", "50"],
+  ["New Hampshire", "141885", "33"],
+  ["Maine", "96540", "23"],
+  ["Massachusetts", "378787", "25"],
+  ["Rhode Island", "68825", "26"],
+  ["Connecticut", "237946", "09"],
+  ["New York", "340120", "36"],
+  ["New Jersey", "184139", "34"],
+  ["Pennsylvania", "434373", "42"],
+  ["Delaware", "59094", "10"],
+  ["Maryland", "319728", "24"],
+  ["Virginia", "747610", "51"],
+  ["Kentucky", "73677", "21"],
+  ["North Carolina", "393751", "37"],
+  ["South Carolina", "0", "45"],
+  ["Georgia", "82548", "13"]
 ]
