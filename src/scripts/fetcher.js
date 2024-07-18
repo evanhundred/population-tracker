@@ -23,19 +23,37 @@ class Fetcher {
     let data;
     let dataTitle;
     let url;
-    if (vintage === '2020') {
-      url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-      // dataBlock = require("/assets/census-2020-P1001N.json");
-      dataTitle = '2020 Census dataset';
-    } else if (vintage === '2010') {
-      // dataBlock = require("/assets/census-2010-P1001N.json");
-      url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-      dataTitle = '2010 Census dataset';
-    } else if (vintage === '2000') {
-      url = 'https://api.census.gov/data/2000/dec/sf1?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-      // dataBlock = require("/assets/census-2000-P1001N.json");
-      dataTitle = '2000 Census dataset';
+
+    switch (vintage) {
+      case '2020':
+        url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        dataTitle = '2020 Census dataset';
+        break;
+      case '2010':
+        url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        dataTitle = '2010 Census dataset';
+        break;
+      case '2000':
+        url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        dataTitle = '2000 Census dataset';
+        break;
+      default:
+        break;
     }
+
+    // if (vintage === '2020') {
+    //   url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+    //   // dataBlock = require("/assets/census-2020-P1001N.json");
+    //   dataTitle = '2020 Census dataset';
+    // } else if (vintage === '2010') {
+    //   // dataBlock = require("/assets/census-2010-P1001N.json");
+    //   url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+    //   dataTitle = '2010 Census dataset';
+    // } else if (vintage === '2000') {
+    //   url = 'https://api.census.gov/data/2000/dec/sf1?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+    //   // dataBlock = require("/assets/census-2000-P1001N.json");
+    //   dataTitle = '2000 Census dataset';
+    // }
 
     const resetMap = () => {
       let mapDiv = document.querySelector('#map');
@@ -82,13 +100,27 @@ class Fetcher {
 
   loadLocalData(vintage) {
     let dataBlock;
-    if (vintage === '2020') {
-      dataBlock = require('/assets/territories-2020.json');
-    } else if (vintage === '2010') {
-      dataBlock = require('/assets/territories-2010.json');
-    } else if (vintage === '2000') {
-      dataBlock = require('/assets/territories-2000.json');
+    switch (vintage) {
+      case '2020':
+        dataBlock = require('/assets/territories-2020.json');
+        break;
+      case '2010':
+        dataBlock = require('/assets/territories-2010.json');
+        break;
+      case '2000':
+        dataBlock = require('/assets/territories-2000.json');
+        break;
+      case '1790':
+        dataBlock = require('/assets/historical-data/1790.json');
+        break;
     }
+    // if (vintage === '2020') {
+    //   dataBlock = require('/assets/territories-2020.json');
+    // } else if (vintage === '2010') {
+    //   dataBlock = require('/assets/territories-2010.json');
+    // } else if (vintage === '2000') {
+    //   dataBlock = require('/assets/territories-2000.json');
+    // }
     this.dataObject.localData = dataBlock;
   }
 }
