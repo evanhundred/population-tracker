@@ -33,7 +33,7 @@ class Fetcher {
       main.insertBefore(mapDiv, secondLine);
     };
 
-    const loadAndPrint = (responseText) => {
+    const loadAndPrint = (responseText = null) => {
       let data;
       if (responseText) data = JSON.parse(responseText);
       this.dataObject.header = this.dataObject.dataTitle;
@@ -67,8 +67,8 @@ class Fetcher {
         break;
       case '1790':
         this.dataObject.dataTitle = '1790 Census dataset';
-        loadAndPrint(this.dataObject);
-        break;
+        loadAndPrint();
+        return;
       default:
         break;
     }
