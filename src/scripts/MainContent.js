@@ -123,7 +123,7 @@ class MainContent {
         resetMap();
         new Map();
 
-        fetcher.getData(eventTarget.className.slice(5));
+        fetcher.getData(eventTarget.className.slice(5, 9));
         const liSelected = document.querySelector('li#vintage.selected');
         liSelected.classList.remove('selected');
         const liClicked = document.querySelector(`li#vintage.${eventTarget.className}`);
@@ -132,7 +132,8 @@ class MainContent {
         let sortStyle;
         const selectorOptions = ['sortByName', 'sortByPopulation'];
         selectorOptions.forEach((option) => {
-          sortStyle = option.slice(4);
+          sortStyle = option.slice(4, 5).toLowerCase() + option.slice(5);
+          s;
           sortStyle[0] = sortStyle[0].toLowerCase();
         });
         // if (eventTarget.classList.contains('sortByName')) {
