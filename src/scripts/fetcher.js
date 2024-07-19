@@ -23,6 +23,8 @@ class Fetcher {
     let dataTitle;
     let url;
 
+    console.log(vintage);
+
     switch (vintage) {
       case '2020':
         url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';

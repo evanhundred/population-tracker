@@ -116,15 +116,17 @@ class MainContent {
 
     document.addEventListener('click', function (e) {
       let eventTarget = e.target;
+      console.log(eventTarget);
 
       if (eventTarget.id === 'vintage') {
+        console.log(`li#vintage.${eventTarget.className}`);
         resetMap();
         new Map();
 
-        fetcher.getData(eventTarget.className);
+        fetcher.getData(eventTarget.className.slice(5));
         const liSelected = document.querySelector('li#vintage.selected');
         liSelected.classList.remove('selected');
-        const liClicked = document.querySelector(`li#vintage.year-${eventTarget.className}`);
+        const liClicked = document.querySelector(`li#vintage.${eventTarget.className}`);
         liClicked.classList.add('selected');
       } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
         let sortStyle;
