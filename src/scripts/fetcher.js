@@ -5,6 +5,7 @@ import { sortData } from './util';
 class Fetcher {
   constructor(sortStyle = 'byName') {
     this.sortStyle = sortStyle;
+    this.dataObject = { data: null, localData: null, dataTitle: null };
   }
 
   fetchData(vintage) {
@@ -19,35 +20,8 @@ class Fetcher {
     };
     resetSuccessMessage();
 
-    let data;
-    let dataTitle;
+    this.dataObject;
     let url;
-
-    console.log(vintage);
-
-    switch (vintage) {
-      case '2020':
-        url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-        dataTitle = '2020 Census dataset';
-        break;
-      case '2010':
-        url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-        dataTitle = '2010 Census dataset';
-        break;
-      case '2000':
-        url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-        dataTitle = '2000 Census dataset';
-        break;
-      case '1790':
-        this.loadLocalData(vintage);
-        this.dataObject = sortData(this.dataObject, this.sortStyle);
-        resetMap();
-        new Map(this.dataObject);
-        dataTitle = '1790 Census dataset';
-        break;
-      default:
-        break;
-    }
 
     const resetMap = () => {
       let mapDiv = document.querySelector('#map');
@@ -58,13 +32,12 @@ class Fetcher {
       const secondLine = document.getElementById('second-line');
       main.insertBefore(mapDiv, secondLine);
     };
-    const request = new XMLHttpRequest();
 
-    const loadAndPrint = () => {
-      this.dataObject = {
-        header: dataTitle,
-        data: data
-      };
+    const loadAndPrint = (responseText) => {
+      let data;
+      if (responseText) data = JSON.parse(responseText);
+      this.dataObject.header = this.dataObject.dataTitle;
+      this.dataObject.data = data;
 
       this.loadLocalData(vintage);
       this.dataObject = sortData(this.dataObject, this.sortStyle);
@@ -72,36 +45,42 @@ class Fetcher {
 
       new Map(this.dataObject);
 
-      const printer = new Printer(this.dataObject, this.sortStyle);
+      const printer = new Printer(dataObject, this.sortStyle);
       printer.printData();
       printer.sortByName(this.dataObject, this.sortStyle);
-      // this.loadLocalData(vintage);
-      // this.dataObject = sortData(this.dataObject, this.sortStyle);
-      // const printer = new Printer(this.dataObject, this.sortStyle);
-      // printer.printData();
-      // printer.sortByName(this.dataObject, this.sortStyle);
-      // return this.dataObject;
+
+      return this.dataObject;
     };
+
+    switch (vintage) {
+      case '2020':
+        url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        this.dataObject.dataTitle = '2020 Census dataset';
+        break;
+      case '2010':
+        url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        this.dataObject.dataTitle = '2010 Census dataset';
+        break;
+      case '2000':
+        url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        this.dataObject.dataTitle = '2000 Census dataset';
+        break;
+      case '1790':
+        this.dataObject.dataTitle = '1790 Census dataset';
+        loadAndPrint(this.dataObject);
+        break;
+      default:
+        break;
+    }
+
+    const request = new XMLHttpRequest();
 
     request.addEventListener('readystatechange', () => {
       if (request.readyState === 4 && request.status === 200) {
-        data = JSON.parse(request.responseText);
-        this.dataObject = {
-          header: dataTitle,
-          data: data
-        };
-
-        this.loadLocalData(vintage);
-        this.dataObject = sortData(this.dataObject, this.sortStyle);
-        resetMap();
-
-        new Map(this.dataObject);
-
-        const printer = new Printer(this.dataObject, this.sortStyle);
-        printer.printData();
-        printer.sortByName(this.dataObject, this.sortStyle);
+        return loadAndPrint(request.responseText);
       }
-      return this.dataObject;
+      // return this.dataObject;
+      return { errors: 'readystatechange' };
     });
 
     request.open('GET', url);

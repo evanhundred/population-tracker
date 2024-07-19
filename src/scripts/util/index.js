@@ -29,7 +29,6 @@ export const sortData = (dataObject, sortKey) => {
     });
 
     dataObject.localData.forEach((row) => {
-      // ;
       let newEntry = {};
       newEntry.stateName = row[0];
       newEntry.population = row[1];
