@@ -38,6 +38,13 @@ class Fetcher {
         url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
         dataTitle = '2000 Census dataset';
         break;
+      case '1790':
+        this.loadLocalData(vintage);
+        this.dataObject = sortData(this.dataObject, this.sortStyle);
+        resetMap();
+        new Map(this.dataObject);
+        dataTitle = '1790 Census dataset';
+        break;
       default:
         break;
     }
@@ -52,6 +59,29 @@ class Fetcher {
       main.insertBefore(mapDiv, secondLine);
     };
     const request = new XMLHttpRequest();
+
+    const loadAndPrint = () => {
+      this.dataObject = {
+        header: dataTitle,
+        data: data
+      };
+
+      this.loadLocalData(vintage);
+      this.dataObject = sortData(this.dataObject, this.sortStyle);
+      resetMap();
+
+      new Map(this.dataObject);
+
+      const printer = new Printer(this.dataObject, this.sortStyle);
+      printer.printData();
+      printer.sortByName(this.dataObject, this.sortStyle);
+      // this.loadLocalData(vintage);
+      // this.dataObject = sortData(this.dataObject, this.sortStyle);
+      // const printer = new Printer(this.dataObject, this.sortStyle);
+      // printer.printData();
+      // printer.sortByName(this.dataObject, this.sortStyle);
+      // return this.dataObject;
+    };
 
     request.addEventListener('readystatechange', () => {
       if (request.readyState === 4 && request.status === 200) {
