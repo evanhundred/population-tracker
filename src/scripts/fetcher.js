@@ -45,7 +45,7 @@ class Fetcher {
 
       new Map(this.dataObject);
 
-      const printer = new Printer(dataObject, this.sortStyle);
+      const printer = new Printer(this.dataObject, this.sortStyle);
       printer.printData();
       printer.sortByName(this.dataObject, this.sortStyle);
 
