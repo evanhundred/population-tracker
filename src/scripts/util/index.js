@@ -8,6 +8,7 @@ export const YEAR_DASH_VINTAGE = /^year-\d\d\d\d$/i;
 export const sortData = (dataObject, sortKey) => {
   const dataIsRaw = !!dataObject.data;
   // console.log(dataIsRaw);
+  // console.log(dataObject);
 
   let preSorted;
 

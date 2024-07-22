@@ -39,6 +39,8 @@ class Fetcher {
       this.dataObject.header = this.dataObject.dataTitle;
       this.dataObject.data = data;
 
+      console.log(data);
+
       this.loadLocalData(vintage);
       this.dataObject = sortData(this.dataObject, this.sortStyle);
       resetMap();
