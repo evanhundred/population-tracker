@@ -35,13 +35,16 @@ class Fetcher {
 
     const loadAndPrint = (responseText = null) => {
       let data;
-      if (responseText) data = JSON.parse(responseText);
+      if (responseText) {
+        data = JSON.parse(responseText);
+        this.dataObject.data = data;
+      } else {
+        // this.dataObject.localData
+      }
       this.dataObject.header = this.dataObject.dataTitle;
-      this.dataObject.data = data;
-
-      console.log(data);
 
       this.loadLocalData(vintage);
+      console.log(this.dataObject);
       this.dataObject = sortData(this.dataObject, this.sortStyle);
       resetMap();
 
