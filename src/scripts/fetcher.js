@@ -5,8 +5,12 @@ import { sortData } from './util';
 class Fetcher {
   constructor(sortStyle = 'byName') {
     this.sortStyle = sortStyle;
-    this.dataObject = { data: null, localData: null, dataTitle: null };
+    this.dataObject = resetDataObject();
   }
+
+  resetDataObject = (vintage = null) => {
+    return { vintage: vintage, data: null, localData: null, dataTitle: null };
+  };
 
   fetchData(vintage) {
     this.getData(vintage);
@@ -14,13 +18,15 @@ class Fetcher {
   }
 
   getData(vintage) {
+    this.dataObject = resetDataObject(vintage);
+    console.log(this.dataObject);
     const resetSuccessMessage = () => {
       let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
       firstLineFooterH2.innerText = 'fetching...';
     };
     resetSuccessMessage();
 
-    this.dataObject;
+    // this.dataObject;
     let url;
 
     const resetMap = () => {
@@ -44,7 +50,7 @@ class Fetcher {
       this.dataObject.header = this.dataObject.dataTitle;
 
       this.loadLocalData(vintage);
-      console.log(this.dataObject);
+      // console.log(this.dataObject);
       this.dataObject = sortData(this.dataObject, this.sortStyle);
       resetMap();
 

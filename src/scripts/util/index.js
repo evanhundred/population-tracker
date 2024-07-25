@@ -6,11 +6,24 @@ export const COLOR_STRING_BASE = 'rgba(81, 199, 212, ';
 export const YEAR_DASH_VINTAGE = /^year-\d\d\d\d$/i;
 
 export const sortData = (dataObject, sortKey) => {
+  if (parseInt(dataObject.vintage) < 2000) {
+    dataObject.states = [];
+    dataObject.localData.forEach((row) => {
+      if (row[0] !== 'NAME') {
+        let newState = {};
+        newState.stateName = row[0];
+        newState.population = row[1];
+        dataObject.states.push(newState);
+      }
+    });
+  }
   const dataIsRaw = !!dataObject.data;
   // console.log(dataIsRaw);
   // console.log(dataObject);
 
   let preSorted;
+
+  console.log(dataObject);
 
   if (dataIsRaw) {
     preSorted = {};
