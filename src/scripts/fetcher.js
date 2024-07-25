@@ -1,16 +1,12 @@
 import Map from './Map';
 import Printer from './Printer';
-import { sortData } from './util';
+import { sortData, resetDataObject } from './util';
 
 class Fetcher {
   constructor(sortStyle = 'byName') {
     this.sortStyle = sortStyle;
     this.dataObject = resetDataObject();
   }
-
-  resetDataObject = (vintage = null) => {
-    return { vintage: vintage, data: null, localData: null, dataTitle: null };
-  };
 
   fetchData(vintage) {
     this.getData(vintage);

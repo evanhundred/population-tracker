@@ -5,6 +5,10 @@ export const COLOR_STRING_BASE = 'rgba(81, 199, 212, ';
 // needed? applies to vintage object classNames in MainContent
 export const YEAR_DASH_VINTAGE = /^year-\d\d\d\d$/i;
 
+export const resetDataObject = (vintage = null) => {
+  return { vintage: vintage, data: null, localData: null, dataTitle: null };
+};
+
 export const sortData = (dataObject, sortKey) => {
   if (parseInt(dataObject.vintage) < 2000) {
     dataObject.states = [];
