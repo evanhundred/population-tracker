@@ -3,6 +3,7 @@ import Map from './Map';
 import Fetcher from './Fetcher';
 import Legend from './Legend';
 import Printer from './Printer';
+import instructionsModal from './instructionsModal';
 import { VINTAGES, sortData } from './util';
 
 class MainContent {
@@ -14,12 +15,11 @@ class MainContent {
 
     const mainNode = document.getElementById('main-content');
 
-    const openinstructionsModal = () => {
+    const openInstructionsModal = () => {
       const instructionsModalContainer = document.createElement('div');
       instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
       mainNode.appendChild(instructionsModalContainer);
-      const instructionsModal = new instructionsModal(instructionsModalContainer);
-      return instructionsModal;
+      new instructionsModal(instructionsModalContainer);
     };
 
     const createInstructionsLink = () => {
@@ -28,7 +28,7 @@ class MainContent {
       const instructionsModalLink = document.createElement('h3');
       instructionsModalLink.className = 'instructions-link';
       instructionsModalLink.innerText = 'View instructions';
-      instructionsModalLink.addEventListener('click', openinstructionsModal);
+      instructionsModalLink.addEventListener('click', openInstructionsModal);
       instructions.appendChild(instructionsModalLink);
 
       mainNode.appendChild(instructions);
