@@ -10,26 +10,26 @@ export const resetDataObject = (vintage = null) => {
 };
 
 export const sortData = (dataObject, sortKey) => {
+  const dataIsRaw = !!dataObject.data;
+  // console.log(dataIsRaw);
+  // console.log(dataObject);
+
+  let preSorted = {};
   if (parseInt(dataObject.vintage) < 2000) {
-    dataObject.states = [];
+    preSorted.header = dataObject.header;
+    preSorted.states = [];
     dataObject.localData.forEach((row) => {
       if (row[0] !== 'NAME') {
         let newState = {};
         newState.stateName = row[0];
         newState.population = row[1];
-        dataObject.states.push(newState);
+        preSorted.states.push(newState);
+        preSorted[row[0]] = {
+          population: row[1]
+        };
       }
     });
-  }
-  const dataIsRaw = !!dataObject.data;
-  // console.log(dataIsRaw);
-  // console.log(dataObject);
-
-  let preSorted;
-
-  console.log(dataObject);
-
-  if (dataIsRaw) {
+  } else if (dataIsRaw) {
     preSorted = {};
     preSorted.header = dataObject.header;
     preSorted.states = [];
@@ -40,10 +40,10 @@ export const sortData = (dataObject, sortKey) => {
         newState.stateName = row[0];
         newState.population = row[1];
         preSorted.states.push(newState);
+        preSorted[row[0]] = {
+          population: row[1]
+        };
       }
-      preSorted[row[0]] = {
-        population: row[1]
-      };
     });
 
     dataObject.localData.forEach((row) => {
