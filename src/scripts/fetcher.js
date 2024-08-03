@@ -15,7 +15,7 @@ class Fetcher {
 
   getData(vintage) {
     this.dataObject = resetDataObject(vintage);
-    console.log(this.dataObject);
+    // console.log(this.dataObject);
     const resetSuccessMessage = () => {
       let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
       firstLineFooterH2.innerText = 'fetching...';
@@ -46,7 +46,7 @@ class Fetcher {
       this.dataObject.header = this.dataObject.dataTitle;
 
       this.loadLocalData(vintage);
-      // console.log(this.dataObject);
+      console.log(this.dataObject);
       this.dataObject = sortData(this.dataObject, this.sortStyle);
       resetMap();
 

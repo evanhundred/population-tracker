@@ -5,6 +5,7 @@ import { popDegreesArray, LOW_COLOR_PCT } from './util';
 
 class Map {
   constructor(data = null) {
+    console.log(data);
     this.renderMap();
 
     if (data) {
@@ -22,6 +23,7 @@ class Map {
   }
 
   styleMap(data) {
+    console.log(data);
     const popDegrees = {};
     popDegreesArray.forEach((degree, idx) => {
       popDegrees[idx] = {
@@ -50,8 +52,8 @@ class Map {
 
       // console.log(state);
       // console.log(data[state]);
-      8;
-      let currentPop = data[state].population;
+      // 8;
+      let currentPop = data[state] ? data[state].population : '0';
 
       const findDegreeIdx = () => {
         const degrees = popDegreesArray.slice();
