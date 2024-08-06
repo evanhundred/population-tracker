@@ -1,11 +1,11 @@
-// import MainContent from "./main-content";
-import Map from './map';
-import Printer from './printer';
-import { sortData } from './util';
+import Map from './Map';
+import Printer from './Printer';
+import { sortData, resetDataObject } from './util';
 
 class Fetcher {
   constructor(sortStyle = 'byName') {
     this.sortStyle = sortStyle;
+    this.dataObject = resetDataObject();
   }
 
   fetchData(vintage) {
@@ -14,28 +14,16 @@ class Fetcher {
   }
 
   getData(vintage) {
+    this.dataObject = resetDataObject(vintage);
+    // console.log(this.dataObject);
     const resetSuccessMessage = () => {
       let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
       firstLineFooterH2.innerText = 'fetching...';
     };
     resetSuccessMessage();
 
-    let data;
-    let dataTitle;
+    // this.dataObject;
     let url;
-    if (vintage === '2020') {
-      url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-      // dataBlock = require("/assets/census-2020-P1001N.json");
-      dataTitle = '2020 Census dataset';
-    } else if (vintage === '2010') {
-      // dataBlock = require("/assets/census-2010-P1001N.json");
-      url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-      dataTitle = '2010 Census dataset';
-    } else if (vintage === '2000') {
-      url = 'https://api.census.gov/data/2000/dec/sf1?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-      // dataBlock = require("/assets/census-2000-P1001N.json");
-      dataTitle = '2000 Census dataset';
-    }
 
     const resetMap = () => {
       let mapDiv = document.querySelector('#map');
@@ -47,33 +35,59 @@ class Fetcher {
       main.insertBefore(mapDiv, secondLine);
     };
 
-    // const GET_QUERY =
-    //   "?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2";
-    // const API_DOMAIN_STRING = "https://api.census.gov/data/";
-    // const { vintageString, dataTitle } = this.vintageLabel(vintage);
-    // const url = `${API_DOMAIN_STRING}${vintageString}${GET_QUERY}`;
+    const loadAndPrint = (responseText = null) => {
+      let data;
+      if (responseText) {
+        data = JSON.parse(responseText);
+        this.dataObject.data = data;
+      } else {
+        // this.dataObject.localData
+      }
+      this.dataObject.header = this.dataObject.dataTitle;
+
+      this.loadLocalData(vintage);
+      console.log(this.dataObject);
+      this.dataObject = sortData(this.dataObject, this.sortStyle);
+      resetMap();
+
+      new Map(this.dataObject);
+
+      const printer = new Printer(this.dataObject, this.sortStyle);
+      printer.printData();
+      printer.sortByName(this.dataObject, this.sortStyle);
+
+      return this.dataObject;
+    };
+
+    switch (vintage) {
+      case '2020':
+        url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        this.dataObject.dataTitle = '2020 Census dataset';
+        break;
+      case '2010':
+        url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        this.dataObject.dataTitle = '2010 Census dataset';
+        break;
+      case '2000':
+        url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        this.dataObject.dataTitle = '2000 Census dataset';
+        break;
+      case '1790':
+        this.dataObject.dataTitle = '1790 Census dataset';
+        loadAndPrint();
+        return;
+      default:
+        break;
+    }
 
     const request = new XMLHttpRequest();
 
     request.addEventListener('readystatechange', () => {
       if (request.readyState === 4 && request.status === 200) {
-        data = JSON.parse(request.responseText);
-        this.dataObject = {
-          header: dataTitle,
-          data: data
-        };
-
-        this.loadLocalData(vintage);
-        this.dataObject = sortData(this.dataObject, this.sortStyle);
-        resetMap();
-
-        new Map(this.dataObject);
-
-        const printer = new Printer(this.dataObject, this.sortStyle);
-        printer.printData();
-        printer.sortByName(this.dataObject, this.sortStyle);
+        return loadAndPrint(request.responseText);
       }
-      return this.dataObject;
+      // return this.dataObject;
+      return { errors: 'readystatechange' };
     });
 
     request.open('GET', url);
@@ -82,12 +96,19 @@ class Fetcher {
 
   loadLocalData(vintage) {
     let dataBlock;
-    if (vintage === '2020') {
-      dataBlock = require('/assets/territories-2020.json');
-    } else if (vintage === '2010') {
-      dataBlock = require('/assets/territories-2010.json');
-    } else if (vintage === '2000') {
-      dataBlock = require('/assets/territories-2000.json');
+    switch (vintage) {
+      case '2020':
+        dataBlock = require('/assets/territories-2020.json');
+        break;
+      case '2010':
+        dataBlock = require('/assets/territories-2010.json');
+        break;
+      case '2000':
+        dataBlock = require('/assets/territories-2000.json');
+        break;
+      case '1790':
+        dataBlock = require('/assets/historical-data/1790.json');
+        break;
     }
     this.dataObject.localData = dataBlock;
   }
