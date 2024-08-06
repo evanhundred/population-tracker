@@ -1,0 +1,453 @@
+diff --git a/dist/main.css b/dist/main.css
+index 6688fa8..9ad4d1b 100644
+--- a/dist/main.css
++++ b/dist/main.css
+@@ -10,79 +10,83 @@
+     Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+     - The "symbol *" part is to solve Firefox SVG sprite bug
+  */
+- *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+-    all: unset;
+-    display: revert;
++*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
++  all: unset;
++  display: revert;
+ }
+ 
+ /* Preferred box-sizing value */
+ *,
+ *::before,
+ *::after {
+-    box-sizing: border-box;
++  box-sizing: border-box;
+ }
+ 
+ /* Reapply the pointer cursor for anchor tags */
+-a, button {
+-    cursor: revert;
++a,
++button {
++  cursor: revert;
+ }
+ 
+ /* Remove list styles (bullets/numbers) */
+-ol, ul, menu {
+-    list-style: none;
++ol,
++ul,
++menu {
++  list-style: none;
+ }
+ 
+ /* For images to not be able to exceed their container */
+ img {
+-    max-width: 100%;
++  max-width: 100%;
+ }
+ 
+ /* removes spacing between cells in tables */
+ table {
+-    border-collapse: collapse;
++  border-collapse: collapse;
+ }
+ 
+ /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+-input, textarea {
+-    -webkit-user-select: auto;
++input,
++textarea {
++  -webkit-user-select: auto;
+ }
+ 
+ /* revert the 'white-space' property for textarea elements on Safari */
+ textarea {
+-    white-space: revert;
++  white-space: revert;
+ }
+ 
+ /* minimum style to allow to style meter element */
+ meter {
+-    -webkit-appearance: revert;
+-    appearance: revert;
++  -webkit-appearance: revert;
++  appearance: revert;
+ }
+ 
+ /* reset default text opacity of input placeholder */
+ ::placeholder {
+-    color: unset;
++  color: unset;
+ }
+ 
+ /* fix the feature of 'hidden' attribute.
+    display:revert; revert to element instead of attribute */
+ :where([hidden]) {
+-    display: none;
++  display: none;
+ }
+ 
+ /* revert for bug in Chromium browsers
+    - fix for the content editable attribute will work properly.
+    - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+-:where([contenteditable]:not([contenteditable="false"])) {
+-    -moz-user-modify: read-write;
+-    -webkit-user-modify: read-write;
+-    overflow-wrap: break-word;
+-    -webkit-line-break: after-white-space;
+-    -webkit-user-select: auto;
++:where([contenteditable]:not([contenteditable='false'])) {
++  -moz-user-modify: read-write;
++  -webkit-user-modify: read-write;
++  overflow-wrap: break-word;
++  -webkit-line-break: after-white-space;
++  -webkit-user-select: auto;
+ }
+ 
+ /* apply back the draggable feature - exist only in Chromium and Safari */
+-:where([draggable="true"]) {
+-    -webkit-user-drag: element;
++:where([draggable='true']) {
++  -webkit-user-drag: element;
+ }
+ 
+ /*!*************************************************************************************************************************************!*\
+@@ -185,7 +189,7 @@ meter {
+ }
+ 
+ body {
+-  background-color: rgba(255, 255, 246, 0);
++  background-color: black;
+   font-family: inherit;
+   display: flex;
+   justify-content: center;
+@@ -459,6 +463,9 @@ li.data-header {
+   stroke: rgb(160, 156, 177);
+   fill: rgb(206, 206, 237);
+ }
++.state.loaded {
++  stroke: rgb(160, 156, 177);
++}
+ 
+ #instructions a {
+   color: #ff5050;
+diff --git a/dist/main.js b/dist/main.js
+index a441edb..746c834 100644
+--- a/dist/main.js
++++ b/dist/main.js
+@@ -76,7 +76,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Map
+   \****************************/
+ /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+ 
+-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_states_albers_10m_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../assets/states-albers-10m.json */ \"./assets/states-albers-10m.json\");\n/* harmony import */ var _State__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./State */ \"./src/scripts/State.js\");\n/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Footer */ \"./src/scripts/Footer.js\");\n/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util */ \"./src/scripts/util/index.js\");\n\n\n\n\nclass Map {\n  constructor() {\n    let data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;\n    console.log(data);\n    this.renderMap();\n    if (data) {\n      this.styleMap(data);\n      const footer = document.getElementById('footer');\n      while (footer.firstChild) {\n        footer.removeChild(footer.lastChild);\n      }\n      new _Footer__WEBPACK_IMPORTED_MODULE_2__[\"default\"](footer);\n    } else {\n      d3.selectAll('.state')._groups[0].forEach(ele => {\n        ele.classList.add('unloaded');\n      });\n    }\n  }\n  styleMap(data) {\n    console.log(data);\n    const popDegrees = {};\n    _util__WEBPACK_IMPORTED_MODULE_3__.popDegreesArray.forEach((degree, idx) => {\n      popDegrees[idx] = {\n        integer: degree[0],\n        className: degree[1]\n      };\n    });\n    // console.log(popDegrees);\n\n    const getPct = level => {\n      const lowColorPct = _util__WEBPACK_IMPORTED_MODULE_3__.LOW_COLOR_PCT;\n      let range = 1 - lowColorPct;\n      const res = level / _util__WEBPACK_IMPORTED_MODULE_3__.popDegreesArray.length * range;\n      return res + lowColorPct;\n    };\n    // aqua\n    let colorBase = 'rgba(81, 199, 212, ';\n    // orange-red\n    // let colorBase = \"rgba(222, 31, 18, \";\n    let colorLevel;\n    d3.selectAll('.state')._groups[0].forEach(ele => {\n      // console.log(ele);\n      ele.classList.remove(...ele.classList);\n      let state = ele.__data__.properties.name;\n\n      // console.log(state);\n      // console.log(data[state]);\n      // 8;\n      let currentPop = data[state] ? data[state].population : '0';\n      const findDegreeIdx = () => {\n        const degrees = _util__WEBPACK_IMPORTED_MODULE_3__.popDegreesArray.slice();\n        let idx = 0;\n        while (degrees) {\n          let currentDegree = degrees.shift()[0];\n          // console.log(currentDegree);\n          if (currentPop > currentDegree) {\n            idx += 1;\n          } else {\n            return idx;\n          }\n        }\n        return null;\n      };\n      colorLevel = findDegreeIdx();\n      // console.log(colorLevel);\n\n      let colorPctString = getPct(colorLevel).toString();\n      let colorString = `${colorBase}${colorPctString})`;\n      // console.log(colorString);\n      // ele.style.background = \"black\";\n      ele.style.fill = colorString;\n      ele.style.color = colorString;\n      ele.classList.add(popDegrees[colorLevel].className);\n      ele.classList.add('state');\n      ele.classList.add('loaded');\n    });\n  }\n  renderMap() {\n    let path = d3.geoPath();\n    let svg = d3.select('#map').append('svg').attr('width', 1000).attr('height', 600);\n    let g = svg.append('g');\n    // d3.json(\"https://d3js.org/us-10m.v1.json\").then((data) => {\n    let states = topojson.feature(_assets_states_albers_10m_json__WEBPACK_IMPORTED_MODULE_0__, _assets_states_albers_10m_json__WEBPACK_IMPORTED_MODULE_0__.objects.states);\n    g.selectAll('path').data(states.features).enter().append('path').attr('class', 'state').attr('d', path);\n    // });\n\n    d3.selectAll('.state')._groups[0].forEach(state => {\n      new _State__WEBPACK_IMPORTED_MODULE_1__[\"default\"](state);\n    });\n  }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (Map);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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TSxDQUFDLE1BQU0sQ0FBQyxDQUFDQyxJQUFJLENBQUMsT0FBTyxFQUFFLE9BQU8sQ0FBQyxDQUFDQSxJQUFJLENBQUMsR0FBRyxFQUFFTCxJQUFJLENBQUM7SUFDdkc7O0lBRUF0QyxFQUFFLENBQUNDLFNBQVMsQ0FBQyxRQUFRLENBQUMsQ0FBQ0MsT0FBTyxDQUFDLENBQUMsQ0FBQyxDQUFDQyxPQUFPLENBQUVrQixLQUFLLElBQUs7TUFDbkQsSUFBSXRDLDhDQUFLLENBQUNzQyxLQUFLLENBQUM7SUFDbEIsQ0FBQyxDQUFDO0VBQ0o7QUFDRjtBQUVBLCtEQUFlbEMsR0FBRyIsInNvdXJjZXMiOlsid2VicGFjazovL3BvcHVsYXRpb24tdHJhY2tlci8uL3NyYy9zY3JpcHRzL01hcC5qcz8zNTViIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBTdGF0ZURhdGEgZnJvbSAnL2Fzc2V0cy9zdGF0ZXMtYWxiZXJzLTEwbS5qc29uJztcbmltcG9ydCBTdGF0ZSBmcm9tICcuL1N0YXRlJztcbmltcG9ydCBGb290ZXIgZnJvbSAnLi9Gb290ZXInO1xuaW1wb3J0IHsgcG9wRGVncmVlc0FycmF5LCBMT1dfQ09MT1JfUENUIH0gZnJvbSAnLi91dGlsJztcblxuY2xhc3MgTWFwIHtcbiAgY29uc3RydWN0b3IoZGF0YSA9IG51bGwpIHtcbiAgICBjb25zb2xlLmxvZyhkYXRhKTtcbiAgICB0aGlzLnJlbmRlck1hcCgpO1xuXG4gICAgaWYgKGRhdGEpIHtcbiAgICAgIHRoaXMuc3R5bGVNYXAoZGF0YSk7XG4gICAgICBjb25zdCBmb290ZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZm9vdGVyJyk7XG4gICAgICB3aGlsZSAoZm9vdGVyLmZpcnN0Q2hpbGQpIHtcbiAgICAgICAgZm9vdGVyLnJlbW92ZUNoaWxkKGZvb3Rlci5sYXN0Q2hpbGQpO1xuICAgICAgfVxuICAgICAgbmV3IEZvb3Rlcihmb290ZXIpO1xuICAgIH0gZWxzZSB7XG4gICAgICBkMy5zZWxlY3RBbGwoJy5zdGF0ZScpLl9ncm91cHNbMF0uZm9yRWFjaCgoZWxlKSA9PiB7XG4gICAgICAgIGVsZS5jbGFzc0xpc3QuYWRkKCd1bmxvYWRlZCcpO1xuICAgICAgfSk7XG4gICAgfVxuICB9XG5cbiAgc3R5bGVNYXAoZGF0YSkge1xuICAgIGNvbnNvbGUubG9nKGRhdGEpO1xuICAgIGNvbnN0IHBvcERlZ3JlZXMgPSB7fTtcbiAgICBwb3BEZWdyZWVzQXJyYXkuZm9yRWFjaCgoZGVncmVlLCBpZHgpID0+IHtcbiAgICAgIHBvcERlZ3JlZXNbaWR4XSA9IHtcbiAgICAgICAgaW50ZWdlcjogZGVncmVlWzBdLFxuICAgICAgICBjbGFzc05hbWU6IGRlZ3JlZVsxXVxuICAgICAgfTtcbiAgICB9KTtcbiAgICAvLyBjb25zb2xlLmxvZyhwb3BEZWdyZWVzKTtcblxuICAgIGNvbnN0IGdldFBjdCA9IChsZXZlbCkgPT4ge1xuICAgICAgY29uc3QgbG93Q29sb3JQY3QgPSBMT1dfQ09MT1JfUENUO1xuICAgICAgbGV0IHJhbmdlID0gMSAtIGxvd0NvbG9yUGN0O1xuICAgICAgY29uc3QgcmVzID0gKGxldmVsIC8gcG9wRGVncmVlc0FycmF5Lmxlbmd0aCkgKiByYW5nZTtcbiAgICAgIHJldHVybiByZXMgKyBsb3dDb2xvclBjdDtcbiAgICB9O1xuICAgIC8vIGFxdWFcbiAgICBsZXQgY29sb3JCYXNlID0gJ3JnYmEoODEsIDE5OSwgMjEyLCAnO1xuICAgIC8vIG9yYW5nZS1yZWRcbiAgICAvLyBsZXQgY29sb3JCYXNlID0gXCJyZ2JhKDIyMiwgMzEsIDE4LCBcIjtcbiAgICBsZXQgY29sb3JMZXZlbDtcblxuICAgIGQzLnNlbGVjdEFsbCgnLnN0YXRlJykuX2dyb3Vwc1swXS5mb3JFYWNoKChlbGUpID0+IHtcbiAgICAgIC8vIGNvbnNvbGUubG9nKGVsZSk7XG4gICAgICBlbGUuY2xhc3NMaXN0LnJlbW92ZSguLi5lbGUuY2xhc3NMaXN0KTtcbiAgICAgIGxldCBzdGF0ZSA9IGVsZS5fX2RhdGFfXy5wcm9wZXJ0aWVzLm5hbWU7XG5cbiAgICAgIC8vIGNvbnNvbGUubG9nKHN0YXRlKTtcbiAgICAgIC8vIGNvbnNvbGUubG9nKGRhdGFbc3RhdGVdKTtcbiAgICAgIC8vIDg7XG4gICAgICBsZXQgY3VycmVudFBvcCA9IGRhdGFbc3RhdGVdID8gZGF0YVtzdGF0ZV0ucG9wdWxhdGlvbiA6ICcwJztcblxuICAgICAgY29uc3QgZmluZERlZ3JlZUlkeCA9ICgpID0+IHtcbiAgICAgICAgY29uc3QgZGVncmVlcyA9IHBvcERlZ3JlZXNBcnJheS5zbGljZSgpO1xuICAgICAgICBsZXQgaWR4ID0gMDtcbiAgICAgICAgd2hpbGUgKGRlZ3JlZXMpIHtcbiAgICAgICAgICBsZXQgY3VycmVudERlZ3JlZSA9IGRlZ3JlZXMuc2hpZnQoKVswXTtcbiAgICAgICAgICAvLyBjb25zb2xlLmxvZyhjdXJyZW50RGVncmVlKTtcbiAgICAgICAgICBpZiAoY3VycmVudFBvcCA+IGN1cnJlbnREZWdyZWUpIHtcbiAgICAgICAgICAgIGlkeCArPSAxO1xuICAgICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgICByZXR1cm4gaWR4O1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICByZXR1cm4gbnVsbDtcbiAgICAgIH07XG5cbiAgICAgIGNvbG9yTGV2ZWwgPSBmaW5kRGVncmVlSWR4KCk7XG4gICAgICAvLyBjb25zb2xlLmxvZyhjb2xvckxldmVsKTtcblxuICAgICAgbGV0IGNvbG9yUGN0U3RyaW5nID0gZ2V0UGN0KGNvbG9yTGV2ZWwpLnRvU3RyaW5nKCk7XG4gICAgICBsZXQgY29sb3JTdHJpbmcgPSBgJHtjb2xvckJhc2V9JHtjb2xvclBjdFN0cmluZ30pYDtcbiAgICAgIC8vIGNvbnNvbGUubG9nKGNvbG9yU3RyaW5nKTtcbiAgICAgIC8vIGVsZS5zdHlsZS5iYWNrZ3JvdW5kID0gXCJibGFja1wiO1xuICAgICAgZWxlLnN0eWxlLmZpbGwgPSBjb2xvclN0cmluZztcbiAgICAgIGVsZS5zdHlsZS5jb2xvciA9IGNvbG9yU3RyaW5nO1xuICAgICAgZWxlLmNsYXNzTGlzdC5hZGQocG9wRGVncmVlc1tjb2xvckxldmVsXS5jbGFzc05hbWUpO1xuICAgICAgZWxlLmNsYXNzTGlzdC5hZGQoJ3N0YXRlJyk7XG4gICAgICBlbGUuY2xhc3NMaXN0LmFkZCgnbG9hZGVkJyk7XG4gICAgfSk7XG4gIH1cblxuICByZW5kZXJNYXAoKSB7XG4gICAgbGV0IHBhdGggPSBkMy5nZW9QYXRoKCk7XG4gICAgbGV0IHN2ZyA9IGQzLnNlbGVjdCgnI21hcCcpLmFwcGVuZCgnc3ZnJykuYXR0cignd2lkdGgnLCAxMDAwKS5hdHRyKCdoZWlnaHQnLCA2MDApO1xuICAgIGxldCBnID0gc3ZnLmFwcGVuZCgnZycpO1xuICAgIC8vIGQzLmpzb24oXCJodHRwczovL2QzanMub3JnL3VzLTEwbS52MS5qc29uXCIpLnRoZW4oKGRhdGEpID0+IHtcbiAgICBsZXQgc3RhdGVzID0gdG9wb2pzb24uZmVhdHVyZShTdGF0ZURhdGEsIFN0YXRlRGF0YS5vYmplY3RzLnN0YXRlcyk7XG5cbiAgICBnLnNlbGVjdEFsbCgncGF0aCcpLmRhdGEoc3RhdGVzLmZlYXR1cmVzKS5lbnRlcigpLmFwcGVuZCgncGF0aCcpLmF0dHIoJ2NsYXNzJywgJ3N0YXRlJykuYXR0cignZCcsIHBhdGgpO1xuICAgIC8vIH0pO1xuXG4gICAgZDMuc2VsZWN0QWxsKCcuc3RhdGUnKS5fZ3JvdXBzWzBdLmZvckVhY2goKHN0YXRlKSA9PiB7XG4gICAgICBuZXcgU3RhdGUoc3RhdGUpO1xuICAgIH0pO1xuICB9XG59XG5cbmV4cG9ydCBkZWZhdWx0IE1hcDtcbiJdLCJuYW1lcyI6WyJTdGF0ZURhdGEiLCJTdGF0ZSIsIkZvb3RlciIsInBvcERlZ3JlZXNBcnJheSIsIkxPV19DT0xPUl9QQ1QiLCJNYXAiLCJjb25zdHJ1Y3RvciIsImRhdGEiLCJjb25zb2xlIiwibG9nIiwicmVuZGVyTWFwIiwic3R5bGVNYXAiLCJmb290ZXIiLCJkb2N1bWVudCIsImdldEVsZW1lbnRCeUlkIiwiZmlyc3RDaGlsZCIsInJlbW92ZUNoaWxkIiwibGFzdENoaWxkIiwiZDMiLCJzZWxlY3RBbGwiLCJfZ3JvdXBzIiwiZm9yRWFjaCIsImVsZSIsImNsYXNzTGlzdCIsImFkZCIsInBvcERlZ3JlZXMiLCJkZWdyZWUiLCJpZHgiLCJpbnRlZ2VyIiwiY2xhc3NOYW1lIiwiZ2V0UGN0IiwibGV2ZWwiLCJsb3dDb2xvclBjdCIsInJhbmdlIiwicmVzIiwibGVuZ3RoIiwiY29sb3JCYXNlIiwiY29sb3JMZXZlbCIsInJlbW92ZSIsInN0YXRlIiwiX19kYXRhX18iLCJwcm9wZXJ0aWVzIiwibmFtZSIsImN1cnJlbnRQb3AiLCJwb3B1bGF0aW9uIiwiZmluZERlZ3JlZUlkeCIsImRlZ3JlZXMiLCJzbGljZSIsImN1cnJlbnREZWdyZWUiLCJzaGlmdCIsImNvbG9yUGN0U3RyaW5nIiwidG9TdHJpbmciLCJjb2xvclN0cmluZyIsInN0eWxlIiwiZmlsbCIsImNvbG9yIiwicGF0aCIsImdlb1BhdGgiLCJzdmciLCJzZWxlY3QiLCJhcHBlbmQiLCJhdHRyIiwiZyIsInN0YXRlcyIsInRvcG9qc29uIiwiZmVhdHVyZSIsIm9iamVjdHMiLCJmZWF0dXJlcyIsImVudGVyIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/scripts/Map.js\n");
++eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _assets_states_albers_10m_json__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../assets/states-albers-10m.json */ \"./assets/states-albers-10m.json\");\n/* harmony import */ var _State__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./State */ \"./src/scripts/State.js\");\n/* harmony import */ var _Footer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Footer */ \"./src/scripts/Footer.js\");\n/* harmony import */ var _util__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./util */ \"./src/scripts/util/index.js\");\n\n\n\n\nclass Map {\n  constructor() {\n    let data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;\n    console.log(data);\n    this.renderMap();\n    if (data) {\n      this.styleMap(data);\n      const footer = document.getElementById('footer');\n      while (footer.firstChild) {\n        footer.removeChild(footer.lastChild);\n      }\n      new _Footer__WEBPACK_IMPORTED_MODULE_2__[\"default\"](footer);\n    } else {\n      d3.selectAll('.state')._groups[0].forEach(ele => {\n        ele.classList.add('unloaded');\n      });\n    }\n  }\n  styleMap(data) {\n    console.log(data);\n    const popDegrees = {};\n    _util__WEBPACK_IMPORTED_MODULE_3__.popDegreesArray.forEach((degree, idx) => {\n      popDegrees[idx] = {\n        integer: degree[0],\n        className: degree[1]\n      };\n    });\n    const getPct = level => {\n      const lowColorPct = _util__WEBPACK_IMPORTED_MODULE_3__.LOW_COLOR_PCT;\n      let range = 1 - lowColorPct;\n      const res = level / _util__WEBPACK_IMPORTED_MODULE_3__.popDegreesArray.length * range;\n      return res + lowColorPct;\n    };\n    let colorBase = 'rgba(81, 199, 212, ';\n    let colorLevel;\n    d3.selectAll('.state')._groups[0].forEach(ele => {\n      ele.classList.remove(...ele.classList);\n      let state = ele.__data__.properties.name;\n      let currentPop = data[state] ? data[state].population : '0';\n      const findDegreeIdx = () => {\n        const degrees = _util__WEBPACK_IMPORTED_MODULE_3__.popDegreesArray.slice();\n        let idx = 0;\n        while (degrees) {\n          let currentDegree = degrees.shift()[0];\n          if (currentPop > currentDegree) {\n            idx += 1;\n          } else {\n            return idx;\n          }\n        }\n        return null;\n      };\n      colorLevel = findDegreeIdx();\n      let colorPctString = getPct(colorLevel).toString();\n      let colorString = `${colorBase}${colorPctString})`;\n      ele.style.fill = colorString;\n      // ele.style.color = colorString;\n      ele.style.border = '2px solid black';\n      ele.classList.add(popDegrees[colorLevel].className);\n      ele.classList.add('state');\n      ele.classList.add('loaded');\n    });\n  }\n  renderMap() {\n    let path = d3.geoPath();\n    let svg = d3.select('#map').append('svg').attr('width', 1000).attr('height', 600);\n    let g = svg.append('g');\n    // d3.json(\"https://d3js.org/us-10m.v1.json\").then((data) => {\n    let states = topojson.feature(_assets_states_albers_10m_json__WEBPACK_IMPORTED_MODULE_0__, _assets_states_albers_10m_json__WEBPACK_IMPORTED_MODULE_0__.objects.states);\n    g.selectAll('path').data(states.features).enter().append('path').attr('class', 'state').attr('d', path);\n    // });\n\n    d3.selectAll('.state')._groups[0].forEach(state => {\n      new _State__WEBPACK_IMPORTED_MODULE_1__[\"default\"](state);\n    });\n  }\n}\n/* harmony default export */ __webpack_exports__[\"default\"] = (Map);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QSxJQUFJLENBQUMsR0FBRyxFQUFFTCxJQUFJLENBQUM7SUFDdkc7O0lBRUF0QyxFQUFFLENBQUNDLFNBQVMsQ0FBQyxRQUFRLENBQUMsQ0FBQ0MsT0FBTyxDQUFDLENBQUMsQ0FBQyxDQUFDQyxPQUFPLENBQUVrQixLQUFLLElBQUs7TUFDbkQsSUFBSXRDLDhDQUFLLENBQUNzQyxLQUFLLENBQUM7SUFDbEIsQ0FBQyxDQUFDO0VBQ0o7QUFDRjtBQUVBLCtEQUFlbEMsR0FBRyIsInNvdXJjZXMiOlsid2VicGFjazovL3BvcHVsYXRpb24tdHJhY2tlci8uL3NyYy9zY3JpcHRzL01hcC5qcz8zNTViIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBTdGF0ZURhdGEgZnJvbSAnL2Fzc2V0cy9zdGF0ZXMtYWxiZXJzLTEwbS5qc29uJztcbmltcG9ydCBTdGF0ZSBmcm9tICcuL1N0YXRlJztcbmltcG9ydCBGb290ZXIgZnJvbSAnLi9Gb290ZXInO1xuaW1wb3J0IHsgcG9wRGVncmVlc0FycmF5LCBMT1dfQ09MT1JfUENUIH0gZnJvbSAnLi91dGlsJztcblxuY2xhc3MgTWFwIHtcbiAgY29uc3RydWN0b3IoZGF0YSA9IG51bGwpIHtcbiAgICBjb25zb2xlLmxvZyhkYXRhKTtcbiAgICB0aGlzLnJlbmRlck1hcCgpO1xuXG4gICAgaWYgKGRhdGEpIHtcbiAgICAgIHRoaXMuc3R5bGVNYXAoZGF0YSk7XG4gICAgICBjb25zdCBmb290ZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZm9vdGVyJyk7XG4gICAgICB3aGlsZSAoZm9vdGVyLmZpcnN0Q2hpbGQpIHtcbiAgICAgICAgZm9vdGVyLnJlbW92ZUNoaWxkKGZvb3Rlci5sYXN0Q2hpbGQpO1xuICAgICAgfVxuICAgICAgbmV3IEZvb3Rlcihmb290ZXIpO1xuICAgIH0gZWxzZSB7XG4gICAgICBkMy5zZWxlY3RBbGwoJy5zdGF0ZScpLl9ncm91cHNbMF0uZm9yRWFjaCgoZWxlKSA9PiB7XG4gICAgICAgIGVsZS5jbGFzc0xpc3QuYWRkKCd1bmxvYWRlZCcpO1xuICAgICAgfSk7XG4gICAgfVxuICB9XG5cbiAgc3R5bGVNYXAoZGF0YSkge1xuICAgIGNvbnNvbGUubG9nKGRhdGEpO1xuICAgIGNvbnN0IHBvcERlZ3JlZXMgPSB7fTtcbiAgICBwb3BEZWdyZWVzQXJyYXkuZm9yRWFjaCgoZGVncmVlLCBpZHgpID0+IHtcbiAgICAgIHBvcERlZ3JlZXNbaWR4XSA9IHtcbiAgICAgICAgaW50ZWdlcjogZGVncmVlWzBdLFxuICAgICAgICBjbGFzc05hbWU6IGRlZ3JlZVsxXVxuICAgICAgfTtcbiAgICB9KTtcblxuICAgIGNvbnN0IGdldFBjdCA9IChsZXZlbCkgPT4ge1xuICAgICAgY29uc3QgbG93Q29sb3JQY3QgPSBMT1dfQ09MT1JfUENUO1xuICAgICAgbGV0IHJhbmdlID0gMSAtIGxvd0NvbG9yUGN0O1xuICAgICAgY29uc3QgcmVzID0gKGxldmVsIC8gcG9wRGVncmVlc0FycmF5Lmxlbmd0aCkgKiByYW5nZTtcbiAgICAgIHJldHVybiByZXMgKyBsb3dDb2xvclBjdDtcbiAgICB9O1xuICAgIGxldCBjb2xvckJhc2UgPSAncmdiYSg4MSwgMTk5LCAyMTIsICc7XG4gICAgbGV0IGNvbG9yTGV2ZWw7XG5cbiAgICBkMy5zZWxlY3RBbGwoJy5zdGF0ZScpLl9ncm91cHNbMF0uZm9yRWFjaCgoZWxlKSA9PiB7XG4gICAgICBlbGUuY2xhc3NMaXN0LnJlbW92ZSguLi5lbGUuY2xhc3NMaXN0KTtcbiAgICAgIGxldCBzdGF0ZSA9IGVsZS5fX2RhdGFfXy5wcm9wZXJ0aWVzLm5hbWU7XG4gICAgICBsZXQgY3VycmVudFBvcCA9IGRhdGFbc3RhdGVdID8gZGF0YVtzdGF0ZV0ucG9wdWxhdGlvbiA6ICcwJztcblxuICAgICAgY29uc3QgZmluZERlZ3JlZUlkeCA9ICgpID0+IHtcbiAgICAgICAgY29uc3QgZGVncmVlcyA9IHBvcERlZ3JlZXNBcnJheS5zbGljZSgpO1xuICAgICAgICBsZXQgaWR4ID0gMDtcbiAgICAgICAgd2hpbGUgKGRlZ3JlZXMpIHtcbiAgICAgICAgICBsZXQgY3VycmVudERlZ3JlZSA9IGRlZ3JlZXMuc2hpZnQoKVswXTtcbiAgICAgICAgICBpZiAoY3VycmVudFBvcCA+IGN1cnJlbnREZWdyZWUpIHtcbiAgICAgICAgICAgIGlkeCArPSAxO1xuICAgICAgICAgIH0gZWxzZSB7XG4gICAgICAgICAgICByZXR1cm4gaWR4O1xuICAgICAgICAgIH1cbiAgICAgICAgfVxuICAgICAgICByZXR1cm4gbnVsbDtcbiAgICAgIH07XG5cbiAgICAgIGNvbG9yTGV2ZWwgPSBmaW5kRGVncmVlSWR4KCk7XG5cbiAgICAgIGxldCBjb2xvclBjdFN0cmluZyA9IGdldFBjdChjb2xvckxldmVsKS50b1N0cmluZygpO1xuICAgICAgbGV0IGNvbG9yU3RyaW5nID0gYCR7Y29sb3JCYXNlfSR7Y29sb3JQY3RTdHJpbmd9KWA7XG4gICAgICBlbGUuc3R5bGUuZmlsbCA9IGNvbG9yU3RyaW5nO1xuICAgICAgLy8gZWxlLnN0eWxlLmNvbG9yID0gY29sb3JTdHJpbmc7XG4gICAgICBlbGUuc3R5bGUuYm9yZGVyID0gJzJweCBzb2xpZCBibGFjayc7XG4gICAgICBlbGUuY2xhc3NMaXN0LmFkZChwb3BEZWdyZWVzW2NvbG9yTGV2ZWxdLmNsYXNzTmFtZSk7XG4gICAgICBlbGUuY2xhc3NMaXN0LmFkZCgnc3RhdGUnKTtcbiAgICAgIGVsZS5jbGFzc0xpc3QuYWRkKCdsb2FkZWQnKTtcbiAgICB9KTtcbiAgfVxuXG4gIHJlbmRlck1hcCgpIHtcbiAgICBsZXQgcGF0aCA9IGQzLmdlb1BhdGgoKTtcbiAgICBsZXQgc3ZnID0gZDMuc2VsZWN0KCcjbWFwJykuYXBwZW5kKCdzdmcnKS5hdHRyKCd3aWR0aCcsIDEwMDApLmF0dHIoJ2hlaWdodCcsIDYwMCk7XG4gICAgbGV0IGcgPSBzdmcuYXBwZW5kKCdnJyk7XG4gICAgLy8gZDMuanNvbihcImh0dHBzOi8vZDNqcy5vcmcvdXMtMTBtLnYxLmpzb25cIikudGhlbigoZGF0YSkgPT4ge1xuICAgIGxldCBzdGF0ZXMgPSB0b3BvanNvbi5mZWF0dXJlKFN0YXRlRGF0YSwgU3RhdGVEYXRhLm9iamVjdHMuc3RhdGVzKTtcblxuICAgIGcuc2VsZWN0QWxsKCdwYXRoJykuZGF0YShzdGF0ZXMuZmVhdHVyZXMpLmVudGVyKCkuYXBwZW5kKCdwYXRoJykuYXR0cignY2xhc3MnLCAnc3RhdGUnKS5hdHRyKCdkJywgcGF0aCk7XG4gICAgLy8gfSk7XG5cbiAgICBkMy5zZWxlY3RBbGwoJy5zdGF0ZScpLl9ncm91cHNbMF0uZm9yRWFjaCgoc3RhdGUpID0+IHtcbiAgICAgIG5ldyBTdGF0ZShzdGF0ZSk7XG4gICAgfSk7XG4gIH1cbn1cblxuZXhwb3J0IGRlZmF1bHQgTWFwO1xuIl0sIm5hbWVzIjpbIlN0YXRlRGF0YSIsIlN0YXRlIiwiRm9vdGVyIiwicG9wRGVncmVlc0FycmF5IiwiTE9XX0NPTE9SX1BDVCIsIk1hcCIsImNvbnN0cnVjdG9yIiwiZGF0YSIsImNvbnNvbGUiLCJsb2ciLCJyZW5kZXJNYXAiLCJzdHlsZU1hcCIsImZvb3RlciIsImRvY3VtZW50IiwiZ2V0RWxlbWVudEJ5SWQiLCJmaXJzdENoaWxkIiwicmVtb3ZlQ2hpbGQiLCJsYXN0Q2hpbGQiLCJkMyIsInNlbGVjdEFsbCIsIl9ncm91cHMiLCJmb3JFYWNoIiwiZWxlIiwiY2xhc3NMaXN0IiwiYWRkIiwicG9wRGVncmVlcyIsImRlZ3JlZSIsImlkeCIsImludGVnZXIiLCJjbGFzc05hbWUiLCJnZXRQY3QiLCJsZXZlbCIsImxvd0NvbG9yUGN0IiwicmFuZ2UiLCJyZXMiLCJsZW5ndGgiLCJjb2xvckJhc2UiLCJjb2xvckxldmVsIiwicmVtb3ZlIiwic3RhdGUiLCJfX2RhdGFfXyIsInByb3BlcnRpZXMiLCJuYW1lIiwiY3VycmVudFBvcCIsInBvcHVsYXRpb24iLCJmaW5kRGVncmVlSWR4IiwiZGVncmVlcyIsInNsaWNlIiwiY3VycmVudERlZ3JlZSIsInNoaWZ0IiwiY29sb3JQY3RTdHJpbmciLCJ0b1N0cmluZyIsImNvbG9yU3RyaW5nIiwic3R5bGUiLCJmaWxsIiwiYm9yZGVyIiwicGF0aCIsImdlb1BhdGgiLCJzdmciLCJzZWxlY3QiLCJhcHBlbmQiLCJhdHRyIiwiZyIsInN0YXRlcyIsInRvcG9qc29uIiwiZmVhdHVyZSIsIm9iamVjdHMiLCJmZWF0dXJlcyIsImVudGVyIl0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./src/scripts/Map.js\n");
+ 
+ /***/ }),
+ 
+diff --git a/package-lock.json b/package-lock.json
+index 3512857..6ed3491 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -1983,9 +1983,9 @@
+       "integrity": "sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ=="
+     },
+     "node_modules/caniuse-lite": {
+-      "version": "1.0.30001431",
+-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001431.tgz",
+-      "integrity": "sha512-zBUoFU0ZcxpvSt9IU66dXVT/3ctO1cy4y9cscs1szkPlcWb6pasYM144GqrUygUbT+k7cmUCW61cvskjcv0enQ==",
++      "version": "1.0.30001649",
++      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001649.tgz",
++      "integrity": "sha512-fJegqZZ0ZX8HOWr6rcafGr72+xcgJKI9oWfDW5DrD7ExUtgZC7a7R7ZYmZqplh7XDocFdGeIFn7roAxhOeYrPQ==",
+       "funding": [
+         {
+           "type": "opencollective",
+@@ -1994,6 +1994,10 @@
+         {
+           "type": "tidelift",
+           "url": "https://tidelift.com/funding/github/npm/caniuse-lite"
++        },
++        {
++          "type": "github",
++          "url": "https://github.com/sponsors/ai"
+         }
+       ]
+     },
+@@ -5125,9 +5129,9 @@
+       "integrity": "sha512-E+XQCRwSbaaiChtv6k6Dwgc+bx+Bs6vuKJHHl5kox/BaKbhiXzqQOwK4cO22yElGp2OCmjwVhT3HmxgyPGnJfQ=="
+     },
+     "caniuse-lite": {
+-      "version": "1.0.30001431",
+-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001431.tgz",
+-      "integrity": "sha512-zBUoFU0ZcxpvSt9IU66dXVT/3ctO1cy4y9cscs1szkPlcWb6pasYM144GqrUygUbT+k7cmUCW61cvskjcv0enQ=="
++      "version": "1.0.30001649",
++      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30001649.tgz",
++      "integrity": "sha512-fJegqZZ0ZX8HOWr6rcafGr72+xcgJKI9oWfDW5DrD7ExUtgZC7a7R7ZYmZqplh7XDocFdGeIFn7roAxhOeYrPQ=="
+     },
+     "chalk": {
+       "version": "2.4.2",
+diff --git a/src/scripts/map.js b/src/scripts/map.js
+index 4a03cf6..c5f21ff 100644
+--- a/src/scripts/map.js
++++ b/src/scripts/map.js
+@@ -31,7 +31,6 @@ class Map {
+         className: degree[1]
+       };
+     });
+-    // console.log(popDegrees);
+ 
+     const getPct = (level) => {
+       const lowColorPct = LOW_COLOR_PCT;
+@@ -39,20 +38,12 @@ class Map {
+       const res = (level / popDegreesArray.length) * range;
+       return res + lowColorPct;
+     };
+-    // aqua
+     let colorBase = 'rgba(81, 199, 212, ';
+-    // orange-red
+-    // let colorBase = "rgba(222, 31, 18, ";
+     let colorLevel;
+ 
+     d3.selectAll('.state')._groups[0].forEach((ele) => {
+-      // console.log(ele);
+       ele.classList.remove(...ele.classList);
+       let state = ele.__data__.properties.name;
+-
+-      // console.log(state);
+-      // console.log(data[state]);
+-      // 8;
+       let currentPop = data[state] ? data[state].population : '0';
+ 
+       const findDegreeIdx = () => {
+@@ -60,7 +51,6 @@ class Map {
+         let idx = 0;
+         while (degrees) {
+           let currentDegree = degrees.shift()[0];
+-          // console.log(currentDegree);
+           if (currentPop > currentDegree) {
+             idx += 1;
+           } else {
+@@ -71,14 +61,12 @@ class Map {
+       };
+ 
+       colorLevel = findDegreeIdx();
+-      // console.log(colorLevel);
+ 
+       let colorPctString = getPct(colorLevel).toString();
+       let colorString = `${colorBase}${colorPctString})`;
+-      // console.log(colorString);
+-      // ele.style.background = "black";
+       ele.style.fill = colorString;
+-      ele.style.color = colorString;
++      // ele.style.color = colorString;
++      ele.style.border = '2px solid black';
+       ele.classList.add(popDegrees[colorLevel].className);
+       ele.classList.add('state');
+       ele.classList.add('loaded');
+diff --git a/src/styles/MainContent/index.scss b/src/styles/MainContent/index.scss
+index 4d347e3..7f79885 100644
+--- a/src/styles/MainContent/index.scss
++++ b/src/styles/MainContent/index.scss
+@@ -1,6 +1,6 @@
+ $color: #9933ff;
+ $border-color: #ff5050;
+-$background-color: #ffffff;
++$background-color: grey;
+ $data-color: #003366;
+ $header-color: #0099ff;
+ $map: rgb(81, 199, 212);
+diff --git a/src/styles/colors.scss b/src/styles/colors.scss
+index a00c2b0..cf97832 100644
+--- a/src/styles/colors.scss
++++ b/src/styles/colors.scss
+@@ -1,5 +1,6 @@
+ $color: #9933ff;
+ $border-color: #ff5050;
+-$background-color: #ffffff;
++$background-color: grey;
++// $background-color: #ffffff;
+ $data-color: #003366;
+ $header-color: #0099ff;
+diff --git a/src/styles/index.scss b/src/styles/index.scss
+index f05968e..a9578cc 100644
+--- a/src/styles/index.scss
++++ b/src/styles/index.scss
+@@ -1,9 +1,9 @@
+-@import "./instructionsModal/index.scss";
+-@import "./MainContent/index.scss";
++@import './instructionsModal/index.scss';
++@import './MainContent/index.scss';
+ 
+ $color: #9933ff;
+ $border-color: #ff5050;
+-$background-color: #fffff600;
++$background-color: black;
+ $data-color: #003366;
+ $header-color: #0099ff;
+ 
+@@ -47,18 +47,11 @@ main,
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+-  // gap: 5px;
+-  // display: inline-grid;
+-  // grid-template-columns: repeat(auto-fit, 100px);
+-  // min-width: 50vw;
+-  // position: relative;
+-  // left: 50vw;
+-  // transform: translateX(-50%);
+ }
+ 
+ main,
+ #title {
+-  font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
++  font-family: 'Andale Mono', 'Roboto Mono', monospace, sans-serif;
+   color: $color;
+   margin: 0 auto;
+   max-width: 800px;
+@@ -248,7 +241,7 @@ li.data-header {
+ 
+ #footer,
+ #personal {
+-  font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
++  font-family: 'Andale Mono', 'Roboto Mono', monospace, sans-serif;
+   color: $color;
+ }
+ 
+@@ -260,7 +253,6 @@ li.data-header {
+   display: flex;
+   justify-content: flex-end;
+   align-items: flex-end;
+-  // height: 469px;
+   height: 50px;
+ }
+ 
+@@ -302,6 +294,10 @@ li.data-header {
+     stroke: rgb(160, 156, 177);
+     fill: rgb(206, 206, 237);
+   }
++  &.loaded {
++    // border: 2px solid black;
++    stroke: rgb(160, 156, 177);
++  }
+ }
+ 
+ #instructions a {
+@@ -310,7 +306,7 @@ li.data-header {
+ 
+ #instructions p,
+ #legend-div {
+-  font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
++  font-family: 'Andale Mono', 'Roboto Mono', monospace, sans-serif;
+   color: $data-color;
+   padding: 4px;
+   text-align: center;
+diff --git a/src/styles/reset.css b/src/styles/reset.css
+index 2984021..ffd3ab4 100644
+--- a/src/styles/reset.css
++++ b/src/styles/reset.css
+@@ -7,77 +7,81 @@
+     Remove all the styles of the "User-Agent-Stylesheet", except for the 'display' property
+     - The "symbol *" part is to solve Firefox SVG sprite bug
+  */
+- *:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
+-    all: unset;
+-    display: revert;
++*:where(:not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)) {
++  all: unset;
++  display: revert;
+ }
+ 
+ /* Preferred box-sizing value */
+ *,
+ *::before,
+ *::after {
+-    box-sizing: border-box;
++  box-sizing: border-box;
+ }
+ 
+ /* Reapply the pointer cursor for anchor tags */
+-a, button {
+-    cursor: revert;
++a,
++button {
++  cursor: revert;
+ }
+ 
+ /* Remove list styles (bullets/numbers) */
+-ol, ul, menu {
+-    list-style: none;
++ol,
++ul,
++menu {
++  list-style: none;
+ }
+ 
+ /* For images to not be able to exceed their container */
+ img {
+-    max-width: 100%;
++  max-width: 100%;
+ }
+ 
+ /* removes spacing between cells in tables */
+ table {
+-    border-collapse: collapse;
++  border-collapse: collapse;
+ }
+ 
+ /* Safari - solving issue when using user-select:none on the <body> text input doesn't working */
+-input, textarea {
+-    -webkit-user-select: auto;
++input,
++textarea {
++  -webkit-user-select: auto;
+ }
+ 
+ /* revert the 'white-space' property for textarea elements on Safari */
+ textarea {
+-    white-space: revert;
++  white-space: revert;
+ }
+ 
+ /* minimum style to allow to style meter element */
+ meter {
+-    -webkit-appearance: revert;
+-    appearance: revert;
++  -webkit-appearance: revert;
++  appearance: revert;
+ }
+ 
+ /* reset default text opacity of input placeholder */
+ ::placeholder {
+-    color: unset;
++  color: unset;
+ }
+ 
+ /* fix the feature of 'hidden' attribute.
+    display:revert; revert to element instead of attribute */
+ :where([hidden]) {
+-    display: none;
++  display: none;
+ }
+ 
+ /* revert for bug in Chromium browsers
+    - fix for the content editable attribute will work properly.
+    - webkit-user-select: auto; added for Safari in case of using user-select:none on wrapper element*/
+-:where([contenteditable]:not([contenteditable="false"])) {
+-    -moz-user-modify: read-write;
+-    -webkit-user-modify: read-write;
+-    overflow-wrap: break-word;
+-    -webkit-line-break: after-white-space;
+-    -webkit-user-select: auto;
++:where([contenteditable]:not([contenteditable='false'])) {
++  -moz-user-modify: read-write;
++  -webkit-user-modify: read-write;
++  overflow-wrap: break-word;
++  -webkit-line-break: after-white-space;
++  -webkit-user-select: auto;
+ }
+ 
+ /* apply back the draggable feature - exist only in Chromium and Safari */
+-:where([draggable="true"]) {
+-    -webkit-user-drag: element;
++:where([draggable='true']) {
++  -webkit-user-drag: element;
+ }

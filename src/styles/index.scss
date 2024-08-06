@@ -1,14 +1,14 @@
-@import "./instructionsModal/index.scss";
-@import "./MainContent/index.scss";
+@import './instructionsModal/index.scss';
+@import './MainContent/index.scss';
 
 $color: #9933ff;
 $border-color: #ff5050;
-$background-color: #fffff600;
+// $background-color: #83b483;
 $data-color: #003366;
 $header-color: #0099ff;
 
 body {
-  background-color: $background-color;
+  background-color: #dedbdb;
   font-family: inherit;
   display: flex;
   justify-content: center;
@@ -47,18 +47,11 @@ main,
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  // gap: 5px;
-  // display: inline-grid;
-  // grid-template-columns: repeat(auto-fit, 100px);
-  // min-width: 50vw;
-  // position: relative;
-  // left: 50vw;
-  // transform: translateX(-50%);
 }
 
 main,
 #title {
-  font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
+  font-family: 'Andale Mono', 'Roboto Mono', monospace, sans-serif;
   color: $color;
   margin: 0 auto;
   max-width: 800px;
@@ -248,7 +241,7 @@ li.data-header {
 
 #footer,
 #personal {
-  font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
+  font-family: 'Andale Mono', 'Roboto Mono', monospace, sans-serif;
   color: $color;
 }
 
@@ -260,7 +253,6 @@ li.data-header {
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
-  // height: 469px;
   height: 50px;
 }
 
@@ -302,6 +294,10 @@ li.data-header {
     stroke: rgb(160, 156, 177);
     fill: rgb(206, 206, 237);
   }
+  &.loaded {
+    // border: 2px solid black;
+    stroke: rgb(160, 156, 177);
+  }
 }
 
 #instructions a {
@@ -310,7 +306,7 @@ li.data-header {
 
 #instructions p,
 #legend-div {
-  font-family: "Andale Mono", "Roboto Mono", monospace, sans-serif;
+  font-family: 'Andale Mono', 'Roboto Mono', monospace, sans-serif;
   color: $data-color;
   padding: 4px;
   text-align: center;

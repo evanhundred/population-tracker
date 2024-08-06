@@ -31,7 +31,6 @@ class Map {
         className: degree[1]
       };
     });
-    // console.log(popDegrees);
 
     const getPct = (level) => {
       const lowColorPct = LOW_COLOR_PCT;
@@ -39,20 +38,12 @@ class Map {
       const res = (level / popDegreesArray.length) * range;
       return res + lowColorPct;
     };
-    // aqua
     let colorBase = 'rgba(81, 199, 212, ';
-    // orange-red
-    // let colorBase = "rgba(222, 31, 18, ";
     let colorLevel;
 
     d3.selectAll('.state')._groups[0].forEach((ele) => {
-      // console.log(ele);
       ele.classList.remove(...ele.classList);
       let state = ele.__data__.properties.name;
-
-      // console.log(state);
-      // console.log(data[state]);
-      // 8;
       let currentPop = data[state] ? data[state].population : '0';
 
       const findDegreeIdx = () => {
@@ -60,7 +51,6 @@ class Map {
         let idx = 0;
         while (degrees) {
           let currentDegree = degrees.shift()[0];
-          // console.log(currentDegree);
           if (currentPop > currentDegree) {
             idx += 1;
           } else {
@@ -71,14 +61,12 @@ class Map {
       };
 
       colorLevel = findDegreeIdx();
-      // console.log(colorLevel);
 
       let colorPctString = getPct(colorLevel).toString();
       let colorString = `${colorBase}${colorPctString})`;
-      // console.log(colorString);
-      // ele.style.background = "black";
       ele.style.fill = colorString;
-      ele.style.color = colorString;
+      // ele.style.color = colorString;
+      ele.style.border = '2px solid black';
       ele.classList.add(popDegrees[colorLevel].className);
       ele.classList.add('state');
       ele.classList.add('loaded');
