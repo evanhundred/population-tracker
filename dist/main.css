@@ -167,6 +167,9 @@ meter {
   cursor: pointer;
   color: #003366;
   margin-bottom: 10px;
+  background: rgba(184, 173, 173, 0.6);
+  padding: 10px;
+  border-radius: 8px;
 }
 #main-content #legend-div {
   margin: 0 20px 20px;
@@ -576,6 +579,9 @@ p#legend-title {
   cursor: pointer;
   color: #003366;
   margin-bottom: 10px;
+  background: rgba(184, 173, 173, 0.6);
+  padding: 10px;
+  border-radius: 8px;
 }
 #main-content #legend-div {
   margin: 0 20px 20px;
