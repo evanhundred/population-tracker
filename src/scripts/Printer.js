@@ -36,7 +36,7 @@ class Printer {
   }
 
   sortByName(newDataObject = this.dataObject, sortStyle = 'byName') {
-    console.log(sortStyle);
+    // console.log(sortStyle);
     let addPopClass = new AddPopClass();
     let dataObject = newDataObject;
     let dataHeader = dataObject.header;

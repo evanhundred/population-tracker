@@ -67,7 +67,7 @@ export const sortData = (dataObject, sortKey) => {
   let sorted = preSorted;
   if (sortKey === 'byName') {
     sorted.states = objSortByName(preSorted.states);
-  } else if (sortKey === 'byPop') {
+  } else if (sortKey === 'byPopulation') {
     sorted.states = objSortByPopulation(preSorted.states);
   }
 
