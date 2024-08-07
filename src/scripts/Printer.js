@@ -36,6 +36,7 @@ class Printer {
   }
 
   sortByName(newDataObject = this.dataObject, sortStyle = 'byName') {
+    console.log(sortStyle);
     let addPopClass = new AddPopClass();
     let dataObject = newDataObject;
     let dataHeader = dataObject.header;
@@ -60,7 +61,7 @@ class Printer {
     if (sortStyle === 'byName') {
       sortLabel.innerText = 'by name';
     }
-    if (sortStyle === 'byPop') {
+    if (sortStyle === 'byPopulation') {
       sortLabel.innerText = 'by population';
     }
     sortLabel.classList = 'sortLabel';

@@ -116,10 +116,10 @@ class MainContent {
 
     document.addEventListener('click', function (e) {
       let eventTarget = e.target;
-      console.log(eventTarget);
+      // console.log(eventTarget);
 
       if (eventTarget.id === 'vintage') {
-        console.log(`li#vintage.${eventTarget.className}`);
+        // console.log(`li#vintage.${eventTarget.className}`);
         resetMap();
         new Map();
 
@@ -129,13 +129,20 @@ class MainContent {
         const liClicked = document.querySelector(`li#vintage.${eventTarget.className}`);
         liClicked.classList.add('selected');
       } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
-        let sortStyle;
-        const selectorOptions = ['sortByName', 'sortByPopulation'];
-        selectorOptions.forEach((option) => {
-          sortStyle = option.slice(4, 5).toLowerCase() + option.slice(5);
-          s;
-          sortStyle[0] = sortStyle[0].toLowerCase();
-        });
+        const sortStyle = eventTarget.classList.contains('sortByName') ? 'byName' : 'byPopulation';
+        const classList = eventTarget.classlist;
+        //         classList.forEach((class) => {
+        // console.log();
+        //         })
+        // console.log(eventTarget.classList);
+        // console.log(eventTarget);
+        // let sortStyle;
+        // const selectorOptions = ['sortByName', 'sortByPopulation'];
+        // selectorOptions.forEach((option) => {
+        //   console.log(sortStyle);
+        //   // sortStyle = String.fromCharCode(sortStyle.charCodeAt(0)).toLowerCase() + sortStyle.slice(1);
+        //   // sortStyle[0] = sortStyle[0].toLowerCase();
+        // });
         // if (eventTarget.classList.contains('sortByName')) {
         //   sortStyle = 'byName';
         // }
