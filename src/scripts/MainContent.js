@@ -116,10 +116,8 @@ class MainContent {
 
     document.addEventListener('click', function (e) {
       let eventTarget = e.target;
-      // console.log(eventTarget);
 
       if (eventTarget.id === 'vintage') {
-        // console.log(`li#vintage.${eventTarget.className}`);
         resetMap();
         new Map();
 
@@ -130,25 +128,6 @@ class MainContent {
         liClicked.classList.add('selected');
       } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
         const sortStyle = eventTarget.classList.contains('sortByName') ? 'byName' : 'byPopulation';
-        const classList = eventTarget.classlist;
-        //         classList.forEach((class) => {
-        // console.log();
-        //         })
-        // console.log(eventTarget.classList);
-        // console.log(eventTarget);
-        // let sortStyle;
-        // const selectorOptions = ['sortByName', 'sortByPopulation'];
-        // selectorOptions.forEach((option) => {
-        //   console.log(sortStyle);
-        //   // sortStyle = String.fromCharCode(sortStyle.charCodeAt(0)).toLowerCase() + sortStyle.slice(1);
-        //   // sortStyle[0] = sortStyle[0].toLowerCase();
-        // });
-        // if (eventTarget.classList.contains('sortByName')) {
-        //   sortStyle = 'byName';
-        // }
-        // if (eventTarget.classList.contains('sortByPopulation')) {
-        //   sortStyle = 'byPop';
-        // }
 
         const sortedDataObj = sortData(fetcher.dataObject, sortStyle);
         that.printer.sortByName(sortedDataObj, sortStyle);

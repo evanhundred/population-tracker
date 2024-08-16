@@ -44,29 +44,41 @@ class Map {
     d3.selectAll('.state')._groups[0].forEach((ele) => {
       ele.classList.remove(...ele.classList);
       let state = ele.__data__.properties.name;
+      console.log(data);
+      console.log(ele.__data__.properties);
+      console.log(data[state]);
       let currentPop = data[state] ? data[state].population : '0';
+      console.log(currentPop);
+      let colorString;
 
-      const findDegreeIdx = () => {
-        const degrees = popDegreesArray.slice();
-        let idx = 0;
-        while (degrees) {
-          let currentDegree = degrees.shift()[0];
-          if (currentPop > currentDegree) {
-            idx += 1;
-          } else {
-            return idx;
+      if (currentPop === '0') {
+        colorString = 'black';
+        colorLevel = 0;
+      } else {
+        const findDegreeIdx = () => {
+          const degrees = popDegreesArray.slice();
+          let idx = 0;
+          while (degrees) {
+            let currentDegree = degrees.shift()[0];
+            console.log(currentDegree);
+            if (currentPop > currentDegree) {
+              idx += 1;
+            } else {
+              return idx;
+            }
           }
-        }
-        return null;
-      };
+          return null;
+        };
 
-      colorLevel = findDegreeIdx();
+        colorLevel = findDegreeIdx();
+        let colorPctString = getPct(colorLevel).toString();
+        colorString = `${colorBase}${colorPctString})`;
+      }
 
-      let colorPctString = getPct(colorLevel).toString();
-      let colorString = `${colorBase}${colorPctString})`;
       ele.style.fill = colorString;
       // ele.style.color = colorString;
-      ele.style.border = '2px solid black';
+      // ele.style.border = '2px solid black';
+      console.log(colorLevel);
       ele.classList.add(popDegrees[colorLevel].className);
       ele.classList.add('state');
       ele.classList.add('loaded');

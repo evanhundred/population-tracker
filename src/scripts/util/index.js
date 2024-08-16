@@ -120,6 +120,7 @@ export const objSortByPopulation = (obj) => {
 };
 
 export const popDegreesArray = [
+  [0, 'zero'],
   [500000, 'under500k'],
   [2000000, 'under2m'],
   [5000000, 'under5m'],
