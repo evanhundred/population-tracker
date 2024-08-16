@@ -44,11 +44,11 @@ class Map {
     d3.selectAll('.state')._groups[0].forEach((ele) => {
       ele.classList.remove(...ele.classList);
       let state = ele.__data__.properties.name;
-      console.log(data);
-      console.log(ele.__data__.properties);
-      console.log(data[state]);
+      // console.log(data);
+      // console.log(ele.__data__.properties);
+      // console.log(data[state]);
       let currentPop = data[state] ? data[state].population : '0';
-      console.log(currentPop);
+      // console.log(currentPop);
       let colorString;
 
       if (currentPop === '0') {
@@ -60,7 +60,7 @@ class Map {
           let idx = 0;
           while (degrees) {
             let currentDegree = degrees.shift()[0];
-            console.log(currentDegree);
+            // console.log(currentDegree);
             if (currentPop > currentDegree) {
               idx += 1;
             } else {
@@ -78,7 +78,7 @@ class Map {
       ele.style.fill = colorString;
       // ele.style.color = colorString;
       // ele.style.border = '2px solid black';
-      console.log(colorLevel);
+      // console.log(colorLevel);
       ele.classList.add(popDegrees[colorLevel].className);
       ele.classList.add('state');
       ele.classList.add('loaded');

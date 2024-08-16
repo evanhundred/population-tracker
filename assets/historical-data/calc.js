@@ -5,4 +5,4 @@ for (let i = 0; i < states.length; i++) {
     sum += parseInt(states[i][1]);
   }
 }
-console.log(sum);
+// console.log(sum);
