@@ -52,7 +52,7 @@ class Map {
       let colorString;
 
       if (currentPop === '0') {
-        colorString = 'black';
+        colorString = 'rgb(153, 117, 117)';
         colorLevel = 0;
       } else {
         const findDegreeIdx = () => {
