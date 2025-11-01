@@ -2,6 +2,8 @@ import StateData from '/assets/states-albers-10m.json';
 import State from './State';
 import Footer from './Footer';
 import { popDegreesArray, LOW_COLOR_PCT } from './util';
+import * as d3 from 'd3';
+import * as topojson from 'topojson-client';
 
 class Map {
   constructor(data = null) {
