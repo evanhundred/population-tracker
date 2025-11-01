@@ -298,6 +298,9 @@ li.data-header {
     // border: 2px solid black;
     stroke: rgb(160, 156, 177);
   }
+  &.zero {
+    fill: rgb(124, 96, 102);
+  }
 }
 
 #instructions a {
