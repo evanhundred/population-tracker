@@ -38,7 +38,9 @@ class Map {
       const res = (level / popDegreesArray.length) * range;
       return res + lowColorPct;
     };
-    let colorBase = 'rgba(81, 199, 212, ';
+    // 0, 84, 163
+    let colorBase = 'rgba(0, 84, 163, ';
+    // let colorBase = 'rgba(81, 199, 212, ';
     let colorLevel;
 
     d3.selectAll('.state')._groups[0].forEach((ele) => {
@@ -52,7 +54,8 @@ class Map {
       let colorString;
 
       if (currentPop === '0') {
-        colorString = 'black';
+        // colorString = 'rgb(196, 164, 164)';
+        // colorString = 'rgb(153, 117, 117)';
         colorLevel = 0;
       } else {
         const findDegreeIdx = () => {
@@ -73,9 +76,12 @@ class Map {
         colorLevel = findDegreeIdx();
         let colorPctString = getPct(colorLevel).toString();
         colorString = `${colorBase}${colorPctString})`;
+        ele.style.fill = colorString;
       }
 
-      ele.style.fill = colorString;
+      // console.log(state);
+      // console.log(colorString);
+
       // ele.style.color = colorString;
       // ele.style.border = '2px solid black';
       // console.log(colorLevel);

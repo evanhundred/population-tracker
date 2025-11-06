@@ -2,6 +2,7 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 const config = {
+  // mode: 'development',
   entry: [path.resolve(__dirname, 'src', 'index.js'), path.resolve(__dirname, 'src', 'index.scss')],
   output: {
     path: path.join(__dirname, 'dist'), // bundled file in dist/
@@ -34,8 +35,8 @@ module.exports = (env, argv) => {
   if (argv.mode === 'production') {
     config.devtool = 'source-map';
   } else {
-    config.devServer = { static: path.join(__dirname, './') };
-    config.optimization = { runtimeChunk: 'single' };
+    config.devServer = { static: path.join(__dirname, '.') };
+    // config.optimization = { runtimeChunk: 'single' };
     config.devtool = 'eval-source-map';
   }
 

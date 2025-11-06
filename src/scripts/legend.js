@@ -1,4 +1,4 @@
-import { popDegreesArray, getPct } from "./util";
+import { popDegreesArray, getPct } from './util';
 
 class Legend {
   constructor(ele) {
@@ -6,21 +6,21 @@ class Legend {
   }
 
   renderLegend(ele) {
-    let legendDiv = document.createElement("div");
-    legendDiv.setAttribute("id", "legend-div");
+    let legendDiv = document.createElement('div');
+    legendDiv.setAttribute('id', 'legend-div');
     ele.appendChild(legendDiv);
-    let legendTitle = document.createElement("p");
-    legendTitle.setAttribute("id", "legend-title");
-    legendTitle.innerText = "legend:";
+    let legendTitle = document.createElement('p');
+    legendTitle.setAttribute('id', 'legend-title');
+    legendTitle.innerText = 'legend:';
     legendDiv.appendChild(legendTitle);
-    let legendBox = document.createElement("p");
-    legendBox.setAttribute("id", "legend-box");
+    let legendBox = document.createElement('p');
+    legendBox.setAttribute('id', 'legend-box');
     legendDiv.appendChild(legendBox);
 
-    const colorBase = "rgba(81, 199, 212, ";
+    const colorBase = 'rgba(0, 84, 163, ';
+    // const colorBase = "rgba(81, 199, 212, ";
 
-    const colorString = (colorBase, colorPctString) =>
-      `${colorBase}${colorPctString}`;
+    const colorString = (colorBase, colorPctString) => `${colorBase}${colorPctString}`;
     const colorPctString = (level) => getPct(level);
 
     // let under50k = document.createElement("span");
@@ -33,11 +33,11 @@ class Legend {
     // under200k.textContent = "50 - 200 thousand ";
     // legendBox.appendChild(under200k);
 
-    let under500k = document.createElement("span");
+    let under500k = document.createElement('span');
 
-    under500k.classList.add("under500k");
+    under500k.classList.add('under500k');
     under500k.style.color = colorString(colorBase, colorPctString(1));
-    under500k.textContent = "200 - 500 thousand ";
+    under500k.textContent = '200 - 500 thousand ';
     legendBox.appendChild(under500k);
 
     // let under1m = document.createElement("span");
@@ -50,10 +50,10 @@ class Legend {
     // under1p5m.textContent = "1 million - 1.5 million ";
     // legendBox.appendChild(under1p5m);
 
-    let under2m = document.createElement("span");
-    under2m.classList.add("under2m");
+    let under2m = document.createElement('span');
+    under2m.classList.add('under2m');
     under2m.style.color = colorString(colorBase, colorPctString(2));
-    under2m.textContent = "500K - 2 million ";
+    under2m.textContent = '500K - 2 million ';
     legendBox.appendChild(under2m);
 
     // let under2p5m = document.createElement("span");
@@ -81,10 +81,10 @@ class Legend {
     // under4p5m.textContent = "4 - 4.5 million ";
     // legendBox.appendChild(under4p5m);
 
-    let under5m = document.createElement("span");
+    let under5m = document.createElement('span');
     under5m.style.color = colorString(colorBase, colorPctString(3));
-    under5m.classList.add("under5m");
-    under5m.textContent = "2 - 5 million ";
+    under5m.classList.add('under5m');
+    under5m.textContent = '2 - 5 million ';
     legendBox.appendChild(under5m);
 
     // let under5p5m = document.createElement("span");
@@ -122,10 +122,10 @@ class Legend {
     // under9m.textContent = "8 - 9 million ";
     // legendBox.appendChild(under9m);
 
-    let under10m = document.createElement("span");
+    let under10m = document.createElement('span');
     under10m.style.color = colorString(colorBase, colorPctString(4));
-    under10m.classList.add("under10m");
-    under10m.textContent = "5 - 10 million ";
+    under10m.classList.add('under10m');
+    under10m.textContent = '5 - 10 million ';
     legendBox.appendChild(under10m);
 
     // let under11m = document.createElement("span");
@@ -158,10 +158,10 @@ class Legend {
     // under20m.textContent = "15 - 20 million ";
     // legendBox.appendChild(under20m);
 
-    let under25m = document.createElement("span");
+    let under25m = document.createElement('span');
     under25m.style.color = colorString(colorBase, colorPctString(5));
-    under25m.classList.add("under25m");
-    under25m.textContent = "10 - 25 million ";
+    under25m.classList.add('under25m');
+    under25m.textContent = '10 - 25 million ';
     legendBox.appendChild(under25m);
 
     // let under30m = document.createElement("span");
@@ -174,10 +174,10 @@ class Legend {
     // under35m.textContent = "30 - 35 million ";
     // legendBox.appendChild(under35m);
 
-    let under50m = document.createElement("span");
+    let under50m = document.createElement('span');
     under50m.style.color = colorString(colorBase, colorPctString(6));
-    under50m.classList.add("under50m");
-    under50m.textContent = "25- 50 million ";
+    under50m.classList.add('under50m');
+    under50m.textContent = '25- 50 million ';
     legendBox.appendChild(under50m);
   }
 }
