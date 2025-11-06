@@ -1,0 +1,110 @@
+ 208 +  createVintageSelector() {
+   209 +    const FirstLine = document.createElement('div');
+   210 +    FirstLine.setAttribute('id', 'firstLine');
+   211 +    this.ele.appendChild(FirstLine);
+   212 +
+   213 +    const h2 = document.createElement('h2');
+   214 +    h2.innerText = 'Fetch Vintage:';
+   215 +    FirstLine.appendChild(h2);
+   216 +
+   217 +    const div = document.createElement('div');
+   218 +    div.setAttribute('id', 'vintageSelector');
+   219 +    div.classList.add('firstLine');
+   220 +    const ul = document.createElement('ul');
+   221 +    ul.classList.add('vintageUl');
+   222 +    div.appendChild(ul);
+   223 +    FirstLine.appendChild(div);
+   224 +
+   225 +    for (let i = 0; i < VINTAGES.length; i++) {
+   226 +      const li = document.createElement('li');
+   227 +      li.innerText = VINTAGES[i];
+   228 +      li.id = 'vintage';
+   229 +      li.classList.add(`year-${VINTAGES[i]}`);
+   230 +      if (VINTAGES[i] === '2020')
+       li.classList.add('selected');
+   231 +      ul.appendChild(li);
+   232 +    }
+   233 +  }
+   234 +
+   235 +  createDataElements() {
+   236 +    const firstLineFooter = document.createElement('div');
+   237 +    firstLineFooter.setAttribute('id', 'firstLineFooter');
+   238 +    this.ele.appendChild(firstLineFooter);
+   239 +    const firstLineFooterH2 = document.createElement('h2');
+   240 +    firstLineFooterH2.setAttribute('id', 'firstLineFooterH2')
+   241 +    firstLineFooter.appendChild(firstLineFooterH2);
+   242 +
+   243 +    const secondLine = document.createElement('div');
+   244 +    secondLine.setAttribute('id', 'second-line');
+   245 +    this.ele.appendChild(secondLine);
+   246 +    const ul = document.createElement('ul');
+   247 +    ul.classList.add('sortSelectorUl');
+   248 +    secondLine.appendChild(ul);
+   249 +
+   250 +    const thirdLine = document.createElement('div');
+   251 +    thirdLine.setAttribute('id', 'thirdLine');
+   252 +    this.ele.appendChild(thirdLine);
+   253 +
+   254      if (!document.querySelector('data')) {
+   255        let dataEl = document.createElement('data');
+   256        let dataUl = document.createElement('ul');
+   257 @@ -131,26 +106,8 @@
+   258        let thirdLine = document.getElementById('thirdLine');
+   259        thirdLine.appendChild(dataEl);
+   260      }
+   261 -
+   262 -    let firstLineFooterH2 =
+       document.getElementById('firstLineFooterH2');
+   263 -    firstLineFooterH2.innerText = 'data fetched!';
+   264 -
+   265 -    let ul = document.createElement('ul');
+   266 -    let li = document.createElement('li');
+   267 -    li.classList.add('sortByName');
+   268 -    li.innerText = 'Sort by Name';
+   269 -    ul.appendChild(li);
+   270 -
+   271 -    li = document.createElement('li');
+   272 -    li.classList.add('sortByPopulation');
+   273 -    li.innerText = 'Sort by Population';
+   274 -    ul.appendChild(li);
+   275 -
+   276 -    let selectorDiv = document.getElementById('second-line');
+   277 -    selectorDiv.replaceChild(ul,
+       document.querySelector('.sortSelectorUl'));
+   278 -    ul.classList.add('sortSelectorUl');
+   279    }
+   280  }
+   281 
+   282  export default MainContent;
+   283 +
+
+  Summary of Changes:
+
+   * Constructor: The constructor is now much cleaner. It calls helpe
+     methods to build the initial UI (createInstructionsLink,
+     createVintageSelector, createDataElements) and then makes the
+     initial data call to updateData('2020'). The main event listener
+     is also bound to the class instance.
+   * `updateData(vintage)`: This new method is the heart of the
+     refactoring. It shows a "fetching..." message, calls the fetche,
+     and then uses a .then() block to pass the received data to the
+     renderData method and update the UI.
+   * `renderData(dataObject)`: This method takes the data object and 
+     responsible for rendering the output. It calls resetMap(), creat
+     a new Map(dataObject), and then uses the printer to display the
+     textual data.
+   * `resetMap()`: This is the same DOM manipulation logic that was
+     previously in Fetcher.js and other places, now consolidated into
+     single method in MainContent.
+   * UI Creation Methods: The logic for creating the instructions lin
+     vintage selector, and other DOM elements has been extracted into
+     their own well-named methods (createInstructionsLink,
+     createVintageSelector, createDataElements) for better organizati
+
+   * Removed `printData` and `newMap`: The printData method's logic i
+     now incorporated into createDataElements and the renderData
+     method. The newMap method is replaced by resetMap.
+
+  These changes centralize the control flow and DOM manipulation with
+   MainContent, while Fetcher is now a dedicated, reusable
+  data-fetching module.
