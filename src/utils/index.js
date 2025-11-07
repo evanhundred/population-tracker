@@ -1,4 +1,5 @@
 export const LOW_COLOR_PCT = 0.4;
+export const YEAR_DASH_VINTAGE = /^year-\d\d\d\d$/i;
 
 export const popDegreesArray = [
   [0, 'zero'],

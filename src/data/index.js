@@ -141,6 +141,12 @@ class DataStore {
     return this.state;
   }
 
+  setSortStyle(sortStyle) {
+    this.state.sortStyle = sortStyle;
+    sortData(this.state.dataObject, sortStyle);
+    this.notifySubscribers();
+  }
+
   getData(vintage) {
     this.setState({ vintage });
     const dataObject = resetDataObject(vintage);

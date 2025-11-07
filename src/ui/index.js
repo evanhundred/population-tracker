@@ -7,6 +7,7 @@ import StateList from '../components/StateList';
 import Legend from '../components/Legend';
 import Footer from '../components/Footer';
 
+
 const VINTAGES = ['1790', '2000', '2010', '2020'];
 
 class UI {
@@ -32,10 +33,7 @@ class UI {
         this.dataStore.getData(vintage);
       } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
         const sortStyle = eventTarget.classList.contains('sortByName') ? 'byName' : 'byPopulation';
-        this.dataStore.setState({ sortStyle });
-        const { dataObject } = this.dataStore.getState();
-        const sortedData = sortData(dataObject, sortStyle);
-        this.dataStore.setState({ dataObject: sortedData });
+        this.dataStore.setSortStyle(sortStyle);
       }
     });
   }
