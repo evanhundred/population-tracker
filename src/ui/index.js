@@ -101,19 +101,24 @@ class UI {
 
     new Footer(this.footer);
 
+    // load initial data
+    this.dataStore.getData('2020');
+
     // Set up event listeners
     document.addEventListener('click', (e) => {
       const eventTarget = e.target;
 
       if (eventTarget.id === 'vintage') {
-        this.loadingOverlay.classList.remove('hidden'); // Show overlay
+        // console.log(eventTarget.id);
+        // this.loadingOverlay.classList.remove('hidden'); // Show overlay
         const vintage = eventTarget.className.slice(5, 9);
         this.dataStore.getData(vintage);
       } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
-        this.loadingOverlay.classList.remove('hidden'); // Show overlay
+        // this.loadingOverlay.classList.remove('hidden'); // Show overlay
         const sortStyle = eventTarget.classList.contains('sortByName') ? 'byName' : 'byPopulation';
         this.dataStore.setSortStyle(sortStyle);
       }
+      // this.loadingOverlay.classList.add('hidden'); //  overlay
     });
 
     // Initial render call
@@ -137,6 +142,14 @@ class UI {
     // Update firstLineFooterH2
     this.firstLineFooterH2.innerText = dataObject.header ? `Data fetched for ${dataObject.header}` : 'fetching...';
 
+    // if (dataObject.header) {
+    //   this.loadingOverlay.classList.add('hidden');
+    // } else if (this.loadingOverlay.classList.contains('hidden')) {
+    //   this.loadingOverlay.classList.remove('hidden');
+    // }
+
+    // this.loadingOverlay.classList.add(dataObject.header ? 'hidden'); // Hide overlay
+
     // Update Map
     if (this.mapInstance) {
       // If map already exists, just style it with new data
@@ -158,7 +171,7 @@ class UI {
       this.stateListContainer.appendChild(this.stateListInstance.ele);
     }
 
-    this.loadingOverlay.classList.add('hidden'); // Hide overlay
+    // this.loadingOverlay.classList.add('hidden'); // Hide overlay
   }
 }
 
