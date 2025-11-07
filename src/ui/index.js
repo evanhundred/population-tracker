@@ -128,4 +128,4 @@ class UI {
   }
 }
 
-export default new UI();
+export default UI;
