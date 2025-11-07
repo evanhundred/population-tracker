@@ -49,8 +49,8 @@ class UI {
     const header = document.getElementById('header');
     new TitleSplash(header);
 
-
     const main = this.root;
+    // console.log(main);
 
     const FirstLine = document.createElement('div');
     FirstLine.setAttribute('id', 'firstLine');
@@ -105,7 +105,6 @@ class UI {
     li.innerText = 'Sort by Population';
     ul.appendChild(li);
 
-
     const instructionsModalContainer = document.createElement('div');
     instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
     main.appendChild(instructionsModalContainer);
@@ -121,6 +120,7 @@ class UI {
     new Map(dataObject);
 
     const stateList = new StateList(dataObject, sortStyle);
+    console.log(stateList);
     main.appendChild(stateList.ele);
 
     const footer = document.getElementById('footer');

@@ -1,125 +1,103 @@
 import AddPopClass from './AddPopClass.js';
 
+
 class StateList {
   constructor(dataObject = {}, sortStyle = null) {
     this.dataObject = dataObject;
     this.sortStyle = sortStyle;
+    this.ele = document.createElement('div');
+    this.ele.setAttribute('id', 'state-list-container');
+    this.render();
   }
 
-  printData() {
-    if (!document.querySelector('data')) {
-      let dataEl = document.createElement('data');
-      let dataUl = document.createElement('ul');
-      dataUl.classList.add('fetchResultSorted');
-      dataEl.appendChild(dataUl);
-      let thirdLine = document.getElementById('thirdLine');
-      thirdLine.appendChild(dataEl);
+  render() {
+    this.ele.replaceChildren(); // Clear the element
+
+    if (!this.dataObject.states) {
+      return;
     }
 
-    let firstLineFooterH2 = document.getElementById('firstLineFooterH2');
-    firstLineFooterH2.innerText = 'data fetched!';
-
-    let ul = document.createElement('ul');
-    let li = document.createElement('li');
-    li.classList.add('sortByName');
-    li.innerText = 'Sort by Name';
-    ul.appendChild(li);
-
-    li = document.createElement('li');
-    li.classList.add('sortByPopulation');
-    li.innerText = 'Sort by Population';
-    ul.appendChild(li);
-
-    let selectorDiv = document.getElementById('second-line');
-    selectorDiv.replaceChild(ul, document.querySelector('.sortSelectorUl'));
-    ul.classList.add('sortSelectorUl');
-  }
-
-  sortByName(newDataObject = this.dataObject, sortStyle = 'byName') {
-    // console.log(sortStyle);
-    let addPopClass = new AddPopClass();
-    let dataObject = newDataObject;
-    let dataHeader = dataObject.header;
-    let dataEl = document.querySelector('data');
-    let ul = document.createElement('ul');
-    dataEl.replaceChild(ul, document.querySelector('.fetchResultSorted'));
+    const dataEl = document.createElement('data');
+    const ul = document.createElement('ul');
     ul.classList.add('fetchResultSorted');
+    dataEl.appendChild(ul);
+    this.ele.appendChild(dataEl);
 
-    let fiftyPlusDCName;
-    let fiftyPlusDCPop;
-    let totalUSName;
-    let totalUSPop;
-    let totalTerrName;
-    let totalTerrPop;
+    let fiftyPlusDCName, fiftyPlusDCPop, totalUSName, totalUSPop, totalTerrName, totalTerrPop;
 
-    let vintageLabel = document.createElement('li');
-    vintageLabel.innerText = dataHeader;
+    const vintageLabel = document.createElement('li');
+    vintageLabel.innerText = this.dataObject.header;
     vintageLabel.classList.add('data-header');
     ul.appendChild(vintageLabel);
 
-    let sortLabel = document.createElement('li');
-    if (sortStyle === 'byName') {
+    const sortLabel = document.createElement('li');
+    if (this.sortStyle === 'byName') {
       sortLabel.innerText = 'by name';
-    }
-    if (sortStyle === 'byPopulation') {
+    } else if (this.sortStyle === 'byPopulation') {
       sortLabel.innerText = 'by population';
     }
     sortLabel.classList = 'sortLabel';
     ul.appendChild(sortLabel);
 
-    let keyState = document.createElement('li');
+    const keyState = document.createElement('li');
     keyState.classList.add('keyState');
     keyState.innerText = 'State';
     ul.appendChild(keyState);
-    let keyPop = document.createElement('li');
+    const keyPop = document.createElement('li');
     keyPop.classList.add('keyPop');
     keyPop.innerText = 'Population';
     ul.appendChild(keyPop);
 
-    for (let i = 0; i < dataObject.states.length; i++) {
-      if (dataObject.states[i].stateName !== '50 states + DC' && dataObject.states[i].stateName !== 'Total territories' && dataObject.states[i].stateName !== 'Total U.S. population') {
-        // ;
-        let stateName = document.createElement('li');
+    for (let i = 0; i < this.dataObject.states.length; i++) {
+      const state = this.dataObject.states[i];
+      if (state.stateName !== '50 states + DC' && state.stateName !== 'Total territories' && state.stateName !== 'Total U.S. population') {
+        const stateName = document.createElement('li');
         stateName.classList.add('item', 'itemName');
-        addPopClass.addClass(dataObject.states[i], stateName);
-        stateName.innerText = `${dataObject.states[i].stateName}`;
+        stateName.innerText = state.stateName;
         ul.appendChild(stateName);
-        let statePop = document.createElement('li');
+
+        const statePop = document.createElement('li');
         statePop.classList.add('item', 'itemPop');
-        addPopClass.addClass(dataObject.states[i], statePop);
-        statePop.innerText = `${dataObject.states[i].population}`;
+        statePop.innerText = state.population;
         ul.appendChild(statePop);
-      } else if (dataObject.states[i].stateName === '50 states + DC') {
+      } else if (state.stateName === '50 states + DC') {
         fiftyPlusDCName = document.createElement('li');
         fiftyPlusDCName.classList.add('item', 'itemName', 'fiftyPlusDC');
-        fiftyPlusDCName.innerText = `${dataObject.states[i].stateName}`;
+        fiftyPlusDCName.innerText = state.stateName;
         fiftyPlusDCPop = document.createElement('li');
         fiftyPlusDCPop.classList.add('item', 'itemPop', 'fiftyPlusDC');
-        fiftyPlusDCPop.innerText = `${dataObject.states[i].population}`;
-      } else if (dataObject.states[i].stateName === 'Total U.S. population') {
+        fiftyPlusDCPop.innerText = state.population;
+      } else if (state.stateName === 'Total U.S. population') {
         totalUSName = document.createElement('li');
         totalUSName.classList.add('item', 'itemName', 'totalUS');
-        totalUSName.innerText = `${dataObject.states[i].stateName}`;
+        totalUSName.innerText = state.stateName;
         totalUSPop = document.createElement('li');
         totalUSPop.classList.add('item', 'itemPop', 'totalUS');
-        totalUSPop.innerText = `${dataObject.states[i].population}`;
-      } else if (dataObject.states[i].stateName === 'Total territories') {
+        totalUSPop.innerText = state.population;
+      } else if (state.stateName === 'Total territories') {
         totalTerrName = document.createElement('li');
         totalTerrName.classList.add('item', 'itemName', 'totalTerr');
-        totalTerrName.innerText = `${dataObject.states[i].stateName}`;
+        totalTerrName.innerText = state.stateName;
         totalTerrPop = document.createElement('li');
         totalTerrPop.classList.add('item', 'itemPop', 'totalTerr');
-        totalTerrPop.innerText = `${dataObject.states[i].population}`;
+        totalTerrPop.innerText = state.population;
       }
     }
-    // ;
-    ul.appendChild(totalTerrName);
-    ul.appendChild(totalTerrPop);
-    ul.appendChild(fiftyPlusDCName);
-    ul.appendChild(fiftyPlusDCPop);
-    ul.appendChild(totalUSName);
-    ul.appendChild(totalUSPop);
+
+    if (totalTerrName) {
+      ul.appendChild(totalTerrName);
+      ul.appendChild(totalTerrPop);
+    }
+    if (fiftyPlusDCName) {
+      ul.appendChild(fiftyPlusDCName);
+      ul.appendChild(fiftyPlusDCPop);
+    }
+    if (totalUSName) {
+      ul.appendChild(totalUSName);
+      ul.appendChild(totalUSPop);
+    }
   }
 }
+
 
 export default StateList;
