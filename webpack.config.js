@@ -35,7 +35,7 @@ module.exports = (env, argv) => {
   if (argv.mode === 'production') {
     config.devtool = 'source-map';
   } else {
-    config.devServer = { static: path.join(__dirname, '.') };
+    config.devServer = { static: path.join(__dirname, 'dist') };
     // config.optimization = { runtimeChunk: 'single' };
     config.devtool = 'eval-source-map';
   }
