@@ -11,11 +11,6 @@ class Map {
 
     if (data) {
       this.styleMap(data);
-      const footer = document.getElementById('footer');
-      while (footer.firstChild) {
-        footer.removeChild(footer.lastChild);
-      }
-      new Footer(footer);
     } else {
       d3.selectAll('.state')._groups[0].forEach((ele) => {
         ele.classList.add('unloaded');
