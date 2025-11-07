@@ -1,6 +1,6 @@
-import AddPopClass from './AddPopClass';
+import AddPopClass from './AddPopClass.js';
 
-class Printer {
+class StateList {
   constructor(dataObject = {}, sortStyle = null) {
     this.dataObject = dataObject;
     this.sortStyle = sortStyle;
@@ -122,4 +122,4 @@ class Printer {
   }
 }
 
-export default Printer;
+export default StateList;

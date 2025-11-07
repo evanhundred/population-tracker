@@ -1,4 +1,4 @@
-import { colorString } from './util';
+import { colorString } from '../utils';
 
 class AddPopClass {
   constructor() {}
