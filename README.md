@@ -8,6 +8,51 @@ Population Tracker seeks to answer these questions, and more. By fetching data f
 
 Live deployment on [GitHub pages](https://evanhundred.github.io/population-tracker).
 
+## Installation and Running
+
+To get this application up and running on your local machine, follow these steps:
+
+### Prerequisites
+
+Make sure you have Node.js and npm (Node Package Manager) installed. You can download them from [nodejs.org](https://nodejs.org/).
+
+### 1. Clone the Repository
+
+First, clone the project repository to your local machine using Git:
+
+```bash
+git clone https://github.com/evanhundred/population-tracker.git
+cd population-tracker
+```
+
+### 2. Install Dependencies
+
+Navigate into the project directory and install the necessary Node.js dependencies:
+
+```bash
+npm install
+```
+
+### 3. Run the Application
+
+You can run the application in development mode, which includes a live-reloading server:
+
+```bash
+npm start
+```
+
+This command will start a development server, usually accessible at `http://localhost:8080` in your web browser.
+
+### 4. Build for Production (Optional)
+
+If you want to create a production-ready build of the application, you can use:
+
+```bash
+npm run build
+```
+
+This will compile and bundle the application's assets into the `dist/` directory. You can then serve these static files using any web server.
+
 ## Description
 
 PT creates a simple graphical interface to display population data in the United States. Data is sourced via [US Census Bureau](https://www.census.gov/data/developers/data-sets/decennial-census.html).

@@ -6,7 +6,8 @@ const config = {
   entry: [path.resolve(__dirname, 'src', 'index.js'), path.resolve(__dirname, 'src', 'index.scss')],
   output: {
     path: path.join(__dirname, 'dist'), // bundled file in dist/
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -35,7 +36,7 @@ module.exports = (env, argv) => {
   if (argv.mode === 'production') {
     config.devtool = 'source-map';
   } else {
-    config.devServer = { static: path.join(__dirname, '.') };
+    config.devServer = { static: { directory: path.join(__dirname, '.') } };
     // config.optimization = { runtimeChunk: 'single' };
     config.devtool = 'eval-source-map';
   }

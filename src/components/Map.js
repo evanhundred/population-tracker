@@ -1,7 +1,8 @@
-import StateData from '/assets/states-albers-10m.json';
-import State from './State';
-import Footer from './Footer';
-import { popDegreesArray, LOW_COLOR_PCT } from './util';
+import * as d3 from 'd3';
+import * as topojson from 'topojson-client';
+import State from './State.js';
+import { popDegreesArray, LOW_COLOR_PCT } from '../utils';
+import StateData from '../../assets/states-albers-10m.json';
 
 class Map {
   constructor(data = null) {
@@ -10,11 +11,6 @@ class Map {
 
     if (data) {
       this.styleMap(data);
-      const footer = document.getElementById('footer');
-      while (footer.firstChild) {
-        footer.removeChild(footer.lastChild);
-      }
-      new Footer(footer);
     } else {
       d3.selectAll('.state')._groups[0].forEach((ele) => {
         ele.classList.add('unloaded');
@@ -24,13 +20,6 @@ class Map {
 
   styleMap(data) {
     // console.log(data);
-    const popDegrees = {};
-    popDegreesArray.forEach((degree, idx) => {
-      popDegrees[idx] = {
-        integer: degree[0],
-        className: degree[1]
-      };
-    });
 
     const getPct = (level) => {
       const lowColorPct = LOW_COLOR_PCT;
@@ -49,11 +38,14 @@ class Map {
       // console.log(data);
       // console.log(ele.__data__.properties);
       // console.log(data[state]);
-      let currentPop = data[state] ? data[state].population : '0';
-      // console.log(currentPop);
+      let currentPop = data[state] ? data[state].population : null;
       let colorString;
 
-      if (currentPop === '0') {
+      if (currentPop === null) {
+        ele.classList.add('no-data');
+        ele.style.fill = '#ccc'; // Light grey for no data
+        colorLevel = 0;
+      } else if (currentPop === '0') {
         // colorString = 'rgb(196, 164, 164)';
         // colorString = 'rgb(153, 117, 117)';
         colorLevel = 0;
@@ -61,16 +53,24 @@ class Map {
         const findDegreeIdx = () => {
           const degrees = popDegreesArray.slice();
           let idx = 0;
-          while (degrees) {
-            let currentDegree = degrees.shift()[0];
-            // console.log(currentDegree);
-            if (currentPop > currentDegree) {
-              idx += 1;
+          // Ensure currentPop is treated as a number for comparison
+          const numericCurrentPop = parseInt(currentPop);
+          // console.log(numericCurrentPop);
+
+          // If currentPop is less than or equal to the first threshold, it's in the 'zero' category
+          if (numericCurrentPop <= degrees[0][0]) {
+            return 0;
+          }
+
+          // Iterate through the rest of the degrees
+          for (let i = 0; i < degrees.length; i++) {
+            if (numericCurrentPop > degrees[i][0]) {
+              idx = i + 1; // Move to the next category
             } else {
-              return idx;
+              return idx; // Found the category
             }
           }
-          return null;
+          return idx; // If it's greater than all thresholds, it belongs to the last category
         };
 
         colorLevel = findDegreeIdx();
@@ -85,7 +85,9 @@ class Map {
       // ele.style.color = colorString;
       // ele.style.border = '2px solid black';
       // console.log(colorLevel);
-      ele.classList.add(popDegrees[colorLevel].className);
+      // console.log(popDegreesArray);
+      // console.log(colorLevel);
+      ele.classList.add(popDegreesArray[colorLevel].className);
       ele.classList.add('state');
       ele.classList.add('loaded');
     });

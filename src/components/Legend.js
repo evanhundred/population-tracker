@@ -1,4 +1,4 @@
-import { popDegreesArray, getPct } from './util';
+import { popDegreesArray, getPct } from '../utils';
 
 class Legend {
   constructor(ele) {
