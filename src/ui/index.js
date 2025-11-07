@@ -1,12 +1,10 @@
 import DataStore from '../data';
 import TitleSplash from '../components/TitleSplash';
-import MainContent from '../components/MainContent.js';
 import InstructionsModal from '../components/InstructionsModal';
 import Map from '../components/Map';
 import StateList from '../components/StateList';
 import Legend from '../components/Legend';
 import Footer from '../components/Footer';
-
 
 const VINTAGES = ['1790', '2000', '2010', '2020'];
 
@@ -17,12 +15,86 @@ class UI {
 
     this.root = document.getElementById('main-content');
 
+    // Store references to main UI elements
+    this.header = document.getElementById('header');
+    this.footer = document.getElementById('footer');
+
+    this.titleSplash = new TitleSplash(this.header);
+    this.instructionsModal = null; // Will be instantiated in init
+    this.legend = null; // Will be instantiated in init
+    this.mapInstance = null; // Will be instantiated in render
+    this.stateListInstance = null; // Will be instantiated in render
+
     this.init();
   }
 
   init() {
-    // Initial render
-    this.render(this.dataStore.getState());
+    // Create static structural elements once
+    const FirstLine = document.createElement('div');
+    FirstLine.setAttribute('id', 'firstLine');
+    this.root.appendChild(FirstLine);
+
+    const firstLineFooterDiv = document.createElement('div');
+    firstLineFooterDiv.setAttribute('id', 'firstLineFooter');
+    this.root.appendChild(firstLineFooterDiv);
+    this.firstLineFooterH2 = document.createElement('h2');
+    this.firstLineFooterH2.setAttribute('id', 'firstLineFooterH2');
+    firstLineFooterDiv.appendChild(this.firstLineFooterH2);
+
+    const h2 = document.createElement('h2');
+    h2.innerText = 'Fetch Vintage:';
+    FirstLine.appendChild(h2);
+
+    const vintageSelectorDiv = document.createElement('div');
+    vintageSelectorDiv.setAttribute('id', 'vintageSelector');
+    vintageSelectorDiv.classList.add('firstLine');
+    this.vintageUl = document.createElement('ul');
+    this.vintageUl.classList.add('vintageUl');
+    FirstLine.appendChild(vintageSelectorDiv);
+    vintageSelectorDiv.appendChild(this.vintageUl);
+
+    // Create vintage list items
+    VINTAGES.forEach(vintage => {
+      const li = document.createElement('li');
+      li.innerText = vintage;
+      li.id = 'vintage';
+      li.classList.add(`year-${vintage}`);
+      this.vintageUl.appendChild(li);
+    });
+
+    this.legend = new Legend(this.root);
+
+    this.mapDiv = document.createElement('div');
+    this.mapDiv.setAttribute('id', 'map');
+    this.root.appendChild(this.mapDiv);
+
+    const secondLine = document.createElement('div');
+    secondLine.setAttribute('id', 'second-line');
+    this.root.appendChild(secondLine);
+    this.sortSelectorUl = document.createElement('ul');
+    this.sortSelectorUl.classList.add('sortSelectorUl');
+    secondLine.appendChild(this.sortSelectorUl);
+
+    const sortByNameLi = document.createElement('li');
+    sortByNameLi.classList.add('sortByName');
+    sortByNameLi.innerText = 'Sort by Name';
+    this.sortSelectorUl.appendChild(sortByNameLi);
+
+    const sortByPopulationLi = document.createElement('li');
+    sortByPopulationLi.classList.add('sortByPopulation');
+    sortByPopulationLi.innerText = 'Sort by Population';
+    this.sortSelectorUl.appendChild(sortByPopulationLi);
+
+    this.stateListContainer = document.createElement('div');
+    this.stateListContainer.setAttribute('id', 'thirdLine');
+    this.root.appendChild(this.stateListContainer);
+
+    const instructionsModalContainer = document.createElement('div');
+    instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
+    this.root.appendChild(instructionsModalContainer);
+    this.instructionsModal = new InstructionsModal(instructionsModalContainer);
+
+    new Footer(this.footer);
 
     // Set up event listeners
     document.addEventListener('click', (e) => {
@@ -36,93 +108,48 @@ class UI {
         this.dataStore.setSortStyle(sortStyle);
       }
     });
+
+    // Initial render call
+    this.render(this.dataStore.getState());
+
+    window.scrollTo(0, 0);
   }
 
   render(state) {
     const { vintage, sortStyle, dataObject } = state;
 
-    // Clear the root element
-    this.root.innerHTML = '';
-
-    const header = document.getElementById('header');
-    new TitleSplash(header);
-
-    const main = this.root;
-    // console.log(main);
-
-    const FirstLine = document.createElement('div');
-    FirstLine.setAttribute('id', 'firstLine');
-    main.appendChild(FirstLine);
-
-    let div = document.createElement('div');
-    div.setAttribute('id', 'firstLineFooter');
-    main.appendChild(div);
-    let firstLineFooterH2 = document.createElement('h2');
-    firstLineFooterH2.setAttribute('id', 'firstLineFooterH2');
-    div.appendChild(firstLineFooterH2);
-
-    let h2 = document.createElement('h2');
-    h2.innerText = 'Fetch Vintage:';
-    FirstLine.appendChild(h2);
-    div = document.createElement('div');
-    div.setAttribute('id', 'vintageSelector');
-    div.classList.add('firstLine');
-    let ul = document.createElement('ul');
-    ul.classList.add('vintageUl');
-    FirstLine.appendChild(div);
-    div.appendChild(ul);
-
-    const createVintageList = (ul) => {
-      let li;
-      for (let i = 0; i < VINTAGES.length; i++) {
-        li = document.createElement('li');
-        li.innerText = VINTAGES[i];
-        li.id = 'vintage';
-        li.classList.add(`year-${VINTAGES[i]}`);
-        if (VINTAGES[i] === vintage) li.classList.add('selected');
-        ul.appendChild(li);
+    // Update vintage selector active state
+    Array.from(this.vintageUl.children).forEach(li => {
+      if (li.classList.contains(`year-${vintage}`)) {
+        li.classList.add('selected');
+      } else {
+        li.classList.remove('selected');
       }
-      return ul;
-    };
-    ul = createVintageList(ul);
+    });
 
-    let secondLine = document.createElement('div');
-    secondLine.setAttribute('id', 'second-line');
-    main.appendChild(secondLine);
-    ul = document.createElement('ul');
-    ul.classList.add('sortSelectorUl');
-    secondLine.appendChild(ul);
+    // Update firstLineFooterH2
+    this.firstLineFooterH2.innerText = dataObject.header ? `Data fetched for ${dataObject.header}` : 'fetching...';
 
-    let li = document.createElement('li');
-    li.classList.add('sortByName');
-    li.innerText = 'Sort by Name';
-    ul.appendChild(li);
+    // Update Map
+    if (this.mapInstance) {
+      // If map already exists, just style it with new data
+      this.mapInstance.styleMap(dataObject);
+    } else {
+      // Otherwise, create a new map instance
+      this.mapInstance = new Map(dataObject);
+    }
 
-    li = document.createElement('li');
-    li.classList.add('sortByPopulation');
-    li.innerText = 'Sort by Population';
-    ul.appendChild(li);
-
-    const instructionsModalContainer = document.createElement('div');
-    instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
-    main.appendChild(instructionsModalContainer);
-    new InstructionsModal(instructionsModalContainer);
-
-    new Legend(main);
-
-    let mapDiv = document.querySelector('#map');
-    if (mapDiv) mapDiv.remove();
-    mapDiv = document.createElement('div');
-    mapDiv.setAttribute('id', 'map');
-    main.appendChild(mapDiv);
-    new Map(dataObject);
-
-    const stateList = new StateList(dataObject, sortStyle);
-    console.log(stateList);
-    main.appendChild(stateList.ele);
-
-    const footer = document.getElementById('footer');
-    new Footer(footer);
+    // Update StateList
+    if (this.stateListInstance) {
+      // If state list already exists, update its data and re-render
+      this.stateListInstance.dataObject = dataObject;
+      this.stateListInstance.sortStyle = sortStyle;
+      this.stateListInstance.render();
+    } else {
+      // Otherwise, create a new state list instance
+      this.stateListInstance = new StateList(dataObject, sortStyle);
+      this.stateListContainer.appendChild(this.stateListInstance.ele);
+    }
   }
 }
 
