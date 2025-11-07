@@ -54,7 +54,7 @@ class UI {
     vintageSelectorDiv.appendChild(this.vintageUl);
 
     // Create vintage list items
-    VINTAGES.forEach(vintage => {
+    VINTAGES.forEach((vintage) => {
       const li = document.createElement('li');
       li.innerText = vintage;
       li.id = 'vintage';
@@ -89,6 +89,11 @@ class UI {
     this.stateListContainer.setAttribute('id', 'thirdLine');
     this.root.appendChild(this.stateListContainer);
 
+    // Create loading overlay
+    this.loadingOverlay = document.createElement('div');
+    this.loadingOverlay.classList.add('loading-overlay', 'hidden'); // Start hidden
+    this.root.appendChild(this.loadingOverlay);
+
     const instructionsModalContainer = document.createElement('div');
     instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
     this.root.appendChild(instructionsModalContainer);
@@ -101,9 +106,11 @@ class UI {
       const eventTarget = e.target;
 
       if (eventTarget.id === 'vintage') {
+        this.loadingOverlay.classList.remove('hidden'); // Show overlay
         const vintage = eventTarget.className.slice(5, 9);
         this.dataStore.getData(vintage);
       } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
+        this.loadingOverlay.classList.remove('hidden'); // Show overlay
         const sortStyle = eventTarget.classList.contains('sortByName') ? 'byName' : 'byPopulation';
         this.dataStore.setSortStyle(sortStyle);
       }
@@ -119,7 +126,7 @@ class UI {
     const { vintage, sortStyle, dataObject } = state;
 
     // Update vintage selector active state
-    Array.from(this.vintageUl.children).forEach(li => {
+    Array.from(this.vintageUl.children).forEach((li) => {
       if (li.classList.contains(`year-${vintage}`)) {
         li.classList.add('selected');
       } else {
@@ -150,6 +157,8 @@ class UI {
       this.stateListInstance = new StateList(dataObject, sortStyle);
       this.stateListContainer.appendChild(this.stateListInstance.ele);
     }
+
+    this.loadingOverlay.classList.add('hidden'); // Hide overlay
   }
 }
 

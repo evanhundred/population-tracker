@@ -55,7 +55,7 @@ class Map {
           let idx = 0;
           // Ensure currentPop is treated as a number for comparison
           const numericCurrentPop = parseInt(currentPop);
-          console.log(numericCurrentPop);
+          // console.log(numericCurrentPop);
 
           // If currentPop is less than or equal to the first threshold, it's in the 'zero' category
           if (numericCurrentPop <= degrees[0][0]) {
@@ -85,8 +85,8 @@ class Map {
       // ele.style.color = colorString;
       // ele.style.border = '2px solid black';
       // console.log(colorLevel);
-      console.log(popDegreesArray);
-      console.log(colorLevel);
+      // console.log(popDegreesArray);
+      // console.log(colorLevel);
       ele.classList.add(popDegreesArray[colorLevel].className);
       ele.classList.add('state');
       ele.classList.add('loaded');
