@@ -86,7 +86,6 @@ class Fetcher {
       if (request.readyState === 4 && request.status === 200) {
         return loadAndPrint(request.responseText);
       }
-      // return this.dataObject;
       return { errors: 'readystatechange' };
     });
 

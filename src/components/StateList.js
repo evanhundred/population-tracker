@@ -1,5 +1,5 @@
 import AddPopClass from './AddPopClass.js';
-
+import { popDegreesArray, LOW_COLOR_PCT } from '../utils';
 
 class StateList {
   constructor(dataObject = {}, sortStyle = null) {
@@ -48,6 +48,11 @@ class StateList {
     keyPop.innerText = 'Population';
     ul.appendChild(keyPop);
 
+    const getPct = (population) => {
+      return population / 40000000;
+      console.log(population);
+    };
+
     for (let i = 0; i < this.dataObject.states.length; i++) {
       const state = this.dataObject.states[i];
       if (state.stateName !== '50 states + DC' && state.stateName !== 'Total territories' && state.stateName !== 'Total U.S. population') {
@@ -59,6 +64,7 @@ class StateList {
         const statePop = document.createElement('li');
         statePop.classList.add('item', 'itemPop');
         statePop.innerText = state.population;
+        statePop.style.background = `rgba(0, 84, 163, ${getPct(state.population)})`;
         ul.appendChild(statePop);
       } else if (state.stateName === '50 states + DC') {
         fiftyPlusDCName = document.createElement('li');
@@ -98,6 +104,5 @@ class StateList {
     }
   }
 }
-
 
 export default StateList;
