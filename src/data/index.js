@@ -1,4 +1,3 @@
-
 const VINTAGES = ['1790', '2000', '2010', '2020'];
 
 const resetDataObject = (vintage = null) => {
@@ -117,7 +116,7 @@ class DataStore {
     this.state = {
       vintage: '2020',
       sortStyle: 'byName',
-      dataObject: resetDataObject(),
+      dataObject: resetDataObject()
     };
     this.subscribers = [];
   }
@@ -127,7 +126,7 @@ class DataStore {
   }
 
   notifySubscribers() {
-    this.subscribers.forEach(callback => {
+    this.subscribers.forEach((callback) => {
       callback(this.state);
     });
   }
@@ -186,6 +185,7 @@ class DataStore {
         break;
     }
 
+    // XMLHttpRequest version
     const request = new XMLHttpRequest();
     request.addEventListener('readystatechange', () => {
       if (request.readyState === 4 && request.status === 200) {
@@ -194,6 +194,17 @@ class DataStore {
     });
     request.open('GET', url);
     request.send();
+
+    //fetch version
+    // fetch(url)
+    //   .then((response) => {
+    //     if (!response.ok) {
+    //       throw new Error(`HTTP error! status: ${response.status}`);
+    //     }
+    //     return response.json();
+    //   })
+    //   .then((data) => console.log(data))
+    //   .catch((error) => console.error('Fetch error:', error));
   }
 
   loadLocalData(vintage, dataObject) {
