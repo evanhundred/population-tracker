@@ -9,7 +9,7 @@
 # var index = 1
 # while index <= 28
 echo "["
-for index in {5..32}
+for index in {5..28}
 do
     echo "    ["
 
@@ -37,7 +37,7 @@ do
 
     echo ""
 
-    if [ $index -lt 32 ]; then
+    if [ $index -lt 28 ]; then
         echo "    ],"
     else
         echo "    ]"
