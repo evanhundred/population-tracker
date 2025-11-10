@@ -8,15 +8,16 @@
 
 # var index = 1
 # while index <= 28
+echo "["
 for index in {5..32}
 do
-    echo "["
+    echo "    ["
 
     first_line=true
     while IFS="," read -r stateName stateNumber population
     do
         if [ "$stateName" = "STATE" ]; then
-            echo "    [\"NAME\", \"$population\", \"state\"],"
+            echo "        [\"NAME\", \"$population\", \"state\"],"
             continue
         fi
         if [ -z "$stateNumber" ]; then
@@ -31,14 +32,15 @@ do
         else
             echo ","
         fi
-        echo -n "    [$stateName, \"$population\", $stateNumber]"
+        echo -n "        [$stateName, \"$population\", $stateNumber]"
     done < <(cut -d "," -f2,3,$index census-time-table.csv)
 
     echo ""
 
     if [ $index -lt 32 ]; then
-        echo "],"
+        echo "    ],"
     else
-        echo "]"
+        echo "    ]"
     fi
 done
+echo "]"
