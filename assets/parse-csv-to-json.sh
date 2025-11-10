@@ -1,13 +1,5 @@
 #! /bin/bash
-# echo "["
-# while IFS="," read -r stateName stateNumber pop1790
-# do
-#     echo "[\"$stateName\", \"$pop1790\", \"$stateNumber\"]"
-# done < <(cut -d "," -f2,3,5 census-time-table.csv)
-# echo "]"
 
-# var index = 1
-# while index <= 28
 echo "["
 for index in {5..28}
 do
