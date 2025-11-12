@@ -1,11 +1,11 @@
 #! /bin/bash
 
 echo "{"
+
 for index in {5..28}
 do
     echo -n "  "
 
-    first_line=true
     while IFS="," read -r stateName stateNumber population
     do
         if [ "$stateName" = "STATE" ]; then
@@ -20,11 +20,6 @@ do
             population=""
         fi
 
-        # if [ "$first_line" = true ]; then
-        #     first_line=false
-        # else
-        #     echo ","
-        # fi
         echo ","
         echo -n "    [$stateName, \"$population\", $stateNumber]"
     done < <(cut -d "," -f2,3,$index census-time-table.csv)
