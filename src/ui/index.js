@@ -109,7 +109,6 @@ class UI {
       const eventTarget = e.target;
 
       if (eventTarget.id === 'vintage') {
-        // console.log(eventTarget.id);
         // this.loadingOverlay.classList.remove('hidden'); // Show overlay
         const vintage = eventTarget.className.slice(5, 9);
         this.dataStore.getData(vintage);

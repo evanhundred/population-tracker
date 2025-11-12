@@ -1,5 +1,3 @@
-// import { readFile } from 'fs';
-
 export const LOW_COLOR_PCT = 0.4;
 // export const YEAR_DASH_VINTAGE = /^year-\d\d\d\d$/i;
 
@@ -26,12 +24,3 @@ export const colorString = (level) => {
   const res = `${COLOR_STRING_BASE}${getPct(level)})`;
   return res;
 };
-
-// export const parseFile = (fileName) => {
-//   const fs = require('node:fs');
-//   fs.readFile(fileName, (err, data) => {
-//     if (err) throw err;
-//     const content = data;
-//     console.log(content);
-//   });
-// };
