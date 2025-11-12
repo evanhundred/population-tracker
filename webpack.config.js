@@ -1,5 +1,6 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const config = {
   // mode: 'development',
@@ -29,15 +30,20 @@ const config = {
       }
     ]
   },
-  plugins: [new MiniCssExtractPlugin()]
+  plugins: [new MiniCssExtractPlugin(), new HtmlWebpackPlugin({ template: './index.html' })]
 };
 
 module.exports = (env, argv) => {
-  if (argv.mode === 'production') {
+  const isProduction = argv.mode === 'production';
+
+  config.module.rules[1].use[0] = isProduction
+    ? MiniCssExtractPlugin.loader
+    : 'style-loader';
+
+  if (isProduction) {
     config.devtool = 'source-map';
   } else {
-    config.devServer = { static: { directory: path.join(__dirname, '.') } };
-    // config.optimization = { runtimeChunk: 'single' };
+    config.devServer = { hot: true };
     config.devtool = 'eval-source-map';
   }
 

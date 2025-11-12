@@ -28,8 +28,25 @@ class UI {
     this.init();
   }
 
+  // openInstructionsModal() {
+  //   const instructionsModalContainer = document.createElement('div');
+  //   instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
+  //   this.root.appendChild(instructionsModalContainer);
+  //   this.instructionsModal = new InstructionsModal(instructionsModalContainer);
+  // }
+
   init() {
     // Create static structural elements once
+    // const instructions = document.createElement('header');
+    // instructions.setAttribute('id', 'instructions');
+    // const instructionsModalLink = documen.createLement('h3');
+    // instructionsModalLink = document.createElement('h3');
+    // instructionsModalLink.className = 'instructions-link';
+    // instructionsModalLink.innerText = 'View instructions';
+    // instructionsModalLink.addEventListener('click', this.openInstructionsModal);
+    // instructions.appendChild(instructionsModalLink);
+    // this.root.appendChild(instructions);
+
     const FirstLine = document.createElement('div');
     FirstLine.setAttribute('id', 'firstLine');
     this.root.appendChild(FirstLine);
@@ -42,7 +59,7 @@ class UI {
     firstLineFooterDiv.appendChild(this.firstLineFooterH2);
 
     const h2 = document.createElement('h2');
-    h2.innerText = 'Fetch Vintage:';
+    h2.innerText = 'Fetch Pintage:';
     FirstLine.appendChild(h2);
 
     const vintageSelectorDiv = document.createElement('div');
@@ -94,6 +111,7 @@ class UI {
     this.loadingOverlay.classList.add('loading-overlay', 'hidden'); // Start hidden
     this.root.appendChild(this.loadingOverlay);
 
+    // this.openInstructionsModal();
     const instructionsModalContainer = document.createElement('div');
     instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
     this.root.appendChild(instructionsModalContainer);

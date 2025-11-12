@@ -5,7 +5,7 @@ class TitleSplash {
     let newTitleDiv = document.createElement('div');
     newTitleDiv.setAttribute('id', 'title');
     let h1 = document.createElement('h1');
-    h1.innerText = "Population Track<span class='egg'>e</span>r";
+    h1.innerHTML = "Population Track<span class='egg'>e</span>r";
     newTitleDiv.appendChild(h1);
     this.ele.replaceChild(newTitleDiv, oldTitleDiv);
     this.textStyle = 'normal';
@@ -13,7 +13,7 @@ class TitleSplash {
     this.ele.addEventListener('click', this.handleClick.bind(this));
 
     let contentEl = document.createElement('div');
-    contentEl.innerText =
+    contentEl.innerHTML =
       '<a href="https://evanryan.dev" target="_blank" rel="noopener noreferrer"><p>ER 2024</p></a><a href="https://github.com/evanhundred/population-tracker" target="_blank" rel="noopener noreferrer"><img src="./assets/logos/github.png" alt="gh"/></a> <a href="https://www.linkedin.com/in/evan-ryan-dev/" target="_blank" rel="noopener noreferrer"><img src="./assets/logos/linkedin.png" alt="li"/></a>';
     document.getElementById('personal').appendChild(contentEl);
   }
@@ -24,10 +24,10 @@ class TitleSplash {
     if (eventTarget.classList.contains('egg')) {
       if (this.textStyle === 'normal') {
         this.textStyle = 'spooky';
-        titleH1.innerText = "..pOpUl<span class='egg'>A</span>tIoN tRaCkEr...";
+        titleH1.innerHTML = "..pOpUl<span class='egg'>A</span>tIoN tRaCkEr...";
       } else {
         this.textStyle = 'normal';
-        titleH1.innerText = "Population Track<span class='egg'>e</span>r";
+        titleH1.innerHTML = "Population Track<span class='egg'>e</span>r";
       }
     }
   }
