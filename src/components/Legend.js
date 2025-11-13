@@ -12,6 +12,9 @@ class Legend {
     let legendTitle = document.createElement('p');
     legendTitle.setAttribute('id', 'legend-title');
     legendTitle.innerText = 'legend:';
+    // experiment
+    // legendTitle.onclick = () => console.log('legend clicked');
+    //
     legendDiv.appendChild(legendTitle);
     let legendBox = document.createElement('p');
     legendBox.setAttribute('id', 'legend-box');

@@ -71,6 +71,11 @@ class UI {
     this.vintageSelect = document.createElement('select');
     this.vintageSelect.setAttribute('name', 'vintages');
     this.vintageSelect.id = 'vintage-select';
+    // this.vintageSelect.onchange = this.dataStore.getData(this.value);
+    this.vintageSelect.addEventListener('change', (event) => {
+      const selectedVintage = event.target.value;
+      if (selectedVintage) this.dataStore.getData(selectedVintage);
+    });
     vintageSelectorDiv.append(this.vintageSelect);
     // options
     const censusDataFull = require('../../assets/census-data-object.json');
@@ -80,8 +85,12 @@ class UI {
     this.vintageSelect.append(initialOption);
     Object.keys(censusDataFull).forEach((vintage) => {
       const vintageOption = document.createElement('option');
+      if (vintage === '2020') vintageOption.selected = 'selected';
       vintageOption.value = vintage;
       vintageOption.innerText = vintage;
+      vintageOption.className = 'vintage-option';
+      // vintageOption.onclick = () => console.log('click');
+      // vintageOption.onclick = () => this.dataStore.getData(vintage);
       this.vintageSelect.append(vintageOption);
     });
     FirstLine.append(vintageSelectorDiv);
@@ -149,11 +158,12 @@ class UI {
     document.addEventListener('click', (e) => {
       const eventTarget = e.target;
 
-      if (eventTarget.id === 'vintage') {
-        // this.loadingOverlay.classList.remove('hidden'); // Show overlay
-        const vintage = eventTarget.className.slice(5, 9);
-        this.dataStore.getData(vintage);
-      } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
+      // if (eventTarget.id === 'vintage') {
+      //   // this.loadingOverlay.classList.remove('hidden'); // Show overlay
+      //   const vintage = eventTarget.className.slice(5, 9);
+      //   this.dataStore.getData(vintage);
+      if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
+        // } else if (eventTarget.classList.contains('sortByName') || eventTarget.classList.contains('sortByPopulation')) {
         // this.loadingOverlay.classList.remove('hidden'); // Show overlay
         const sortStyle = eventTarget.classList.contains('sortByName') ? 'byName' : 'byPopulation';
         this.dataStore.setSortStyle(sortStyle);
@@ -169,6 +179,7 @@ class UI {
 
   render(state) {
     const { vintage, sortStyle, dataObject } = state;
+    console.log(dataObject);
 
     // Update vintage selector active state
     // Array.from(this.vintageUl.children).forEach((li) => {
@@ -208,6 +219,7 @@ class UI {
     } else {
       // Otherwise, create a new state list instance
       this.stateListInstance = new StateList(dataObject, sortStyle);
+      console.log(this.stateListInstance);
       this.stateListContainer.appendChild(this.stateListInstance.ele);
     }
 

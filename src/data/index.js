@@ -147,6 +147,7 @@ class DataStore {
   }
 
   getData(vintage) {
+    console.log(vintage);
     this.setState({ vintage });
     const dataObject = resetDataObject(vintage);
 
