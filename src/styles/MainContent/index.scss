@@ -8,7 +8,7 @@ $map: rgb(81, 199, 212);
 #main-content {
   & header#instructions {
     font-weight: 600;
-    h3.instructions-link {
+    & h3.instructions-link {
       font-size: 18px;
       cursor: pointer;
       color: $data-color;
