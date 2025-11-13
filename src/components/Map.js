@@ -35,19 +35,14 @@ class Map {
     d3.selectAll('.state')._groups[0].forEach((ele) => {
       ele.classList.remove(...ele.classList);
       let state = ele.__data__.properties.name;
-      // console.log(data);
-      // console.log(ele.__data__.properties);
-      // console.log(data[state]);
       let currentPop = data[state] ? data[state].population : null;
       let colorString;
 
-      if (currentPop === null) {
+      if (currentPop === null || currentPop === '') {
         ele.classList.add('no-data');
         ele.style.fill = '#ccc'; // Light grey for no data
         colorLevel = 0;
       } else if (currentPop === '0') {
-        // colorString = 'rgb(196, 164, 164)';
-        // colorString = 'rgb(153, 117, 117)';
         colorLevel = 0;
       } else {
         const findDegreeIdx = () => {

@@ -186,28 +186,36 @@ class DataStore {
     }
 
     // XMLHttpRequest version
-    const request = new XMLHttpRequest();
-    request.addEventListener('readystatechange', () => {
-      if (request.readyState === 4 && request.status === 200) {
-        loadAndPrint(request.responseText);
-      }
-    });
-    request.open('GET', url);
-    request.send();
+    // const request = new XMLHttpRequest();
+    // request.addEventListener('readystatechange', () => {
+    //   if (request.readyState === 4 && request.status === 200) {
+    //     loadAndPrint(request.responseText);
+    //     console.log(request.responseText);
+    //   }
+    // });
+    // request.open('GET', url);
+    // request.send();
 
     //fetch version
-    // fetch(url)
-    //   .then((response) => {
-    //     if (!response.ok) {
-    //       throw new Error(`HTTP error! status: ${response.status}`);
-    //     }
-    //     return response.json();
-    //   })
-    //   .then((data) => console.log(data))
-    //   .catch((error) => console.error('Fetch error:', error));
+    const getDataFromCensusAPI = async (url) => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) {
+          throw new Error(`Response status: ${response.status}`);
+        }
+        let result = await response.text();
+        loadAndPrint(result);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+
+    getDataFromCensusAPI(url);
   }
 
   loadLocalData(vintage, dataObject) {
+    const censusFullData = require('../../assets/census-data-object.json');
+
     let dataBlock;
     switch (vintage) {
       case '2020':
@@ -220,7 +228,8 @@ class DataStore {
         dataBlock = require('../../assets/territories-2000.json');
         break;
       case '1790':
-        dataBlock = require('../../assets/historical-data/1790.json');
+        dataBlock = censusFullData['1790'];
+        // dataBlock = require('../../assets/historical-data/1790.json');
         break;
     }
     dataObject.localData = dataBlock;
