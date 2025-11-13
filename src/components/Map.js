@@ -50,7 +50,6 @@ class Map {
           let idx = 0;
           // Ensure currentPop is treated as a number for comparison
           const numericCurrentPop = parseInt(currentPop);
-          // console.log(numericCurrentPop);
 
           // If currentPop is less than or equal to the first threshold, it's in the 'zero' category
           if (numericCurrentPop <= degrees[0][0]) {

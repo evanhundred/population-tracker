@@ -31,15 +31,11 @@ class UI {
   openInstructionsModal() {
     const instructionsModalContainer = document.createElement('div');
     instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
-    // console.log(this.instructionsModalContainer);
-    // console.log('this.root openInstructionsModal()', this.root);
     this.root.appendChild(instructionsModalContainer);
     this.instructionsModal = new InstructionsModal(instructionsModalContainer);
   }
 
   init() {
-    // console.log('this.root init()', this.root);
-
     // Create static structural elements once
     const instructions = document.createElement('header');
     instructions.setAttribute('id', 'instructions');
@@ -61,26 +57,54 @@ class UI {
     this.firstLineFooterH2.setAttribute('id', 'firstLineFooterH2');
     firstLineFooterDiv.appendChild(this.firstLineFooterH2);
 
-    const h2 = document.createElement('h2');
-    h2.innerText = 'Fetch Vintage:';
-    FirstLine.appendChild(h2);
+    const label = document.createElement('label');
+    label.setAttribute('for', 'vintage-select');
+    label.innerText = 'Fetch Vintage:';
+    FirstLine.appendChild(label);
+    // const h2 = document.createElement('h2');
+    // h2.innerText = 'Fetch Vintage:';
+    // FirstLine.appendChild(h2);
 
     const vintageSelectorDiv = document.createElement('div');
     vintageSelectorDiv.setAttribute('id', 'vintageSelector');
     vintageSelectorDiv.classList.add('firstLine');
-    this.vintageUl = document.createElement('ul');
-    this.vintageUl.classList.add('vintageUl');
-    FirstLine.appendChild(vintageSelectorDiv);
-    vintageSelectorDiv.appendChild(this.vintageUl);
+    this.vintageSelect = document.createElement('select');
+    this.vintageSelect.setAttribute('name', 'vintages');
+    this.vintageSelect.id = 'vintage-select';
+    vintageSelectorDiv.append(this.vintageSelect);
+    // options
+    const censusDataFull = require('../../assets/census-data-object.json');
+    const initialOption = document.createElement('option');
+    initialOption.value = '';
+    initialOption.innerText = 'Choose vintage';
+    this.vintageSelect.append(initialOption);
+    Object.keys(censusDataFull).forEach((vintage) => {
+      const vintageOption = document.createElement('option');
+      vintageOption.value = vintage;
+      vintageOption.innerText = vintage;
+      this.vintageSelect.append(vintageOption);
+    });
+    FirstLine.append(vintageSelectorDiv);
+    // vintageSelectorDiv.append(this.vintageSelect);
+
+    // const vintageSelectorDiv = document.createElement('div');
+    // vintageSelectorDiv.setAttribute('id', 'vintageSelector');
+    // vintageSelectorDiv.classList.add('firstLine');
+    // this.vintageUl = document.createElement('ul');
+    // this.vintageUl.classList.add('vintageUl');
+    // FirstLine.appendChild(vintageSelectorDiv);
+    // vintageSelectorDiv.appendChild(this.vintageUl);
+
+    // New vintage selector form elements
 
     // Create vintage list items
-    VINTAGES.forEach((vintage) => {
-      const li = document.createElement('li');
-      li.innerText = vintage;
-      li.id = 'vintage';
-      li.classList.add(`year-${vintage}`);
-      this.vintageUl.appendChild(li);
-    });
+    // VINTAGES.forEach((vintage) => {
+    //   const li = document.createElement('li');
+    //   li.innerText = vintage;
+    //   li.id = 'vintage';
+    //   li.classList.add(`year-${vintage}`);
+    //   this.vintageUl.appendChild(li);
+    // });
 
     this.legend = new Legend(this.root);
 
@@ -116,11 +140,6 @@ class UI {
 
     this.openInstructionsModal();
 
-    // const instructionsModalContainer = document.createElement('div');
-    // instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
-    // this.root.appendChild(instructionsModalContainer);
-    // this.instructionsModal = new InstructionsModal(instructionsModalContainer);
-
     new Footer(this.footer);
 
     // load initial data
@@ -152,13 +171,13 @@ class UI {
     const { vintage, sortStyle, dataObject } = state;
 
     // Update vintage selector active state
-    Array.from(this.vintageUl.children).forEach((li) => {
-      if (li.classList.contains(`year-${vintage}`)) {
-        li.classList.add('selected');
-      } else {
-        li.classList.remove('selected');
-      }
-    });
+    // Array.from(this.vintageUl.children).forEach((li) => {
+    //   if (li.classList.contains(`year-${vintage}`)) {
+    //     li.classList.add('selected');
+    //   } else {
+    //     li.classList.remove('selected');
+    //   }
+    // });
 
     // Update firstLineFooterH2
     this.firstLineFooterH2.innerText = dataObject.header ? `Data fetched for ${dataObject.header}` : 'fetching...';
