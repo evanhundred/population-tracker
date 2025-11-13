@@ -31,14 +31,14 @@ class UI {
   openInstructionsModal() {
     const instructionsModalContainer = document.createElement('div');
     instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
-    console.log(this.instructionsModalContainer);
-    console.log('this.root openInstructionsModal()', this.root);
+    // console.log(this.instructionsModalContainer);
+    // console.log('this.root openInstructionsModal()', this.root);
     this.root.appendChild(instructionsModalContainer);
     this.instructionsModal = new InstructionsModal(instructionsModalContainer);
   }
 
   init() {
-    console.log('this.root init()', this.root);
+    // console.log('this.root init()', this.root);
 
     // Create static structural elements once
     const instructions = document.createElement('header');
@@ -46,7 +46,7 @@ class UI {
     const instructionsModalLink = document.createElement('h3');
     instructionsModalLink.className = 'instructions-link';
     instructionsModalLink.innerText = 'View instructions';
-    instructionsModalLink.addEventListener('click', this.openInstructionsModal);
+    instructionsModalLink.addEventListener('click', () => this.openInstructionsModal());
     instructions.appendChild(instructionsModalLink);
     this.root.appendChild(instructions);
 
