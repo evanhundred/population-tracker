@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const config = {
   // mode: 'development',
@@ -8,7 +9,7 @@ const config = {
   output: {
     path: path.join(__dirname, 'dist'), // bundled file in dist/
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: ''
   },
   module: {
     rules: [
@@ -30,7 +31,16 @@ const config = {
       }
     ]
   },
-  plugins: [new MiniCssExtractPlugin(), new HtmlWebpackPlugin({ template: './index.html' })]
+  plugins: [
+    new MiniCssExtractPlugin(),
+    new HtmlWebpackPlugin({ template: './index.html' }),
+    new CopyPlugin({
+      patterns: [
+        { from: 'assets/logos', to: 'assets/logos' },
+        { from: 'assets/favicon', to: 'assets/favicon' }
+      ]
+    })
+  ]
 };
 
 module.exports = (env, argv) => {
@@ -43,7 +53,7 @@ module.exports = (env, argv) => {
   if (isProduction) {
     config.devtool = 'source-map';
   } else {
-    config.devServer = { hot: true };
+    config.devServer = { hot: true, static: './' };
     config.devtool = 'eval-source-map';
   }
 

@@ -28,24 +28,27 @@ class UI {
     this.init();
   }
 
-  // openInstructionsModal() {
-  //   const instructionsModalContainer = document.createElement('div');
-  //   instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
-  //   this.root.appendChild(instructionsModalContainer);
-  //   this.instructionsModal = new InstructionsModal(instructionsModalContainer);
-  // }
+  openInstructionsModal() {
+    const instructionsModalContainer = document.createElement('div');
+    instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
+    console.log(this.instructionsModalContainer);
+    console.log('this.root openInstructionsModal()', this.root);
+    this.root.appendChild(instructionsModalContainer);
+    this.instructionsModal = new InstructionsModal(instructionsModalContainer);
+  }
 
   init() {
+    console.log('this.root init()', this.root);
+
     // Create static structural elements once
-    // const instructions = document.createElement('header');
-    // instructions.setAttribute('id', 'instructions');
-    // const instructionsModalLink = documen.createLement('h3');
-    // instructionsModalLink = document.createElement('h3');
-    // instructionsModalLink.className = 'instructions-link';
-    // instructionsModalLink.innerText = 'View instructions';
-    // instructionsModalLink.addEventListener('click', this.openInstructionsModal);
-    // instructions.appendChild(instructionsModalLink);
-    // this.root.appendChild(instructions);
+    const instructions = document.createElement('header');
+    instructions.setAttribute('id', 'instructions');
+    const instructionsModalLink = document.createElement('h3');
+    instructionsModalLink.className = 'instructions-link';
+    instructionsModalLink.innerText = 'View instructions';
+    instructionsModalLink.addEventListener('click', this.openInstructionsModal);
+    instructions.appendChild(instructionsModalLink);
+    this.root.appendChild(instructions);
 
     const FirstLine = document.createElement('div');
     FirstLine.setAttribute('id', 'firstLine');
@@ -59,7 +62,7 @@ class UI {
     firstLineFooterDiv.appendChild(this.firstLineFooterH2);
 
     const h2 = document.createElement('h2');
-    h2.innerText = 'Fetch Pintage:';
+    h2.innerText = 'Fetch Vintage:';
     FirstLine.appendChild(h2);
 
     const vintageSelectorDiv = document.createElement('div');
@@ -111,11 +114,12 @@ class UI {
     this.loadingOverlay.classList.add('loading-overlay', 'hidden'); // Start hidden
     this.root.appendChild(this.loadingOverlay);
 
-    // this.openInstructionsModal();
-    const instructionsModalContainer = document.createElement('div');
-    instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
-    this.root.appendChild(instructionsModalContainer);
-    this.instructionsModal = new InstructionsModal(instructionsModalContainer);
+    this.openInstructionsModal();
+
+    // const instructionsModalContainer = document.createElement('div');
+    // instructionsModalContainer.setAttribute('id', 'instructions-modal-container');
+    // this.root.appendChild(instructionsModalContainer);
+    // this.instructionsModal = new InstructionsModal(instructionsModalContainer);
 
     new Footer(this.footer);
 
