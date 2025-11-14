@@ -179,7 +179,7 @@ class UI {
 
   render(state) {
     const { vintage, sortStyle, dataObject } = state;
-    console.log(dataObject);
+    // console.log(dataObject);
 
     // Update vintage selector active state
     // Array.from(this.vintageUl.children).forEach((li) => {
@@ -219,7 +219,7 @@ class UI {
     } else {
       // Otherwise, create a new state list instance
       this.stateListInstance = new StateList(dataObject, sortStyle);
-      console.log(this.stateListInstance);
+      // console.log(this.stateListInstance);
       this.stateListContainer.appendChild(this.stateListInstance.ele);
     }
 

@@ -147,7 +147,7 @@ class DataStore {
   }
 
   getData(vintage) {
-    console.log(vintage);
+    // console.log(vintage);
     this.setState({ vintage });
     const dataObject = resetDataObject(vintage);
 
@@ -165,29 +165,41 @@ class DataStore {
     };
 
     let url;
+    let vintageUrlSubstring;
     switch (vintage) {
       case '2020':
-        url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-        dataObject.dataTitle = '2020 Census dataset';
+        vintageUrlSubstring = '2020/dec/pl?get=NAME,P1_001N';
+        // url = 'https://api.census.gov/data/2020/dec/pl?get=NAME,P1_001N&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        // dataObject.dataTitle = '2020 Census dataset';
         break;
       case '2010':
-        url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-        dataObject.dataTitle = '2010 Census dataset';
+        vintageUrlSubstring = '2010/dec/pl?get=NAME,P001001';
+        // url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        // dataObject.dataTitle = '2010 Census dataset';
         break;
       case '2000':
-        url = 'https://api.census.gov/data/2000/dec/sf1?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
-        dataObject.dataTitle = '2000 Census dataset';
+        vintageUrlSubstring = '2000/dec/sf1?get=NAME,P001001';
+        // url = 'https://api.census.gov/data/2000/dec/sf1?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        // dataObject.dataTitle = '2000 Census dataset';
         break;
-      case '1790':
-        dataObject.dataTitle = '1790 Census dataset';
-        loadAndPrint();
-        break;
-      case '1800':
-        dataObject.dataTitle = '1800 Census dataset';
-        loadAndPrint();
-        return;
-      default:
-        break;
+      // case '1790':
+      //   dataObject.dataTitle = '1790 Census dataset';
+      //   loadAndPrint();
+      //   break;
+      // case '1800':
+      //   dataObject.dataTitle = '1800 Census dataset';
+      //   loadAndPrint();
+      //   return;
+      // default:
+      //   break;
+    }
+
+    dataObject.dataTitle = `${vintage} Census dataset`;
+
+    if (parseInt(vintage) >= 2000) {
+      url = `https://api.census.gov/data/${vintageUrlSubstring}&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2`;
+    } else {
+      loadAndPrint();
     }
 
     // XMLHttpRequest version
@@ -203,6 +215,7 @@ class DataStore {
 
     //fetch version
     const getDataFromCensusAPI = async (url) => {
+      // console.log(url);
       try {
         const response = await fetch(url);
         if (!response.ok) {

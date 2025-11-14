@@ -86,6 +86,18 @@ main,
   padding-top: 2px;
   color: $border-color;
   font-size: 18px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  // max-width: 10px;
+  & select {
+    // max-width: max-content;
+    display: flex;
+    justify-content: center;
+    // & option {
+    //   max-width: min-content;
+    // }
+  }
 }
 
 ul.vintageUl {

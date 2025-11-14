@@ -50,7 +50,7 @@ class StateList {
 
     const getPct = (population) => {
       return population / 40000000;
-      console.log(population);
+      // console.log(population);
     };
 
     for (let i = 0; i < this.dataObject.states.length; i++) {

@@ -33,10 +33,16 @@ $map: rgb(81, 199, 212);
     }
 
     & #vintageSelector {
-      & li.selected {
-        box-shadow: 2px 2px rgb(219, 219, 219);
-        border-radius: 6px;
-      }
+      // & li.selected {
+      //   box-shadow: 2px 2px rgb(219, 219, 219);
+      //   border-radius: 6px;
+      // }
+      width: 10px;
+      // select {
+      // width: min-content;
+      // option {
+      // }
+      // }
     }
   }
 
