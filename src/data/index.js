@@ -175,11 +175,15 @@ class DataStore {
         dataObject.dataTitle = '2010 Census dataset';
         break;
       case '2000':
-        url = 'https://api.census.gov/data/2010/dec/pl?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
+        url = 'https://api.census.gov/data/2000/dec/sf1?get=NAME,P001001&for=state:*&key=09beac347deddc9da12be4ca736c435f707ebec2';
         dataObject.dataTitle = '2000 Census dataset';
         break;
       case '1790':
         dataObject.dataTitle = '1790 Census dataset';
+        loadAndPrint();
+        break;
+      case '1800':
+        dataObject.dataTitle = '1800 Census dataset';
         loadAndPrint();
         return;
       default:
@@ -211,7 +215,7 @@ class DataStore {
       }
     };
 
-    getDataFromCensusAPI(url);
+    if (parseInt(vintage) >= 2000) getDataFromCensusAPI(url);
   }
 
   loadLocalData(vintage, dataObject) {
@@ -228,10 +232,14 @@ class DataStore {
       case '2000':
         dataBlock = require('../../assets/territories-2000.json');
         break;
-      case '1790':
-        dataBlock = censusFullData['1790'];
-        // dataBlock = require('../../assets/historical-data/1790.json');
-        break;
+      // case '1790':
+      // dataBlock = censusFullData['1790'];
+      // break;
+      default:
+        if (parseInt(vintage) < 2000) {
+          dataBlock = censusFullData[vintage];
+          break;
+        }
     }
     dataObject.localData = dataBlock;
   }
